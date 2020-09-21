@@ -1,0 +1,29 @@
+/// <reference types="../types" />
+
+import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
+import useMap from './useMap';
+
+export interface MapProps extends AMap.MapOptions {
+  className?: React.HTMLAttributes<HTMLDivElement>['className'];
+  style?: React.HTMLAttributes<HTMLDivElement>['style'];
+}
+
+export default React.forwardRef<MapProps & { map?: AMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
+  const elmRef = useRef<HTMLDivElement>(null);
+  const { setContainer, container, map } = useMap({ container: elmRef.current, ...props });
+  useEffect(() => setContainer(elmRef.current), [elmRef.current]);
+  useImperativeHandle(ref, () => ({ ...props, map, AMap, container: elmRef.current }), [map]);
+  const childs = React.Children.toArray(children);
+  return (
+    <Fragment>
+      <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style}} />
+      {AMap && map && typeof children === 'function' && children({ AMap, map, container })}
+      {AMap && map && childs.map((child) => {
+        if (!React.isValidElement(child)) return;
+        return React.cloneElement(child, {
+          ...child.props, AMap, map, container,
+        });
+      })}
+    </Fragment>
+  );
+});

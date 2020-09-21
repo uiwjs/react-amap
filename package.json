@@ -1,0 +1,81 @@
+{
+  "name": "@uiw/react-amap",
+  "version": "0.0.1",
+  "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
+  "private": true,
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "scripts": {
+    "doc": "ENTRYDIR=website kkt build",
+    "start": "ENTRYDIR=website kkt start",
+    "build": "npm run build:lib && npm run doc",
+    "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
+    "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
+    "types:build": "tsbb types --sourceRoot src --target ESNEXT",
+    "types:watch": "npm run types:esm -- --watch & npm run types:cjs -- --watch",
+    "types:esm": "npm run types:build -- --outDir ../lib/esm",
+    "types:cjs": "npm run types:build -- --outDir ../lib/cjs",
+    "css:build": "compile-less -d src -o lib/esm",
+    "css:watch": "compile-less -d src -o lib/esm --watch",
+    "ts:watch": "tsbb watch --env-name esm:dev --env-name cjs --target react",
+    "ts:build": "tsbb build --target react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-amap.git"
+  },
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "keywords": [
+    "react-amap",
+    "amap",
+    "map",
+    "react",
+    "bdmap",
+    "高德",
+    "地图",
+    "高德地图"
+  ],
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@kkt/loader-less": "5.10.3",
+    "@kkt/loader-raw": "5.10.3",
+    "@loadable/component": "5.12.0",
+    "@types/loadable__component": "5.10.0",
+    "@types/react": "16.9.49",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "5.1.5",
+    "@uiw/react-code-preview": "1.11.7",
+    "@uiw/react-github-corners": "1.2.0",
+    "@uiw/react-markdown-preview": "1.0.9",
+    "@uiw/reset.css": "1.0.4",
+    "compile-less-cli": "1.5.1",
+    "default-passive-events": "^2.0.0",
+    "kkt": "5.9.0",
+    "raw-loader": "4.0.1",
+    "react-router-dom": "5.2.0",
+    "tsbb": "1.7.6"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+ScaleControl 比例尺控件
+===
+
+比例尺插件。位于地图右下角，用户可控制其显示与隐藏。继承自 `AMap.Control`
+
+```jsx
+import { ScaleControl } from '@uiw/react-amap';
+```
+
+### 基本用法
+
+<!--DemoStart,bgWhite,noScroll--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, ScaleControl } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '关闭' : '开启'}
+      </button>
+      <Map zoom={6}>
+        <ScaleControl
+          visiable={show}
+          offset={new AMap.Pixel(30,10)}
+          position="RT"
+        />
+        {show && (
+          <ScaleControl
+            visiable={show}
+            offset={new AMap.Pixel(70,50)}
+            position="RT"
+          />
+        )}
+      </Map>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+      <Example />
+    </APILoader>
+  </div>
+), _mount_);
+```
+<!--End-->
+
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| ----- | ----- | ----- | ----- |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
+| position | 控件停靠位置 `{ top: 5; left: 5; right: 5; bottom: 5 }` 或者 'LT': 左上角, 'RT': 右上角, 'LB': 左下角, 'RB': 右下角。 | `string| object` | - |
+| offset | 相对于地图容器左上角的偏移量，正数代表向右下偏移。默认为 `AMap.Pixel(10,10)` | `[number, number]` | - |
