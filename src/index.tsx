@@ -5,3 +5,5 @@ export { default as useMap } from './Map/useMap';
 
 export { default as ScaleControl } from './ScaleControl';
 export { default as useScaleControl } from './ScaleControl/useScaleControl';
+export { default as ToolBarControl } from './ToolBarControl';
+export { default as useToolBarControl } from './ToolBarControl/useToolBarControl';

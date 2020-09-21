@@ -293,7 +293,7 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale'>, CallBack: () => void): void;
+    plugin(ControlType: Array<'AMap.Scale' | 'AMap.ToolBar'>, CallBack: () => void): void;
   }
   /**
    * 区域, {省，市，区/县}

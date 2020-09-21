@@ -43,4 +43,11 @@ declare namespace AMap {
     constructor(opts: ScaleOptions);
   }
   interface ScaleOptions extends ControlOptions {}
+  /**
+   * 地图操作工具条插件。可支持方向导航、位置定位、视野级别缩放、视野级别选择等操作。继承自 AMap.Control [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
+   */
+  class ToolBar extends Control {
+    constructor(opts: ToolBarOptions);
+  }
+  interface ToolBarOptions extends ControlOptions {}
 }

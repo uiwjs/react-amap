@@ -29,6 +29,10 @@ export const routes: Routes = [
     path: "/scale-control",
     component: loadable(() => import('./pages/scale-control'), options),
   },
+  {
+    path: "/tool-bar-control",
+    component: loadable(() => import('./pages/tool-bar-control'), options),
+  },
 ];
 
 
@@ -56,6 +60,10 @@ export const menus = [
   {
     label: 'ScaleControl 比例尺控件',
     path: '/scale-control',
+  },
+  {
+    label: 'ToolBarControl 工具条控件',
+    path: '/tool-bar-control',
   },
   {
     divider: true,
@@ -93,6 +101,6 @@ export const menus = [
   {
     label: '百度地图 React 组件',
     target: '__blank',
-    path: 'https://github.com/uiwjs/react-amap',
+    path: 'https://uiwjs.github.io/react-baidu-map/',
   },
 ]
