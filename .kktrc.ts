@@ -26,6 +26,7 @@ export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack)
     })
   );
 
+  conf.output = { ...conf.output, publicPath: './' }
   return conf;
 }
 
