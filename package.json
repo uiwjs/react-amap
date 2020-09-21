@@ -57,7 +57,7 @@
     "@uiw/react-markdown-preview": "1.0.9",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.5.1",
-    "default-passive-events": "^2.0.0",
+    "default-passive-events": "2.0.0",
     "kkt": "5.9.0",
     "raw-loader": "4.0.1",
     "react-router-dom": "5.2.0",
