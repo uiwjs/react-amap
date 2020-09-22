@@ -3,6 +3,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import GitHubCorners from '@uiw/react-github-corners';
 import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
+import Footer from './Footer';
 import styles from './App.module.less';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
               <RouteWithSubRoutes key={idx} {...route} />
             ))}
           </Switch>
+          <Footer />
         </div>
       </div>
     </HashRouter>

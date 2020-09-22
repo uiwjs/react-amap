@@ -33,7 +33,7 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
   if (onlyRead) {
     const cls = [
       language ? `language-${language}` : null
-    ].filter(item => item).join(' ').trim();
+    ].filter(Boolean).join(' ').trim();
     return (
       <pre className={cls}>
         <code className={cls}>
