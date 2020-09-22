@@ -14,11 +14,6 @@ import { Polyline } from '@uiw/react-amap';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
 
-const randomPath = () => ({
-  lng: 60 + Math.random() * 50,
-  lat: 10 + Math.random() * 40,
-});
-
 const Example = () => {
   const [show, setShow] = useState(true);
   return (
