@@ -66,3 +66,4 @@ ReactDOM.render((
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
+| path | 路径，支持 lineString 和 MultiLineString。 | `Array<LngLat> | Array<Array<LngLat>>` | - |
