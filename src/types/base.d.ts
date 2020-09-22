@@ -157,6 +157,14 @@ declare namespace AMap {
   }
   class EventListener {
     /**
+     * 设置控件可见
+     */
+    show(): void;
+    /**
+     * 设置控件隐藏
+     */
+    hide(): void;
+    /**
      * 添加事件监听函数
      * @param event 
      * @param handler 
@@ -186,5 +194,44 @@ declare namespace AMap {
      * 发生事件的目标对象，不同类型返回target不同。例如，事件对象是Marker，则target表示目标对象为Marker，事件对象是其他，则随之改变。
      */
     target: any;
+  }
+  /**
+   * 表示点标记的图标  
+   * 用于添加复杂点标记，即在普通点标记的基础上，添加Icon类，通过在Icon表示的大图上截取其中一部分作为标注的图标 [相关示例](https://lbs.amap.com/api/javascript-api/example/marker/custom-icon/)  
+   * 构造点覆盖物图标，通过 IconOptions 设置图标属性
+   * https://lbs.amap.com/api/javascript-api/reference/overlay#icon
+   */
+  class Icon {
+    constructor(opt: IconOptions);
+    /**
+     * 获取图标图片大小
+     */
+    getImageSize?(): Size;
+    /**
+     * 设置图标图片大小
+     * @param size 
+     */
+    setImageSize?(size:Size): void;
+  }
+  /**
+   * Icon 类设置
+   */
+  interface IconOptions {
+    /**
+     * 图标尺寸，默认值(36,36)
+     */
+    size?: Size;
+    /**
+     * 图标取图偏移量。当image中指定了一个大图时，可通过size和imageOffset配合，显示图标的指定范围
+     */
+    imageOffset?: Pixel;
+    /**
+     * 图标的取图地址。默认为蓝色图钉图片
+     */
+    image?: string;
+    /**
+     * 图标所用图片大小，根据所设置的大小拉伸或压缩图片，等同于CSS中的background-size属性。可用于实现高清屏的高清效果
+     */
+    imageSize?: Size;
   }
 }

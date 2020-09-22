@@ -45,6 +45,10 @@ export const routes: Routes = [
     path: "/polyline",
     component: loadable(() => import('./pages/polyline'), options),
   },
+  {
+    path: "/marker",
+    component: loadable(() => import('./pages/marker'), options),
+  },
 ];
 
 
@@ -88,6 +92,10 @@ export const menus = [
   {
     divider: true,
     label: '覆盖物',
+  },
+  {
+    label: 'Marker 点标记组件',
+    path: '/marker',
   },
   {
     label: 'Polyline 折线组件',

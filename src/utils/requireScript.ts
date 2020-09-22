@@ -29,7 +29,7 @@ export function requireCss(src: string): Promise<void> {
 /**
  * load dependency by script tag
  */
-export function requireScript(src: string): Promise<void> {
+export function requireScript(src: string, id: string = '_react_amap'): Promise<void> {
   return new Promise((resolve, reject) => {
     if (src in _importedScript) {
       resolve();
@@ -37,9 +37,9 @@ export function requireScript(src: string): Promise<void> {
     }
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.id = "_react_amap"
-    script.async = true
-    script.defer = true
+    script.id = id;
+    script.async = true;
+    script.defer = true;
     script.src = src;
     script.onerror = err => {
       headElement.removeChild(script);

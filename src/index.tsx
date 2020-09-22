@@ -4,6 +4,8 @@ export { default as Map } from './Map';
 export { default as useMap } from './Map/useMap';
 export { default as Polyline } from './Polyline';
 export { default as usePolyline } from './Polyline/usePolyline';
+export { default as Marker } from './Marker';
+export { default as useMarker } from './Marker/useMarker';
 
 export { default as ScaleControl } from './ScaleControl';
 export { default as useScaleControl } from './ScaleControl/useScaleControl';
