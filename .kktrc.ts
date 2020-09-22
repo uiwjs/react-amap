@@ -1,6 +1,7 @@
 import path from 'path';
 import { OptionConf, ModuleScopePluginOpts, LoaderOneOf } from 'kkt';
 import webpack from 'webpack';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 
 type Webpack = typeof webpack;
 
@@ -27,6 +28,37 @@ export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack)
       VERSION: JSON.stringify(pkg.version),
     })
   );
+
+  /**
+   * Fix `.chunk.js is 5.38 MB, and won't be precached. Configure maximumFileSizeToCacheInBytes to change this limit.`
+   */
+  if (conf.plugins) {
+    conf.plugins = conf.plugins.map((item) => {
+      if (item.constructor && item.constructor.name && /(GenerateSW)/.test(item.constructor.name)) {
+        return null;
+      }
+      return item;
+    }).filter(Boolean) as webpack.Plugin[];
+    // Generate a service worker script that will precache, and keep up to date,
+    // the HTML & assets that are part of the Webpack build.
+    if (opts.isEnvProduction) {
+      conf.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
+        maximumFileSizeToCacheInBytes: 1024 * 1024 * 8,
+        clientsClaim: true,
+        exclude: [/\.map$/, /asset-manifest\.json$/],
+        navigateFallback: opts.publicUrlOrPath + '/index.html',
+        navigateFallbackDenylist: [
+          // Exclude URLs starting with /_, as they're likely an API call
+          new RegExp('^/_'),
+          // Exclude any URLs whose last part seems to be a file extension
+          // as they're likely a resource and not a SPA route.
+          // URLs containing a "?" character won't be blacklisted as they're likely
+          // a route with query params (e.g. auth callbacks).
+          new RegExp('/[^/?]+\\.[^/]+$'),
+        ],
+      }))
+    }
+  }
 
   conf.optimization = {
     ...conf.optimization,
@@ -79,13 +111,68 @@ export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack)
         babel_plugin: {
           name: 'babel_plugin',
           chunks: 'all',
-          test: /[\\/]node_modules[\\/](babel-plugin-transform-remove-imports)[\\/]/,
+          // test: /[\\/]node_modules[\\/](babel-plugin-transform-remove-imports)[\\/]/,
+          test: /[\\/]node_modules[\\/](babel-?.*)[\\/]/,
           priority: -5,
         },
-        babel_runtime: {
-          name: 'vendors-runtime',
+        // babel_runtime: {
+        //   name: 'vendors-runtime',
+        //   chunks: 'all',
+        //   test: /[\\/]node_modules[\\/](@babel)[\\/]/,
+        //   priority: -5,
+        // },
+        babel_standalone: {
+          name: 'vendors-standalone',
           chunks: 'all',
-          test: /[\\/]node_modules[\\/](@babel)[\\/]/,
+          test: /[\\/]node_modules[\\/](@babel\/standalone)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_template: {
+          name: 'vendors-runtime-template',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/]@babel[\/](template|regenerator|highlight|parser|code-frame|plugin-transform-classes)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_core: {
+          name: 'vendors-runtime-core',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/core)[\\/]/,
+          priority: -5,
+        },
+        babel_remark: {
+          name: 'vendors-remark',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](remark-parse)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_generator: {
+          name: 'vendors-runtime-generator',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/generator)[\\/]/,
+          priority: -5,
+        },
+        babel_helper: {
+          name: 'vendors-helper',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/helper?.*)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_helpers: {
+          name: 'vendors-runtime-helpers',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/runtime\/helpers)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_types: {
+          name: 'vendors-runtime-types',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/types)[\\/]/,
+          priority: -5,
+        },
+        babel_runtime_traverse: {
+          name: 'vendors-runtime-traverse',
+          chunks: 'all',
+          test: /[\\/]node_modules[\\/](@babel\/traverse)[\\/]/,
           priority: -5,
         },
       }
