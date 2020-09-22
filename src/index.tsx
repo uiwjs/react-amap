@@ -7,3 +7,5 @@ export { default as ScaleControl } from './ScaleControl';
 export { default as useScaleControl } from './ScaleControl/useScaleControl';
 export { default as ToolBarControl } from './ToolBarControl';
 export { default as useToolBarControl } from './ToolBarControl/useToolBarControl';
+export { default as ControlBarControl } from './ControlBarControl';
+export { default as useControlBarControl } from './ControlBarControl/useControlBarControl';

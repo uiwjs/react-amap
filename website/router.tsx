@@ -33,6 +33,10 @@ export const routes: Routes = [
     path: "/tool-bar-control",
     component: loadable(() => import('./pages/tool-bar-control'), options),
   },
+  {
+    path: "/control-bar-control",
+    component: loadable(() => import('./pages/control-bar-control'), options),
+  },
 ];
 
 
@@ -64,6 +68,10 @@ export const menus = [
   {
     label: 'ToolBarControl 工具条控件',
     path: '/tool-bar-control',
+  },
+  {
+    label: 'ControlBarControl 地图控件',
+    path: '/control-bar-control',
   },
   {
     divider: true,

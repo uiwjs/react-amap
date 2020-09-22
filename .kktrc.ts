@@ -16,6 +16,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/APILoader/README.md'),
   path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
   path.resolve(process.cwd(), 'src/ToolBarControl/README.md'),
+  path.resolve(process.cwd(), 'src/ControlBarControl/README.md'),
 ];
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {

@@ -50,4 +50,11 @@ declare namespace AMap {
     constructor(opts: ToolBarOptions);
   }
   interface ToolBarOptions extends ControlOptions {}
+  /**
+   * 组合了旋转、倾斜、复位在内的地图控件。 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
+   */
+  class ControlBar extends Control {
+    constructor(opts: ControlBarOptions);
+  }
+  interface ControlBarOptions extends ControlOptions {}
 }
