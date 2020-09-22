@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { HawkEyeControlProps } from '.';
 import { useVisiable } from '../common/hooks';
 
-export interface UseHawkEyeControl extends HawkEyeControlProps {}
+export interface UseHawkEyeControl extends HawkEyeControlProps {};
 
 export default function(props = {} as UseHawkEyeControl) {
   const [hawkEyeControl, setHawkEyeControl] = useState<AMap.HawkEye>();
@@ -17,8 +17,8 @@ export default function(props = {} as UseHawkEyeControl) {
       });
 
       return () => {
-        if (instance) {
-          map.removeControl(instance);
+        if (instance && map && map.remove) {
+          map.remove(instance);
         }
       }
     }
