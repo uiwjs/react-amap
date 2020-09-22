@@ -58,6 +58,8 @@ ReactDOM.render((
 
 ### Props
 
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/acc82e01855d2e186d00ea61b9fce46f693d3cff/src/types/overlay.d.ts#L59-L154)
+
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |

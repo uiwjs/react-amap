@@ -122,13 +122,15 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### Props
 
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/612e92969d3e5233040e683605cd0552ba61fbe6/src/types/core.d.ts#L461-L537)
+
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | center | 初始中心经纬度 | `[number, number] | LngLat` | - |
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/612e92969d3e5233040e683605cd0552ba61fbe6/src/types/core.d.ts#L461-L537)
-
 ### 事件
+
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/612e92969d3e5233040e683605cd0552ba61fbe6/src/types/core.d.ts#L298-L403)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
