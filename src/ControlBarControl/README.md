@@ -25,14 +25,14 @@ const Example = () => {
         <Map>
           <ControlBarControl
             visiable={show}
-            offset={new AMap.Pixel(30, 10)}
+            offset={[30, 10]}
             position="RT"
           />
           {show && (
             <ControlBarControl
               visiable={show}
-              offset={new AMap.Pixel(10, 10)}
-              position="LT"
+              offset={[10, 10]}
+              position="RB"
             />
           )}
         </Map>

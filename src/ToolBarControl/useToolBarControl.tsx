@@ -12,7 +12,7 @@ export default function(props = {} as UseToolBarControl) {
       let instance: AMap.Control;
       map.plugin(['AMap.ToolBar'], () => {
         instance = new AMap.ToolBar({
-          offset: offset,
+          offset,
           position
         });
         map.addControl(instance);

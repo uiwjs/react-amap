@@ -23,15 +23,11 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '300px' }}>
         <Map>
-          <ToolBarControl
-            visiable={show}
-            offset={new AMap.Pixel(30, 10)}
-            position="RT"
-          />
+          <ToolBarControl visiable={show} offset={[10, 10]} position="RT" />
           {show && (
             <ToolBarControl
               visiable={show}
-              offset={new AMap.Pixel(10, 10)}
+              offset={[60, 10]}
               position="LT"
             />
           )}

@@ -25,14 +25,14 @@ const Example = () => {
         <Map zoom={6}>
           <ScaleControl
             visiable={show}
-            offset={new AMap.Pixel(30,10)}
+            offset={[60, 10]}
             position="RT"
           />
           {show && (
             <ScaleControl
               visiable={show}
-              offset={new AMap.Pixel(70,50)}
-              position="RT"
+              offset={[20, 10]}
+              position="RB"
             />
           )}
         </Map>

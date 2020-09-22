@@ -26,15 +26,13 @@ const Example = () => {
           if (instance && instance.map) {
             // 可以通过如下方法添加 鹰眼控件
             // const overView = new AMap.HawkEye({
-            //   opened: false
             // });
             // instance.map.addControl(overView);
           }
         }}>
           <HawkEyeControl
             visiable={show}
-            // offset={new AMap.Pixel(3,3)}
-            offset={new AMap.Pixel(13,23)}
+            offset={[50, 10]}
           />
         </Map>
       </div>
@@ -59,7 +57,7 @@ ReactDOM.render((
 | autoMove | 是否随主图视口变化移动 | boolean | - |
 | showRectangle | 是否显示视口矩形 | boolean | - |
 | showButton | 是否显示打开关闭的按钮 | boolean | - |
-| isOpen | 默认是否展开 | boolean | - |
+| isOpen | 默认是否展开 | boolean | `true` |
 | mapStyle | 缩略图要显示的地图自定义样式，如 `amap://styles/dark` | string | - |
 | layers | 缩略图要显示的图层类型，默认为普通矢量地图 | array | - |
 | width | 缩略图的宽度，同CSS，如 `200px` | string | - |
