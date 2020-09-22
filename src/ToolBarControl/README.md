@@ -21,30 +21,30 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <Map>
-        <ToolBarControl
-          visiable={show}
-          offset={new AMap.Pixel(30, 10)}
-          position="RT"
-        />
-        {show && (
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map>
           <ToolBarControl
             visiable={show}
-            offset={new AMap.Pixel(10, 10)}
-            position="LT"
+            offset={new AMap.Pixel(30, 10)}
+            position="RT"
           />
-        )}
-      </Map>
+          {show && (
+            <ToolBarControl
+              visiable={show}
+              offset={new AMap.Pixel(10, 10)}
+              position="LT"
+            />
+          )}
+        </Map>
+      </div>
     </>
   );
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-      <Example />
-    </APILoader>
-  </div>
+  <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+    <Example />
+  </APILoader>
 ), _mount_);
 ```
 <!--End-->

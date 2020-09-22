@@ -45,17 +45,17 @@ function Demo() {
     <Fragment>
       <button onClick={() => setDragEnable(!dragEnable)}>{dragEnable ? '禁用' : '启用'}拖拽</button>
       <button onClick={() => setDisplay(!display)}>{display ? '卸载' : '加载'}地图</button>
-      {display ? <Map dragEnable={dragEnable} /> : null}
+      <div style={{ width: '100%', height: '200px' }}>
+        {display ? <Map dragEnable={dragEnable} /> : null}
+      </div>
     </Fragment>
   );
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '200px' }}>
-    <APILoader akay="1c44726c39431f704d3e25cd51381e35">
-      <Demo />
-    </APILoader>
-  </div>
+  <APILoader akay="1c44726c39431f704d3e25cd51381e35">
+    <Demo />
+  </APILoader>
 ), _mount_);
 ```
 <!--End-->
