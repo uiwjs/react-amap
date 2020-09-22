@@ -128,6 +128,11 @@ export const menus = [
     path: 'https://gitee.com/jaywcjlove/react-amap',
   },
   {
+    label: '国内镜像',
+    target: '__blank',
+    path: 'https://jaywcjlove.gitee.io/react-amap/',
+  },
+  {
     divider: true,
     label: '相关连接',
   },
