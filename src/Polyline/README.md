@@ -25,6 +25,15 @@ const Example = () => {
         <Map zoom={3}>
           <Polyline
             visiable={show}
+            onHide={(obj) => {
+              console.log('obj:', obj);
+            }}
+            onShow={(obj) => {
+              console.log('obj:', obj);
+            }}
+            onClick={(obj) => {
+              console.log('obj:', obj);
+            }}
             strokeColor="black"
             strokeOpacity={1}
             path={[

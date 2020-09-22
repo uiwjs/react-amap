@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PolylineProps } from '.';
-import { useVisiable } from '../common/hooks';
+import { useVisiable, useEventProperties } from '../common/hooks';
 
 export interface UsePolyline extends PolylineProps {}
 
@@ -21,6 +21,9 @@ export default function(props = {} as UsePolyline) {
     }
   }, [map]);
   useVisiable(polyline!, visiable);
+  useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
+    'onHide', 'onShow', 'onMouseOut', 'onRightClick', 'onDblClick', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp', 'onMouseDown'
+  ]);
   return {
     polyline, setPolyline,
   };

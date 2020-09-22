@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * 构造折线对象，支持 lineString 和 MultiLineString
    */
-  class Polyline {
+  class Polyline extends EventListener {
     constructor(opts: PolylineOptions);
     /**
      * 设置控件可见
@@ -55,6 +55,42 @@ declare namespace AMap {
      * @param point 
      */
     contains(point: LngLatLike): boolean;
+  }
+  interface PolylineEvents {
+    /** 隐藏 */
+    onHide?(): void;
+    /** 显示 */
+    onShow?(): void;
+    /** 鼠标移出 */
+    onMouseOut?(event: MapsEvent): void;
+    /**
+     * 鼠标右键单击事件
+     */
+    onRightClick?(event: MapsEvent): void;
+    /**
+     * 鼠标左键双击事件
+     */
+    onDblClick?(event: MapsEvent): void;
+    /**
+     * 鼠标左键单击事件
+     */
+    onClick?(event: MapsEvent & {
+      originEvent: MouseEvent;
+      pos: [number, number];
+      vectorIndex: number;
+    }): void;
+    /** 鼠标经过 */
+    onMouseOver?(event: MapsEvent): void;
+    /** 触摸结束时触发事件，仅适用移动设备 */
+    onTouchEnd?(event: MapsEvent): void;
+    /** 触摸移动进行中时触发事件，仅适用移动设备 */
+    onTouchMove?(event: MapsEvent): void;
+    /** 触摸开始时触发事件，仅适用移动设备 */
+    onTouchStart?(event: MapsEvent): void;
+    /** 鼠标抬起 */
+    onMouseUp?(event: MapsEvent): void;
+    /** 鼠标按下 */
+    onMouseDown?(event: MapsEvent): void;
   }
   interface PolylineOptions {
     /**

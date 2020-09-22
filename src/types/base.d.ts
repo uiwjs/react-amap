@@ -169,4 +169,22 @@ declare namespace AMap {
      */
     off(event: string, handler: any): void;
   }
+  type MapsEvent = {
+    /**
+     * 发生事件时光标所在处的经纬度坐标。
+     */
+    lnglat: LngLat;
+    /**
+     * 发生事件时光标所在处的像素坐标。
+     */
+    pixel: Pixel;
+    /**
+     * 事件类型。
+     */
+    type: string;
+    /**
+     * 发生事件的目标对象，不同类型返回target不同。例如，事件对象是Marker，则target表示目标对象为Marker，事件对象是其他，则随之改变。
+     */
+    target: any;
+  }
 }
