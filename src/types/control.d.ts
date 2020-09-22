@@ -1,3 +1,5 @@
+/// <reference path="./base.d.ts" />
+/// <reference path="./core.d.ts" />
 
 declare namespace AMap {
   /**
@@ -28,7 +30,7 @@ declare namespace AMap {
     /**
      * 控件停靠位置 { top: 5; left: 5; right: 5; bottom: 5 } 或者 'LT': 左上角, 'RT': 右上角, 'LB': 左下角, 'RB': 右下角
      */
-    position?: string | {
+    position?: ('LT' | 'RT' | 'LB' | 'RB') | {
       top: number; left: number; right: number; bottom: number;
     };
     /**
@@ -56,7 +58,13 @@ declare namespace AMap {
   class ControlBar extends Control {
     constructor(opts: ControlBarOptions);
   }
-  interface ControlBarOptions extends ControlOptions {}
+  interface ControlBarOptions extends ControlOptions {
+    /**
+     * 是否显示倾斜、旋转按钮。默认为 true
+     * @default true 默认值
+     */
+    showControlButton?: boolean;
+  }
   /**
    * 鹰眼控件，用于显示缩略地图，显示于地图右下角，可以随主图的视口变化而变化，也可以配置成固定位置实现类似于南海附图的效果。
    */

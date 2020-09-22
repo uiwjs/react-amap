@@ -6,3 +6,4 @@
 /// <reference path="./core.d.ts" />
 /// <reference path="./control.d.ts" />
 /// <reference path="./maplayer.d.ts" />
+/// <reference path="./overlay.d.ts" />

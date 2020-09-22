@@ -74,6 +74,7 @@ declare namespace AMap {
      */
     distance?(): number;
   }
+  class LngLatLike extends LngLat {};
   /**
    * 地物对象的经纬度矩形范围。
    */

@@ -27,8 +27,7 @@ export function useSetStatus<T extends AMap.Map, F = {}>(instance: T, props = {}
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-export function useVisiable<T extends AMap.Control, F extends { visiable?: boolean; }>(instance: T, props = {} as F) {
-  const visiable = props.visiable;
+export function useVisiable<T extends { show: () => void; hide: () => void; }>(instance: T, visiable?: boolean) {
   const [state, setState] = useState(visiable);
   useEffect(() => {
     if (instance && visiable !== undefined) {

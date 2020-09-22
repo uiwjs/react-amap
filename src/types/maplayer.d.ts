@@ -1,3 +1,5 @@
+/// <reference path="./base.d.ts" />
+/// <reference path="./core.d.ts" />
 
 declare namespace AMap {
   class TileLayer {

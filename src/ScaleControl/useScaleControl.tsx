@@ -6,7 +6,7 @@ export interface UseScaleControl extends ScaleControlProps {}
 
 export default function(props = {} as UseScaleControl) {
   const [scaleControl, setScaleControl] = useState<AMap.Scale>();
-  const { map, position, offset } = props;
+  const { map, position, visiable, offset } = props;
   useEffect(() => {
     if (map && !scaleControl) {
       let instance: AMap.Control;
@@ -26,7 +26,7 @@ export default function(props = {} as UseScaleControl) {
     }
   }, [map]);
 
-  useVisiable(scaleControl!, props);
+  useVisiable(scaleControl!, visiable);
   return {
     scaleControl, setScaleControl,
   };

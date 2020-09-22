@@ -41,6 +41,10 @@ export const routes: Routes = [
     path: "/hawk-eye-control",
     component: loadable(() => import('./pages/hawk-eye-control'), options),
   },
+  {
+    path: "/polyline",
+    component: loadable(() => import('./pages/polyline'), options),
+  },
 ];
 
 
@@ -80,6 +84,14 @@ export const menus = [
   {
     label: 'HawkEyeControl 鹰眼控件',
     path: '/hawk-eye-control',
+  },
+  {
+    divider: true,
+    label: '覆盖物',
+  },
+  {
+    label: 'Polyline 折线组件',
+    path: '/polyline',
   },
   {
     divider: true,

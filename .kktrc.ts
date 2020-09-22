@@ -19,6 +19,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/ToolBarControl/README.md'),
   path.resolve(process.cwd(), 'src/ControlBarControl/README.md'),
   path.resolve(process.cwd(), 'src/HawkEyeControl/README.md'),
+  path.resolve(process.cwd(), 'src/Polyline/README.md'),
 ];
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
