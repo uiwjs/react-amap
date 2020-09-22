@@ -73,6 +73,8 @@ ReactDOM.render((
 
 ### Props
 
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/35f1ace7865e3e17195bf82f97804da93e63c851/src/types/overlay.d.ts#L8-L111)
+
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | map | 要显示该marker的地图对象 | `Map` | - |
@@ -80,6 +82,8 @@ ReactDOM.render((
 | offset | 点标记显示位置偏移量，默认值为 `Pixel(-10,-34)`。 | `Pixel` | - |
 
 ### 事件
+
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/35f1ace7865e3e17195bf82f97804da93e63c851/src/types/overlay.d.ts#L112-L182)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
