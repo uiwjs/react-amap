@@ -118,7 +118,7 @@ export const menus = [
   {
     label: '高德地图参考手册',
     target: '__blank',
-    path: 'https://lbs.amap.com/api/jsapi-v2/documentation',
+    path: 'https://lbs.amap.com/api/javascript-api/summary',
   },
   {
     label: 'AMapUI 组件库',
