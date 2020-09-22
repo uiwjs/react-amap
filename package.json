@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -30,6 +30,10 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
+  "files": [
+    "src",
+    "lib"
+  ],
   "keywords": [
     "react-amap",
     "amap",
