@@ -37,6 +37,10 @@ export const routes: Routes = [
     path: "/control-bar-control",
     component: loadable(() => import('./pages/control-bar-control'), options),
   },
+  {
+    path: "/hawk-eye-control",
+    component: loadable(() => import('./pages/hawk-eye-control'), options),
+  },
 ];
 
 
@@ -72,6 +76,10 @@ export const menus = [
   {
     label: 'ControlBarControl 地图控件',
     path: '/control-bar-control',
+  },
+  {
+    label: 'HawkEyeControl 鹰眼控件',
+    path: '/hawk-eye-control',
   },
   {
     divider: true,

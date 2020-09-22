@@ -9,3 +9,5 @@ export { default as ToolBarControl } from './ToolBarControl';
 export { default as useToolBarControl } from './ToolBarControl/useToolBarControl';
 export { default as ControlBarControl } from './ControlBarControl';
 export { default as useControlBarControl } from './ControlBarControl/useControlBarControl';
+export { default as HawkEyeControl } from './HawkEyeControl';
+export { default as useHawkEyeControl } from './HawkEyeControl/useHawkEyeControl';

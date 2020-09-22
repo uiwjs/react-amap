@@ -242,12 +242,12 @@ declare namespace AMap {
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
      * @param control 控件对象
      */
-    addControl(control: Control): void;
+    addControl(control: Control | HawkEye): void;
     /**
      * 移除地图上的指定控件 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/mapbar/mapcontrol-control-add-remove/)
      * @param control 
      */
-    removeControl(control: Control): void;
+    removeControl(control: Control | HawkEye): void;
     /**
      * 设置地图的显示样式，目前支持两种地图样式：
      * - 第一种：自定义地图样式，如 "amap://styles/d6bf8c1d69cea9f5c696185ad4ac4c86" 可前往地图自定义平台定制自己的个性地图样式；
@@ -293,7 +293,7 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.HawkEye'>, CallBack: () => void): void;
+    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView'>, callBack: () => void): void;
   }
   /**
    * 区域, {省，市，区/县}
