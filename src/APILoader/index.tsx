@@ -32,7 +32,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
   public static defaultProps = {
     akay: '',
     hostAndPath: 'webapi.amap.com/maps',
-    version: '1.4.15',
+    version: '2.0',
     callbackName: 'load_amap_sdk',
   }
 
@@ -46,7 +46,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
 
   public constructor(props: APILoaderProps) {
     super(props);
-    if (props.akay == null) {
+    if (props.akay === null) {
       throw new TypeError('AMap: akay is required');
     }
   }
@@ -78,7 +78,7 @@ export default class APILoader extends React.Component<APILoaderProps> {
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&ak=${cfg.akay}&callback=${cfg.callbackName}`;
+    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&key=${cfg.akay}&callback=${cfg.callbackName}`;
   }
   /**
    * load BaiduMap in script tag
