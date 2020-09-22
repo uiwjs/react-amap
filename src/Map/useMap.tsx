@@ -21,7 +21,14 @@ export default (props: UseMap = {}) => {
       setMap(instance);
     }
   }, [container, map]);
-  
+
+  useMemo(() => {
+    if (map && typeof props.zoom === 'number' && zoom !== props.zoom && props.zoom >= 2 && props.zoom <= 20) {
+      setZoom(props.zoom);
+      map.setZoom(props.zoom);
+    }
+  }, [zoom, props.zoom]);
+
   useSetStatus<AMap.Map, UseMap>(map!, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']);
 
   return {

@@ -41,12 +41,15 @@ import { Map, APILoader } from '@uiw/react-amap';
 function Demo() {
   const [dragEnable, setDragEnable] = useState(true);
   const [display, setDisplay] = useState(true);
+  const [zoom, setZoom] = useState(15);
   return (
     <Fragment>
       <button onClick={() => setDragEnable(!dragEnable)}>{dragEnable ? '禁用' : '启用'}拖拽</button>
       <button onClick={() => setDisplay(!display)}>{display ? '卸载' : '加载'}地图</button>
+      <button onClick={() => setZoom(zoom + 1)}>放大 +1 -> ({zoom})</button>
+      <button onClick={() => setZoom(zoom - 1)}>缩小 -1 -> ({zoom})</button>
       <div style={{ width: '100%', height: '200px' }}>
-        {display ? <Map dragEnable={dragEnable} /> : null}
+        {display ? <Map dragEnable={dragEnable} zoom={zoom} /> : null}
       </div>
     </Fragment>
   );
