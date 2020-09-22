@@ -4,7 +4,7 @@ declare namespace AMap {
   /**
    * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。
    */
-  class Map {
+  class Map extends EventListener{
     /**
      * @param div 构造一个地图对象，参数 container 中传入地图容器 DIV 的 ID值 或者 DIV对象，opts 地图初始化参数对象，参数详情参看 MapOptions 列表。注意：地图容器在创建之前必须拥有实际大小，否则可能出现底图无法渲染的问题。
      * @param opts 地图初始化参数
@@ -294,6 +294,112 @@ declare namespace AMap {
      * @param CallBack 
      */
     plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView'>, callBack: () => void): void;
+  }
+  interface MapEvents {
+    /**
+     * 鼠标在地图上移动时触发
+     */
+    onMouseMove?:() => void;
+    /**
+     * 地图缩放级别更改后触发
+     */
+    onZoomChange?:() => void;
+    /**
+     * 地图平移时触发事件
+     */
+    onMapMove?:() => void;
+    /**
+     * 鼠标滚轮开始缩放地图时触发
+     */
+    onMouseWheel?:() => void;
+    /**
+     * 缩放开始时触发
+     */
+    onZoomStart?:() => void;
+    /**
+     * 鼠标移入地图容器内时触发
+     */
+    onMouseOver?:() => void;
+    /**
+     * 鼠标移出地图容器时触发
+     */
+    onMouseOut?:() => void;
+    /**
+     * 鼠标左键双击事件
+     */
+    onDblClick?:() => void;
+    /**
+     * 鼠标左键单击事件
+     */
+    onClick?:() => void;
+    /**
+     * 缩放结束时触发
+     */
+    onZoomEnd?:() => void;
+    /**
+     * 地图移动结束后触发，包括平移，以及中心点变化的缩放。如地图有拖拽缓动效果，则在缓动结束后触发
+     */
+    onMoveEnd?:() => void;
+    /**
+     * 鼠标在地图上单击抬起时触发
+     */
+    onMouseUp?:() => void;
+    /**
+     * 鼠标在地图上单击按下时触发
+     */
+    onMouseDown?:() => void;
+    /**
+     * 鼠标右键单击事件
+     */
+    onRightClick?:() => void;
+    /**
+     * 地图平移开始时触发
+     */
+    onMoveStart?:() => void;
+    /**
+     * 开始拖拽地图时触发
+     */
+    onDragStart?:() => void;
+    /**
+     * 拖拽地图过程中触发
+     */
+    onDragging?:() => void;
+    /**
+     * 停止拖拽地图时触发。如地图有拖拽缓动效果，则在拽停止，缓动开始前触发
+     */
+    onDragEnd?:() => void;
+    /**
+     * 鼠标移出热点时触发
+     */
+    onHotspotOut?:() => void;
+    /**
+     * 鼠标滑过热点时触发
+     */
+    onHotspotOver?:() => void;
+    /**
+     * 触摸开始时触发事件，仅适用移动设备
+     */
+    onTouchStart?:() => void;
+    /**
+     * 地图资源加载完成后触发事件
+     */
+    onComplete?:() => void;
+    /**
+     * 鼠标点击热点时触发
+     */
+    onHotspotClick?:() => void;
+    /**
+     * 拖拽地图过程中触发，仅适用移动设备
+     */
+    onTouchMove?:() => void;
+    /**
+     * 触摸结束时触发事件，仅适用移动设备
+     */
+    onTouchEnd?:() => void;
+    /**
+     * 地图容器尺寸改变事件
+     */
+    onResize?:() => void;
   }
   /**
    * 区域, {省，市，区/县}

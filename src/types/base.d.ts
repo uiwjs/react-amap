@@ -155,4 +155,18 @@ declare namespace AMap {
      */
     toString?(): string;
   }
+  class EventListener {
+    /**
+     * 添加事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    on(event: string, handler: any): void;
+    /**
+     * 移除事件监听函数
+     * @param event 
+     * @param handler 
+     */
+    off(event: string, handler: any): void;
+  }
 }

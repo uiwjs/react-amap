@@ -63,3 +63,52 @@ export function usePrevious<T>(value: T) {
   });
   return ref.current;
 }
+
+export type EventNameType = 'LowerCase';
+
+export interface EventListener {
+  /**
+   * 添加事件监听函数
+   * @param event 
+   * @param handler 
+   */
+  on(event: string, handler: any): void;
+  /**
+   * 移除事件监听函数
+   * @param event 
+   * @param handler 
+   */
+  off(event: string, handler: any): void;
+}
+
+/**
+ * 绑定事件
+ * @param instance 实例对象
+ * @param props 传递进来的 props
+ * @param eventName 事件的名字，如，我们使用 `onClick` 事件，最终被转换成，`click` 绑定到实例中，`onDblClick` => `dblclick`
+ * 
+ * @example
+ * ```js
+ * useEventProperties<BMap.Marker, UseMarker>(marker!, props, [
+ *   'onMouseMove', 'onZoomChange', 'onMapMove', 'onMouseWheel', 'onZoomStart'
+ * ]);
+ * ```
+ */
+export function useEventProperties<T extends EventListener, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
+  eventName.forEach((name) => {
+    const eventName = name as keyof F;
+    const eventHandle = props[eventName];
+    useEffect(() => {
+      if(!instance) return;
+      let eName = name.toLocaleLowerCase().replace(/^on/, '');
+      if (eventHandle && eName) {
+        instance.on(eName, eventHandle);
+      }
+      return () => {
+        if (eName && eventHandle) {
+          instance.off(eName, eventHandle);
+        }
+      }
+    }, [instance, props[eventName]]);
+  });
+}

@@ -78,24 +78,45 @@ function Demo() {
     console.log('mapRef:', mapRef);
   }, []);
   return (
-    <Fragment>
+    <div style={{ width: '100%', height: 330 }}>
+      <div style={{ marginBottom: 10, height: 120 }}>
+        <Map ref={mapRef} /> 
+      </div>
       <Map ref={(instance) => {
         if (instance && instance.map) {
           console.log('instance', instance);
         }
-      }} /> 
-      <Map ref={mapRef} /> 
-    </Fragment>
+      }} />
+    </div>
   );
 }
 
 ReactDOM.render((
-  <div style={{ width: '100%', height: '200px' }}>
+  <APILoader akay="1c44726c39431f704d3e25cd51381e35">
+    <Demo />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
+### 事件触发
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import { Map, APILoader } from '@uiw/react-amap';
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="1c44726c39431f704d3e25cd51381e35">
-      <Demo />
+      <Map
+        onClick={() => {
+          console.log('点击事件！');
+        }}
+      />
     </APILoader>
   </div>
-), _mount_);
+);
+ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 
@@ -108,5 +129,30 @@ ReactDOM.render((
 ### 事件
 
 | 参数 | 说明 | 类型 |
-| ----- | ----- | ----- |
-| - | - | - |
+| ---- | ---- | ---- |
+| onMouseMove | 鼠标在地图上移动时触发 | - |
+| onZoomChange | 地图缩放级别更改后触发 | - |
+| onMapMove | 地图平移时触发事件 | - |
+| onMouseWheel | 鼠标滚轮开始缩放地图时触发 | - |
+| onZoomStart | 缩放开始时触发 | - |
+| onMouseOver | 鼠标移入地图容器内时触发 | - |
+| onMouseOut | 鼠标移出地图容器时触发 | - |
+| onDblClick | 鼠标左键双击事件 | - |
+| onClick | 鼠标左键单击事件 | - |
+| onZoomEnd | 缩放结束时触发 | - |
+| onMoveEnd | 地图移动结束后触发，包括平移，以及中心点变化的缩放。如地图有拖拽缓动效果，则在缓动结束后触发 | - |
+| onMouseUp | 鼠标在地图上单击抬起时触发 | - |
+| onMouseDown | 鼠标在地图上单击按下时触发 | - |
+| onRightClick | 鼠标右键单击事件 | - |
+| onMoveStart | 地图平移开始时触发 | - |
+| onDragStart | 开始拖拽地图时触发 | - |
+| onDragging | 拖拽地图过程中触发 | - |
+| onDragEnd | 停止拖拽地图时触发。如地图有拖拽缓动效果，则在拽停止，缓动开始前触发 | - |
+| onHotspotOut | 鼠标移出热点时触发 | - |
+| onHotspotOver | 鼠标滑过热点时触发 | - |
+| onTouchStart | 触摸开始时触发事件，仅适用移动设备 | - |
+| onComplete | 地图资源加载完成后触发事件 | - |
+| onHotspotClick | 鼠标点击热点时触发 | - |
+| onTouchMove | 拖拽地图过程中触发，仅适用移动设备 | - |
+| onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | - |
+| onResize | 地图容器尺寸改变事件 | - |

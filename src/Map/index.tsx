@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
 import useMap from './useMap';
 
-export interface MapProps extends AMap.MapOptions {
+export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }
