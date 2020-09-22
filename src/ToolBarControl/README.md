@@ -42,7 +42,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
+  <APILoader akay="1c44726c39431f704d3e25cd51381e35">
     <Example />
   </APILoader>
 ), _mount_);
