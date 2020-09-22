@@ -73,3 +73,21 @@ ReactDOM.render((
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | path | 路径，支持 lineString 和 MultiLineString。 | `Array<LngLat> | Array<Array<LngLat>>` | - |
+
+### 事件
+
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/ce4e44c0066079e0a6318c35d189e8a567964880/src/types/overlay.d.ts#L59-L94)
+
+| 参数 | 说明 | 类型 |
+| ---- | ---- | ---- |
+| onHide | 隐藏 | (): void; |
+| onShow | 显示 | (): void; |
+| onMouseOut | 鼠标移出 | (event: MapsEvent): void; |
+| onRightClick | 鼠标右键单击事件 | (event: MapsEvent): void; |
+| onDblClick | 鼠标左键双击事件 | (event: MapsEvent): void; |
+| onMouseOver | 鼠标经过 | (event: MapsEvent): void; |
+| onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onTouchMove | 触摸移动进行中时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onTouchStart | 触摸开始时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onMouseUp | 鼠标抬起 | (event: MapsEvent): void; |
+| onMouseDown | 鼠标按下 | (event: MapsEvent): void; |
