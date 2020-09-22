@@ -123,6 +123,11 @@ export const menus = [
     path: 'https://github.com/uiwjs/react-amap',
   },
   {
+    label: '源码 Gitee 仓库',
+    target: '__blank',
+    path: 'https://gitee.com/jaywcjlove/react-amap',
+  },
+  {
     divider: true,
     label: '相关连接',
   },

@@ -6,10 +6,11 @@ react-amap
 [![](https://img.shields.io/github/stars/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/stargazers)
 [![](https://img.shields.io/github/release/uiwjs/react-amap)](https://github.com/uiwjs/react-amap/releases)
 [![](https://img.shields.io/npm/v/@uiw/react-amap.svg)](https://www.npmjs.com/package/@uiw/react-amap)
+[![](https://jaywcjlove.github.io/sb/ico/gitee.svg)](https://gitee.com/jaywcjlove/react-amap)
 
 这是一个基于 React 封装的高德地图组件，帮助你轻松的接入地图到 React 项目中。
 
-文档实例预览: [Github Web](https://uiwjs.github.io/react-amap/)
+文档实例预览: [Github Web](https://uiwjs.github.io/react-amap/) | [Gitee Web](https://jaywcjlove.gitee.io/react-amap/)
 
 ### 特性
 
