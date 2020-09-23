@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef } from 'react';
  * @param props 
  * @param propsName 
  */
-export function useSetStatus<T extends AMap.Map, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
+export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: any) => void; }, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = name as keyof F;
     const [state, setState] = useState(props[eName]);

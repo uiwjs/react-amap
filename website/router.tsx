@@ -53,6 +53,10 @@ export const routes: Routes = [
     path: "/marker",
     component: loadable(() => import('./pages/marker'), options),
   },
+  {
+    path: "/circle",
+    component: loadable(() => import('./pages/circle'), options),
+  },
 ];
 
 
@@ -102,12 +106,16 @@ export const menus = [
     label: '覆盖物',
   },
   {
-    label: 'Marker 点标记组件',
+    label: 'Marker 点标记',
     path: '/marker',
   },
   {
-    label: 'Polyline 折线组件',
+    label: 'Polyline 折线',
     path: '/polyline',
+  },
+  {
+    label: 'Circle 圆形',
+    path: '/circle',
   },
   {
     divider: true,
