@@ -592,4 +592,90 @@ declare namespace AMap {
     /** 鼠标按下 */
     onMouseDown?(event: MapsEvent): void;
   }
+  /**
+   * 构造矩形对象
+   */
+  class Rectangle extends EventListener {
+    constructor(opts: RectangleOptions);
+    /** 设置矩形的范围 */
+    setBounds(bounds: Bounds): void;
+    /** 修改矩形属性（样式风格，包括组成矩形轮廓线的节点、轮廓线样式等。属性详情参看RectangleOptions列表） */
+    setOptions(optsArg: RectangleOptions): void;
+    /** 判断坐标是否在矩形上 */
+    contains(point: LngLatLike): boolean;
+    /** 获取矩形的中心点 */
+    getCenter(): LngLat;
+    /** 隐藏矩形 */
+    hide(): void;
+    /** 显示圆形 */
+    show(): void;
+    /** 获取用户自定义属性 */
+    getExtData(): any;
+    /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
+    setExtData(extData: any): void;
+    /** 获取矩形的属性 */
+    getOptions(): RectangleOptions;
+  }
+  interface RectangleOptions {
+    /** 要显示该覆盖物的地图对象 */
+    map?: Map;
+    /** 矩形的范围 */
+    bounds?: Bounds;
+    /** (default 10)	矩形覆盖物的叠加顺序。地图上存在多个矩形覆盖物叠加时，通过该属性使级别较高的矩形覆盖物在上层显示 */
+    zIndex?: number;
+    /** (default false)	是否将覆盖物的鼠标或touch等事件冒泡到地图上（自v1.3 新增） */
+    bubble?: boolean;
+    /** 指定鼠标悬停时的鼠标样式，自定义cursor，IE仅支持cur/ani/ico格式，Opera不支持自定义cursor */
+    cursor?: string;
+    /** (default #00D3FC)	线条颜色，使用16进制颜色代码赋值。默认值为 #00D3FC */
+    strokeColor?: string;
+    /** (default 0.9)	轮廓线透明度，取值范围 [0,1] ，0表示完全透明，1表示不透明。默认为0.9 */
+    strokeOpacity?: number;
+    /** (default 2)	轮廓线宽度 */
+    strokeWeight?: number;
+    /** (default #00B2D5)	矩形填充颜色，使用16进制颜色代码赋值，如：#00B2D5 */
+    fillColor?: string;
+    /** (default 0.5)	矩形填充透明度，取值范围 [0,1],0 表示完全透明，1表示不透明。默认为0.5 */
+    fillOpacity?: number;
+    /** (default false)	设置矩形是否可拖拽移动，默认为false */
+    draggable?: boolean;
+    /** 用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
+    extData?: any;
+    /** (default solid)	轮廓线样式，实线:solid，虚线:dashed */
+    strokeStyle?: 'solid' | 'dashed';
+    /** 勾勒形状轮廓的虚线和间隙的样式，此属性在strokeStyle 为dashed 时有效， 此属性在 ie9+ 浏览器有效 取值：
+     * - 实线： [0,0,0]
+     * - 虚线： [10,10],[10,10] 表示10个像素的实线和10个像素的空白（如此反复）组成的虚线
+     * - 点画线： [10,2,10],[10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
+     */
+    strokeDasharray?: Array<number>;
+  }
+  interface RectangleEvents {
+    /** 鼠标左键单击事件 */
+    onClick?(event: MapsEvent): void;
+    /** 鼠标左键双击事件 */
+    onDblClick?(event: MapsEvent): void;
+    /** 右键单击 */
+    onRightClick?(event: MapsEvent): void;
+    /** 隐藏 */
+    onHide?(event: { type: string; target: any }): void;
+    /** 显示 */
+    onShow?(event: { type: string; target: any }): void;
+    /** 鼠标按下 */
+    onMouseDown?(event: MapsEvent): void;
+    /** 鼠标抬起 */
+    onMouseUp?(event: MapsEvent): void;
+    /** 鼠标经过 */
+    onMouseOver?(event: MapsEvent): void;
+    /** 鼠标移出 */
+    onMouseOut?(event: MapsEvent): void;
+    /** 属性发生变化时 */
+    onChange?(event: { type: string; target: any }): void;
+    /** 触摸开始时触发事件，仅适用移动设备 */
+    onTouchStart?(event: MapsEvent): void;
+    /** 触摸移动进行中时触发事件，仅适用移动设备 */
+    onTouchMove?(event: MapsEvent): void;
+    /** 触摸结束时触发事件，仅适用移动设备 */
+    onTouchEnd?(event: MapsEvent): void;
+  }
 }

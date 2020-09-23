@@ -10,6 +10,8 @@ export * from './Circle';
 export * from './Circle/useCircle';
 export * from './Ellipse';
 export * from './Ellipse/useEllipse';
+export * from './Rectangle';
+export * from './Rectangle/useRectangle';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';

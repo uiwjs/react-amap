@@ -61,6 +61,10 @@ export const routes: Routes = [
     path: "/ellipse",
     component: loadable(() => import('./pages/ellipse'), options),
   },
+  {
+    path: "/rectangle",
+    component: loadable(() => import('./pages/rectangle'), options),
+  },
 ];
 
 
@@ -124,6 +128,10 @@ export const menus = [
   {
     label: 'Ellipse 多边形',
     path: '/ellipse',
+  },
+  {
+    label: 'Rectangle 矩形',
+    path: '/rectangle',
   },
   {
     divider: true,

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { EllipseProps } from '.';
+import { EllipseProps } from './';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
 export interface UseEllipse extends EllipseProps {}

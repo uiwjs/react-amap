@@ -123,7 +123,7 @@ declare namespace AMap {
      * 添加覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features 覆盖物对象或者数组 VectorOverlay | Array<any>
      */
-    add(features: Array<any> | TileLayer | Polyline | AMap.Marker): void;
+    add(features: Array<any> | TileLayer | Polyline | Marker | Rectangle): void;
     /**
      * 获取地图默认鼠标指针样式
      * @returns 地图鼠标指针样式
@@ -138,7 +138,7 @@ declare namespace AMap {
      * 删除覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features Array<any> | VectorOverlay
      */
-    remove(features: Array<any> | TileLayer | Polyline | HawkEye | AMap.Marker): void;
+    remove(features: Array<any> | TileLayer | Polyline | HawkEye | Marker | Rectangle): void;
     /**
      * 注销地图对象，并清空地图容器
      */
