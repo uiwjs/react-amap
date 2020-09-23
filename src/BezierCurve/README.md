@@ -72,7 +72,7 @@ ReactDOM.render((
 
 ### Props
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L619-L652)
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/9364fa457dfac8c6ece84802e07358a131b7cad9/src/types/overlay.d.ts#L718-L776)
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
@@ -80,7 +80,7 @@ ReactDOM.render((
 
 ### 事件
 
-[事件类型文档](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L653-L680)
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/9364fa457dfac8c6ece84802e07358a131b7cad9/src/types/overlay.d.ts#L778-L802)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
