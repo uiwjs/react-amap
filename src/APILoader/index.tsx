@@ -28,7 +28,7 @@ const DEFAULT_RETRY_TIME = 3;
 /**
  * APILoader 用于加载百度地图依赖
  */
-export default class APILoader extends React.Component<APILoaderProps> {
+export class APILoader extends React.Component<APILoaderProps> {
   public static defaultProps = {
     akay: '',
     hostAndPath: 'webapi.amap.com/maps',

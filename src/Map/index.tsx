@@ -1,14 +1,14 @@
 /// <reference types="../types" />
 
 import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
-import useMap from './useMap';
+import { useMap } from './useMap';
 
 export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }
 
-export default React.forwardRef<MapProps & { map?: AMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
+export const Map = React.forwardRef<MapProps & { map?: AMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
   const elmRef = useRef<HTMLDivElement>(null);
   const { setContainer, container, map } = useMap({ container: elmRef.current, ...props });
   useEffect(() => setContainer(elmRef.current), [elmRef.current]);

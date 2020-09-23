@@ -4,7 +4,7 @@ import { useVisiable } from '../common/hooks';
 
 export interface UseToolBarControl extends ToolBarControlProps {}
 
-export default function(props = {} as UseToolBarControl) {
+export function useToolBarControl(props = {} as UseToolBarControl) {
   const [toolBarControl, setToolBarControl] = useState<AMap.ToolBar>();
   const { map, position, visiable, offset } = props;
   useEffect(() => {

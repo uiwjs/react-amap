@@ -10,7 +10,7 @@ export interface UseMap extends MapProps, MapChildProps {
   container?: HTMLDivElement | null;
 }
 
-export default (props: UseMap = {}) => {
+export const useMap = (props: UseMap = {}) => {
   const { ...other } = props;
   const [map, setMap] = useState<AMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);

@@ -4,7 +4,7 @@ import { useVisiable } from '../common/hooks';
 
 export interface UseScaleControl extends ScaleControlProps {}
 
-export default function(props = {} as UseScaleControl) {
+export function useScaleControl(props = {} as UseScaleControl) {
   const [scaleControl, setScaleControl] = useState<AMap.Scale>();
   const { map, position, visiable, offset } = props;
   useEffect(() => {

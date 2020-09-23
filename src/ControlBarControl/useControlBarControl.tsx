@@ -4,7 +4,7 @@ import { useVisiable } from '../common/hooks';
 
 export interface UseControlBarControl extends ControlBarControlProps {}
 
-export default function(props = {} as UseControlBarControl) {
+export function useControlBarControl(props = {} as UseControlBarControl) {
   const [controlBarControl, setControlBarControl] = useState<AMap.ControlBar>();
   const { map, position, visiable, offset } = props;
   useEffect(() => {

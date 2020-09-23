@@ -4,7 +4,7 @@ import { useVisiable, useEventProperties, useSettingProperties } from '../common
 
 export interface UsePolyline extends PolylineProps {}
 
-export default function(props = {} as UsePolyline) {
+export function usePolyline(props = {} as UsePolyline) {
   const [polyline, setPolyline] = useState<AMap.Polyline>();
   const { map, visiable, ...other } = props;
   useEffect(() => {
