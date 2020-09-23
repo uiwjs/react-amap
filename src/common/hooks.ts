@@ -1,5 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 
+/**
+ * 对实例有 setStatus 更改状态的处理
+ * @param instance 
+ * @param props 
+ * @param propsName 
+ */
 export function useSetStatus<T extends AMap.Map, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
   propsName.forEach((name) => {
     const eName = name as keyof F;
@@ -110,5 +116,33 @@ export function useEventProperties<T extends EventListener, F>(instance: T, prop
         }
       }
     }, [instance, props[eventName]]);
+  });
+}
+
+/**
+ * 属性受控
+ * @param instance 实例对象
+ * @param props 属性值
+ * @param propsName 多个属性设置的名称
+ * @example
+ * ```ts
+ * useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
+ *    'Path'
+ * ]);
+ * ```
+ */
+export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} as F, propsName: string[] = []) {
+  propsName.forEach((name) => {
+    const eName = `set${name}` as keyof T;
+    const vName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
+    const [state, setState] = useState(props[vName]);
+    useEffect(() => {
+      if (instance && props[vName] !== undefined) {
+        if(props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
+          (instance[eName] as any)(props[vName]);
+          setState(props[vName]);
+        }
+      }
+    }, [instance, props[vName]]);
   });
 }
