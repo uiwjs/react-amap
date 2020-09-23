@@ -621,27 +621,27 @@ declare namespace AMap {
     map?: Map;
     /** 矩形的范围 */
     bounds?: Bounds;
-    /** (default 10)	矩形覆盖物的叠加顺序。地图上存在多个矩形覆盖物叠加时，通过该属性使级别较高的矩形覆盖物在上层显示 */
+    /** (default 10) 矩形覆盖物的叠加顺序。地图上存在多个矩形覆盖物叠加时，通过该属性使级别较高的矩形覆盖物在上层显示 */
     zIndex?: number;
-    /** (default false)	是否将覆盖物的鼠标或touch等事件冒泡到地图上（自v1.3 新增） */
+    /** (default false) 是否将覆盖物的鼠标或touch等事件冒泡到地图上（自v1.3 新增） */
     bubble?: boolean;
     /** 指定鼠标悬停时的鼠标样式，自定义cursor，IE仅支持cur/ani/ico格式，Opera不支持自定义cursor */
     cursor?: string;
-    /** (default #00D3FC)	线条颜色，使用16进制颜色代码赋值。默认值为 #00D3FC */
+    /** (default #00D3FC) 线条颜色，使用16进制颜色代码赋值。默认值为 #00D3FC */
     strokeColor?: string;
-    /** (default 0.9)	轮廓线透明度，取值范围 [0,1] ，0表示完全透明，1表示不透明。默认为0.9 */
+    /** (default 0.9) 轮廓线透明度，取值范围 [0,1] ，0表示完全透明，1表示不透明。默认为0.9 */
     strokeOpacity?: number;
-    /** (default 2)	轮廓线宽度 */
+    /** (default 2) 轮廓线宽度 */
     strokeWeight?: number;
-    /** (default #00B2D5)	矩形填充颜色，使用16进制颜色代码赋值，如：#00B2D5 */
+    /** (default #00B2D5) 矩形填充颜色，使用16进制颜色代码赋值，如：#00B2D5 */
     fillColor?: string;
-    /** (default 0.5)	矩形填充透明度，取值范围 [0,1],0 表示完全透明，1表示不透明。默认为0.5 */
+    /** (default 0.5) 矩形填充透明度，取值范围 [0,1],0 表示完全透明，1表示不透明。默认为0.5 */
     fillOpacity?: number;
-    /** (default false)	设置矩形是否可拖拽移动，默认为false */
+    /** (default false) 设置矩形是否可拖拽移动，默认为false */
     draggable?: boolean;
     /** 用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
     extData?: any;
-    /** (default solid)	轮廓线样式，实线:solid，虚线:dashed */
+    /** (default solid) 轮廓线样式，实线:solid，虚线:dashed */
     strokeStyle?: 'solid' | 'dashed';
     /** 勾勒形状轮廓的虚线和间隙的样式，此属性在strokeStyle 为dashed 时有效， 此属性在 ie9+ 浏览器有效 取值：
      * - 实线： [0,0,0]
@@ -677,5 +677,128 @@ declare namespace AMap {
     onTouchMove?(event: MapsEvent): void;
     /** 触摸结束时触发事件，仅适用移动设备 */
     onTouchEnd?(event: MapsEvent): void;
+  }
+  /**
+   * 贝塞尔曲线
+   */
+  class BezierCurve extends EventListener {
+    constructor(opts: BezierCurveOptions);
+    /** 修改折线属性（包括路径的节点、线样式、是否绘制大地线等。属性详情参看 BezierCurveOptions 列表） */
+    setOptions(optsArg: BezierCurveOptions): void;
+    /** 获取贝塞尔曲线路径的节点数组 */
+    getPath(): Array<Array<number>> | Array<Array<Array<number>>>;
+    /**
+     * 设置组成该折线的节点数组
+     * path ((Array<Array<number>> | Array<Array<Array<number>>>)) 贝瑟尔曲线的路径。
+     * 描述为一个二维数组规则如下：第一个元素是起点， 之后的元素同时描述控制点和途经点，之后每个元素可以有0个到2个控制点 控制点在前，途经点在最后 
+     * [ [lng,lat] ,
+     * //起点0 [lng,lat,lng,lat,lng,lat] ,
+     * //控制点、控制点、途经点2 [lng,lat,lng,lat] //控制点、途经点3 ] 或者 [ [ [lng,lat] ],//起点0 [ [lng,lat] , [lng,lat] ],
+     * //控制点、途经点1 [ [lng,lat] , [lng,lat] , [lng,lat] ],//控制点、控制点、途经点2 [ [lng,lat] , [lng,lat] ]
+     * //控制点、途经点3 ]
+     */
+    setPath(path: Array<Array<number>> | Array<Array<Array<number>>>): void;
+    /** 隐藏贝塞尔线 */
+    hide(): void;
+    /** 显示贝塞尔曲线 */
+    show(): void;
+    /** 获取用户自定义属性 */
+    getExtData(): any;
+    /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
+    setExtData(extData: any): void;
+    /** 获取线的属性 */
+    getOptions(): BezierCurveOptions;
+    /** 判断坐标是否在曲线内 */
+    contains(point: LngLatLike): void;
+    /** 获取曲线的总长度（单位：米）*/
+    getLength(): number;
+    /** 获取当前折线的矩形范围对象 */
+    getBounds(): Bounds | undefined;
+  }
+  interface BezierCurveOptions {
+    /**
+     * polyline 路径，支持 lineString 和 MultiLineString
+     * 贝瑟尔曲线的路径。描述为一个二维数组规则如下：第一个元素是起点， 之后的元素同时描述控制点和途经点，之后每个元素可以有0个到2个控制点 控制点在前，途经点在最后
+     * ```js
+     * [
+     *   [lng, lat],
+     *   // 起点0
+     *   [lng, lat, lng, lat, lng, lat],
+     *   // 控制点、控制点、途经点2
+     *   [lng, lat, lng, lat]
+     *   // 控制点、途经点3
+     * ]
+     * ```
+     * 
+     * 或者
+     * 
+     * ```js
+     * [
+     *  [[lng, lat]],
+     *  // 起点0
+     *  [[lng, lat], [lng, lat]],
+     *  // 控制点、途经点1
+     *  [[lng, lat], [lng, lat], [lng, lat]],
+     *  // 控制点、控制点、途经点2
+     *  [[lng, lat], [lng, lat]]
+     *  // 控制点、途经点3
+     * ]
+     * ```
+     */
+    path?: Array<LngLat> | Array<Array<LngLat>>;
+    /**
+     * (default 10) 多边形覆盖物的叠加顺序。地图上存在多个多边形覆盖物叠加时，通过该属性使级别较高的多边形覆盖物在上层显示
+     */
+    zIndex?: number;
+    /** (default false) 是否将覆盖物的鼠标或touch等事件冒泡到地图上（自v1.3 新增） */
+    bubble?: boolean;
+    /** 指定鼠标悬停时的鼠标样式，自定义cursor，IE仅支持cur/ani/ico格式，Opera不支持自定义cursor */
+    cursor?: string;
+    /** (default #00D3FC) 线条颜色，使用16进制颜色代码赋值。默认值为#00D3FC */
+    strokeColor?: string;
+    /** (default 0.5) 轮廓线透明度，取值范围 [0,1] ，0表示完全透明，1表示不透明。默认为0.5 */
+    strokeOpacity?: number;
+    /** (default 2) 轮廓线宽度 */
+    strokeWeight?: number;
+    /** (default 2) 描边线宽度 */
+    borderWeight?: number;
+    /** (default false) 是否显示描边,默认false */
+    isOutline?: boolean;
+    /** (default 1) 描边的宽度，默认为1 */
+    borderWeight?: number;
+    /** (default #00B2D5) 线条描边颜色，此项仅在isOutline为true时有效，默认：#00B2D5 */
+    outlineColor?: string;
+    /** (default false) 设置多边形是否可拖拽移动，默认为false */
+    draggable?: boolean;
+    /** 用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
+    extData?: any;
+    /** (default solid) 轮廓线样式，实线:solid，虚线:dashed */
+    strokeStyle?: "solid" | "dashed";
+  }
+  interface BezierCurveEvents {
+    /** 隐藏 */
+    onHide?(data: {type: string, target: any}): void;
+    /** 显示 */
+    onShow?(data: {type: string, target: any}): void;
+    /** 鼠标左键双击事件 */
+    onDblClick?(event: MapsEvent): void;
+    /** 鼠标经过 */
+    onMouseOver?(event: MapsEvent): void;
+    /** 鼠标抬起 */
+    onMouseUp?(event: MapsEvent): void;
+    /** 鼠标按下 */
+    onMouseDown?(event: MapsEvent): void;
+    /** 鼠标左键单击事件 */
+    onClick?(event: MapsEvent): void;
+    /** 触摸结束时触发事件，仅适用移动设备 */
+    onTouchEnd?(event: MapsEvent): void;
+    /** 触摸移动进行中时触发事件，仅适用移动设备 */
+    onTouchMove?(event: MapsEvent): void;
+    /** 触摸开始时触发事件，仅适用移动设备 */
+    onTouchStart?(event: MapsEvent): void;
+    /** 鼠标右键单击事件 */
+    onRightClick?(event: MapsEvent): void;
+    /** 鼠标移出 */
+    onMouseOut?(event: MapsEvent): void;
   }
 }

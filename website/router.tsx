@@ -65,6 +65,10 @@ export const routes: Routes = [
     path: "/rectangle",
     component: loadable(() => import('./pages/rectangle'), options),
   },
+  {
+    path: "/beizer-curve",
+    component: loadable(() => import('./pages/beizer-curve'), options),
+  },
 ];
 
 
@@ -132,6 +136,10 @@ export const menus = [
   {
     label: 'Rectangle 矩形',
     path: '/rectangle',
+  },
+  {
+    label: 'BesizerCurve 贝塞尔曲线',
+    path: '/beizer-curve',
   },
   {
     divider: true,

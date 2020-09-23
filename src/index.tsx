@@ -12,6 +12,8 @@ export * from './Ellipse';
 export * from './Ellipse/useEllipse';
 export * from './Rectangle';
 export * from './Rectangle/useRectangle';
+export * from './BezierCurve';
+export * from './BezierCurve/useBezierCurve';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';
