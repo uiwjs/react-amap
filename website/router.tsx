@@ -133,12 +133,12 @@ export const menus = [
   {
     label: '源码 Gitee 仓库',
     target: '__blank',
-    path: 'https://gitee.com/jaywcjlove/react-amap',
+    path: 'https://gitee.com/uiw/react-amap',
   },
   {
     label: '国内镜像',
     target: '__blank',
-    path: 'https://jaywcjlove.gitee.io/react-amap/',
+    path: 'https://uiw.gitee.io/react-amap',
   },
   {
     divider: true,
