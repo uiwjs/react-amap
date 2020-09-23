@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ControlBarControl } from '.';
+import { ControlBarControlProps } from '.';
 import { useVisiable } from '../common/hooks';
 
-export interface UseControlBarControl extends ControlBarControl {}
+export interface UseControlBarControl extends ControlBarControlProps {}
 
 export default function(props = {} as UseControlBarControl) {
   const [controlBarControl, setControlBarControl] = useState<AMap.ControlBar>();

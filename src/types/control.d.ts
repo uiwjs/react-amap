@@ -53,6 +53,26 @@ declare namespace AMap {
   }
   interface ToolBarOptions extends ControlOptions {}
   /**
+   * 地图类型切换插件。用户通过该插件进行地图切换。
+   */
+  class MapType extends Control {
+    constructor(opts:MapTypeOptions);
+  }
+  interface MapTypeOptions {
+    /**
+     * 初始化默认图层类型。 取值为0：默认底图 取值为1：卫星图 默认值：0
+     */
+    defaultType?: number;
+    /**
+     * 叠加实时交通图层 默认值：false
+     */
+    showTraffic?: boolean;
+    /**
+     * 叠加路网图层 默认值：false
+     */
+    showRoad?: boolean;
+  }
+  /**
    * 组合了旋转、倾斜、复位在内的地图控件。 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
    */
   class ControlBar extends Control {

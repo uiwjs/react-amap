@@ -38,6 +38,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/control-bar-control'), options),
   },
   {
+    path: "/map-type-control",
+    component: loadable(() => import('./pages/map-type-control'), options),
+  },
+  {
     path: "/hawk-eye-control",
     component: loadable(() => import('./pages/hawk-eye-control'), options),
   },
@@ -80,6 +84,10 @@ export const menus = [
   {
     label: 'ToolBarControl 工具条控件',
     path: '/tool-bar-control',
+  },
+  {
+    label: 'MapTypeControl 工具条控件',
+    path: '/map-type-control',
   },
   {
     label: 'ControlBarControl 地图控件',

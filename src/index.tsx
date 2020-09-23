@@ -15,3 +15,5 @@ export { default as ControlBarControl } from './ControlBarControl';
 export { default as useControlBarControl } from './ControlBarControl/useControlBarControl';
 export { default as HawkEyeControl } from './HawkEyeControl';
 export { default as useHawkEyeControl } from './HawkEyeControl/useHawkEyeControl';
+export * from './MapTypeControl';
+export * from './MapTypeControl/useMapTypeControl';

@@ -293,7 +293,7 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView'>, callBack: () => void): void;
+    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView'>, callBack: () => void): void;
   }
   interface MapEvents {
     /**
