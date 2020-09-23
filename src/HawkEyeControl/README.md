@@ -50,7 +50,7 @@ ReactDOM.render((
 
 ### Props
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/262094c/src/types/control.d.ts#L82-L123)
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/control.d.ts#L102-L143)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |

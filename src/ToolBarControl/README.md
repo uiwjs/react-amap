@@ -47,7 +47,7 @@ ReactDOM.render((
 
 ### Props
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/262094c/src/types/core.d.ts#L461-L537)
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/268303de813050c7a02bb247930090ce5f162042/src/types/control.d.ts#L54)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
