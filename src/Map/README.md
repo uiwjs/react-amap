@@ -122,7 +122,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### Props
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/24df253/src/types/core.d.ts#L461-L537)
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/262094c/src/types/core.d.ts#L461-L537)
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
@@ -130,7 +130,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 事件
 
-[事件类型文档](https://github.com/uiwjs/react-amap/blob/24df253/src/types/core.d.ts#L298-L403)
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/262094c/src/types/core.d.ts#L298-L403)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |

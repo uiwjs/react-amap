@@ -55,7 +55,7 @@ ReactDOM.render((
 
 ### Props
 
-[更多参数设置](https://github.com/uiwjs/react-amap/blob/24df253/src/types/overlay.d.ts#L425-L475)
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/262094c/src/types/overlay.d.ts#L425-L475)
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
@@ -63,9 +63,19 @@ ReactDOM.render((
 
 ### 事件
 
-[事件类型文档](https://github.com/uiwjs/react-amap/blob/24df253/src/types/overlay.d.ts#L399-L423)
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/262094c/src/types/overlay.d.ts#L399-L423)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
-| onHide | 隐藏 | `(): void;` |
-| onShow | 显示 | `(): void;` |
+| onHide | 隐藏 | (data: { type: string, target: any }): void; |
+| onShow | 显示 | (data: { type: string, target: any }): void; |
+| onClick | 鼠标左键单击事件 | (event: MapsEvent): void; |
+| onDblClick | 鼠标左键双击事件 | (event: MapsEvent): void; |
+| onRightClick | 鼠标右键单击事件 | (event: MapsEvent): void; |
+| onMouseOver | 鼠标经过 | (event: MapsEvent): void; |
+| onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onTouchMove | 触摸移动进行中时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onTouchStart | 触摸开始时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
+| onMouseOut | 鼠标移出 | (event: MapsEvent): void; |
+| onMouseUp | 鼠标抬起 | (event: MapsEvent): void; |
+| onMouseDown | 鼠标按下 | (event: MapsEvent): void; |
