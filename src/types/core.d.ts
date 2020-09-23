@@ -297,10 +297,6 @@ declare namespace AMap {
   }
   interface MapEvents {
     /**
-     * 鼠标在地图上移动时触发
-     */
-    onMouseMove?:() => void;
-    /**
      * 地图缩放级别更改后触发
      */
     onZoomChange?:() => void;
@@ -309,29 +305,41 @@ declare namespace AMap {
      */
     onMapMove?:() => void;
     /**
+     * 鼠标在地图上移动时触发
+     */
+    onMouseMove?:(event: MapsEvent) => void;
+    /**
      * 鼠标滚轮开始缩放地图时触发
      */
-    onMouseWheel?:() => void;
+    onMouseWheel?:(event: MapsEvent) => void;
+    /**
+     * 鼠标移入地图容器内时触发
+     */
+    onMouseOver?:(event: MapsEvent) => void;
+    /**
+     * 鼠标移出地图容器时触发
+     */
+    onMouseOut?:(event: MapsEvent) => void;
+    /**
+     * 鼠标在地图上单击抬起时触发
+     */
+    onMouseUp?:(event: MapsEvent) => void;
+    /**
+     * 鼠标在地图上单击按下时触发
+     */
+    onMouseDown?:(event: MapsEvent) => void;
     /**
      * 缩放开始时触发
      */
     onZoomStart?:() => void;
     /**
-     * 鼠标移入地图容器内时触发
-     */
-    onMouseOver?:() => void;
-    /**
-     * 鼠标移出地图容器时触发
-     */
-    onMouseOut?:() => void;
-    /**
      * 鼠标左键双击事件
      */
-    onDblClick?:() => void;
+    onDblClick?:(event: MapsEvent) => void;
     /**
      * 鼠标左键单击事件
      */
-    onClick?:() => void;
+    onClick?:(event: MapsEvent) => void;
     /**
      * 缩放结束时触发
      */
@@ -341,17 +349,9 @@ declare namespace AMap {
      */
     onMoveEnd?:() => void;
     /**
-     * 鼠标在地图上单击抬起时触发
-     */
-    onMouseUp?:() => void;
-    /**
-     * 鼠标在地图上单击按下时触发
-     */
-    onMouseDown?:() => void;
-    /**
      * 鼠标右键单击事件
      */
-    onRightClick?:() => void;
+    onRightClick?:(event: MapsEvent) => void;
     /**
      * 地图平移开始时触发
      */
@@ -369,33 +369,33 @@ declare namespace AMap {
      */
     onDragEnd?:() => void;
     /**
+     * 鼠标点击热点时触发
+     */
+    onHotspotClick?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
+    /**
      * 鼠标移出热点时触发
      */
-    onHotspotOut?:() => void;
+    onHotspotOut?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
     /**
      * 鼠标滑过热点时触发
      */
-    onHotspotOver?:() => void;
+    onHotspotOver?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
     /**
      * 触摸开始时触发事件，仅适用移动设备
      */
-    onTouchStart?:() => void;
+    onTouchStart?:(event: MapsEvent) => void;
     /**
      * 地图资源加载完成后触发事件
      */
     onComplete?:() => void;
     /**
-     * 鼠标点击热点时触发
-     */
-    onHotspotClick?:() => void;
-    /**
      * 拖拽地图过程中触发，仅适用移动设备
      */
-    onTouchMove?:() => void;
+    onTouchMove?:(event: MapsEvent) => void;
     /**
      * 触摸结束时触发事件，仅适用移动设备
      */
-    onTouchEnd?:() => void;
+    onTouchEnd?:(event: MapsEvent) => void;
     /**
      * 地图容器尺寸改变事件
      */

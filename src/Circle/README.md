@@ -69,4 +69,4 @@ ReactDOM.render((
 | onMouseOut | 鼠标移出 | `(event: MapsEvent): void;` |
 | onMouseOver | 鼠标经过 | `(event: MapsEvent): void;` |
 | onMouseUp | 鼠标抬起 | `(event: MapsEvent): void;` |
-| onMouseDown | 鼠标按下 | `(event: MapsEvent): void;`  
+| onMouseDown | 鼠标按下 | `(event: MapsEvent): void;` |

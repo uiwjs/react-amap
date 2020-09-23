@@ -8,6 +8,8 @@ export * from './Marker';
 export * from './Marker/useMarker';
 export * from './Circle';
 export * from './Circle/useCircle';
+export * from './Ellipse';
+export * from './Ellipse/useEllipse';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';
