@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { MapProps } from './';
 import { MapChildProps } from '../common/map';
-import { useSetStatus, useEventProperties } from '../common/hooks';
+import { useSetStatus, useEventProperties, useSettingProperties } from '../common/hooks';
 
 export interface UseMap extends MapProps, MapChildProps {
   /**
@@ -30,6 +30,10 @@ export default (props: UseMap = {}) => {
   }, [zoom, props.zoom]);
 
   useSetStatus<AMap.Map, UseMap>(map!, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']);
+  // setStatus, setZoomAndCenter, setFitView
+  useSettingProperties<AMap.Map, UseMap>(map!, props, [
+    'Zoom', 'LabelzIndex', 'Layers', 'Center', 'City', 'Bounds', 'LimitBounds', 'Lang', 'Rotation', 'DefaultCursor', 'MapStyle', 'Features', 'DefaultLayer', 'Pitch'
+  ]);
   useEventProperties<AMap.Map, UseMap>(map!, props, [
     'onMouseMove', 'onZoomChange', 'onMapMove', 'onMouseWheel', 'onZoomStart', 'onMouseOver', 'onMouseOut', 'onDblClick', 'onClick', 'onZoomEnd', 'onMoveEnd', 'onMouseUp', 'onMouseDown', 'onRightClick', 'onMoveStart', 'onDragStart', 'onDragging', 'onDragEnd', 'onHotspotOut', 'onHotspotOver', 'onTouchStart', 'onComplete', 'onHotspotClick', 'onTouchMove', 'onTouchEnd', 'onResize',
   ]);
