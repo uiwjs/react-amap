@@ -46,11 +46,15 @@ ReactDOM.render((
 
 ### Props
 
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/24df253/src/types/overlay.d.ts#L425-L475)
+
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | radius | 圆半径，单位:米 | `number` | - |
 
 ### 事件
+
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/24df253/src/types/overlay.d.ts#L399-L423)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
