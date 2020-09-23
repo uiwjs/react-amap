@@ -14,6 +14,8 @@ export * from './Rectangle';
 export * from './Rectangle/useRectangle';
 export * from './BezierCurve';
 export * from './BezierCurve/useBezierCurve';
+export * from './Polygon';
+export * from './Polygon/usePolygon';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';

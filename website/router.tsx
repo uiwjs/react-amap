@@ -69,6 +69,10 @@ export const routes: Routes = [
     path: "/beizer-curve",
     component: loadable(() => import('./pages/beizer-curve'), options),
   },
+  {
+    path: "/polygon",
+    component: loadable(() => import('./pages/polygon'), options),
+  },
 ];
 
 
@@ -140,6 +144,10 @@ export const menus = [
   {
     label: 'BesizerCurve 贝塞尔曲线',
     path: '/beizer-curve',
+  },
+  {
+    label: 'Polygon 多边形',
+    path: '/polygon',
   },
   {
     divider: true,
