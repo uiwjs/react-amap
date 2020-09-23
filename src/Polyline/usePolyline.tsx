@@ -23,11 +23,11 @@ export default function(props = {} as UsePolyline) {
 
   useVisiable(polyline!, visiable);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
-    'Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle',
-    'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData'
+    'Path', 'Options', 'Map', 'ExtData'
   ]);
   useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
-    'onHide', 'onShow', 'onMouseOut', 'onRightClick', 'onDblClick', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp', 'onMouseDown'
+    'onHide', 'onShow', 'onMouseOut', 'onChange', 'onRightClick', 'onDblClick', 'onMouseDown',
+    'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp'
   ]);
   return {
     polyline, setPolyline,
