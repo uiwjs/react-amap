@@ -2522,10 +2522,10 @@
   resolved "https://registry.yarnpkg.com/@uiw/copy-to-clipboard/-/copy-to-clipboard-1.0.11.tgz#60b6b63480af902c21cce827b70a6893f404ea51"
   integrity sha512-VCcvOkDW8LgDUPRnYNwuLJWBlpVmmYiqEhHl6XpMvqrKEkTGCP+Jgx6Yx1q0MEey0aEdIiHIT1kUTHWyqz9rbA==
 
-"@uiw/react-code-preview@1.11.7":
-  version "1.11.7"
-  resolved "https://registry.yarnpkg.com/@uiw/react-code-preview/-/react-code-preview-1.11.7.tgz#9e268f3d5f985d18790fdb613f28d92e4b486931"
-  integrity sha512-3JpULrT1r7yG0OBmbLEBGB/m7Y6LOF6doLw3NRaaQRmfRiCpt69W0j8pVzsF724TCmgfbnxIr2+qZAfnLWioXA==
+"@uiw/react-code-preview@1.11.8":
+  version "1.11.8"
+  resolved "https://registry.yarnpkg.com/@uiw/react-code-preview/-/react-code-preview-1.11.8.tgz#6dc4170f7386904f12a2f23f75bc36aafcdcb33f"
+  integrity sha512-XPMjsiiM5f5YhOF7sj6lfQ1sJ1ckHIEPG9Gv9cXoHcy+7RzxxD3VDtdxTksI49WfDqA+a1yHiPImNZPWLTQmnA==
   dependencies:
     "@babel/plugin-transform-classes" "7.10.4"
     "@babel/runtime" "7.11.2"
