@@ -57,7 +57,7 @@ ReactDOM.render((
 |--------- |-------- |--------- |-------- |
 | position | 信息窗体显示基点位置，默认地图的中间 | `LngLat` | - |
 | offset | 信息窗体显示位置偏移量。默认基准点为信息窗体的底部中心（若设置了anchor，则以anchor值为基准点）。 | `Pixel` | - |
-| anchor | 信息窗体锚点 | `top-left`,`top-center`,`top-right`,`middle-left`,`center`,`middle-right`,`bottom-left`,`bottom-center`,`bottom-right` | - |
+| anchor | 信息窗体锚点 | `top-left`,`top-center`,`top-right`,`middle-left`,`center`,`middle-right`,`bottom-left`,`bottom-center`,`bottom-right` | `bottom-center` |
 | autoMove | 是否自动调整窗体到视野内（当信息窗体超出视野范围时，通过该属性设置是否自动平移地图，使信息窗体完全显示） | `boolean` | - |
 | size | 信息窗体显示基点位置，默认地图的中间 | `Size` | - |
 | closeWhenClickMap | 控制是否在鼠标点击地图后关闭信息窗体，默认false，鼠标点击地图后不关闭信息窗体 | `boolean` | - |
