@@ -42,14 +42,23 @@ function Demo() {
   const [dragEnable, setDragEnable] = useState(true);
   const [display, setDisplay] = useState(true);
   const [zoom, setZoom] = useState(15);
+  const [viewMode, setViewMode] = useState('3D');
   return (
     <Fragment>
       <button onClick={() => setDragEnable(!dragEnable)}>{dragEnable ? '禁用' : '启用'}拖拽</button>
       <button onClick={() => setDisplay(!display)}>{display ? '卸载' : '加载'}地图</button>
+      <button onClick={() => setViewMode(viewMode === '3D' ? '2D' : '3D')}>{viewMode}地图</button>
       <button onClick={() => setZoom(zoom + 1)}>放大 +1 -> ({zoom})</button>
       <button onClick={() => setZoom(zoom - 1)}>缩小 -1 -> ({zoom})</button>
-      <div style={{ width: '100%', height: '200px' }}>
-        {display ? <Map dragEnable={dragEnable} zoom={zoom} /> : null}
+      <div style={{ width: '100%', height: 350 }}>
+        {display && (
+          <Map
+            dragEnable={dragEnable}
+            zoom={zoom}
+            viewMode={viewMode}
+            pitch={viewMode === '2D' ? 0 : 70}
+          />
+        )}
       </div>
     </Fragment>
   );

@@ -154,6 +154,10 @@ export const menus = [
     path: '/polygon',
   },
   {
+    divider: true,
+    label: '信息窗体',
+  },
+  {
     label: 'InfoWindow 信息窗体',
     path: '/info-window',
   },
