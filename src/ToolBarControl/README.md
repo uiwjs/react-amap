@@ -38,7 +38,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <APILoader akay="1c44726c39431f704d3e25cd51381e35">
+  <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
     <Example />
   </APILoader>
 ), _mount_);
