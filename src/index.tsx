@@ -16,6 +16,8 @@ export * from './BezierCurve';
 export * from './BezierCurve/useBezierCurve';
 export * from './Polygon';
 export * from './Polygon/usePolygon';
+export * from './InfoWindow';
+export * from './InfoWindow/useInfoWindow';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';

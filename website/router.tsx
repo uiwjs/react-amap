@@ -73,6 +73,10 @@ export const routes: Routes = [
     path: "/polygon",
     component: loadable(() => import('./pages/polygon'), options),
   },
+  {
+    path: "/info-window",
+    component: loadable(() => import('./pages/info-window'), options),
+  },
 ];
 
 
@@ -148,6 +152,10 @@ export const menus = [
   {
     label: 'Polygon 多边形',
     path: '/polygon',
+  },
+  {
+    label: 'InfoWindow 信息窗体',
+    path: '/info-window',
   },
   {
     divider: true,

@@ -27,6 +27,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/Rectangle/README.md'),
   path.resolve(process.cwd(), 'src/BezierCurve/README.md'),
   path.resolve(process.cwd(), 'src/Polygon/README.md'),
+  path.resolve(process.cwd(), 'src/InfoWindow/README.md'),
 ];
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
