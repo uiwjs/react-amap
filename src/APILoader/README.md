@@ -50,7 +50,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| akay | **`必填`** 您需先[申请密钥（ak）](https://lbs.amap.com/api/webservice/guide/create-project/get-key)才可使用该服务。 | string | - |
+| akay | **`必填`** 您需先[申请密钥（ak）](https://lbs.amap.com/api/webservice/guide/create-project/get-key)才可使用该服务。⚠️ 注意申请 `Web端(JS API)` | string | - |
 | version | SDK 版本 | string | `2.0` |
 | protocol | 协议，默认是根据当前网站协议的 | `http`/`https` | `window.location.protocol` |
 | hostAndPath | 请求 SDK 的前半部分 | string | `webapi.amap.com/maps` |
