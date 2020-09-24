@@ -134,7 +134,7 @@ export const menus = [
     path: '/circle',
   },
   {
-    label: 'Ellipse 多边形',
+    label: 'Ellipse 圆形组件',
     path: '/ellipse',
   },
   {
@@ -184,7 +184,7 @@ export const menus = [
     path: 'https://gitee.com/uiw/react-amap',
   },
   {
-    label: '国内镜像',
+    label: '国内镜像 🇨🇳',
     target: '__blank',
     path: 'https://uiw.gitee.io/react-amap',
   },

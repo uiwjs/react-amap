@@ -21,9 +21,9 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
-      <div style={{ width: '100%', height: '300px' }}>
+      <div style={{ width: '100%', height: 600 }}>
         <Map>
-          <ToolBarControl visiable={show} offset={[10, 10]} position="RT" />
+          <ToolBarControl visiable={show} autoPosition={true} offset={[10, 10]} position="RT" viewMode="2D" />
           {show && (
             <ToolBarControl
               visiable={show}

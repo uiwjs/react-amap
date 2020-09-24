@@ -22,10 +22,10 @@ const Example = () => {
         {show ? '隐藏' : '显示'}
       </button>
       <div style={{ width: '100%', height: '300px' }}>
-        <Map zoom={4}>
+        <Map zoom={14} center={[116.400274, 39.905812]}>
           <Circle
             visiable={show}
-            radius={100000}
+            radius={1000}
             strokeColor="#fff"
             strokeWeight={2}
             center={new AMap.LngLat(116.39,39.9)}

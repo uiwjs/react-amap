@@ -478,7 +478,7 @@ declare namespace AMap {
     /**
      * (default '2D')	地图视图模式, 默认为‘2D’，可选’3D’，选择‘3D’会显示 3D 地图效果。
      */
-    viewMode?: string;
+    viewMode?: '2D' | '3D';
     /**
      * (default ['bg','point','road','building'])	设置地图上显示的元素种类, 支持'bg'（地图背景）、'point'（POI点）、'road'（道路）、'building'（建筑物）
      */
