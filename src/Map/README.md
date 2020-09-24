@@ -22,7 +22,7 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
       <Map />
     </APILoader>
   </div>
@@ -56,7 +56,7 @@ function Demo() {
 }
 
 ReactDOM.render((
-  <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 ), _mount_);
@@ -92,7 +92,7 @@ function Demo() {
 }
 
 ReactDOM.render((
-  <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 ), _mount_);
@@ -107,7 +107,7 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
       <Map
         onClick={() => {
           console.log('点击事件！');

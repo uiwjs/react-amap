@@ -70,7 +70,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 ), _mount_);
@@ -135,7 +135,7 @@ const Example = () => {
 }
 
 ReactDOM.render((
-  <APILoader akay="f1d447c5a9018ab4b7ea77290fb67b79">
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 ), _mount_);
