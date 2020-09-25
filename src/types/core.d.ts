@@ -242,7 +242,7 @@ declare namespace AMap {
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
      * @param control 控件对象
      */
-    addControl(control: Control | HawkEye): void;
+    addControl(control: Control | HawkEye | Geolocation): void;
     /**
      * 移除地图上的指定控件 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/mapbar/mapcontrol-control-add-remove/)
      * @param control 
@@ -295,7 +295,6 @@ declare namespace AMap {
      */
     plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView' | 'AMap.Weather'>, callBack: () => void): void;
   }
-  export function plugin(ControlType: Array<'AMap.Weather'>, callBack: () => void): void;
   interface MapEvents {
     /**
      * 地图缩放级别更改后触发
@@ -536,4 +535,12 @@ declare namespace AMap {
      */
     mask?: Array<number>;
   }
+  function plugin(ControlType: Array<'AMap.Weather' | 'AMap.Geolocation'>, callBack: () => void): void;
+  /**
+   * 为坐标转换类，支持将其他坐标系的坐标点转换为高德坐标系。坐标转换方法
+   * @param lnglat 
+   * @param type 
+   * @param callBack 
+   */
+  function convertFrom(lnglat: LngLat | Array<LngLat>, type: 'gps' | 'baidu' | 'mapbar', callBack: (status: string, result: ConvertorResult) => void): void;
 }

@@ -85,6 +85,10 @@ export const routes: Routes = [
     path: "/weather",
     component: loadable(() => import('./pages/weather'), options),
   },
+  {
+    path: "/geolocation",
+    component: loadable(() => import('./pages/geolocation'), options),
+  },
 ];
 
 
@@ -180,6 +184,10 @@ export const menus = [
   {
     label: 'Weather 天气查询服务',
     path: '/weather',
+  },
+  {
+    label: 'Geolocation 定位',
+    path: '/geolocation',
   },
   {
     divider: true,

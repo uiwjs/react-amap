@@ -20,8 +20,11 @@ export * from './InfoWindow';
 export * from './InfoWindow/useInfoWindow';
 export * from './CircleMarker';
 export * from './CircleMarker/useCircleMarker';
+
 export * from './Weather';
 export * from './Weather/useWeather';
+export * from './Geolocation';
+export * from './Geolocation/useGeolocation';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';
