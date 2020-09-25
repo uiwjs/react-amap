@@ -18,6 +18,8 @@ export * from './Polygon';
 export * from './Polygon/usePolygon';
 export * from './InfoWindow';
 export * from './InfoWindow/useInfoWindow';
+export * from './CircleMarker';
+export * from './CircleMarker/useCircleMarker';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';
