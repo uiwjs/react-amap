@@ -77,6 +77,10 @@ export const routes: Routes = [
     path: "/info-window",
     component: loadable(() => import('./pages/info-window'), options),
   },
+  {
+    path: "/circle-marker",
+    component: loadable(() => import('./pages/circle-marker'), options),
+  },
 ];
 
 
@@ -152,6 +156,10 @@ export const menus = [
   {
     label: 'Polygon 多边形',
     path: '/polygon',
+  },
+  {
+    label: 'CircleMarker 圆点标记',
+    path: '/circle-marker',
   },
   {
     divider: true,
