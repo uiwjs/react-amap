@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { InfoWindowProps } from '.';
 import { useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -7,7 +7,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   const { map, visiable, position, ...other } = props;
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!infoWindow) {
       const positionCenter = map.getCenter();
@@ -23,7 +23,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
         }
       }
     }
-  }, [map, infoWindow]);
+  }, [map]);
 
   useMemo(() => {
     if (isOpen !== visiable && infoWindow && map) {

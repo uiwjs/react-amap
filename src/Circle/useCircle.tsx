@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { CircleProps } from '.';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,20 +6,19 @@ export interface UseCircle extends CircleProps {}
 export const useCircle = (props = {} as UseCircle) => {
   const { map, visiable, ...other } = props;
   const [circle, setCircle] = useState<AMap.Circle>();
-  useMemo(() => {
-    if (!AMap || !map) return;
-    if (!circle) {
+  useEffect(() => {
+    if (AMap && map && !circle) {
       let instance: AMap.Circle = new AMap.Circle({ ...other });
       map.add(instance);
       setCircle(instance);
-      return () => {
-        if (instance) {
-          map && map.remove(instance);
-          setCircle(undefined);
-        }
+    }
+    return () => {
+      if (circle) {
+        map && map.remove(circle);
+        setCircle(undefined);
       }
     }
-  }, [map, circle]);
+  }, [map]);
 
   useVisiable(circle!, visiable);
   useSettingProperties<AMap.Circle, UseCircle>(circle!, props, [

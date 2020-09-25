@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { CircleMarkerProps } from '.';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,7 +6,7 @@ export interface UseCircleMarker extends CircleMarkerProps {}
 export const useCircleMarker = (props = {} as UseCircleMarker) => {
   const { map, visiable, ...other } = props;
   const [circleMarker, setCircleMarker] = useState<AMap.CircleMarker>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!circleMarker) {
       let instance: AMap.CircleMarker = new AMap.CircleMarker({ ...other });
@@ -19,7 +19,7 @@ export const useCircleMarker = (props = {} as UseCircleMarker) => {
         }
       }
     }
-  }, [map, circleMarker]);
+  }, [map]);
 
   useVisiable(circleMarker!, visiable);
   useSettingProperties<AMap.CircleMarker, UseCircleMarker>(circleMarker!, props, [

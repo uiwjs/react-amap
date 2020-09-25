@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { RectangleProps } from '.';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,7 +6,7 @@ export interface UseRectangle extends RectangleProps {}
 export const useRectangle = (props = {} as UseRectangle) => {
   const { map, visiable, ...other } = props;
   const [rectangle, setRectangle] = useState<AMap.Rectangle>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!rectangle) {
       let instance: AMap.Rectangle = new AMap.Rectangle({ ...other });
@@ -19,7 +19,7 @@ export const useRectangle = (props = {} as UseRectangle) => {
         }
       }
     }
-  }, [map, rectangle]);
+  }, [map]);
 
   useVisiable(rectangle!, visiable);
   useSettingProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, [

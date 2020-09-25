@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { MarkerProps } from './';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,7 +6,7 @@ export interface UseMarker extends MarkerProps {}
 export const useMarker = (props = {} as UseMarker) => {
   const { map, visiable, ...other } = props;
   const [marker, setMarker] = useState<AMap.Marker>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!marker) {
       let instance: AMap.Marker = new AMap.Marker({ ...other });
@@ -19,7 +19,7 @@ export const useMarker = (props = {} as UseMarker) => {
         }
       }
     }
-  }, [map, marker]);
+  }, [map]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

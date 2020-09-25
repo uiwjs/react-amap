@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { EllipseProps } from './';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,7 +6,7 @@ export interface UseEllipse extends EllipseProps {}
 export const useEllipse = (props = {} as UseEllipse) => {
   const { map, visiable, ...other } = props;
   const [ellipse, setEllipse] = useState<AMap.Ellipse>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!ellipse) {
       let instance: AMap.Ellipse = new AMap.Ellipse({ ...other });
@@ -19,7 +19,7 @@ export const useEllipse = (props = {} as UseEllipse) => {
         }
       }
     }
-  }, [map, ellipse]);
+  }, [map]);
 
   useVisiable(ellipse!, visiable);
   useSettingProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, [

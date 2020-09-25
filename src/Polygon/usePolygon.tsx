@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { PolygonProps } from '.';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 
@@ -6,7 +6,7 @@ export interface UsePolygon extends PolygonProps {}
 export const usePolygon = (props = {} as UsePolygon) => {
   const { map, visiable, ...other } = props;
   const [polygon, setPolygon] = useState<AMap.Polygon>();
-  useMemo(() => {
+  useEffect(() => {
     if (!AMap || !map) return;
     if (!polygon) {
       let instance: AMap.Polygon = new AMap.Polygon({ ...other });
@@ -19,7 +19,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
         }
       }
     }
-  }, [map, polygon]);
+  }, [map]);
 
   useVisiable(polygon!, visiable);
   useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
