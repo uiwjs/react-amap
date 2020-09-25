@@ -141,6 +141,44 @@ ReactDOM.render((
 ```
 <!--End-->
 
+### 不使用组件
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import React, { useEffect, useState, useRef } from 'react';
+import { APILoader } from '@uiw/react-amap';
+
+const Example = () => {
+  const [data, setData] = useState();
+  useEffect(() => {
+    const instance = new AMap.Weather({});
+    instance.getForecast('上海市', (status, result) => {
+      if(status === 'complete'){
+        setData(result);
+      } else {
+        setData(result);
+      }
+    });
+  }, []);
+  return (
+    <>
+      <div style={{ width: '100%' }}>
+        <pre style={{ padding: 10, marginTop: 10 }}>
+          {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
+        </pre>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
 
 ### Props
 
