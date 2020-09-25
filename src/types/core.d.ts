@@ -293,8 +293,9 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView'>, callBack: () => void): void;
+    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView' | 'AMap.Weather'>, callBack: () => void): void;
   }
+  export function plugin(ControlType: Array<'AMap.Weather'>, callBack: () => void): void;
   interface MapEvents {
     /**
      * 地图缩放级别更改后触发

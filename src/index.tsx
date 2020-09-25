@@ -20,6 +20,8 @@ export * from './InfoWindow';
 export * from './InfoWindow/useInfoWindow';
 export * from './CircleMarker';
 export * from './CircleMarker/useCircleMarker';
+export * from './Weather';
+export * from './Weather/useWeather';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';

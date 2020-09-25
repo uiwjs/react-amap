@@ -29,6 +29,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/Polygon/README.md'),
   path.resolve(process.cwd(), 'src/InfoWindow/README.md'),
   path.resolve(process.cwd(), 'src/CircleMarker/README.md'),
+  path.resolve(process.cwd(), 'src/Weather/README.md'),
 ];
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {

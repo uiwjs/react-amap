@@ -81,6 +81,10 @@ export const routes: Routes = [
     path: "/circle-marker",
     component: loadable(() => import('./pages/circle-marker'), options),
   },
+  {
+    path: "/weather",
+    component: loadable(() => import('./pages/weather'), options),
+  },
 ];
 
 
@@ -168,6 +172,14 @@ export const menus = [
   {
     label: 'InfoWindow 信息窗体',
     path: '/info-window',
+  },
+  {
+    divider: true,
+    label: '服务',
+  },
+  {
+    label: 'Weather 天气查询服务',
+    path: '/weather',
   },
   {
     divider: true,
