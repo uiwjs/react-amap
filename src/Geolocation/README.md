@@ -57,7 +57,7 @@ ReactDOM.render((
 ```
 <!--End-->
 
-### 只获取定位信息
+### 只获取定位经纬度
 
 <!--DemoStart,bgWhite--> 
 ```jsx
@@ -89,6 +89,94 @@ const Example = () => {
             setData(data);
           }}
         />
+        <pre style={{ padding: 10, marginTop: 10 }}>
+          {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
+        </pre>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
+### 只获取定位地址信息
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { APILoader, Geolocation } from '@uiw/react-amap';
+
+const Example = () => {
+  const [data, setData] = useState();
+  return (
+    <>
+      <div style={{ width: '100%' }}>
+        <Geolocation
+          type="cityInfo"
+          // 是否使用高精度定位，默认:true
+          enableHighAccuracy={true}
+          // 超过10秒后停止定位，默认：5s
+          timeout={10000}
+          // 定位按钮的停靠位置
+          buttonPosition="RB"
+          // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+          buttonOffset={new AMap.Pixel(10, 20)}
+          // 定位成功后是否自动调整地图视野到定位点
+          zoomToAccuracy={true}
+          onComplete={(data) => {
+            console.log('返回数据：', data);
+            setData(data);
+          }}
+          onError={(data) => {
+            console.log('错误返回数据：', data);
+            setData(data);
+          }}
+        />
+        <pre style={{ padding: 10, marginTop: 10 }}>
+          {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
+        </pre>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
+### 不使用组件
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import React, { useEffect, useState, useRef } from 'react';
+import { APILoader, Geolocation } from '@uiw/react-amap';
+
+const Example = () => {
+  const [data, setData] = useState();
+  useEffect(() => {
+    const instance = new AMap.Geolocation({});
+    instance.getCityInfo((status, result) => {
+      console.log('>>>>', status, result)
+    if(status === 'complete'){
+      setData(result);
+    } else if (onError) {
+      setData(result);
+    }
+    });
+  }, []);
+  return (
+    <>
+      <div style={{ width: '100%' }}>
         <pre style={{ padding: 10, marginTop: 10 }}>
           {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
         </pre>

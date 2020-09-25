@@ -21,7 +21,7 @@ export const useGeolocation = (props = {} as UseGeolocation) => {
   }, [AMap]);
 
   function callback(status: 'error' | 'complete', result: AMap.GeolocationResult) {
-    if(status=='complete' && onComplete){
+    if(status === 'complete' && onComplete){
       onComplete(result)
     } else if (onError) {
       onError(result)
