@@ -44,10 +44,6 @@
     "地图",
     "高德地图"
   ],
-  "dependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  },
   "devDependencies": {
     "@kkt/loader-less": "5.10.3",
     "@kkt/loader-raw": "5.10.3",
@@ -63,7 +59,8 @@
     "compile-less-cli": "1.5.1",
     "default-passive-events": "2.0.0",
     "kkt": "5.10.3",
-    "raw-loader": "4.0.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
     "tsbb": "1.7.6"
   },
