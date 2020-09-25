@@ -535,7 +535,7 @@ declare namespace AMap {
      */
     mask?: Array<number>;
   }
-  function plugin(ControlType: Array<'AMap.Weather' | 'AMap.Geolocation'>, callBack: () => void): void;
+  function plugin(ControlType: Array<'AMap.Weather' | 'AMap.Geolocation' | 'AMap.AutoComplete' | 'AMap.PlaceSearch'>, callBack: () => void): void;
   /**
    * 为坐标转换类，支持将其他坐标系的坐标点转换为高德坐标系。坐标转换方法
    * @param lnglat 

@@ -89,6 +89,10 @@ export const routes: Routes = [
     path: "/geolocation",
     component: loadable(() => import('./pages/geolocation'), options),
   },
+  {
+    path: "/auto-complete",
+    component: loadable(() => import('./pages/auto-complete'), options),
+  },
 ];
 
 
@@ -188,6 +192,14 @@ export const menus = [
   {
     label: 'Geolocation 定位',
     path: '/geolocation',
+  },
+  {
+    divider: true,
+    label: '搜索',
+  },
+  {
+    label: 'AutoComplete 输入提示',
+    path: '/auto-complete',
   },
   {
     divider: true,

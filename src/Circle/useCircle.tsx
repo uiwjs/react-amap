@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { CircleProps } from '.';
 import { useVisiable, useEventProperties, useSettingProperties } from '../common/hooks';
 

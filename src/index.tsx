@@ -25,6 +25,8 @@ export * from './Weather';
 export * from './Weather/useWeather';
 export * from './Geolocation';
 export * from './Geolocation/useGeolocation';
+export * from './AutoComplete';
+export * from './AutoComplete/useAutoComplete';
 
 export * from './ScaleControl';
 export * from './ScaleControl/useScaleControl';
