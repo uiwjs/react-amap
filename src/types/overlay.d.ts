@@ -4,48 +4,107 @@
 declare namespace AMap {
   class Marker extends EventListener {
     constructor(opts: MarkerOptions);
+    /** 唤起高德地图客户端标注页
+    * 其中Object里面包含有{ name:String,name属性 必要参数
+    * position: LngLat 坐标点
+    } */
+    markOnAMAP(obj: any): void;
+    /** 获取点标记的动画效果类型 */
+    getAnimation(): void;
+    /**
+     * 设置点标记的动画效果，默认值：
+     * “AMAP_ANIMATION_NONE”
+     * 可选值：
+     * “AMAP_ANIMATION_NONE”，无动画效果
+     * “AMAP_ANIMATION_DROP”，点标掉落效果
+     * “AMAP_ANIMATION_BOUNCE”，点标弹跳效果
+     */
+    setAnimation(animate: string): void;
+    /** 获取点标记的文字提示 */
     getTitle(): ?string;
+    /** 鼠标滑过点标时的文字提示 */
     setTitle(title: string): void;
+    /** 当点标记未自定义图标时，获取Icon内容 */
     getIcon(): void;
+    /** 设置点标记的显示图标。
+      * 参数image可传入String、Icon两种类型的值。
+      * 若为String（图片url），表示点标记以指定图片形式显示；若为Icon，表示点标记以Icon对象形式显示
+    */
     setIcon(icon): void;
+    /** 获取点标记文本标签内容 */
     getLabel(): void;
+    /** 设置点标记文本标签内容相关示例（https://lbs.amap.com/api/javascript-api/example/marker/set-marker-text-label/） */
     setLabel(opts: any): void;
+    /** 获取点标记是否支持鼠标单击事件Boolean */
     getClickable(): void;
+    /** 设置点标记是支持鼠标单击事件clickable:Boolean */
     setClickable(clickable: any): void;
+    /** 获取点标记对象是否可拖拽移动Boolean */
     getDraggable(): void;
+    /** 设置点标记对象是否可拖拽移动draggable:Boolean */
     setDraggable(draggable: any): void;
+    /** Boolean */
     getTop(): void;
+    /** 地图上有多个marker时，当isTop为true时，marker将显示在最前面；当为false时，marker取消置顶isTop:Boolean */
     setTop(isTop: any): void;
-    getCursor(): void;
+    /** 
+     * 设置鼠标悬停时的光标。 参数cur可为CSS标注中的光标样式，如：
+     * setCursor(“pointer”)等；或者自定义的光标样式，如：
+     * setCursor("url('https://webapi.amap.com/images/0.png') ,pointer")
+     * 注：当浏览器不支持css2，url值不起作用，鼠标样式就按pointer来设置
+     */
     setCursor(cursor: any): void;
+    /** 获取用户自定义属性 Any */
     getExtData(): void;
-    setExtData(extData: any): void;
-    remove(): void;
+    /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Marker的id等 */
+    setExtData(ext: any): void;
+    /** 
+     * lnglat:LngLat,speed:Number,f:Function
+     * 以给定速度移动点标记到指定位置。参数lnglat为指定位置，必设；speed为指定速度，单位：千米/小时，不可为0；
+     * 回调函数f为变化曲线函数，缺省为function(k){return k}
+     */
     moveTo(targetPosition: any, opts: any): void;
+    /** 
+     * path:Array, speed:Number,f:Function,circlable:Boolean
+     * 以指定的速度，点标记沿指定的路径移动。参数path为轨迹路径的经纬度对象的数组；speed为指定速度，单位：千米/小时，不可为0；
+     * 回调函数f为变化曲线函数，缺省为function(k){return k}；参数circlable表明是否循环执行动画，默认为false
+     */
     moveAlong(path: Array<LngLat> | Array<VectorLayer> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
-    startMove(): void;
+    /** 点标记停止动画 */
     stopMove(): void;
+    /** 暂定点标记的动画效果 */
     pauseMove(): void;
+    /** 重新开始点标记的动画效果 */
     resumeMove(): void;
-    setSize(size: Size): void;
+    /** 获取点标记的叠加顺序 */
     getzIndex(): void;
+    /** 设置点标记的叠加顺序，默认最先添加的点标记在最底层 */
     setzIndex(zIndex: number): void;
-    getOptions(): void;
+    /** 获取点标记内容 */
     getContent(): void;
-    add(map: Map): void;
-    getAngle(): void;
-    setOffset(offset: VectorLayer | Pixel): void;
-    setContent(content: HTMLElement | string): void;
-    getBounds(): void;
-    getOffset(): void;
-    Marker(anchor: string): void;
-    getMap(): void;
-    getAnchor(): void;
-    setPosition(position: VectorLayer): void;
-    getPosition(): void;
-    /** 显示覆盖物 */
-    hide(): void;
     /**  */
+    add(map: Map): void;
+    /** 获取点标记的旋转角度*/
+    getAngle(): void;
+    /** 设置Marker偏移量（自v1.3 新增） */
+    setOffset(offset: VectorLayer | Pixel): void;
+    /** 设置点标记显示内容，可以是HTML要素字符串或者HTML DOM对象 */
+    setContent(content: HTMLElement | string): void;
+    /** 获取Marker偏移量（自v1.3 新增） */
+    getOffset(): void;
+    /**  */
+    Marker(anchor: string): void;
+    /** 获取Marker所在地图对象 */
+    getMap(): void;
+    /** 获取Marker锚点 String */
+    getAnchor(): void;
+    /** 设置点标记位置lnglat:LngLat */
+    setPosition(position: VectorLayer): void;
+    /** 获取点标记的位置 */
+    getPosition(): void;
+    /** 点标记隐藏 */
+    hide(): void;
+    /** 点标记显示 */
     show(): void;
     /** 将覆盖物设置到地图上 */
     setMap(map: Map | null): void;
@@ -55,8 +114,15 @@ declare namespace AMap {
     setAngle(angle: number): void;
     /** 如设置了尺寸，获取设置的尺寸 */
     getSize(): any;
+    /** 为marker设置阴影效果 icon:Icon*/
+    setShadow( icon: any): void;
+    /** 获取marker的阴影图标 */
+    getShadow(): void;
+    /** 获取marker的可点击区域 */
+    getShape(): void;
   }
   interface MarkerOptions {
+    
     /**
      * 要显示该marker的地图对象
      */
@@ -296,6 +362,13 @@ declare namespace AMap {
      * @param point 
      */
     contains(point: LngLatLike): boolean;
+    /** 地图上隐藏指定折线 */
+    hide(): void;
+    /** 地图上显示指定折线 */
+    show(): void;
+    /** 设置折线所在的地图。参数map即为目标地图，参数为null时，在地图上移除当前折线 */
+    setMap(map: Map): void;
+
   }
   interface PolylineEvents {
     /** 隐藏 */
@@ -446,6 +519,10 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
+    /** 设置折线所在的地图。参数map即为目标地图，参数为null时，在地图上移除当前折线 */
+    setMap(map: Map): void;
+    /** 获取圆外切矩形范围 Bounds*/
+    getBounds(): void;
   }
   interface CircleEvents {
     /** 隐藏 */
@@ -550,6 +627,8 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleMarkerOptions;
+     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
+    setMap(map:Map): void;
   }
   interface CircleMarkerEvents {
     /** 隐藏 */
@@ -634,6 +713,8 @@ declare namespace AMap {
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
     setExtData(extData: any): void;
+    /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
+    setMap(map:Map): void;
   }
   interface EllipseOptions {
     /**
@@ -746,6 +827,8 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取矩形的属性 */
     getOptions(): RectangleOptions;
+    /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
+    setMap(map:Map): void;
   }
   interface RectangleOptions {
     /** 要显示该覆盖物的地图对象 */
@@ -1067,8 +1150,8 @@ declare namespace AMap {
     onClose?(opts: { type: string }): void;
     onChange?(): void;
   }
-  /** 文本标记 */
-  class Text extends EventListener {
+   /** 文本标记 */
+   class Text extends EventListener {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
