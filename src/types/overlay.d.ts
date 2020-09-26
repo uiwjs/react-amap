@@ -1067,4 +1067,139 @@ declare namespace AMap {
     onClose?(opts: { type: string }): void;
     onChange?(): void;
   }
+  /** 文本标记 */
+  class Text extends EventListener {
+    constructor(opts: TextOptions);
+    /** 获取文本标记内容 */
+    getText(): string | undefined;
+    text(text: string): void;
+    setStyle(style: any): void;
+    getTitle(): string | undefined;
+    setTitle(title: string): void;
+    getClickable(): boolean;
+    setClickable(clickable: boolean): void;
+    getDraggable(): boolean;
+    setDraggable(draggable: boolean): void;
+    getTop(): boolean;
+    getzIndex(): number | undefined;;
+    getMap(): ?Map;
+    setMap(map: Map): void;
+    addTo(map: Map): void;
+    add(map: Map): void;
+    show(): void;
+    hide(): void;
+    getPosition(): Vector | LngLat;
+    setPosition(position: Vector): void;
+    getAnchor(): string | Vector | undefined;
+    Text(anchor: string): void;
+    getOffset(): Vector | Pixel | undefined | Array<number>;
+    setOffset(offset: Array<number> | Pixel): void;
+    getAngle(): number | undefined;
+    setAngle(angle: number): void;
+    setzIndex(zIndex: number): void;
+    getOptions(): OverlayOptions;
+    getBounds(): Bounds;
+    moveTo(targetPosition: LngLat | Vector, opts: MoveToOptions): void;
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
+    /** 开启文本标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    startMove(): void;
+    stopMove(): void;
+    pauseMove(): void;
+    resumeMove(): void;
+    setTop(isTop: boolean): void;
+    getCursor(): string;
+    setCursor(cursor: string): void;
+    getExtData(): any | undefined;
+    setExtData(extData: any | undefined): void;
+    remove(): void;
+  }
+  interface TextEvents {
+    onMoving?(): void;
+    onTouchMove?(): void;
+    onTouchEnd?(): void;
+    onMoveaLong?(): void;
+    onTouchStart?(): void;
+    onMoveEnd?(): void;
+    onClick?(): void;
+    onDblClick?(): void;
+    onRightClick?(): void;
+    onMouseMove?(): void;
+    onMouseOver?(): void;
+    onMouseOut?(): void;
+    onMouseDown?(): void;
+    onMouseUp?(): void;
+    onDragStart?(): void;
+    onDragEnd?(): void;
+    onDragging?(): void;
+  }
+  interface TextOptions {
+    /** 要显示该marker的地图对象 */
+    map?: Map;
+    /** 点标记在地图上显示的位置 */
+    position?: Vector | LngLat;
+    /** 标记显示的文本内容 */
+    text?: LabelOptions;
+    /** 鼠标滑过点标记时的文字提示 */
+    title?: string;
+    /** 点标记是否可见，默认为true */
+    visible?: boolean;
+    /** 点标记的叠加顺序 */
+    zIndex?: number;
+    /** 点标记显示位置偏移量，默认值 [0, 0] 。 图解说明 */
+    offset?: Vector | Pixel;
+    /** 设置点标记锚点。默认值：'center'。可选值：'top-left'|'top-center'|'top-right'|'middle-left'|'center'|'middle-right'|'bottom-left'|'bottom-center'|'bottom-right' */
+    anchor?: string | Vector;
+    /** 点标记的旋转角度。默认值：0 。注：angle属性是使用CSS3来实现的，支持IE9及以上版本 */
+    angle?: number;
+    /** 点标记是否可点击。默认值: true */
+    clickable?: boolean;
+    /** 设置点标记是否可拖拽移动。默认值：false */
+    draggable?: boolean;
+    /** 事件是否冒泡，默认值：false */
+    bubble?: boolean;
+    /** 点标记显示的层级范围，超过范围不显示。默认值：zooms: [2, 20] 。 */
+    zooms?: Vector;
+    /** 指定鼠标悬停时的鼠标样式。 */
+    cursor?: string;
+    /** 鼠标点击时marker是否置顶，默认值: false */
+    topWhenClick?: boolean;
+    /** 用户自定义属性 ，支持JavaScript API任意数据类型，如 Marker的id等。可将自定义数据保存在该属性上，方便后续操作使用。 */
+    extData?: any;
+    /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
+    style?: object;
+  }
+
+  interface MoveAlongObj {}
+  interface MoveToOptions {
+    /** 每段动画持续时长, 单位：ms */
+    duration?: number;
+    /** 动画速度，已废弃 */
+    speed?: number;
+    /** easing 时间函数 */
+    easing?: EasingCallback;
+    /** 覆盖物是否沿路径旋转 */
+    autoRotation?: boolean;
+  }
+  /** 时间函数回调 */
+  type EasingCallback = (passedTime: number) => number;
+  interface OverlayOptions {
+    map?: Map;
+    position?: [number, number];
+    content?: string | HTMLElement;
+    visible?: boolean;
+    zIndex?: number;
+    extData?: any;
+    size?: [number, number] | Size;
+    offset?: [number, number] | Pixel;
+    anchor?: string | [number, number];
+    rotate?: number;
+    angle?: number;
+    orientation?: number | null;
+    scale?: number;
+    draggable?: boolean;
+    zooms?: [number, number];
+    noSelect?: boolean;
+    innerOverlay?: boolean;
+    isCustom?: boolean;
+  }
 }

@@ -74,6 +74,7 @@ declare namespace AMap {
      */
     distance?(): number;
   }
+  type Vector = number[];
   class LngLatLike extends LngLat {};
   /**
    * 地物对象的经纬度矩形范围。
@@ -250,5 +251,5 @@ declare namespace AMap {
     /** 覆盖物是否沿路径旋转 */
     autoRotation?: boolean;
   }
-  type AnimationCallback = (index: number, data: LngLat) => number
+  type AnimationCallback = (index: number, data: LngLat) => number;
 }

@@ -54,6 +54,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/marker'), options),
   },
   {
+    path: "/text",
+    component: loadable(() => import('./pages/text'), options),
+  },
+  {
     path: "/circle",
     component: loadable(() => import('./pages/circle'), options),
   },
@@ -146,6 +150,10 @@ export const menus = [
     path: '/marker',
   },
   {
+    label: 'Text 文本标记',
+    path: '/text',
+  },
+  {
     label: 'Polyline 折线',
     path: '/polyline',
   },
@@ -213,7 +221,7 @@ export const menus = [
   {
     label: '高德地图官方示例中心',
     target: '__blank',
-    path: 'https://lbs.amap.com/demo-center/amap-ui',
+    path: 'https://lbs.amap.com/demo-center/jsapi-v2',
   },
   {
     label: '高德地图参考手册',

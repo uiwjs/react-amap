@@ -22,6 +22,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/HawkEyeControl/README.md'),
   path.resolve(process.cwd(), 'src/Polyline/README.md'),
   path.resolve(process.cwd(), 'src/Marker/README.md'),
+  path.resolve(process.cwd(), 'src/Text/README.md'),
   path.resolve(process.cwd(), 'src/Circle/README.md'),
   path.resolve(process.cwd(), 'src/Ellipse/README.md'),
   path.resolve(process.cwd(), 'src/Rectangle/README.md'),

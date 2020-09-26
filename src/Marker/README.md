@@ -71,6 +71,50 @@ ReactDOM.render((
 ```
 <!--End-->
 
+### 点标注的文本标签
+
+<!--DemoStart,bgWhite,noScroll--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, Marker } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map zoom={12} center={[116.397428, 39.90923]}>
+          <Marker
+            visiable={show}
+            title="北京市"
+            offset={new AMap.Pixel(-13, -30)}
+            label={{
+              // 设置文本标注偏移量
+              offset: new AMap.Pixel(20, 20),
+              // 设置文本标注内容
+              content: "<div class='info'>我是 marker 的 label 标签</div>",
+              // 设置文本标注方位
+              direction: 'right'
+            }}
+            position={new AMap.LngLat(116.405285,39.904989)}
+          />
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
 ### Props
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L8-L111)
