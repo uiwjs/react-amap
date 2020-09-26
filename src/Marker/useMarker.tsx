@@ -14,7 +14,7 @@ export const useMarker = (props = {} as UseMarker) => {
       setMarker(instance);
       return () => {
         if (instance) {
-          map && map.remove(instance);
+          instance.remove();
           setMarker(undefined);
         }
       }

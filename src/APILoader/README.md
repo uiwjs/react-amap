@@ -13,6 +13,7 @@ Map 的父组件必须具有宽度和高度；
 
 <!--DemoStart,bgWhite,codePen--> 
 ```jsx
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
@@ -30,6 +31,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite,codePen--> 
 ```jsx
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (

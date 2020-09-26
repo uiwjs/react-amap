@@ -234,4 +234,21 @@ declare namespace AMap {
      */
     imageSize?: Size;
   }
+  interface MoveAlongOptions {
+    /** 每段动画持续时长, 单位：ms */
+    duration?: (number | AnimationCallback);
+    /** 每段动画速度，已废弃 */
+    speed?: (number | AnimationCallback);
+    /** easing 时间函数 */
+    easing?: EasingCallback;
+    /** 动画是否循环 */
+    circlable?: boolean;
+    /** 延迟动画时长 */
+    delay?: (number | AnimationCallback);
+    /** 每段完整动画间隔时长 */
+    aniInterval?: number;
+    /** 覆盖物是否沿路径旋转 */
+    autoRotation?: boolean;
+  }
+  type AnimationCallback = (index: number, data: LngLat) => number
 }

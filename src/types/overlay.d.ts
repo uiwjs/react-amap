@@ -4,6 +4,57 @@
 declare namespace AMap {
   class Marker extends EventListener {
     constructor(opts: MarkerOptions);
+    getTitle(): ?string;
+    setTitle(title: string): void;
+    getIcon(): void;
+    setIcon(icon): void;
+    getLabel(): void;
+    setLabel(opts: any): void;
+    getClickable(): void;
+    setClickable(clickable: any): void;
+    getDraggable(): void;
+    setDraggable(draggable: any): void;
+    getTop(): void;
+    setTop(isTop: any): void;
+    getCursor(): void;
+    setCursor(cursor: any): void;
+    getExtData(): void;
+    setExtData(extData: any): void;
+    remove(): void;
+    moveTo(targetPosition: any, opts: any): void;
+    moveAlong(path: Array<LngLat> | Array<VectorLayer> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
+    startMove(): void;
+    stopMove(): void;
+    pauseMove(): void;
+    resumeMove(): void;
+    setSize(size: Size): void;
+    getzIndex(): void;
+    setzIndex(zIndex: number): void;
+    getOptions(): void;
+    getContent(): void;
+    add(map: Map): void;
+    getAngle(): void;
+    setOffset(offset: VectorLayer | Pixel): void;
+    setContent(content: HTMLElement | string): void;
+    getBounds(): void;
+    getOffset(): void;
+    Marker(anchor: string): void;
+    getMap(): void;
+    getAnchor(): void;
+    setPosition(position: VectorLayer): void;
+    getPosition(): void;
+    /** 显示覆盖物 */
+    hide(): void;
+    /**  */
+    show(): void;
+    /** 将覆盖物设置到地图上 */
+    setMap(map: Map | null): void;
+    /** 将覆盖物加到地图上 */
+    addTo(map: Map): void;
+    /** 设置覆盖物旋转角度 */
+    setAngle(angle: number): void;
+    /** 如设置了尺寸，获取设置的尺寸 */
+    getSize(): any;
   }
   interface MarkerOptions {
     /**

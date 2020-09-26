@@ -18,6 +18,7 @@ Map 的父组件必须具有宽度和高度；
 
 <!--DemoStart,bgWhite--> 
 ```jsx
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
@@ -35,7 +36,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--DemoStart,bgWhite--> 
 ```jsx
-import { React, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 function Demo() {
@@ -78,18 +79,21 @@ ReactDOM.render((
 
 <!--DemoStart,bgWhite--> 
 ```jsx
-import { React, useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 function Demo() {
   return (
     <div style={{ width: '100%', height: 330 }}>
-      <Map ref={(instance) => {
-        if (instance && instance.map) {
-          const bounds = instance.map.getBounds();
-          console.log('instance', bounds);
-        }
-      }} />
+      <Map
+        layers={[new AMap.TileLayer.Satellite()]}
+        ref={(instance) => {
+          if (instance && instance.map) {
+            const bounds = instance.map.getBounds();
+            console.log('instance', bounds);
+          }
+        }}
+      />
     </div>
   );
 }
@@ -106,6 +110,7 @@ ReactDOM.render((
 
 <!--DemoStart,bgWhite--> 
 ```jsx
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
