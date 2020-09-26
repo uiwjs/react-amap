@@ -2,109 +2,94 @@
 /// <reference path="./core.d.ts" />
 
 declare namespace AMap {
+  /**
+   * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
+   */
   class Marker extends EventListener {
     constructor(opts: MarkerOptions);
-    /** 唤起高德地图客户端标注页
-    * 其中Object里面包含有{ name:String,name属性 必要参数
-    * position: LngLat 坐标点
-    } */
-    markOnAMAP(obj: any): void;
-    /** 获取点标记的动画效果类型 */
-    getAnimation(): void;
-    /**
-     * 设置点标记的动画效果，默认值：
-     * “AMAP_ANIMATION_NONE”
-     * 可选值：
-     * “AMAP_ANIMATION_NONE”，无动画效果
-     * “AMAP_ANIMATION_DROP”，点标掉落效果
-     * “AMAP_ANIMATION_BOUNCE”，点标弹跳效果
-     */
-    setAnimation(animate: string): void;
     /** 获取点标记的文字提示 */
     getTitle(): ?string;
     /** 鼠标滑过点标时的文字提示 */
     setTitle(title: string): void;
     /** 当点标记未自定义图标时，获取Icon内容 */
-    getIcon(): void;
-    /** 设置点标记的显示图标。
-      * 参数image可传入String、Icon两种类型的值。
-      * 若为String（图片url），表示点标记以指定图片形式显示；若为Icon，表示点标记以Icon对象形式显示
-    */
-    setIcon(icon): void;
+    getIcon(): Icon | string | undefined;
+    /** 当点标记未自定义图标时，获取Icon内容 */
+    setIcon(icon: Icon | string): void;
     /** 获取点标记文本标签内容 */
-    getLabel(): void;
+    getLabel(): TextOptions;
     /** 设置点标记文本标签内容相关示例（https://lbs.amap.com/api/javascript-api/example/marker/set-marker-text-label/） */
-    setLabel(opts: any): void;
+    setLabel(opts: TextOptions): void;
     /** 获取点标记是否支持鼠标单击事件Boolean */
-    getClickable(): void;
+    getClickable(): boolean;
     /** 设置点标记是支持鼠标单击事件clickable:Boolean */
-    setClickable(clickable: any): void;
+    setClickable(clickable: boolean): void;
     /** 获取点标记对象是否可拖拽移动Boolean */
-    getDraggable(): void;
+    getDraggable(): boolean;
     /** 设置点标记对象是否可拖拽移动draggable:Boolean */
-    setDraggable(draggable: any): void;
-    /** Boolean */
-    getTop(): void;
-    /** 地图上有多个marker时，当isTop为true时，marker将显示在最前面；当为false时，marker取消置顶isTop:Boolean */
-    setTop(isTop: any): void;
-    /** 
-     * 设置鼠标悬停时的光标。 参数cur可为CSS标注中的光标样式，如：
-     * setCursor(“pointer”)等；或者自定义的光标样式，如：
-     * setCursor("url('https://webapi.amap.com/images/0.png') ,pointer")
-     * 注：当浏览器不支持css2，url值不起作用，鼠标样式就按pointer来设置
-     */
-    setCursor(cursor: any): void;
+    setDraggable(draggable: boolean): void;
+    /** 获取该点标记是否置顶 */
+    getTop(): boolean;
+    /** 获取鼠标悬停时的光标设置 */
+    getCursor(): string;
+    /** 地图上有多个marker时，设置是否置顶该点标记 */
+    setTop(isTop: boolean): void;
+    /** 获取鼠标悬停时的光标设置 */
+    getCursor(): string;
+    /** 设置鼠标悬停时的光标 */
+    setCursor(cursor: string): void;
     /** 获取用户自定义属性 Any */
-    getExtData(): void;
-    /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Marker的id等 */
-    setExtData(ext: any): void;
-    /** 
-     * lnglat:LngLat,speed:Number,f:Function
-     * 以给定速度移动点标记到指定位置。参数lnglat为指定位置，必设；speed为指定速度，单位：千米/小时，不可为0；
-     * 回调函数f为变化曲线函数，缺省为function(k){return k}
-     */
-    moveTo(targetPosition: any, opts: any): void;
-    /** 
-     * path:Array, speed:Number,f:Function,circlable:Boolean
-     * 以指定的速度，点标记沿指定的路径移动。参数path为轨迹路径的经纬度对象的数组；speed为指定速度，单位：千米/小时，不可为0；
-     * 回调函数f为变化曲线函数，缺省为function(k){return k}；参数circlable表明是否循环执行动画，默认为false
-     */
+    getExtData(): any | undefined;
+    /** 设置用户自定义数据 */
+    setExtData(extData: any): void;
+    /** 以给定时长/速度移动点标记到指定位置, 需加载 AMap.MoveAnimation 插件才可使用 */
+    moveTo(targetPosition: LngLat | Vector, opts: MoveToOptions): void;
+    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 JSAPI 2.0 可支持分段设置速度和时长 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/marker/replaying-historical-running-data) */
     moveAlong(path: Array<LngLat> | Array<VectorLayer> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
-    /** 点标记停止动画 */
+    /** 开启点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
+    startMove(): void;
+    /** 停止点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
     stopMove(): void;
-    /** 暂定点标记的动画效果 */
+    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
     pauseMove(): void;
-    /** 重新开始点标记的动画效果 */
+    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
     resumeMove(): void;
+    /** 设置尺寸 */
+    setSize(size: Vector | Size): void;
     /** 获取点标记的叠加顺序 */
-    getzIndex(): void;
+    getzIndex(): number | undefined;
     /** 设置点标记的叠加顺序，默认最先添加的点标记在最底层 */
     setzIndex(zIndex: number): void;
-    /** 获取点标记内容 */
-    getContent(): void;
-    /**  */
+    /** 获取覆盖物的所有属性 */
+    getOptions(): OverlayOptions;
+    /** 获取点标记显示的自定义内容 */
+    getContent(): string | HTMLElement | undefined;
+    /** 将覆盖物加到地图上 */
     add(map: Map): void;
-    /** 获取点标记的旋转角度*/
-    getAngle(): void;
-    /** 设置Marker偏移量（自v1.3 新增） */
-    setOffset(offset: VectorLayer | Pixel): void;
+    /** 移除点标记 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/marker/marker-content) */
+    remove(): void;
+    /** 获取覆盖物旋转角度 */
+    getAngle(): number | undefined;
+    /** 设置覆盖物偏移量 */
+    setOffset(offset: Vector | Pixel): void;
     /** 设置点标记显示内容，可以是HTML要素字符串或者HTML DOM对象 */
     setContent(content: HTMLElement | string): void;
-    /** 获取Marker偏移量（自v1.3 新增） */
-    getOffset(): void;
-    /**  */
+    /** 获取点标记范围 */
+    getBounds(): Bounds;
+    /** 获取覆盖物偏移量 */
+    getOffset(): Vector | Pixel | undefined | Array<number>;
+    /** 设置覆盖物锚点 */
     Marker(anchor: string): void;
-    /** 获取Marker所在地图对象 */
-    getMap(): void;
-    /** 获取Marker锚点 String */
-    getAnchor(): void;
-    /** 设置点标记位置lnglat:LngLat */
-    setPosition(position: VectorLayer): void;
-    /** 获取点标记的位置 */
-    getPosition(): void;
-    /** 点标记隐藏 */
+    /** 获取覆盖物的地图实例 */
+    getMap(): Map | null;
+    /** 获取覆盖物锚点 */
+    getAnchor(): string | Vector | undefined;
+    /** 设置覆盖物位置 */
+    setPosition(position: Vector): void;
+    /** 获取覆盖物位置 */
+    getPosition(): Vector;
+    /** 隐藏覆盖物 */
     hide(): void;
-    /** 点标记显示 */
+    /** 显示覆盖物 */
     show(): void;
     /** 将覆盖物设置到地图上 */
     setMap(map: Map | null): void;
@@ -113,13 +98,7 @@ declare namespace AMap {
     /** 设置覆盖物旋转角度 */
     setAngle(angle: number): void;
     /** 如设置了尺寸，获取设置的尺寸 */
-    getSize(): any;
-    /** 为marker设置阴影效果 icon:Icon*/
-    setShadow( icon: any): void;
-    /** 获取marker的阴影图标 */
-    getShadow(): void;
-    /** 获取marker的可点击区域 */
-    getShape(): void;
+    getSize(): Vector;
   }
   interface MarkerOptions {
     
@@ -362,12 +341,6 @@ declare namespace AMap {
      * @param point 
      */
     contains(point: LngLatLike): boolean;
-    /** 地图上隐藏指定折线 */
-    hide(): void;
-    /** 地图上显示指定折线 */
-    show(): void;
-    /** 设置折线所在的地图。参数map即为目标地图，参数为null时，在地图上移除当前折线 */
-    setMap(map: Map): void;
 
   }
   interface PolylineEvents {
@@ -509,20 +482,12 @@ declare namespace AMap {
     contains(point: LngLatLike): void;
     /** 修改圆属性（样式风格，包括组成圆形轮廓线的节点、轮廓线样式等。属性详情参看CircleOptions列表） */
     setOptions(optsArg: CircleOptions): void;
-    /** 隐藏圆形 */
-    hide(): void;
-    /** 显示圆形 */
-    show(): void;
     /** 获取用户自定义属性 */
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
-    /** 设置折线所在的地图。参数map即为目标地图，参数为null时，在地图上移除当前折线 */
-    setMap(map: Map): void;
-    /** 获取圆外切矩形范围 Bounds*/
-    getBounds(): void;
   }
   interface CircleEvents {
     /** 隐藏 */
@@ -605,16 +570,12 @@ declare namespace AMap {
 
   class CircleMarker extends EventListener {
     constructor(opts: CircleMarkerOptions);
-    /** 隐藏圆形 */
-    hide(): void;
     /** 设置圆点的半径 */
     setRaius(radius: number): void;
     /** 获取圆点中心 */
     getCenter(): LngLat;
     /** 获取圆点的半径 */
     getRadius(): number;
-    /** 显示圆形 */
-    show(): void;
     /** 修改圆点标记的属性（样式风格，包括轮廓线、填充色等。属性详情参看CircleMarkerOptions列表） */
     setOptions(optsArg: CircleMarkerOptions): void; 
     /** 判断指定点坐标是否在圆内 */
@@ -627,8 +588,6 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleMarkerOptions;
-     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
-    setMap(map:Map): void;
   }
   interface CircleMarkerEvents {
     /** 隐藏 */
@@ -689,13 +648,9 @@ declare namespace AMap {
    */
   class Ellipse extends EventListener {
     constructor(opts: EllipseOptions);
-    /**
-     * 设置椭圆的中心点
-     */
+    /** 设置椭圆的中心点 */
     setCenter(center: LngLatLike): void;
-    /**
-     * 设置椭圆的中心点
-     */
+    /** 设置椭圆的中心点 */
     setRadius(radius: [number, number]): void;
     /** 获取椭圆的圆心 */
     getCenter(): LngLat;
@@ -705,16 +660,10 @@ declare namespace AMap {
     contains(point: LngLatLike): void;
     /** 修改椭圆属性（样式风格，包括组成椭圆轮廓线的节点、轮廓线样式等。属性详情参看Ellipse */
     setOptions(optsArg: EllipseOptions): void;
-    /** 隐藏椭圆 */
-    hide(): void;
-    /** 显示圆形 */
-    show(): void;
     /** 获取用户自定义属性 */
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
     setExtData(extData: any): void;
-    /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
-    setMap(map:Map): void;
   }
   interface EllipseOptions {
     /**
@@ -817,18 +766,12 @@ declare namespace AMap {
     contains(point: LngLatLike): boolean;
     /** 获取矩形的中心点 */
     getCenter(): LngLat;
-    /** 隐藏矩形 */
-    hide(): void;
-    /** 显示圆形 */
-    show(): void;
     /** 获取用户自定义属性 */
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
     setExtData(extData: any): void;
     /** 获取矩形的属性 */
     getOptions(): RectangleOptions;
-    /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
-    setMap(map:Map): void;
   }
   interface RectangleOptions {
     /** 要显示该覆盖物的地图对象 */
@@ -912,10 +855,6 @@ declare namespace AMap {
      * //控制点、途经点3 ]
      */
     setPath(path: Array<Array<number>> | Array<Array<Array<number>>>): void;
-    /** 隐藏贝塞尔线 */
-    hide(): void;
-    /** 显示贝塞尔曲线 */
-    show(): void;
     /** 获取用户自定义属性 */
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
@@ -1030,10 +969,6 @@ declare namespace AMap {
     getBounds(): Bounds;
     /** 获取多边形的面积（单位：平方米）（自v1.1 新增） */
     getArea(): number;
-    /** 隐藏多边形 */
-    hide(): void;
-    /** 显示多边形 */
-    show(): void;
     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
     setMap(map:Map): void;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
@@ -1169,8 +1104,6 @@ declare namespace AMap {
     setMap(map: Map): void;
     addTo(map: Map): void;
     add(map: Map): void;
-    show(): void;
-    hide(): void;
     getPosition(): Vector | LngLat;
     setPosition(position: Vector): void;
     getAnchor(): string | Vector | undefined;
