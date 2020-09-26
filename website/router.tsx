@@ -219,14 +219,14 @@ export const menus = [
     path: 'https://lbs.amap.com/console/show/picker',
   },
   {
-    label: '高德地图官方示例中心',
+    label: '官方示例中心',
     target: '__blank',
     path: 'https://lbs.amap.com/demo-center/jsapi-v2',
   },
   {
-    label: '高德地图参考手册',
+    label: '高德地图 JSAPI 2.0',
     target: '__blank',
-    path: 'https://lbs.amap.com/api/javascript-api/summary',
+    path: 'https://a.amap.com/jsapi/static/doc/index.html',
   },
   {
     label: 'AMapUI 组件库',
