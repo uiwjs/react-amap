@@ -164,14 +164,16 @@ import { APILoader, Geolocation } from '@uiw/react-amap';
 const Example = () => {
   const [data, setData] = useState();
   useEffect(() => {
-    const instance = new AMap.Geolocation({});
-    instance.getCityInfo((status, result) => {
-      console.log('>>>>', status, result)
-    if(status === 'complete'){
-      setData(result);
-    } else if (onError) {
-      setData(result);
-    }
+    AMap.plugin(['AMap.Geolocation'], () => {
+      const instance = new AMap.Geolocation({});
+      instance.getCityInfo((status, result) => {
+        console.log('>>>>', status, result)
+        if(status === 'complete'){
+          setData(result);
+        } else if (onError) {
+          setData(result);
+        }
+      });
     });
   }, []);
   return (

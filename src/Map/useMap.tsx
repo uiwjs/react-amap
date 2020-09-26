@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { MapProps } from './';
 import { MapChildProps } from '../common/map';
 import { useSetStatus, useEventProperties, useSettingProperties } from '../common/hooks';
@@ -15,12 +15,18 @@ export const useMap = (props: UseMap = {}) => {
   const [map, setMap] = useState<AMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState(props.container);
-  useMemo(() => {
+  useEffect(() => {
+    let instance: AMap.Map;
     if (container && !map && AMap) {
-      const instance = new AMap.Map(container, { zoom, ...other });
+      instance = new AMap.Map(container, { zoom, ...other });
       setMap(instance);
     }
-  }, [container, map]);
+    return () => {
+      if (instance) {
+        instance.destroy();
+      }
+    }
+  }, [container]);
 
   useMemo(() => {
     if (map && typeof props.zoom === 'number' && zoom !== props.zoom && props.zoom >= 2 && props.zoom <= 20) {

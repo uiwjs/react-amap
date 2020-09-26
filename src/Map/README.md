@@ -82,18 +82,12 @@ import { React, useEffect, Fragment } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 function Demo() {
-  const mapRef = useRef();
-  useEffect(() => {
-    console.log('mapRef:', mapRef);
-  }, []);
   return (
     <div style={{ width: '100%', height: 330 }}>
-      <div style={{ marginBottom: 10, height: 120 }}>
-        <Map ref={mapRef} /> 
-      </div>
       <Map ref={(instance) => {
         if (instance && instance.map) {
-          console.log('instance', instance);
+          const bounds = instance.map.getBounds();
+          console.log('instance', bounds);
         }
       }} />
     </div>
@@ -118,6 +112,9 @@ const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
     <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
       <Map
+        onComplete={(data, de) => {
+          console.log('地图加载完成！', data, de);
+        }}
         onClick={() => {
           console.log('点击事件！');
         }}
@@ -143,6 +140,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
+| onComplete | 地图资源加载完成后触发事件 | - |
 | onMouseMove | 鼠标在地图上移动时触发 | - |
 | onZoomChange | 地图缩放级别更改后触发 | - |
 | onMapMove | 地图平移时触发事件 | - |
@@ -164,7 +162,6 @@ ReactDOM.render(<Demo />, _mount_);
 | onHotspotOut | 鼠标移出热点时触发 | - |
 | onHotspotOver | 鼠标滑过热点时触发 | - |
 | onTouchStart | 触摸开始时触发事件，仅适用移动设备 | - |
-| onComplete | 地图资源加载完成后触发事件 | - |
 | onHotspotClick | 鼠标点击热点时触发 | - |
 | onTouchMove | 拖拽地图过程中触发，仅适用移动设备 | - |
 | onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | - |

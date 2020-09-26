@@ -151,13 +151,15 @@ import { APILoader } from '@uiw/react-amap';
 const Example = () => {
   const [data, setData] = useState();
   useEffect(() => {
-    const instance = new AMap.Weather({});
-    instance.getForecast('上海市', (status, result) => {
-      if(status === 'complete'){
-        setData(result);
-      } else {
-        setData(result);
-      }
+    AMap.plugin(['AMap.Weather'], () => {
+      const instance = new AMap.Weather({});
+      instance.getForecast('上海市', (status, result) => {
+        if(status === 'complete'){
+          setData(result);
+        } else {
+          setData(result);
+        }
+      });
     });
   }, []);
   return (

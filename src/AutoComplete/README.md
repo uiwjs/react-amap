@@ -36,7 +36,7 @@ const Example = () => {
           />
         )}
         <pre style={{ padding: 10, marginTop: 10 }}>
-          {data ? JSON.stringify(data, null, 2) : '{}'}
+          {data ? JSON.stringify(data, null, 2) : '{请在输入框输入内容，下拉列表选择...}'}
         </pre>
       </div>
     </>

@@ -387,7 +387,7 @@ declare namespace AMap {
     /**
      * 地图资源加载完成后触发事件
      */
-    onComplete?:() => void;
+    onComplete?:(event: { type: 'complete'}) => void;
     /**
      * 拖拽地图过程中触发，仅适用移动设备
      */
