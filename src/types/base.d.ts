@@ -208,7 +208,7 @@ declare namespace AMap {
     /**
      * 发生事件的目标对象，不同类型返回target不同。例如，事件对象是Marker，则target表示目标对象为Marker，事件对象是其他，则随之改变。
      */
-    target: any;
+    target: Map;
   }
   /**
    * 表示点标记的图标  
