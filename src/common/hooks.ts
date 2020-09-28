@@ -72,7 +72,7 @@ export function usePrevious<T>(value: T) {
 
 export type EventNameType = 'LowerCase';
 
-export interface EventListener {
+export interface MapEventListener {
   /**
    * 添加事件监听函数
    * @param event 
@@ -100,7 +100,7 @@ export interface EventListener {
  * ]);
  * ```
  */
-export function useEventProperties<T extends EventListener, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
+export function useEventProperties<T extends MapEventListener, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
   eventName.forEach((name) => {
     const eventName = name as keyof F;
     const eventHandle = props[eventName];

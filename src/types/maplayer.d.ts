@@ -2,7 +2,7 @@
 /// <reference path="./core.d.ts" />
 
 declare namespace AMap {
-  class TileLayer extends EventListener {
+  class TileLayer extends MapEventListener {
     static Satellite: typeof Satellite;
     static Traffic: typeof Traffic;
     static RoadNet: typeof RoadNet;
@@ -132,7 +132,7 @@ declare namespace AMap {
     areas?: BuildingStyleArea;
   }
   /** 室内图层，用于在适当级别展示室内地图，并提供显示商铺tip、切换楼层等功能。 */
-  class IndoorMap extends EventListener {
+  class IndoorMap extends MapEventListener {
     constructor(opts: IndoorMapOptions);
     /** 显示指定 POI 的室内地图 */
     showIndoorMap(indoorid: number, floor: number, shopid: number): void;
@@ -170,7 +170,7 @@ declare namespace AMap {
     hideFloorBar?: boolean;
   }
   /** 矢量覆盖物图层，可添加/删除/查询矢量覆盖物(Polygon/Polyline/CircleMarker/Ellipse/RectAngle/BezierCurve)的图层 */
-  class VectorLayer extends EventListener {
+  class VectorLayer extends MapEventListener {
     constructor(opts: VectorLayerOptions);
     /** 添加矢量覆盖物到集合中，不支持添加重复的覆盖物 */
     add(vectors): void;
@@ -191,7 +191,7 @@ declare namespace AMap {
     /** (default true) 是否显示 */
     visible?: boolean;
   }
-  class HeatMap extends EventListener {
+  class HeatMap extends MapEventListener {
     constructor(map: Map, opts: HeatMapOptions);
     /** 获取热力图的属性信息 */
     getOptions(): HeatMapOptions;
@@ -271,7 +271,7 @@ declare namespace AMap {
     /** 取样精度，越小越平滑，越大性能越高 */
     gridSize?: number;
   }
-  class LabelsLayer extends EventListener {
+  class LabelsLayer extends MapEventListener {
     constructor(opts: LabelsLayerOptions);
     /** 获取标注层透明度 */
     getOpacity(): number;
@@ -319,7 +319,7 @@ declare namespace AMap {
     /** 标注层内的标注是否允许其它标注层对它避让，默认值:false，开启该功能可实现地图标注对 LabelMarker 的避让 */
     allowCollision?: boolean;
   }
-  class CustomLayer extends EventListener {
+  class CustomLayer extends MapEventListener {
     constructor(canvas: HTMLCanvasElement, opts: CustomLayerOption);
     /** 获取标注层透明度 */
     getOpacity(): number;
@@ -341,7 +341,7 @@ declare namespace AMap {
     /** 绘制函数，初始化完成时候，开发者需要给该图层设定render方法，该方法需要实现图层的绘制，API会在合适的时机自动调用该方法 */
     render?: () => void;
   }
-  class ImageLayer extends EventListener {
+  class ImageLayer extends MapEventListener {
     constructor(opts: ImageLayerOptions);
     /** 获取标注层透明度 */
     getOpacity(): number;
@@ -371,7 +371,7 @@ declare namespace AMap {
   /**
    * Canvas图层类，用户可以将一个 Canvas 作为图层添加在地图上，Canvas图层会随缩放级别而自适应缩放。[相关示例](https://lbs.amap.com/api/jsapi-v2/example/selflayer/canvaslayer)
    */
-  class CanvasLayer extends EventListener {
+  class CanvasLayer extends MapEventListener {
     constructor(opts: CanvasLayerOptions);
   }
   interface CanvasLayerOptions extends Omit<ImageLayerOptions, 'url'> {

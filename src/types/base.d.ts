@@ -156,7 +156,7 @@ declare namespace AMap {
      */
     toString?(): string;
   }
-  class EventListener {
+  class MapEventListener {
     /**
      * 设置控件可见
      */
@@ -236,6 +236,15 @@ declare namespace AMap {
      * 图标尺寸，默认值(36,36)
      */
     size?: Size;
+    /** 图标所在图片偏移位置，默认值: [0, 0] */
+    clipOrigin?: Vector | Pixel;
+    /** 图标所在图片裁剪大小，若未设置，则使用图片大小 */
+    clipSize?: Vector | Pixel;
+    /**
+     * 图标锚点，锚点位置对应设置的 position 位置。
+     * 可选值：'top-left'| 'top-center'|'top-right'|'middle-left'|'center'| 'middle-right'| 'bottom-left'| 'bottom-center'| 'bottom-right' 。默认值：'top-left'。
+     */
+    anchor?: Vector | Pixel | string;
     /**
      * 图标取图偏移量。当image中指定了一个大图时，可通过size和imageOffset配合，显示图标的指定范围
      */

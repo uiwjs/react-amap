@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
-  class Marker extends EventListener {
+  class Marker extends MapEventListener, MoveAnimation {
     constructor(opts: MarkerOptions);
     /** 获取点标记的文字提示 */
     getTitle(): ?string;
@@ -41,18 +41,6 @@ declare namespace AMap {
     getExtData(): any | undefined;
     /** 设置用户自定义数据 */
     setExtData(extData: any): void;
-    /** 以给定时长/速度移动点标记到指定位置, 需加载 AMap.MoveAnimation 插件才可使用 */
-    moveTo(targetPosition: LngLat | Vector, opts: MoveToOptions): void;
-    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 JSAPI 2.0 可支持分段设置速度和时长 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/marker/replaying-historical-running-data) */
-    moveAlong(path: Array<LngLat> | Array<VectorLayer> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
-    /** 开启点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    startMove(): void;
-    /** 停止点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    stopMove(): void;
-    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    pauseMove(): void;
-    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    resumeMove(): void;
     /** 设置尺寸 */
     setSize(size: Vector | Size): void;
     /** 获取点标记的叠加顺序 */
@@ -97,7 +85,6 @@ declare namespace AMap {
     getSize(): Vector;
   }
   interface MarkerOptions {
-    
     /**
      * 要显示该marker的地图对象
      */
@@ -255,7 +242,7 @@ declare namespace AMap {
   /**
    * 构造折线对象，支持 lineString 和 MultiLineString
    */
-  class Polyline extends EventListener {
+  class Polyline extends MapEventListener {
     constructor(opts: PolylineOptions);
     /**
      * 获取当前折线的矩形范围对象
@@ -399,7 +386,7 @@ declare namespace AMap {
   /**
    * 构造圆形对象，通过CircleOptions指定多边形样式
    */
-  class Circle extends EventListener {
+  class Circle extends MapEventListener {
     constructor(opts: CircleOptions);
     /** 设置圆中心点 */
     setCenter(center: LngLatLike): void;
@@ -474,7 +461,7 @@ declare namespace AMap {
     strokeDasharray?: Array<number>;
   }
 
-  class CircleMarker extends EventListener {
+  class CircleMarker extends MapEventListener {
     constructor(opts: CircleMarkerOptions);
     /** 设置圆点的半径 */
     setRaius(radius: number): void;
@@ -527,7 +514,7 @@ declare namespace AMap {
   /**
    * 构造多边形对象
    */
-  class Ellipse extends EventListener {
+  class Ellipse extends MapEventListener {
     constructor(opts: EllipseOptions);
     /** 设置椭圆的中心点 */
     setCenter(center: LngLatLike): void;
@@ -617,7 +604,7 @@ declare namespace AMap {
   /**
    * 构造矩形对象
    */
-  class Rectangle extends EventListener {
+  class Rectangle extends MapEventListener {
     constructor(opts: RectangleOptions);
     /** 设置矩形的范围 */
     setBounds(bounds: Bounds): void;
@@ -680,7 +667,7 @@ declare namespace AMap {
   /**
    * 贝塞尔曲线
    */
-  class BezierCurve extends EventListener {
+  class BezierCurve extends MapEventListener {
     constructor(opts: BezierCurveOptions);
     /** 修改折线属性（包括路径的节点、线样式、是否绘制大地线等。属性详情参看 BezierCurveOptions 列表） */
     setOptions(optsArg: BezierCurveOptions): void;
@@ -777,7 +764,7 @@ declare namespace AMap {
     onShow?(data: {type: string, target: any}): void;
   }
   /** 多边形 */
-  class Polygon extends EventListener {
+  class Polygon extends MapEventListener {
     constructor(opts: PolygonOptions);
     /** 设置多边形轮廓线节点数组，当为“环”多边形时，path为二维数组，数组元素为多边形轮廓线的节点坐标数组 */
     setPath(path: Array<LngLat> | Array<Array<LngLat>>): void;
@@ -836,17 +823,13 @@ declare namespace AMap {
     strokeDasharray?: Array<number>;
   }
   interface PolygonEvents extends EventsCommonProps {
-    /** 隐藏 */
-    onHide?(event: { type: string, target: any }): void;
-    /** 显示 */
-    onShow?(event: { type: string, target: any }): void;
     /** 属性发生变化时 */
     onChange?(): void;
   }
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
    */
-  class InfoWindow extends EventListener {
+  class InfoWindow extends MapEventListener {
     constructor(opt:InforWindowOptions);
     /** 打开信息窗体 */
     open(map: Map, pos: LngLat, height?: number): void;
@@ -888,7 +871,7 @@ declare namespace AMap {
     onChange?(): void;
   }
    /** 文本标记 */
-   class Text extends EventListener {
+   class Text extends MapEventListener, MoveAnimation {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
@@ -917,13 +900,6 @@ declare namespace AMap {
     setzIndex(zIndex: number): void;
     getOptions(): OverlayOptions;
     getBounds(): Bounds;
-    moveTo(targetPosition: LngLat | Vector, opts: MoveToOptions): void;
-    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts: MoveAlongOptions): void;
-    /** 开启文本标记动画，加载 AMap.MoveAnimation 后可以使用 */
-    startMove(): void;
-    stopMove(): void;
-    pauseMove(): void;
-    resumeMove(): void;
     setTop(isTop: boolean): void;
     getCursor(): string;
     setCursor(cursor: string): void;
@@ -931,7 +907,7 @@ declare namespace AMap {
     setExtData(extData: any | undefined): void;
     remove(): void;
   }
-  interface TextEvents extends EventsCommonProps{
+  interface TextEvents extends EventsCommonProps {
     onMoveaLong?(): void;
     onMoving?(obj: { passedPath:Array<LngLat> }): void;
     onMoveEnd?(): void;
@@ -974,21 +950,9 @@ declare namespace AMap {
     /** 用户自定义属性 ，支持JavaScript API任意数据类型，如 Marker的id等。可将自定义数据保存在该属性上，方便后续操作使用。 */
     extData?: any;
     /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
-    style?: object;
+    style?: TextStyleOptions;
   }
-  interface MoveAlongObj {}
-  interface MoveToOptions {
-    /** 每段动画持续时长, 单位：ms */
-    duration?: number;
-    /** 动画速度，已废弃 */
-    speed?: number;
-    /** easing 时间函数 */
-    easing?: EasingCallback;
-    /** 覆盖物是否沿路径旋转 */
-    autoRotation?: boolean;
-  }
-  /** 时间函数回调 */
-  type EasingCallback = (passedTime: number) => number;
+  type TextStyleOptions = Record<string, any>;
   interface OverlayOptions {
     map?: Map;
     position?: [number, number];
@@ -1025,5 +989,222 @@ declare namespace AMap {
     /** 覆盖物是否沿路径旋转 */
     autoRotation?: boolean;
   }
+  /**
+   * 用于展示大量点标记，将点标记按照距离进行聚合，以提高绘制性能。点聚合支持用户自定义样式，以插件形式调用。
+   */
+  class MarkerCluster extends MapEventListener {
+    constructor(map: Map, dataOptions: MarkerClusterDataOptions, MarkerClusterOptions: MarkerClusterOptions)
+    getClustersCount(): number;
+    addData(dataOptions: MarkerClusterDataOptions): void;
+    setData(dataOptions: MarkerClusterDataOptions): void;
+    getGridSize(): number;
+    setGridSize(size: number): void;
+    getMaxZoom(): number;
+    setAverageCenter(averageCenter: boolean): void;
+    isAverageCenter(): boolean;
+    setMap(Map: Map): void;
+    getMap(): Map;
+    getStyles(): any[];
+    setStyles(Map: Map): void;
+    setMaxZoom(zoom: number): void;
+  }
+  type MarkerClusterDataOptions = Array<{ lnglat: LngLat[], weight: number }>;
+  interface MarkerClusterOptions {
+    /** 聚合计算时网格的像素大小，默认60 */
+    gridSize?: number;
+    /** 最大的聚合级别，大于该级别就不进行相应的聚合。默认值为 18，即小于 18 级的级别均进行聚合，18 及以上级别不进行聚合 */
+    maxZoom?: number;
+    /** 聚合点的图标位置是否是所有聚合内点的中心点。默认为 true。数据中如果含有权重值，以权重高的点为中心进行聚合 */
+    averageCenter?: boolean;
+    /** 地图缩放过程中是否聚合。默认值 false。 */
+    clusterByZoomChange?: boolean;
+    /**
+     * 指定聚合后的点标记的图标样式，可缺省，缺省时为默认样式数据元素分别对应聚合量在1-10,11-100,101-1000…的聚合点的样式；
+     * 当用户设置聚合样式少于实际叠加的点数，未设置部分按照系统默认样式显示；
+     * 单个图标样式包括以下几个属性： */
+    styles?: Array<{
+      /** 图标显示图片的url地址 */
+      url: string;
+      /** 图标显示图片的大小（必选） */
+      size: Size;
+      /** 图标定位在地图上的位置相对于图标左上角的偏移值。默认为(0,0),不偏移（可选） */
+      offset?: Pixel;
+      /** 图片相对于可视区域的偏移值，此功能的作用等同CSS中的background-position属性。默认为(0,0)，不偏移（可选） */
+      imageOffset?: Pixel;
+      /** 文字的颜色，默认为"#000000"（可选） */
+      textColor?: string;
+      /** 文字的大小，默认为10（可选） */
+      textSize?: number;
+    }>;
+    /**
+     * 该方法用来实现聚合点的自定义绘制，由开发者自己实现，API 将在绘制每个聚合点的时候调用这个方法，可以实现聚合点样式的灵活设定，指定了 renderClusterMarker 后 styles 无效。
+     * 该函数的入参为一个Object，包含如下属性：
+     * 1. count: 当前聚合点下聚合的 Marker 的数量
+     * 2. marker: 当前聚合点显示的 Marker
+     */
+    renderClusterMarker?: (opts: { count: number, marker: Marker }) => any;
+    /**
+     * 该方法用来实现非聚合点的自定义绘制，由开发者自己实现，API 将在绘制每个非聚合点的时候调用这个方法
+     * 该函数的入参为一个Object，包含如下属性：
+     * - marker: 非聚合点 Marker 对象
+     */
+    renderMarker?: (opts: { marker: Marker }) => any;
+  }
+  /** 海量点类 */
+  class MassMarks extends MapEventListener {
+    constructor(data: MassMarkersDataOptions, opts: Array<MassMarkersOptions>)
+    setMap(map: Map): void;
+    getMap(): Map;
+    getData(): MassMarkersDataOptions;
+    setData(data: MassMarkersDataOptions): void;
+    getStyle(): Array<MassMarkersStyleOptions>;
+    setStyle(style: MassMarkersStyleOptions | Array<MassMarkersStyleOptions>): void;
+    setOpacity(opacity: number): void;
+    getOpacity(): number;
+    setzIndex(zIndex: number): void;
+    getzIndex(): number;
+    getZooms(): Vector;
+    setZooms(zooms: Vector): void;
+    clear(): void;
+  }
+  type MassMarkersDataOptions = Array<{ lnglat: LngLat, style: number }>;
+  interface MassMarkersOptions {
+    /** 图标叠加层级，值越大层级越高 */
+    zIndex?: number;
+    /** 图标显示透明度，默认值：1 */
+    opacity?: number;
+    /** 海量点显示层级范围，范围外不显示。默认值: [2, 20] */
+    zooms?: Vector;
+    /** 海量点样式列表。 */
+    style?: MassMarkersStyleOptions | Array<MassMarkersStyleOptions>;
+  }
+  interface MassMarkersStyleOptions { 
+    /** 图标 url */
+    url?: string;
+    /** 图标显示大小 */
+    size?: (Vector | Size);
+    /** 锚点位置 */
+    anchor?: Pixel;
+    /** 点展示优先级，默认为使用样式的索引值。 */
+    zIndex?: number;
+  }
+  interface MassMarksEvents extends Omit<EventsCommonProps, 'onRightClick' | 'onTouchMove'> {
+    /** 海量点加载完成事件 */
+    onComplete?: (event: { type: 'complete'}) => void;
+  }
+  /**
+   * 用于实现点标记沿线段或者路径轨迹移动的动画基类，可用于满足轨迹回放、实时轨迹等场景。
+   * MoveAnimation无需单独声明或初始化，Marker、Text、LabelMarker均已继承了 MoveAnimation的实现。
+   */
+  interface MoveAnimation {
+    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts): void;
+    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
+    pauseMove(): void;
+    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    resumeMove(): void;
+    /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    stopMove(): void;
+    /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    startMove(): void;
+    /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
+    moveTo(targetPosition, opts): void;
+  }
+  interface MoveAlongObj {}
+  type MoveToOptions = {
+    /** 每段动画持续时长, 单位：ms */
+    duration?: number;
+    /** 动画速度，已废弃 */
+    speed?: number;
+    /** easing 时间函数 */
+    easing?: EasingCallback;
+    /** 覆盖物是否沿路径旋转 */
+    autoRotation?: boolean;
+  }
+  /** 时间函数回调 */
+  type EasingCallback = (passedTime: number) => number;
+  /** MoveAnimation 回调函数 */
   type AnimationCallback = (index: number, data: LngLat) => number;
+  interface MoveAlongOptions {
+    /** 每段动画持续时长, 单位：ms */
+    duration?: number | AnimationCallback;
+    /** 每段动画速度，已废弃 */
+    speed?: number | AnimationCallback;
+    /** easing 时间函数 */
+    easing?: EasingCallback;
+    /** 动画是否循环 */
+    circlable?: boolean;
+    /** 延迟动画时长 */
+    delay?: number | AnimationCallback;
+    /** 每段完整动画间隔时长 */
+    aniInterval?: number;
+    /** 覆盖物是否沿路径旋转 */
+    autoRotation?: boolean;
+  }
+  /** 标注类 */
+  class LabelMarker extends MapEventListener, MoveAnimation {
+    constructor(opts: LabelMarkerOptions);
+    getName(): string | undefined;
+    setName(name: string): void;
+    getPosition(): LngLat;
+    setPosition(position: LngLat | [number] | string): void;
+    getZooms(): Vector | undefined;
+    setZooms(zooms: number[]): void;
+    getOpacity(): number | undefined;
+    setOpacity(opacity: number): void;
+    getzIndex(): number | undefined;
+    setzIndex(zIndex: number): void;
+    getRank(): number | undefined;
+    setRank(rank: number): void;
+    getText(): TextOptions | undefined;
+    setText(textOpts: TextOptions): void;
+    getIcon(): IconOptions | undefined;
+    setIcon(iconOpts: IconOptions): void;
+    getOptions(): LabelMarkerOptions;
+    getExtData(): any | undefined;
+    setExtData(extData: any): void;
+    setTop(isTop: boolean): void;
+    getVisible(): boolean | undefined;
+    getCollision(): boolean | undefined;
+    remove(): void;
+  }
+  interface LabelMarkerOptions {
+    /** 标注名称，作为标注标识，并非最终在地图上显示的文字内容，显示文字内容请设置 opts.text.content */
+    name?: string;
+    /** 标注位置 */
+    position?: Vector | LngLat;
+    /** 标注显示级别范围， 可选值： [2,20] */
+    zooms?: Vector;
+    /** 标注透明度，默认值: 1 */
+    opacity?: number;
+    /** 避让优先级，获取标注的优先级，该优先级用于 labelsLayer 支持避让时，rank 值大的标注会避让掉 rank 值低的标注。默认值：1 */
+    rank?: number;
+    /** 同一 LabelsLayer 内标注显示层级，数字越大越靠前，默认值: 1 */
+    zIndex?: number;
+    /** 标注是否可见， 默认值: true */
+    visible?: boolean;
+    /** 用户自定义类型数据，可将自定义数据保存在该属性上，方便后续操作使用。 */
+    extData?: any;
+    /** 标注图标设置 */
+    icon?: IconOptions;
+    /** 标注文本设置 */
+    text?: TextOptions;
+  }
+  class ContextMenu extends MapEventListener {
+    constructor(opts: ContextMenuOptions);
+    /** 打开右键菜单 */
+    open(map: Map, position: Vector): void;
+    /** 关闭右键菜单 */
+    close(): void;
+    /** 菜单添加一条内容 */
+    addItem(text: string, fn: EventListener, num: number): void;
+    /** 菜单移除一条内容 */
+    removeItem(text: string, fn: EventListener): void;
+  }
+  interface ContextMenuOptions {
+    /** 右键菜单显示的位置 */
+    position?: Vector | LngLat;
+    /** 右键菜单内容（针对自定义菜单时，添加菜单内容及功能。可以是HTML要素字符串或者HTML DOM对象。） */
+    content?: string | HTMLElement;
+  }
 }

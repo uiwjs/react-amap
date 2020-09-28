@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。
    */
-  class Map extends EventListener {
+  class Map extends MapEventListener {
     /**
      * @param div 构造一个地图对象，参数 container 中传入地图容器 DIV 的 ID值 或者 DIV对象，opts 地图初始化参数对象，参数详情参看 MapOptions 列表。注意：地图容器在创建之前必须拥有实际大小，否则可能出现底图无法渲染的问题。
      * @param opts 地图初始化参数
@@ -294,7 +294,17 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView' | 'AMap.Weather' | 'AMap.HeatMap'>, callBack: () => void): void;
+    plugin(ControlType: Array<
+      'AMap.Scale' |
+      'AMap.HawkEye' |
+      'AMap.MapType' |
+      'AMap.ToolBar' |
+      'AMap.ControlBar' |
+      'AMap.OverView' |
+      'AMap.Weather' |
+      'AMap.HeatMap' |
+      'AMap.MarkerCluster'
+      >, callBack: () => void): void;
   }
   interface MapEvents {
     /**
@@ -538,7 +548,13 @@ declare namespace AMap {
      */
     mask?: Array<number>;
   }
-  function plugin(ControlType: Array<'AMap.Weather' | 'AMap.Geolocation' | 'AMap.AutoComplete' | 'AMap.PlaceSearch'>, callBack: () => void): void;
+  function plugin(ControlType: Array<
+    'AMap.Weather' |
+    'AMap.Geolocation' |
+    'AMap.AutoComplete' |
+    'AMap.PlaceSearch' |
+    'AMap.MoveAnimation'
+  >, callBack: () => void): void;
   /**
    * 为坐标转换类，支持将其他坐标系的坐标点转换为高德坐标系。坐标转换方法
    * @param lnglat 
