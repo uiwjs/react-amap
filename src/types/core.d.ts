@@ -1,10 +1,11 @@
 /// <reference path="./base.d.ts" />
+/// <reference path="./maplayer.d.ts" />
 
 declare namespace AMap {
   /**
    * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。
    */
-  class Map extends EventListener{
+  class Map extends EventListener {
     /**
      * @param div 构造一个地图对象，参数 container 中传入地图容器 DIV 的 ID值 或者 DIV对象，opts 地图初始化参数对象，参数详情参看 MapOptions 列表。注意：地图容器在创建之前必须拥有实际大小，否则可能出现底图无法渲染的问题。
      * @param opts 地图初始化参数
@@ -97,17 +98,17 @@ declare namespace AMap {
      * 从地图上移除图层
      * @param layer 地图图层
      */
-    removeLayer(layer: TileLayer): void;
+    removeLayer(layer: TileLayer | Satellite | Traffic | RoadNet): void;
     /**
      * 将多个图层一次替代地图上原有图层，会移除地图原有图层
      * @param layers 地图图层数组
      */
-    setLayers(layers:Array<TileLayer>): void;
+    setLayers(layers:Array<TileLayer | Satellite | Traffic | RoadNet>): void;
     /**
      * 获取地图图层数组，数组为一个或多个图层
      * @returns 地图图层数组
      */
-    getLayers(): Array<TileLayer>;
+    getLayers(): Array<TileLayer | Satellite | Traffic | RoadNet>;
     /**
      * 获取当前地图状态信息，包括是否可鼠标拖拽移动地图、地图是否可缩放、地图是否可旋转（rotateEnable）、 是否可双击放大地图、是否可以通过键盘控制地图旋转（keyboardEnable）等
      * @returns 地图状态信息映射集合
@@ -483,6 +484,8 @@ declare namespace AMap {
      * (default ['bg','point','road','building'])	设置地图上显示的元素种类, 支持'bg'（地图背景）、'point'（POI点）、'road'（道路）、'building'（建筑物）
      */
     features?: Array<string>;
+    /** 地图图层数组，数组可以是图层 中的一个或多个，默认为普通二维地图。 当叠加多个 图层 时，普通二维地图需通过实例化一个TileLayer类实现。 如果你希望创建一个默认底图图层，使用 AMap.createDefaultLayer() */
+    layers?: (TileLayer | Satellite | Traffic | RoadNet)[]
     /**
      * (default [2,20])	地图显示的缩放级别范围, 默认为 [2, 20] ，取值范围 [2 ~ 20]
      */
