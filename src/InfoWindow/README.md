@@ -94,6 +94,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | position | 信息窗体显示基点位置，默认地图的中间 | `LngLat` | - |
 | offset | 信息窗体显示位置偏移量。默认基准点为信息窗体的底部中心（若设置了anchor，则以anchor值为基准点）。 | `Pixel` | - |
 | anchor | 信息窗体锚点 | `top-left`,`top-center`,`top-right`,`middle-left`,`center`,`middle-right`,`bottom-left`,`bottom-center`,`bottom-right` | `bottom-center` |

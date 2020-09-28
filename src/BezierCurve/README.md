@@ -76,6 +76,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
+| visiable | 覆盖物是否可见。 | `boolean` | - |
 | path | 贝瑟尔曲线的路径。 | `Array<LngLat> | Array<Array<LngLat>>` | - |
 
 ### 事件

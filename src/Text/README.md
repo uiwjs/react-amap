@@ -59,6 +59,38 @@ ReactDOM.render((
 ```
 <!--End-->
 
+### TypeScript 中 Ref 类型定义
+
+由于 text 参数与返回的 text 冲突，定义类型参考如下实例
+
+```tsx
+import React, { useEffect, useRef } from 'react';
+import { Text, TextProps } from './index';
+
+function Demo() {
+  const textRef = useRef<Omit<TextProps, 'text'> & { text?: AMap.Text }>(null);
+  useEffect(() => {
+    if (textRef.current && textRef.current.text) {
+      textRef.current.text.setStyle({});
+    }
+  }, []);
+  return (
+    <>
+      <Text ref={textRef} text="test" />
+      <Text
+        ref={(instance) => {
+          if (instance && instance.map && instance.text) {
+            const bounds = instance.map?.getBounds()
+            const txt = instance.text.getBounds();
+          }
+        }}
+        text="test"
+      />
+    </>
+  );
+}
+```
+
 ### Props
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L8-L111)
@@ -66,6 +98,7 @@ ReactDOM.render((
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
+| text | 标记显示的文本内容。 | `string` | - |
 
 ### 事件
 
