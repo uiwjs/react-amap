@@ -115,6 +115,79 @@ ReactDOM.render((
 ```
 <!--End-->
 
+### 自适应显示多个点标记
+
+<!--DemoStart,bgWhite,noScroll--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, Marker } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  const [map, setMap] = useState();
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <button onClick={() => {
+        if (map) {
+          map.setFitView(null, false, [150, 60, 100, 60]);
+        }
+      }}>
+        地图自适应显示到合适的范围
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map
+          zoom={13}
+          center={[116.397428, 39.90923]}
+          ref={(instance) => {
+            if (instance && instance.map && !map) {
+              setMap(instance.map);
+            }
+          }}
+        >
+          <Marker
+            visiable={show}
+            icon={new AMap.Icon({
+              imageSize: new AMap.Size(25, 34),
+              image: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-1.png'
+            })}
+            offset={new AMap.Pixel(-13, -30)}
+            position={new AMap.LngLat(116.205467, 39.907761)}
+          />
+          <Marker
+            visiable={show}
+            icon={new AMap.Icon({
+              imageSize: new AMap.Size(25, 34),
+              image: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-2.png'
+            })}
+            offset={new AMap.Pixel(-13, -30)}
+            position={[116.368904, 39.913423]}
+          />
+          <Marker
+            visiable={show}
+            icon={new AMap.Icon({
+              imageSize: new AMap.Size(25, 34),
+              image: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-3.png'
+            })}
+            offset={new AMap.Pixel(-13, -30)}
+            position={[116.305467, 39.807761]}
+          />
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
 ### Props
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L8-L111)
