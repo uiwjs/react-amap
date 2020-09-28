@@ -294,7 +294,7 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView' | 'AMap.Weather'>, callBack: () => void): void;
+    plugin(ControlType: Array<'AMap.Scale' | 'AMap.HawkEye' | 'AMap.MapType' | 'AMap.ToolBar' | 'AMap.ControlBar' | 'AMap.OverView' | 'AMap.Weather' | 'AMap.HeatMap'>, callBack: () => void): void;
   }
   interface MapEvents {
     /**

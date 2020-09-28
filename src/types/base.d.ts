@@ -75,7 +75,7 @@ declare namespace AMap {
     distance?(): number;
   }
   type Vector = number[];
-  class LngLatLike extends LngLat {};
+  type LngLatLike = LngLat | [number, number];
   /**
    * 地物对象的经纬度矩形范围。
    */
@@ -249,21 +249,27 @@ declare namespace AMap {
      */
     imageSize?: Size;
   }
-  interface MoveAlongOptions {
-    /** 每段动画持续时长, 单位：ms */
-    duration?: (number | AnimationCallback);
-    /** 每段动画速度，已废弃 */
-    speed?: (number | AnimationCallback);
-    /** easing 时间函数 */
-    easing?: EasingCallback;
-    /** 动画是否循环 */
-    circlable?: boolean;
-    /** 延迟动画时长 */
-    delay?: (number | AnimationCallback);
-    /** 每段完整动画间隔时长 */
-    aniInterval?: number;
-    /** 覆盖物是否沿路径旋转 */
-    autoRotation?: boolean;
+  /** 共同部分事件定义 */
+  private interface EventsCommonProps {
+    /** 鼠标左键单击事件 */
+    onClick?(event: MapsEvent): void;
+    /** 鼠标左键双击事件 */
+    onDblClick?(event:  MapsEvent): void;
+    /** 右键单击 */
+    onRightClick?(event:  MapsEvent): void;
+    /** 鼠标按下 */
+    onMouseDown?(event: MapsEvent): void;
+    /** 鼠标抬起 */
+    onMouseUp?(event: MapsEvent): void;
+    /** 鼠标经过 */
+    onMouseOver?(event: MapsEvent): void;
+    /** 鼠标移出 */
+    onMouseOut?(event: MapsEvent): void;
+    /** 触摸开始时触发事件，仅适用移动设备 */
+    onTouchStart?(event: MapsEvent): void;
+    /** 触摸移动进行中时触发事件，仅适用移动设备 */
+    onTouchMove?(event: MapsEvent): void;
+    /** 触摸结束时触发事件，仅适用移动设备 */
+    onTouchEnd?(event: MapsEvent): void;
   }
-  type AnimationCallback = (index: number, data: LngLat) => number;
 }

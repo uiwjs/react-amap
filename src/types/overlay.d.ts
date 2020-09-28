@@ -201,39 +201,11 @@ declare namespace AMap {
      */
     label?: { content: string; offset: Pixel, direction: 'top'|'right'|'bottom'|'left'|'center' };
   }
-  interface MarkerEvents {
-    /**
-     * 鼠标左键单击事件
-     */
-    onClick?(event: MapsEvent): void;
-    /**
-     * 鼠标左键双击事件
-     */
-    onDblClick?(event: MapsEvent): void;
-    /**
-     * 鼠标右键单击事件
-     */
-    onRightClick?(event: MapsEvent): void;
+  interface MarkerEvents extends EventsCommonProps {
     /**
      * 鼠标移动
      */
     onMouseMove?(event: MapsEvent): void;
-    /**
-     * 鼠标移近点标记时触发事件
-     */
-    onMouseOver?(event: MapsEvent): void;
-    /**
-     * 鼠标移出点标记时触发事件
-     */
-    onMouseOut?(event: MapsEvent): void;
-    /**
-     * 鼠标在点标记上按下时触发事件
-     */
-    onMouseDown?(event: MapsEvent): void;
-    /**
-     * 鼠标在点标记上按下后抬起时触发事件
-     */
-    onMouseUp?(event: MapsEvent): void;
     /**
      * 开始拖拽点标记时触发事件
      */
@@ -259,18 +231,6 @@ declare namespace AMap {
      * 点标记执行moveAlong动画一次后触发事件
      */
     onMoveAlong?(): void;
-    /**
-     * 触摸开始时触发事件，仅适用移动设备
-     */
-    onTouchStart?(event: MapsEvent): void;
-    /**
-     * 触摸移动进行中时触发事件，仅适用移动设备
-     */
-    onTouchMove?(event: MapsEvent): void;
-    /**
-     * 触摸结束时触发事件，仅适用移动设备
-     */
-    onTouchEnd?(event: MapsEvent): void;
   }
   class MarkerShape {
     constructor(opts: MarkerShapeOptions)
@@ -339,32 +299,7 @@ declare namespace AMap {
     contains(point: LngLatLike): boolean;
 
   }
-  interface PolylineEvents {
-    /** 隐藏 */
-    onHide?(): void;
-    /** 显示 */
-    onShow?(): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
-    /** 鼠标右键单击事件 */
-    onRightClick?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event: MapsEvent): void;
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent & { originEvent: MouseEvent; pos: [number, number]; vectorIndex: number; }): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchEnd?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
-  }
+  interface PolylineEvents extends EventsCommonProps {}
   interface PolylineOptions {
     /**
      * polyline 路径，支持 lineString 和 MultiLineString
@@ -485,32 +420,7 @@ declare namespace AMap {
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
   }
-  interface CircleEvents {
-    /** 隐藏 */
-    onHide?(): void;
-    /** 显示 */
-    onShow?(): void;
-    /** 鼠标右键单击事件 */
-    onRightClick?(event: MapsEvent): void;
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 鼠标左键单击事件 */
-    onTouchEnd?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
-  }
+  interface CircleEvents extends EventsCommonProps {}
   interface CircleOptions {
     /** 圆心位置 */
     center?: LngLat;
@@ -585,32 +495,7 @@ declare namespace AMap {
     /** 获取圆形的属性 */
     getOptions(): CircleMarkerOptions;
   }
-  interface CircleMarkerEvents {
-    /** 隐藏 */
-    onHide?(): void;
-    /** 显示 */
-    onShow?(): void;
-    /** 鼠标经过 */
-    onMouseover?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchend?(event: MapsEvent): void;
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchmove?(event: MapsEvent): void;
-    /** 鼠标右键单击事件 */
-    onRightclick?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseup?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseout?(event: MapsEvent): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchstart?(event: MapsEvent): void;
-    /** 鼠标按下 */
-    onMousedown?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblclick?(event: MapsEvent): void;
-  }
+  interface CircleMarkerEvents extends EventsCommonProps { }
   interface CircleMarkerOptions {
     /** 圆心位置 */
     center?: LngLat;
@@ -723,31 +608,11 @@ declare namespace AMap {
      */
     strokeDasharray?: Array<number>;
   }
-  interface EllipseEvents {
+  interface EllipseEvents extends EventsCommonProps {
     /** 隐藏 */
-    onHide?(data: { type: string, target: any }): void;
+    onHide?(data: { type: string, target: AMap.Map }): void;
     /** 显示 */
-    onShow?(data: { type: string, target: any }): void;
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event: MapsEvent): void;
-    /** 鼠标右键单击事件 */
-    onRightClick?(event: MapsEvent): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchEnd?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
+    onShow?(data: { type: string, target: AMap.Map }): void;
   }
   /**
    * 构造矩形对象
@@ -803,33 +668,14 @@ declare namespace AMap {
      */
     strokeDasharray?: Array<number>;
   }
-  interface RectangleEvents {
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event: MapsEvent): void;
-    /** 右键单击 */
-    onRightClick?(event: MapsEvent): void;
+  interface RectangleEvents extends EventsCommonProps {
+
     /** 隐藏 */
-    onHide?(event: { type: string; target: any }): void;
+    onHide?(event: { type: string; target: AMap.Map }): void;
     /** 显示 */
-    onShow?(event: { type: string; target: any }): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
+    onShow?(event: { type: string; target: AMap.Map }): void;
     /** 属性发生变化时 */
-    onChange?(event: { type: string; target: any }): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchEnd?(event: MapsEvent): void;
+    onChange?(event: { type: string; target: AMap.Map }): void;
   }
   /**
    * 贝塞尔曲线
@@ -924,31 +770,11 @@ declare namespace AMap {
     /** (default solid) 轮廓线样式，实线:solid，虚线:dashed */
     strokeStyle?: "solid" | "dashed";
   }
-  interface BezierCurveEvents {
+  interface BezierCurveEvents extends EventsCommonProps {
     /** 隐藏 */
     onHide?(data: {type: string, target: any}): void;
     /** 显示 */
     onShow?(data: {type: string, target: any}): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event: MapsEvent): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchEnd?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 鼠标右键单击事件 */
-    onRightClick?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
   }
   /** 多边形 */
   class Polygon extends EventListener {
@@ -1009,33 +835,13 @@ declare namespace AMap {
      */
     strokeDasharray?: Array<number>;
   }
-  interface PolygonEvents {
-    /** 鼠标左键单击事件 */
-    onClick?(event: MapsEvent): void;
-    /** 鼠标左键双击事件 */
-    onDblClick?(event:  MapsEvent): void;
-    /** 右键单击 */
-    onRightClick?(event:  MapsEvent): void;
+  interface PolygonEvents extends EventsCommonProps {
     /** 隐藏 */
     onHide?(event: { type: string, target: any }): void;
     /** 显示 */
     onShow?(event: { type: string, target: any }): void;
-    /** 鼠标按下 */
-    onMouseDown?(event: MapsEvent): void;
-    /** 鼠标抬起 */
-    onMouseUp?(event: MapsEvent): void;
-    /** 鼠标经过 */
-    onMouseOver?(event: MapsEvent): void;
-    /** 鼠标移出 */
-    onMouseOut?(event: MapsEvent): void;
     /** 属性发生变化时 */
     onChange?(): void;
-    /** 触摸开始时触发事件，仅适用移动设备 */
-    onTouchStart?(event: MapsEvent): void;
-    /** 触摸移动进行中时触发事件，仅适用移动设备 */
-    onTouchMove?(event: MapsEvent): void;
-    /** 触摸结束时触发事件，仅适用移动设备 */
-    onTouchEnd?(event: MapsEvent): void;
   }
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
@@ -1125,24 +931,14 @@ declare namespace AMap {
     setExtData(extData: any | undefined): void;
     remove(): void;
   }
-  interface TextEvents {
-    onMoving?(): void;
-    onTouchMove?(): void;
-    onTouchEnd?(): void;
+  interface TextEvents extends EventsCommonProps{
     onMoveaLong?(): void;
-    onTouchStart?(): void;
+    onMoving?(obj: { passedPath:Array<LngLat> }): void;
     onMoveEnd?(): void;
-    onClick?(): void;
-    onDblClick?(): void;
-    onRightClick?(): void;
-    onMouseMove?(): void;
-    onMouseOver?(): void;
-    onMouseOut?(): void;
-    onMouseDown?(): void;
-    onMouseUp?(): void;
-    onDragStart?(): void;
-    onDragEnd?(): void;
-    onDragging?(): void;
+    onDragStart?(event: MapsEvent): void;
+    onDragEnd?(event: MapsEvent): void;
+    onDragging?(event: MapsEvent): void;
+    onMouseMove?(event: MapsEvent): void;
   }
   interface TextOptions {
     /** 要显示该marker的地图对象 */
@@ -1213,4 +1009,21 @@ declare namespace AMap {
     innerOverlay?: boolean;
     isCustom?: boolean;
   }
+  interface MoveAlongOptions {
+    /** 每段动画持续时长, 单位：ms */
+    duration?: (number | AnimationCallback);
+    /** 每段动画速度，已废弃 */
+    speed?: (number | AnimationCallback);
+    /** easing 时间函数 */
+    easing?: EasingCallback;
+    /** 动画是否循环 */
+    circlable?: boolean;
+    /** 延迟动画时长 */
+    delay?: (number | AnimationCallback);
+    /** 每段完整动画间隔时长 */
+    aniInterval?: number;
+    /** 覆盖物是否沿路径旋转 */
+    autoRotation?: boolean;
+  }
+  type AnimationCallback = (index: number, data: LngLat) => number;
 }
