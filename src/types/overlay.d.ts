@@ -87,10 +87,6 @@ declare namespace AMap {
     setPosition(position: Vector): void;
     /** 获取覆盖物位置 */
     getPosition(): Vector;
-    /** 隐藏覆盖物 */
-    hide(): void;
-    /** 显示覆盖物 */
-    show(): void;
     /** 将覆盖物设置到地图上 */
     setMap(map: Map | null): void;
     /** 将覆盖物加到地图上 */
@@ -1154,7 +1150,7 @@ declare namespace AMap {
     /** 点标记在地图上显示的位置 */
     position?: Vector | LngLat;
     /** 标记显示的文本内容 */
-    text?: LabelOptions;
+    text?: string;
     /** 鼠标滑过点标记时的文字提示 */
     title?: string;
     /** 点标记是否可见，默认为true */
@@ -1184,7 +1180,6 @@ declare namespace AMap {
     /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
     style?: object;
   }
-
   interface MoveAlongObj {}
   interface MoveToOptions {
     /** 每段动画持续时长, 单位：ms */
