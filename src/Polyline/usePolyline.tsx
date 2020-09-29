@@ -13,8 +13,8 @@ export function usePolyline(props = {} as UsePolyline) {
       map.add(instance);
       setPolyline(instance);
       return () => {
-        if (instance) {
-          map && map.remove(instance);
+        if (polyline) {
+          map && map.remove(polyline);
           setPolyline(undefined);
         }
       }
