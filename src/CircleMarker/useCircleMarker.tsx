@@ -14,7 +14,7 @@ export const useCircleMarker = (props = {} as UseCircleMarker) => {
       setCircleMarker(instance);
       return () => {
         if (instance) {
-          map && map.remove(instance);
+          map && map.removeLayer(instance);
           setCircleMarker(undefined);
         }
       }

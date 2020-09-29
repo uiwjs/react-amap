@@ -17,8 +17,9 @@ export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
       });
 
       return () => {
-        if (instance && map && map.remove) {
-          map.remove(instance);
+        if (instance && map) {
+          map.removeLayer(instance);
+          setHawkEyeControl(undefined);
         }
       }
     }

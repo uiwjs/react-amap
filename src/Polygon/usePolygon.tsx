@@ -14,7 +14,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
       setPolygon(instance);
       return () => {
         if (instance) {
-          map && map.remove(instance);
+          map && map.removeLayer(instance);
           setPolygon(undefined);
         }
       }

@@ -14,7 +14,7 @@ export function usePolyline(props = {} as UsePolyline) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          map && map.remove(instance);
+          map && map.removeLayer(instance);
           setPolyline(undefined);
         }
       }

@@ -14,7 +14,7 @@ export const useRectangle = (props = {} as UseRectangle) => {
       setRectangle(instance);
       return () => {
         if (instance) {
-          map && map.remove(instance);
+          map && map.removeLayer(instance);
           setRectangle(undefined);
         }
       }

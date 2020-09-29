@@ -36,16 +36,19 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
-          <Polygon
-            visiable={show}
-            path={path}
-            strokeColor="#FF33FF"
-            strokeWeight={6}
-            strokeOpacity={0.2}
-            fillOpacity={0.4}
-            fillColor="#1791fc"
-            zIndex={50}
-          />
+          {show && (
+
+            <Polygon
+              // visiable={show}
+              path={path}
+              strokeColor="#FF33FF"
+              strokeWeight={6}
+              strokeOpacity={0.2}
+              fillOpacity={0.4}
+              fillColor="#1791fc"
+              zIndex={50}
+            />
+          )}
         </Map>
       </div>
     </>

@@ -23,7 +23,8 @@ export const useMap = (props: UseMap = {}) => {
     }
     return () => {
       if (instance) {
-        instance.destroy();
+        setMap(undefined);
+        // instance.destroy();
       }
     }
   }, [container]);
