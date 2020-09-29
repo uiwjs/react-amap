@@ -32,6 +32,13 @@ export default () => {
       >
         uiwjs
       </a>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/uiwjs/react-baidu-map"
+      >
+        react-baidu-map
+      </a>
     </div>
   );
 }
