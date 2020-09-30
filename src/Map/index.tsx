@@ -18,10 +18,16 @@ export const Map = React.forwardRef<MapProps & { map?: AMap.Map }, MapProps>(({ 
     <Fragment>
       <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style}} />
       {AMap && map && typeof children === 'function' && children({ AMap, map, container })}
-      {AMap && map && childs.map((child) => {
+      {AMap && map && childs.map((child, key) => {
+        if (typeof child === 'string') {
+          return React.cloneElement(<Fragment>{child}</Fragment>, { key });
+        }
         if (!React.isValidElement(child)) return;
+        if (child.type && typeof child.type === 'string') {
+          return React.cloneElement(child, { key });
+        }
         return React.cloneElement(child, {
-          ...child.props, AMap, map, container,
+          ...child.props, AMap, map, container, key
         });
       })}
     </Fragment>
