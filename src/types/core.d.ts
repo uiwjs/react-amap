@@ -135,6 +135,7 @@ declare namespace AMap {
       Ellipse |
       HawkEye |
       CircleMarker |
+      ContextMenu |
       RoadNet
     ): void;
     /**

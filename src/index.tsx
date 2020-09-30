@@ -22,6 +22,9 @@ export * from './InfoWindow';
 export * from './InfoWindow/useInfoWindow';
 export * from './CircleMarker';
 export * from './CircleMarker/useCircleMarker';
+export * from './ContextMenu';
+export { default as ContextMenu } from './ContextMenu';
+export * from './ContextMenu/useContextMenu';
 
 export * from './Weather';
 export * from './Weather/useWeather';

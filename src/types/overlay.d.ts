@@ -1193,18 +1193,24 @@ declare namespace AMap {
   class ContextMenu extends MapEventListener {
     constructor(opts: ContextMenuOptions);
     /** 打开右键菜单 */
-    open(map: Map, position: Vector): void;
+    open(map: Map, position: Vector| LngLat): void;
     /** 关闭右键菜单 */
     close(): void;
     /** 菜单添加一条内容 */
-    addItem(text: string, fn: EventListener, num: number): void;
+    addItem(text: string, fn: (event: MouseEvent) => void, num: number): void;
     /** 菜单移除一条内容 */
-    removeItem(text: string, fn: EventListener): void;
+    removeItem(text: string, fn: (event: MouseEvent) => void): void;
   }
   interface ContextMenuOptions {
     /** 右键菜单显示的位置 */
     position?: Vector | LngLat;
     /** 右键菜单内容（针对自定义菜单时，添加菜单内容及功能。可以是HTML要素字符串或者HTML DOM对象。） */
     content?: string | HTMLElement;
+  }
+  interface ContextMenuEvents {
+    /** 菜单打开之后触发事件 */
+    onOpen?(opts: { type: string }): void;
+    /** 菜单关闭之后触发事件 */
+    onClose?(opts: { type: string }): void;
   }
 }

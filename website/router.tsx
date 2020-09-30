@@ -97,6 +97,10 @@ export const routes: Routes = [
     path: "/auto-complete",
     component: loadable(() => import('./pages/auto-complete'), options),
   },
+  {
+    path: "/context-menu",
+    component: loadable(() => import('./pages/context-menu'), options),
+  },
 ];
 
 
@@ -188,6 +192,14 @@ export const menus = [
   {
     label: 'InfoWindow 信息窗体',
     path: '/info-window',
+  },
+  {
+    divider: true,
+    label: '右键菜单',
+  },
+  {
+    label: 'ContextMenu 右键菜单',
+    path: '/context-menu',
   },
   {
     divider: true,

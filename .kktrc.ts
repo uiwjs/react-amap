@@ -33,6 +33,7 @@ export const moduleScopePluginOpts: ModuleScopePluginOpts = [
   path.resolve(process.cwd(), 'src/Weather/README.md'),
   path.resolve(process.cwd(), 'src/Geolocation/README.md'),
   path.resolve(process.cwd(), 'src/AutoComplete/README.md'),
+  path.resolve(process.cwd(), 'src/ContextMenu/README.md'),
 ];
 
 export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
