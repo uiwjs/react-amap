@@ -2,10 +2,13 @@
 /// <reference path="./core.d.ts" />
 
 declare namespace AMap {
-  class TileLayer extends MapEventListener {
+  class TileLayer extends MapEventListener<'complete'> {
     static Satellite: typeof Satellite;
     static Traffic: typeof Traffic;
     static RoadNet: typeof RoadNet;
+    static Flexible: typeof Flexible;
+    static WMS: typeof WMS;
+    static WMTS: typeof WMTS;
     constructor(opts: TileLayerOptions);
     /** 设置图层的取图地址 */
     setTileUrl(url: string): void;
@@ -60,6 +63,44 @@ declare namespace AMap {
      */
     tileSize?: number;
   }
+  /**
+   * 用于加载OGC标准的WMS地图服务的一种图层类，仅支持EPSG3857坐标系统的WMS图层。[查看 WMS的OGC标准](http://www.opengeospatial.org/standards/wms)。
+   */
+  class WMS extends MapEventListener<'complete'> {
+    constructor(opts: WMSLayerOptions);
+    /** 设置OGC标准的WMS getMap接口的参数，包括VERSION、LAYERS、STYLES、FORMAT、TRANSPARENT等 */
+    setParams(params: any): void;
+    getParams(): any;
+    setUrl(url: string): void;
+    getUrl(): string;
+    setOpacity(opacity: number): void;
+    getOpacity(): number;
+    setZooms(zooms: [number, number]): void;
+    getZooms(): [number, number];
+    setzIndex(zIndex: number): void;
+    getzIndex(): number;
+    getOptions(): any;
+  }
+  interface WMSLayerOptions {
+    /** wmts服务的url地址，如：' https://services.arcgisonline.com/arcgis/rest/services/'+ 'Demographics/USA_Population_Density/MapServer/WMTS/' */
+    url?: string;
+    /** 地图级别切换时，不同级别的图片是否进行混合，如图层的图像内容为部分透明请设置为false */
+    blend?: boolean;
+    /** OGC标准的WMS地图服务的GetMap接口的参数 */
+    param?: any;
+    /** 支持的缩放级别范围，默认范围 [2-20] */
+    zooms?: [number, number];
+    /** 透明度，默认 1 */
+    opacity?: number;
+    /** 是否显示，默认 true */
+    visible?: boolean;
+    /** 图层叠加的顺序值，1 表示最底层。默认 zIndex：4 */
+    zIndex?: number;
+  }
+  class WMTS extends WMS {
+    constructor(opts: WMTSLayerOptions);
+  }
+  interface WMTSLayerOptions extends WMSLayerOptions {}
   /** 卫星图层类，继承自 TileLayer。 */
   class Satellite extends Omit<TileLayer, 'setTileUrl', 'reload'> {
     constructor(opts: SatelliteLayerOptions);
@@ -170,7 +211,7 @@ declare namespace AMap {
     hideFloorBar?: boolean;
   }
   /** 矢量覆盖物图层，可添加/删除/查询矢量覆盖物(Polygon/Polyline/CircleMarker/Ellipse/RectAngle/BezierCurve)的图层 */
-  class VectorLayer extends MapEventListener {
+  class VectorLayer {
     constructor(opts: VectorLayerOptions);
     /** 添加矢量覆盖物到集合中，不支持添加重复的覆盖物 */
     add(vectors): void;
@@ -337,11 +378,53 @@ declare namespace AMap {
     getOptions(): CustomLayerOption;
     setMap(map: Map): void;
   }
+  /**
+   * 灵活切片图层，继承自AMap.TileLayer，开发者可通过构造时传入给其传入createTile字段来指定每一个切片的内容[相关示例](https://lbs.amap.com/api/jsapi-v2/example/selflayer/flex-canvas/)
+   */
+  class Flexible extends MapEventListener<'complete'> {
+    constructor(opts: FlexibleLayerOptions);
+    /** 获取标注层透明度 */
+    getOpacity(): number;
+    /** 设置标注层透明度 */
+    setOpacity(opacity: boolean): void;
+    /** 获取标注层叠加顺序 */
+    getzIndex(): number;
+    /** 设置标注层叠加顺序 */
+    setzIndex(zIndex: number): void;
+    /** 获取标注层显示层级范围 */
+    getZooms(): [number, number];
+    /** 设置标注层显示层级范围 */
+    setZooms(zooms: [number, number]): void;
+    // ^^^^^^^^ 上面公共部分 ^^^^^^^^
+    getOptions(): any;
+    destroy(): void;
+  }
+  interface FlexibleLayerOptions {
+    /** 缓存瓦片数量 */
+    cacheSize?: Number;
+    /** 由开发者实现，由API自动调用，xyz分别为切片横向纵向编号和层级，切片大小 256。假设每次创建的贴片为A(支持img或者canvas)，当创建或者获取成功时请回调success(A)，不需要显示或者失败时请回调fail() */
+    createTile?: (x: number, y: number, z: number, success: () => void, fail: () => void) => void;
+    /** 支持的缩放级别范围，默认范围 [2-20] */
+    zooms?: [Number, Number];
+    /** 透明度，默认 1 */
+    opacity?: Number;
+    /** 是否显示，默认 true */
+    visible?: Boolean;
+    /** 图层叠加的顺序值，1 表示最底层。默认 zIndex：4 */
+    zIndex?: Number;
+    /**
+     * 切片大小，默认: 256 取值：
+     * - 256，表示切片大小为256 256，
+     * -128，表示切片大小为128 128，
+     * - 64，表示切片大小为64*64。默认值为256
+     */
+    tileSize?: Number;
+  }
   interface CustomLayerOption extends Omit<LabelsLayerOptions, 'collision' | 'allowCollision'> {
     /** 绘制函数，初始化完成时候，开发者需要给该图层设定render方法，该方法需要实现图层的绘制，API会在合适的时机自动调用该方法 */
     render?: () => void;
   }
-  class ImageLayer extends MapEventListener {
+  class ImageLayer extends MapEventListener<'complete'> {
     constructor(opts: ImageLayerOptions);
     /** 获取标注层透明度 */
     getOpacity(): number;

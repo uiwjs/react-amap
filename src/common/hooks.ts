@@ -72,21 +72,6 @@ export function usePrevious<T>(value: T) {
 
 export type EventNameType = 'LowerCase';
 
-export interface MapEventListener {
-  /**
-   * 添加事件监听函数
-   * @param event 
-   * @param handler 
-   */
-  on(event: string, handler: any): void;
-  /**
-   * 移除事件监听函数
-   * @param event 
-   * @param handler 
-   */
-  off(event: string, handler: any): void;
-}
-
 /**
  * 绑定事件
  * @param instance 实例对象
@@ -100,7 +85,7 @@ export interface MapEventListener {
  * ]);
  * ```
  */
-export function useEventProperties<T extends MapEventListener, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
+export function useEventProperties<T extends AMap.MapEventListener<any>, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
   eventName.forEach((name) => {
     const eventName = name as keyof F;
     const eventHandle = props[eventName];

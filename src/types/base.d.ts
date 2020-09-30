@@ -156,27 +156,27 @@ declare namespace AMap {
      */
     toString?(): string;
   }
-  class MapEventListener {
+  class MapEventListener<T = ''> {
     /**
      * 设置控件可见
      */
-    show(): void;
+    show: () => void;
     /**
      * 设置控件隐藏
      */
-    hide(): void;
+    hide: () => void;
     /**
      * 添加事件监听函数
      * @param event 
      * @param handler 
      */
-    on(event: string, handler: any): void;
+    on(event: T, handler: any): void;
     /**
      * 移除事件监听函数
      * @param event 
      * @param handler 
      */
-    off(event: string, handler: any): void;
+    off(event: T, handler: any): void;
     /**
      * 判断当前实例是否已经绑定了某个事件回调
      * @param type 事件类型
@@ -192,6 +192,8 @@ declare namespace AMap {
     /** 模拟触发当前实例的某个事件 */
     emit(type: string, data: any): any;
   }
+  // interface MapEventListener<T> {
+  // }
   type MapsEvent = {
     /**
      * 发生事件时光标所在处的经纬度坐标。

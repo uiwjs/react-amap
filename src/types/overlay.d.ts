@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
-  class Marker extends MapEventListener, MoveAnimation {
+  class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'>, MoveAnimation {
     constructor(opts: MarkerOptions);
     /** 获取点标记的文字提示 */
     getTitle(): ?string;
@@ -242,7 +242,7 @@ declare namespace AMap {
   /**
    * 构造折线对象，支持 lineString 和 MultiLineString
    */
-  class Polyline extends MapEventListener {
+  class Polyline extends MapEventListener<'hide' | 'show' | 'mouseout' | 'rightclick' | 'dblclick' | 'click' | 'mouseover' | 'touchend' | 'touchmove' | 'touchstart' | 'mouseup' | 'mousedown'> {
     constructor(opts: PolylineOptions);
     /**
      * 获取当前折线的矩形范围对象
@@ -386,7 +386,7 @@ declare namespace AMap {
   /**
    * 构造圆形对象，通过CircleOptions指定多边形样式
    */
-  class Circle extends MapEventListener {
+  class Circle extends MapEventListener<'hide' | 'show' | 'rightclick' | 'click' | 'touchend' | 'dblclick' | 'touchmove' | 'touchstart' | 'mouseout' | 'mouseover' | 'mouseup' | 'mousedown'> {
     constructor(opts: CircleOptions);
     /** 设置圆中心点 */
     setCenter(center: LngLatLike): void;
@@ -461,7 +461,7 @@ declare namespace AMap {
     strokeDasharray?: Array<number>;
   }
 
-  class CircleMarker extends MapEventListener {
+  class CircleMarker extends MapEventListener<'hide' | 'show' | 'mouseover' | 'touchend' | 'click' | 'touchmove' | 'rightclick' | 'mouseup' | 'mouseout' | 'touchstart' | 'mousedown' | 'dblclick'> {
     constructor(opts: CircleMarkerOptions);
     /** 设置圆点的半径 */
     setRaius(radius: number): void;
@@ -514,7 +514,7 @@ declare namespace AMap {
   /**
    * 构造多边形对象
    */
-  class Ellipse extends MapEventListener {
+  class Ellipse extends MapEventListener<'hide' | 'show' | 'click' | 'dblclick' | 'rightclick' | 'mouseover' | 'touchend' | 'touchmove' | 'touchstart' | 'mouseout' | 'mouseup' | 'mousedown'> {
     constructor(opts: EllipseOptions);
     /** 设置椭圆的中心点 */
     setCenter(center: LngLatLike): void;
@@ -604,7 +604,7 @@ declare namespace AMap {
   /**
    * 构造矩形对象
    */
-  class Rectangle extends MapEventListener {
+  class Rectangle extends MapEventListener<'hide' | 'show' | 'dblclick' | 'click' | 'mousedown' | 'mouseout' | 'mouseover' | 'mouseup' | 'touchend' | 'rightclick' | 'touchstart' | 'touchmove'> {
     constructor(opts: RectangleOptions);
     /** 设置矩形的范围 */
     setBounds(bounds: Bounds): void;
@@ -667,7 +667,7 @@ declare namespace AMap {
   /**
    * 贝塞尔曲线
    */
-  class BezierCurve extends MapEventListener {
+  class BezierCurve extends MapEventListener<'hide' | 'show' | 'dblclick' | 'mouseover' | 'mouseup' | 'mousedown' | 'click' | 'touchend' | 'touchmove' | 'touchstart' | 'rightclick' | 'mouseout'> {
     constructor(opts: BezierCurveOptions);
     /** 修改折线属性（包括路径的节点、线样式、是否绘制大地线等。属性详情参看 BezierCurveOptions 列表） */
     setOptions(optsArg: BezierCurveOptions): void;
@@ -764,7 +764,7 @@ declare namespace AMap {
     onShow?(data: {type: string, target: any}): void;
   }
   /** 多边形 */
-  class Polygon extends MapEventListener {
+  class Polygon extends MapEventListener<'hide' | 'show' | 'touchstart' | 'mouseout' | 'mouseover' | 'mouseup' | 'mousedown' | 'rightclick' | 'click' | 'dblclick' | 'touchend' | 'touchmove'> {
     constructor(opts: PolygonOptions);
     /** 设置多边形轮廓线节点数组，当为“环”多边形时，path为二维数组，数组元素为多边形轮廓线的节点坐标数组 */
     setPath(path: Array<LngLat> | Array<Array<LngLat>>): void;
@@ -829,7 +829,7 @@ declare namespace AMap {
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
    */
-  class InfoWindow extends MapEventListener {
+  class InfoWindow extends MapEventListener<'open' | 'close'> {
     constructor(opt:InforWindowOptions);
     /** 打开信息窗体 */
     open(map: Map, pos: LngLat, height?: number): void;
@@ -871,7 +871,7 @@ declare namespace AMap {
     onChange?(): void;
   }
    /** 文本标记 */
-   class Text extends MapEventListener, MoveAnimation {
+   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'>, MoveAnimation {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
@@ -992,7 +992,7 @@ declare namespace AMap {
   /**
    * 用于展示大量点标记，将点标记按照距离进行聚合，以提高绘制性能。点聚合支持用户自定义样式，以插件形式调用。
    */
-  class MarkerCluster extends MapEventListener {
+  class MarkerCluster extends MapEventListener<'click'> {
     constructor(map: Map, dataOptions: MarkerClusterDataOptions, MarkerClusterOptions: MarkerClusterOptions)
     getClustersCount(): number;
     addData(dataOptions: MarkerClusterDataOptions): void;
@@ -1051,7 +1051,7 @@ declare namespace AMap {
     renderMarker?: (opts: { marker: Marker }) => any;
   }
   /** 海量点类 */
-  class MassMarks extends MapEventListener {
+  class MassMarks extends MapEventListener<'touchstart' | 'touchend' | 'mousemove' | 'dbclick' | 'click' | 'complete' | 'mouseover' | 'mousedown' | 'mouseup' | 'mouseout'> {
     constructor(data: MassMarkersDataOptions, opts: Array<MassMarkersOptions>)
     setMap(map: Map): void;
     getMap(): Map;
@@ -1142,7 +1142,7 @@ declare namespace AMap {
     autoRotation?: boolean;
   }
   /** 标注类 */
-  class LabelMarker extends MapEventListener, MoveAnimation {
+  class LabelMarker extends MapEventListener<'mousedown' | 'mouseup' | 'touchstart' | 'touchmove' | 'touchend' | 'click' | 'mousemove' | 'mouseover' | 'mouseout'>, MoveAnimation {
     constructor(opts: LabelMarkerOptions);
     getName(): string | undefined;
     setName(name: string): void;
@@ -1190,7 +1190,7 @@ declare namespace AMap {
     /** 标注文本设置 */
     text?: TextOptions;
   }
-  class ContextMenu extends MapEventListener {
+  class ContextMenu extends MapEventListener<'open' | 'close'> {
     constructor(opts: ContextMenuOptions);
     /** 打开右键菜单 */
     open(map: Map, position: Vector| LngLat): void;

@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * 地图对象类，封装了地图的属性设置、图层变更、事件交互等接口的类。
    */
-  class Map extends MapEventListener {
+  class Map extends MapEventListener<'mousemove' | 'zoomchange' | 'mapmove' | 'mousewheel' | 'zoomstart' | 'mouseover' | 'mouseout' | 'dblclick' | 'click' | 'zoomend' | 'moveend' | 'mouseup' | 'mousedown' | 'rightclick' | 'movestart' | 'dragstart' | 'dragging' | 'dragend' | 'hotspotout' | 'hotspotover' | 'touchstart' | 'complete' | 'hotspotclick' | 'touchmove' | 'touchend' | 'resize'> {
     /**
      * @param div 构造一个地图对象，参数 container 中传入地图容器 DIV 的 ID值 或者 DIV对象，opts 地图初始化参数对象，参数详情参看 MapOptions 列表。注意：地图容器在创建之前必须拥有实际大小，否则可能出现底图无法渲染的问题。
      * @param opts 地图初始化参数
