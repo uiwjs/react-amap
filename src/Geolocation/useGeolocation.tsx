@@ -22,9 +22,9 @@ export const useGeolocation = (props = {} as UseGeolocation) => {
 
   function callback(status: 'error' | 'complete', result: AMap.GeolocationResult) {
     if(status === 'complete' && onComplete){
-      onComplete(result)
+      onComplete(result);
     } else if (onError) {
-      onError(result)
+      onError(result);
     }
   }
 

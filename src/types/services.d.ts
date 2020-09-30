@@ -87,81 +87,49 @@ declare namespace AMap {
     /** 根据用户 IP 获取 用户所在城市信息 */
     getCityInfo(callback: (status: 'error' | 'complete', result: GeolocationResult) => void): void;
   }
-  interface GeolocationOptions {
-    /** 是否使用高精度，默认值：true */
-    enableHighAccuracy?: boolean;
-    /** 超时毫秒数，若在指定时间内未定位成功，返回超时错误信息“TIMEOUT”，默认值：无穷大 */
-    timeout?: number;
-    /**
-     * 是否禁止使用IP定位，默认值为0，可选值0-3
-     * - 0: 可以使用IP定位
-     * - 1: 手机设备禁止使用IP定位
-     * - 2: PC上禁止使用IP定位
-     * - 3: 所有终端禁止使用IP定位
-     */
-    noIpLocate?: number;
-    /**
-     * 是否禁止使用浏览器Geolocation定位，默认值为0，可选值0-3
-     * - 0: 可以使用浏览器定位
-     * - 1: 手机设备禁止使用浏览器定位
-     * - 2: PC上禁止使用浏览器定位
-     * - 3: 所有终端禁止使用浏览器定位
-     */
-    noGeoLocation?: number;
-    /** 默认为false，设置为true的时候可以调整PC端为优先使用浏览器定位，失败后使用IP定位 */
-    GeoLocationFirst?: boolean;
-    /** 缓存毫秒数。定位成功后，定位结果的保留时间 默认值：0 */
-    maximumAge?: number;
-    /** 是否使用坐标偏移，取值true:为高德地图坐标，取值false:为浏览器定位坐标 默认值：true */
+  interface GeolocationOptions extends ControlOptions {
+    /** 缩略图的高度，同CSS，如'silver' */
+    borderColor?: string;
+    /** 缩略图的高度，同CSS，如'5px' */
+    borderRadius?: string;
+    /** 箭头按钮的像素尺寸，同CSS，如'12px' */
+    buttonSize?: string;
+    /** 是否将定位结果转换为高德坐标 */
     convert?: boolean;
-    /** 是否显示定位按钮，默认值：true */
+    /** 进行浏览器原生定位的时候是否尝试获取较高精度，可能影响定位效率，默认为false */
+    enableHighAccuracy?: boolean;
+    /** 定位的超时时间，毫秒 */
+    timeout?: number;
+    /** 浏览器原生定位的缓存时间，毫秒 */
+    maximumAge?: number;
+    /** 是否显示定位按钮，默认为true */
     showButton?: boolean;
-    /** 自定义定位按钮的内容。可支持HTML代码或Dom元素对象，不设置该属性则使用默认按钮样式 */
-    buttonDom?: string| HTMLElement;
-    /**
-     * 定位按钮可停靠的位置
-     * - “LT”：左上角
-     * - “LB”：左下角
-     * - “RT”：右上角
-     * - “RB”：右下角
-     * @default LB 默认值
-     */
-    buttonPosition?: string;
-    /**
-     * 按钮距离停靠位置的偏移量 默认值：Pixel(10,20)
-     */
-    buttonOffset?: Pixel;
-    /** 定位成功时是否在定位位置显示一个Marker 默认值：true */
-    showMarker?: boolean;
-    /** 定位点Marker的配置，不设置该属性则使用默认Marker样式 */
-    markerOptions?: MarkerOptions;
-    /** 定位成功并且有精度信息时，是否用一个圆圈circle表示精度范围 默认值：true */
+    /** 是否显示定位精度圆，默认为true */
     showCircle?: boolean;
-    /** 定位点Circle的配置，不设置该属性则使用默认Circle样式 */
+    /** 是否显示定位点，默认为true */
+    showMarker?: boolean;
+    /** 定位点的样式 */
+    markerOptions?: MarkerOptions;
+    /** 定位圆的样式 */
     circleOptions?: CircleOptions;
-    /** 定位成功后，是否把定位得到的坐标设置为地图中心点坐标 默认值：true */
+    /** 定位成功后是否自动移动到响应位置 */
     panToLocation?: boolean;
-    /** 定位成功且显示精度范围时，是否把地图视野调整到正好显示精度范围 默认值：false */
+    /** 定位成功后是否自动调整级别 */
     zoomToAccuracy?: boolean;
-    /**
-     * 是否使用安卓定位sdk用来进行定位，默认：false
-     * 
-     * 适用于同时在APP中使用安卓定位sdk并在APP WebView中使用了JSAPI的开发者。开启后，将优先尝试使用sdk进行定位，失败后依次尝试浏览器定位和IP定位。
-     * 
-     * 注：如果要使用辅助定位的功能，除了需要将useNative属性设置为true以外，还需要调用高德定位sdk中，AMapLocationClient类的startAssistantLocation方法，开启辅助H5定位功能；如果不用，就调用stopAssistantLocation()方法停止辅助H5定位功能。具体用法可参考定位SDK的参考手册
-     */
+    /** 是否显示打开关闭的按钮 */
+    GeoLocationFirst?: boolean;
+    /** 是否禁用IP精确定位，默认为0，0:都用 1:手机上不用 2:PC上不用 3:都不用 */
+    noIpLocate?: 0 | 1 | 2 | 3;
+    /** 是否禁用浏览器原生定位，默认为0，0:都用 1:手机上不用 2:PC上不用 3:都不用 */
+    noGeoLocation?: 0 | 1 | 2 | 3;
+    /** 是否与高德定位SDK能力结合，需要同时使用安卓版高德定位sdk，否则无效 */
     useNative?: boolean;
     /** 定位失败之后是否返回基本城市定位信息 */
     getCityWhenFail?: boolean;
     /** 是否需要将定位结果进行逆地理编码操作 */
     needAddress?: boolean;
-    /**
-     * JSAPI在定位成功的时候会将得到的经纬度进行逆地理编码后获取地址信息，以方便开发者的进一步使用;
-     * extensions用来设定是否需要周边POI、道路交叉口等信息，可选值'base'、'all'。
-     * 默认为'base',只返回地址信息；
-     * 设定为'all'的时候将返回周边POI、道路交叉口等信息。
-     */
-    extensions?: string;
+    /** 是否需要详细的逆地理编码信息，默认为'base'只返回基本信息，可选'all' */
+    extensions?: 'base' | 'all';
   }
   interface GeolocationEvents {
     /** 数据请求完成时触发事件。 */
