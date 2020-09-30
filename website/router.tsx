@@ -130,11 +130,11 @@ export const menus = [
     path: '/scale-control',
   },
   {
-    label: 'ToolBarControl 工具条控件',
+    label: 'ToolBarControl 缩放工具条',
     path: '/tool-bar-control',
   },
   {
-    label: 'MapTypeControl 工具条控件',
+    label: 'MapTypeControl 图层切换',
     path: '/map-type-control',
   },
   {
@@ -147,7 +147,7 @@ export const menus = [
   },
   {
     divider: true,
-    label: '覆盖物',
+    label: '点标记',
   },
   {
     label: 'Marker 点标记',
@@ -158,12 +158,28 @@ export const menus = [
     path: '/text',
   },
   {
+    divider: true,
+    label: '矢量图形',
+  },
+  {
+    label: 'Polygon 多边形',
+    path: '/polygon',
+  },
+  {
     label: 'Polyline 折线',
     path: '/polyline',
   },
   {
+    label: 'BesizerCurve 贝塞尔曲线',
+    path: '/beizer-curve',
+  },
+  {
     label: 'Circle 圆形',
     path: '/circle',
+  },
+  {
+    label: 'CircleMarker 圆点标记',
+    path: '/circle-marker',
   },
   {
     label: 'Ellipse 圆形组件',
@@ -172,18 +188,6 @@ export const menus = [
   {
     label: 'Rectangle 矩形',
     path: '/rectangle',
-  },
-  {
-    label: 'BesizerCurve 贝塞尔曲线',
-    path: '/beizer-curve',
-  },
-  {
-    label: 'Polygon 多边形',
-    path: '/polygon',
-  },
-  {
-    label: 'CircleMarker 圆点标记',
-    path: '/circle-marker',
   },
   {
     divider: true,

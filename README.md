@@ -29,18 +29,33 @@ npm install @uiw/react-amap --save
 
 ## 使用
 
-<!--DemoStart,bgWhite,codePen--> 
+<!--DemoStart,bgWhite--> 
 ```jsx
-import { Map, APILoader } from '@uiw/react-amap';
+import React, { useEffect, useRef, Fragment } from 'react';
+import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-      <Map />
-    </APILoader>
+    <Map>
+      <ScaleControl offset={[16, 30]} position="LB" />
+      <ToolBarControl offset={[16, 10]} position="RB" />
+      <ControlBarControl offset={[16, 180]} position="RB" style={{ color: 'red' }} />
+      <Geolocation
+        maximumAge={100000}
+        borderRadius="5px"
+        position="RB"
+        offset={[16, 80]}
+        zoomToAccuracy={true}
+        showCircle={true}
+      />
+    </Map>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Demo />
+  </APILoader>
+), _mount_);
 ```
 <!--End-->
 
