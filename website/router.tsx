@@ -110,6 +110,11 @@ export const menus = [
     path: '/',
   },
   {
+    label: '国内镜像 🇨🇳',
+    target: '__blank',
+    path: 'https://uiw.gitee.io/react-amap',
+  },
+  {
     divider: true,
     label: '容器',
   },
@@ -258,11 +263,6 @@ export const menus = [
     label: '源码 Gitee 仓库',
     target: '__blank',
     path: 'https://gitee.com/uiw/react-amap',
-  },
-  {
-    label: '国内镜像 🇨🇳',
-    target: '__blank',
-    path: 'https://uiw.gitee.io/react-amap',
   },
   {
     divider: true,
