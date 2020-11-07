@@ -6,8 +6,8 @@
   "module": "lib/esm/index.js",
   "scripts": {
     "prepare": "npm run build:lib",
-    "doc": "ENTRYDIR=website kkt build",
-    "start": "ENTRYDIR=website kkt start",
+    "doc": "cross-env ENTRYDIR=website kkt build",
+    "start": "cross-env ENTRYDIR=website kkt start",
     "build": "npm run build:lib && npm run doc",
     "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
     "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
@@ -60,6 +60,7 @@
     "@uiw/react-markdown-preview": "1.0.9",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.5.1",
+    "cross-env": "7.0.2",
     "default-passive-events": "2.0.0",
     "kkt": "5.10.3",
     "react": "16.13.1",
