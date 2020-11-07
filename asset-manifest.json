@@ -44,8 +44,8 @@
     "vendors-react.js": "/static/js/vendors-react.0c01de23.chunk.js",
     "vendors-react.js.map": "/static/js/vendors-react.0c01de23.chunk.js.map",
     "vendors~main.css": "/static/css/vendors~main.0135b9ce.chunk.css",
-    "vendors~main.js": "/static/js/vendors~main.4ea7f540.chunk.js",
-    "vendors~main.js.map": "/static/js/vendors~main.4ea7f540.chunk.js.map",
+    "vendors~main.js": "/static/js/vendors~main.bfcee42a.chunk.js",
+    "vendors~main.js.map": "/static/js/vendors~main.bfcee42a.chunk.js.map",
     "static/js/20.ede30511.chunk.js": "/static/js/20.ede30511.chunk.js",
     "static/js/20.ede30511.chunk.js.map": "/static/js/20.ede30511.chunk.js.map",
     "static/js/21.2dcae65f.chunk.js": "/static/js/21.2dcae65f.chunk.js",
@@ -147,7 +147,7 @@
     "static/js/vendors-prismjs.556986ea.chunk.js.LICENSE.txt": "/static/js/vendors-prismjs.556986ea.chunk.js.LICENSE.txt",
     "static/js/vendors-react.0c01de23.chunk.js.LICENSE.txt": "/static/js/vendors-react.0c01de23.chunk.js.LICENSE.txt",
     "static/js/vendors-uiwjs.c2445653.chunk.js.LICENSE.txt": "/static/js/vendors-uiwjs.c2445653.chunk.js.LICENSE.txt",
-    "static/js/vendors~main.4ea7f540.chunk.js.LICENSE.txt": "/static/js/vendors~main.4ea7f540.chunk.js.LICENSE.txt",
+    "static/js/vendors~main.bfcee42a.chunk.js.LICENSE.txt": "/static/js/vendors~main.bfcee42a.chunk.js.LICENSE.txt",
     "workbox-8a532145.js": "/workbox-8a532145.js",
     "workbox-8a532145.js.map": "/workbox-8a532145.js.map"
   },
@@ -156,7 +156,7 @@
     "static/js/vendors-runtime-helpers.6c1199d7.chunk.js",
     "static/js/vendors-react.0c01de23.chunk.js",
     "static/css/vendors~main.0135b9ce.chunk.css",
-    "static/js/vendors~main.4ea7f540.chunk.js",
+    "static/js/vendors~main.bfcee42a.chunk.js",
     "static/css/main.e5c8cebb.chunk.css",
     "static/js/main.6fac55ba.chunk.js"
   ]
