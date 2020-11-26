@@ -1,7 +1,7 @@
 Map 组件
 ===
 
-Map 组件是其他组件的基础，Map 组件会给所有的子组件注入两个属性 **`map`**，**`container`** 和 **`AMap`**，
+Map 组件是其他组件的基础，Map 组件会给所有的子组件注入三个属性 **`map`**，**`container`** 和 **`AMap`**，
 
 ⚠️ 注意
 
@@ -136,6 +136,45 @@ const Demo = () => (
   </div>
 );
 ReactDOM.render(<Demo />, _mount_);
+```
+<!--End-->
+
+### 特殊使用方法
+
+通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
+
+<!--DemoStart,bgWhite--> 
+```jsx
+import React, { useEffect, useRef, Fragment } from 'react';
+import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <Map center={[116.397428, 39.90923]} zoom={12}>
+      {({ AMap, map, container }) => {
+        console.log('map', map)
+        if (map) {
+          const marker = new AMap.Marker({
+            icon: new AMap.Icon({
+              imageSize: new AMap.Size(25, 34),
+              image: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
+            }),
+            position: [116.405285,39.904989],
+            offset: new AMap.Pixel(-13, -30)
+          });
+          marker.setMap(map);
+        }
+        return;
+      }}
+    </Map>
+  </div>
+);
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Demo />
+  </APILoader>
+), _mount_);
 ```
 <!--End-->
 

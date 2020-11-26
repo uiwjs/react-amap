@@ -49,6 +49,11 @@ const Demo = () => (
         showCircle={true}
       />
     </Map>
+    <Map>
+      {({ AMap, map, container }) => {
+        return;
+      }}
+    </Map>
   </div>
 );
 ReactDOM.render((
