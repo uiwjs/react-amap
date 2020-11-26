@@ -3,12 +3,16 @@
 import React, { useRef, useEffect, useImperativeHandle, Fragment } from 'react';
 import { useMap } from './useMap';
 
+type RenderProps =
+  | { children: (data: { AMap: typeof AMap, map: AMap.Map, container?: HTMLDivElement | null }) => void }
+  | { children: React.ReactNode };
+
 export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }
 
-export const Map = React.forwardRef<MapProps & { map?: AMap.Map }, MapProps>(({ className, style, children, ...props }, ref) => {
+export const Map = React.forwardRef<MapProps & { map?: AMap.Map } , MapProps & RenderProps>(({ className, style, children, ...props }, ref) => {
   const elmRef = useRef<HTMLDivElement>(null);
   const { setContainer, container, map } = useMap({ container: elmRef.current, ...props });
   useEffect(() => setContainer(elmRef.current), [elmRef.current]);

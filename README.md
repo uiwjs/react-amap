@@ -39,7 +39,7 @@ const Demo = () => (
     <Map>
       <ScaleControl offset={[16, 30]} position="LB" />
       <ToolBarControl offset={[16, 10]} position="RB" />
-      <ControlBarControl offset={[16, 180]} position="RB" style={{ color: 'red' }} />
+      <ControlBarControl offset={[16, 180]} position="RB" />
       <Geolocation
         maximumAge={100000}
         borderRadius="5px"
