@@ -566,6 +566,7 @@ declare namespace AMap {
     'AMap.Geolocation' |
     'AMap.AutoComplete' |
     'AMap.PlaceSearch' |
+    'AMap.Driving' |
     'AMap.MoveAnimation'
   >, callBack: () => void): void;
   /**
