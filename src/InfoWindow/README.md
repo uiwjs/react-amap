@@ -9,7 +9,6 @@ import { InfoWindow } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
@@ -53,7 +52,6 @@ ReactDOM.render((
 
 ### 设置信息窗体内容
 
-<!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
@@ -76,6 +74,71 @@ const Example = () => {
               console.log('evn', evn);
             }}
           />
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
+### 点标记点弹出信息窗体
+
+<!--DemoStart,bgWhite,noScroll--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { Map, Marker, APILoader, InfoWindow } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(false);
+  const [winPosition, setWinPosition] = useState();
+  const [content, setContent] = useState('<div>高德软件</div>');
+  return (
+    <>
+      <input type="text" value={content} onChange={(evn) => setContent(evn.target.value)}/>
+      <div style={{ width: '100%', height: '500px' }}>
+        <Map zoom={14} center={[116.397637, 39.900001]}>
+          <Marker
+            title="北京市"
+            position={new AMap.LngLat(116.405285,39.904989)}
+            onClick={(evn) => {
+              if (!show) {
+                setWinPosition(evn.lnglat);
+                setShow(true);
+              } else {
+                setWinPosition(evn.lnglat);
+              }
+            }}
+          />
+          <Marker
+            title="北京市"
+            position={new AMap.LngLat(116.415285,39.905589)}
+            onClick={(evn) => {
+              if (!show) {
+                setWinPosition(evn.lnglat);
+                setShow(true);
+              } else {
+                setWinPosition(evn.lnglat);
+              }
+            }}
+          />
+          {winPosition && (
+            <InfoWindow
+              visiable={show}
+              position={winPosition}
+              offset={{ x: 0, y: -10}}
+              content={content}
+              onClose={(evn) => {
+                // console.log('evn2', evn, show);
+              }}
+            />
+          )}
         </Map>
       </div>
     </>

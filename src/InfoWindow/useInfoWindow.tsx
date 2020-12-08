@@ -37,6 +37,12 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     }
   }, [visiable, infoWindow]);
 
+  useEffect(() => {
+    if (!map || !infoWindow) return;
+    const positionCenter = map.getCenter();
+    infoWindow.open(map, position || positionCenter);
+  }, [position]);
+
   useSettingProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
     'Content', 'Anchor', 'Size'
   ]);
