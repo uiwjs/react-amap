@@ -9,6 +9,7 @@ import { InfoWindow } from '@uiw/react-amap';
 
 ### 基本用法
 
+<!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
@@ -52,6 +53,7 @@ ReactDOM.render((
 
 ### 设置信息窗体内容
 
+<!--DemoStart,bgWhite,noScroll--> 
 ```jsx
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
