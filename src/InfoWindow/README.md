@@ -104,17 +104,17 @@ const Example = () => {
   return (
     <>
       <input type="text" value={content} onChange={(evn) => setContent(evn.target.value)}/>
-      <div style={{ width: '100%', height: '500px' }}>
+      <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={14} center={[116.397637, 39.900001]}>
           <Marker
             title="北京市"
             position={new AMap.LngLat(116.405285,39.904989)}
             onClick={(evn) => {
               if (!show) {
-                setWinPosition(evn.lnglat);
+                setWinPosition(new AMap.LngLat(116.405285,39.904989));
                 setShow(true);
               } else {
-                setWinPosition(evn.lnglat);
+                setWinPosition(new AMap.LngLat(116.405285,39.904989));
               }
             }}
           />
@@ -123,10 +123,10 @@ const Example = () => {
             position={new AMap.LngLat(116.415285,39.905589)}
             onClick={(evn) => {
               if (!show) {
-                setWinPosition(evn.lnglat);
+                setWinPosition(new AMap.LngLat(116.415285,39.905589));
                 setShow(true);
               } else {
-                setWinPosition(evn.lnglat);
+                setWinPosition(new AMap.LngLat(116.415285,39.905589));
               }
             }}
           />
@@ -141,6 +141,56 @@ const Example = () => {
               }}
             />
           )}
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+<!--End-->
+
+### 点标记点弹出信息窗体 Ref 实现
+
+<!--DemoStart,bgWhite,noScroll--> 
+```jsx
+import React, { useState, useRef } from 'react';
+import { Map, Marker, APILoader, InfoWindow } from '@uiw/react-amap';
+
+const Example = () => {
+  const mapRef = useRef();
+  const winRef = useRef();
+  const [winPosition, setWinPosition] = useState();
+  const [content, setContent] = useState('<div>高德软件</div>');
+  return (
+    <>
+      <input type="text" value={content} onChange={(evn) => setContent(evn.target.value)}/>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map ref={mapRef} zoom={14} center={[116.397637, 39.900001]}>
+          <Marker
+            title="北京市"
+            position={new AMap.LngLat(116.405285,39.904989)}
+            onClick={(evn) => {
+              winRef.current.infoWindow.open(mapRef.current.map, new AMap.LngLat(116.405285,39.904989))
+            }}
+          />
+          <Marker
+            title="北京市"
+            position={new AMap.LngLat(116.415285,39.905589)}
+            onClick={(evn) => {
+              winRef.current.infoWindow.open(mapRef.current.map, new AMap.LngLat(116.415285,39.905589))
+            }}
+          />
+          <InfoWindow
+            ref={winRef}
+            offset={{ x: 0, y: -30}}
+            content={content}
+          />
         </Map>
       </div>
     </>

@@ -38,7 +38,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   }, [visiable, infoWindow]);
 
   useEffect(() => {
-    if (!map || !infoWindow) return;
+    if (!map || !infoWindow || !visiable) return;
     const positionCenter = map.getCenter();
     infoWindow.open(map, position || positionCenter);
   }, [position]);
