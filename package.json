@@ -48,7 +48,7 @@
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
-    "@kkt/loader-less": "5.10.3",
+    "@kkt/loader-less": "5.11.1",
     "@kkt/loader-raw": "5.10.3",
     "@loadable/component": "5.14.1",
     "@types/loadable__component": "5.13.1",

@@ -1736,10 +1736,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kkt/loader-less@5.10.3":
-  version "5.10.3"
-  resolved "https://registry.yarnpkg.com/@kkt/loader-less/-/loader-less-5.10.3.tgz#b35cd1e9e7df570f5557a44d297fc9c105f9f6f4"
-  integrity sha512-obG0tgJ6zGrZb9MuxGJJAKdA4wnjZIuBdBBenqioLiQ3JKgvlfl20Ag4pOFLUV4An1sRPLur+ZMFCvpQcqk+4w==
+"@kkt/loader-less@5.11.1":
+  version "5.11.1"
+  resolved "https://registry.yarnpkg.com/@kkt/loader-less/-/loader-less-5.11.1.tgz#c00d9250e9dd8d8ce322b6e4c4fc3ae79929734b"
+  integrity sha512-JLGFDl6xSzVaXdWN1hdI7uQat0w3G2nM3eehkgTSjyJgI4qXjK742fOkeqOvvTBXtjRF0VsWOyCxO9tvGfF07g==
   dependencies:
     less "^3.11.1"
     less-loader "^6.0.0"
