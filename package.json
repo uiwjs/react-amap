@@ -62,7 +62,7 @@
     "compile-less-cli": "1.5.1",
     "cross-env": "7.0.2",
     "default-passive-events": "2.0.0",
-    "kkt": "5.10.3",
+    "kkt": "5.11.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "5.2.0",
