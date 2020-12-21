@@ -14,7 +14,7 @@ declare namespace AMap {
      * @param lat 地理纬度
      * @param noWrap 是否自动将经度值修正到 [-180,180] 区间内，缺省为false; noWrap 为false时传入 [190,30] ，会被自动修正为 [-170,30] , noWrap 为true时不会自动修正，可以用来进行跨日期限的覆盖物绘制
      */
-    constructor(lng: number, lat: number, noWrap: boolean);
+    constructor(lng: number, lat: number, noWrap?: boolean);
     /**
      * 设置经度值
      * @param lng 经度值
