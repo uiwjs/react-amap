@@ -4,6 +4,7 @@ build
 npm-debug.log*
 package-lock.json
 .DS_Store
+.eslintcache
 .cache
 .rdoc-dist
 .vscode

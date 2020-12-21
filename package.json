@@ -6,8 +6,8 @@
   "module": "lib/esm/index.js",
   "scripts": {
     "prepare": "npm run build:lib",
-    "doc": "cross-env ENTRYDIR=website kkt build",
-    "start": "cross-env ENTRYDIR=website kkt start",
+    "doc": "kkt build --app-src ./website",
+    "start": "kkt start --app-src ./website",
     "build": "npm run build:lib && npm run doc",
     "build:lib": "npm run ts:build && npm run types:esm && npm run types:cjs && npm run css:build",
     "watch": "npm run ts:watch & npm run types:watch & npm run css:watch",
@@ -48,8 +48,9 @@
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
-    "@kkt/loader-less": "5.10.3",
-    "@kkt/loader-raw": "5.10.3",
+    "@kkt/less-modules": "6.0.4",
+    "@kkt/raw-modules": "6.0.4",
+    "@kkt/scope-plugin-options": "6.0.4",
     "@loadable/component": "5.14.1",
     "@types/loadable__component": "5.13.1",
     "@types/react": "16.14.2",
@@ -62,14 +63,17 @@
     "compile-less-cli": "1.5.1",
     "cross-env": "7.0.2",
     "default-passive-events": "2.0.0",
-    "kkt": "5.10.3",
+    "kkt": "6.0.4",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "5.2.0",
     "tsbb": "1.7.8"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
