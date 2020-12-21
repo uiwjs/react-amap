@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.less';
 
-export default () => {
+const Footer = () => {
   return (
     <div className={styles.footer}>
       <a
@@ -42,3 +42,5 @@ export default () => {
     </div>
   );
 }
+
+export default Footer;

@@ -1,80 +1,47 @@
+import webpack, {Configuration} from 'webpack';
 import path from 'path';
-import { OptionConf, ModuleScopePluginOpts, LoaderOneOf } from 'kkt';
-import webpack from 'webpack';
-import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
+// import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
+import lessModules from '@kkt/less-modules';
+import rawModules from '@kkt/raw-modules';
+import scopePluginOptions from '@kkt/scope-plugin-options';
+import { ParsedArgs } from 'minimist';
+import pkg from './package.json';
 
-type Webpack = typeof webpack;
-
-export const loaderOneOf: LoaderOneOf = [
-  require.resolve('@kkt/loader-less'),
-  require.resolve('@kkt/loader-raw')
-];
-
-export const moduleScopePluginOpts: ModuleScopePluginOpts = [
-  path.resolve(process.cwd(), 'README.md'),
-  path.resolve(process.cwd(), 'src'),
-  path.resolve(process.cwd(), 'src/Map/README.md'),
-  path.resolve(process.cwd(), 'src/APILoader/README.md'),
-  path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
-  path.resolve(process.cwd(), 'src/ToolBarControl/README.md'),
-  path.resolve(process.cwd(), 'src/MapTypeControl/README.md'),
-  path.resolve(process.cwd(), 'src/ControlBarControl/README.md'),
-  path.resolve(process.cwd(), 'src/HawkEyeControl/README.md'),
-  path.resolve(process.cwd(), 'src/Polyline/README.md'),
-  path.resolve(process.cwd(), 'src/Marker/README.md'),
-  path.resolve(process.cwd(), 'src/Text/README.md'),
-  path.resolve(process.cwd(), 'src/Circle/README.md'),
-  path.resolve(process.cwd(), 'src/Ellipse/README.md'),
-  path.resolve(process.cwd(), 'src/Rectangle/README.md'),
-  path.resolve(process.cwd(), 'src/BezierCurve/README.md'),
-  path.resolve(process.cwd(), 'src/Polygon/README.md'),
-  path.resolve(process.cwd(), 'src/InfoWindow/README.md'),
-  path.resolve(process.cwd(), 'src/CircleMarker/README.md'),
-  path.resolve(process.cwd(), 'src/Weather/README.md'),
-  path.resolve(process.cwd(), 'src/Geolocation/README.md'),
-  path.resolve(process.cwd(), 'src/AutoComplete/README.md'),
-  path.resolve(process.cwd(), 'src/ContextMenu/README.md'),
-];
-
-export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack) => {
-  const pkg = require(path.resolve(process.cwd(), 'package.json'));
+export default (conf: Configuration, env: string, options: ParsedArgs) => {
+  conf = rawModules(conf, env, { ...options });
+  conf = lessModules(conf, env, options);
+  conf = scopePluginOptions(conf, env, {
+    ...options,
+    allowedFiles: [
+      path.resolve(process.cwd(), 'README.md'),
+      path.resolve(process.cwd(), 'src'),
+      path.resolve(process.cwd(), 'src/Map/README.md'),
+      path.resolve(process.cwd(), 'src/APILoader/README.md'),
+      path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
+      path.resolve(process.cwd(), 'src/ToolBarControl/README.md'),
+      path.resolve(process.cwd(), 'src/MapTypeControl/README.md'),
+      path.resolve(process.cwd(), 'src/ControlBarControl/README.md'),
+      path.resolve(process.cwd(), 'src/HawkEyeControl/README.md'),
+      path.resolve(process.cwd(), 'src/Polyline/README.md'),
+      path.resolve(process.cwd(), 'src/Marker/README.md'),
+      path.resolve(process.cwd(), 'src/Text/README.md'),
+      path.resolve(process.cwd(), 'src/Circle/README.md'),
+      path.resolve(process.cwd(), 'src/Ellipse/README.md'),
+      path.resolve(process.cwd(), 'src/Rectangle/README.md'),
+      path.resolve(process.cwd(), 'src/BezierCurve/README.md'),
+      path.resolve(process.cwd(), 'src/Polygon/README.md'),
+      path.resolve(process.cwd(), 'src/InfoWindow/README.md'),
+      path.resolve(process.cwd(), 'src/CircleMarker/README.md'),
+      path.resolve(process.cwd(), 'src/Weather/README.md'),
+      path.resolve(process.cwd(), 'src/Geolocation/README.md'),
+      path.resolve(process.cwd(), 'src/AutoComplete/README.md'),
+      path.resolve(process.cwd(), 'src/ContextMenu/README.md'),
+    ]
+  });
   // Get the project version.
-  conf.plugins!.push(
-    new webpack.DefinePlugin({
-      VERSION: JSON.stringify(pkg.version),
-    })
-  );
-
-  /**
-   * Fix `.chunk.js is 5.38 MB, and won't be precached. Configure maximumFileSizeToCacheInBytes to change this limit.`
-   */
-  if (conf.plugins) {
-    conf.plugins = conf.plugins.map((item) => {
-      if (item.constructor && item.constructor.name && /(GenerateSW)/.test(item.constructor.name)) {
-        return null;
-      }
-      return item;
-    }).filter(Boolean) as webpack.Plugin[];
-    // Generate a service worker script that will precache, and keep up to date,
-    // the HTML & assets that are part of the Webpack build.
-    if (opts.isEnvProduction) {
-      conf.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
-        maximumFileSizeToCacheInBytes: 1024 * 1024 * 8,
-        clientsClaim: true,
-        exclude: [/\.map$/, /asset-manifest\.json$/],
-        navigateFallback: opts.publicUrlOrPath + '/index.html',
-        navigateFallbackDenylist: [
-          // Exclude URLs starting with /_, as they're likely an API call
-          new RegExp('^/_'),
-          // Exclude any URLs whose last part seems to be a file extension
-          // as they're likely a resource and not a SPA route.
-          // URLs containing a "?" character won't be blacklisted as they're likely
-          // a route with query params (e.g. auth callbacks).
-          new RegExp('/[^/?]+\\.[^/]+$'),
-        ],
-      }))
-    }
-  }
+  conf.plugins!.push(new webpack.DefinePlugin({
+    VERSION: JSON.stringify(pkg.version),
+  }));
 
   conf.optimization = {
     ...conf.optimization,
@@ -196,5 +163,37 @@ export default (conf: webpack.Configuration, opts: OptionConf, webpack: Webpack)
   };
 
   conf.output = { ...conf.output, publicPath: './' };
+
+  /**
+   * Fix `.chunk.js is 5.38 MB, and won't be precached. Configure maximumFileSizeToCacheInBytes to change this limit.`
+   */
+  if (conf.plugins) {
+    conf.plugins = conf.plugins.map((item) => {
+      if (item.constructor && item.constructor.name && /(GenerateSW)/.test(item.constructor.name)) {
+        return null;
+      }
+      return item;
+    }).filter(Boolean) as webpack.Plugin[];
+    // Generate a service worker script that will precache, and keep up to date,
+    // the HTML & assets that are part of the Webpack build.
+    if (env === 'Production') {
+      console.log('options::>', options)
+      // conf.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
+      //   maximumFileSizeToCacheInBytes: 1024 * 1024 * 8,
+      //   clientsClaim: true,
+      //   exclude: [/\.map$/, /asset-manifest\.json$/],
+      //   navigateFallback: options.publicUrlOrPath + '/index.html',
+      //   navigateFallbackDenylist: [
+      //     // Exclude URLs starting with /_, as they're likely an API call
+      //     new RegExp('^/_'),
+      //     // Exclude any URLs whose last part seems to be a file extension
+      //     // as they're likely a resource and not a SPA route.
+      //     // URLs containing a "?" character won't be blacklisted as they're likely
+      //     // a route with query params (e.g. auth callbacks).
+      //     new RegExp('/[^/?]+\\.[^/]+$'),
+      //   ],
+      // }));
+    }
+  }
   return conf;
 }

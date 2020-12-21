@@ -18,7 +18,11 @@
     "isolatedModules": true,
     "declaration": true,
     "baseUrl": "website",
-    "jsx": "react"
+    "jsx": "react-jsx",
+    "noFallthroughCasesInSwitch": true,
+    "noEmit": true
   },
-  "include": ["website"]
+  "include": [
+    "website"
+  ]
 }
