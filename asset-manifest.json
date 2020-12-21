@@ -135,6 +135,8 @@
     "static/js/63.5751e428.chunk.js": "/static/js/63.5751e428.chunk.js",
     "static/js/63.5751e428.chunk.js.map": "/static/js/63.5751e428.chunk.js.map",
     "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.map": "/service-worker.js.map",
     "static/css/14.472cf51f.chunk.css.map": "/static/css/14.472cf51f.chunk.css.map",
     "static/css/main.8176e87e.chunk.css.map": "/static/css/main.8176e87e.chunk.css.map",
     "static/css/vendors-code-preview.9ecc9275.chunk.css.map": "/static/css/vendors-code-preview.9ecc9275.chunk.css.map",
@@ -146,7 +148,9 @@
     "static/js/vendors-prismjs.4dc2e83c.chunk.js.LICENSE.txt": "/static/js/vendors-prismjs.4dc2e83c.chunk.js.LICENSE.txt",
     "static/js/vendors-react.0ac08ac0.chunk.js.LICENSE.txt": "/static/js/vendors-react.0ac08ac0.chunk.js.LICENSE.txt",
     "static/js/vendors-uiwjs.fdaf5827.chunk.js.LICENSE.txt": "/static/js/vendors-uiwjs.fdaf5827.chunk.js.LICENSE.txt",
-    "static/js/vendors~main.70371e35.chunk.js.LICENSE.txt": "/static/js/vendors~main.70371e35.chunk.js.LICENSE.txt"
+    "static/js/vendors~main.70371e35.chunk.js.LICENSE.txt": "/static/js/vendors~main.70371e35.chunk.js.LICENSE.txt",
+    "workbox-8a532145.js": "/workbox-8a532145.js",
+    "workbox-8a532145.js.map": "/workbox-8a532145.js.map"
   },
   "entrypoints": [
     "static/js/runtime-main.f0384f6c.js",
