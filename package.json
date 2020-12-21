@@ -64,8 +64,8 @@
     "cross-env": "7.0.2",
     "default-passive-events": "2.0.0",
     "kkt": "6.0.4",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-router-dom": "5.2.0",
     "tsbb": "1.7.8"
   },
