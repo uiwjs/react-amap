@@ -62,7 +62,7 @@
     "@uiw/react-markdown-preview": "1.0.9",
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.6.0",
-    "cross-env": "7.0.2",
+    "cross-env": "7.0.3",
     "kkt": "6.0.11",
     "react": "17.0.1",
     "react-dom": "17.0.1",
