@@ -48,9 +48,9 @@
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.0.5",
-    "@kkt/raw-modules": "6.0.5",
-    "@kkt/scope-plugin-options": "6.0.5",
+    "@kkt/less-modules": "6.0.11",
+    "@kkt/raw-modules": "6.0.11",
+    "@kkt/scope-plugin-options": "6.0.11",
     "@loadable/component": "5.14.1",
     "@types/loadable__component": "5.13.1",
     "@types/react": "16.14.2",
@@ -63,7 +63,7 @@
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.6.0",
     "cross-env": "7.0.2",
-    "kkt": "6.0.5",
+    "kkt": "6.0.11",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router-dom": "5.2.0",

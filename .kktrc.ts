@@ -1,6 +1,5 @@
 import webpack, {Configuration} from 'webpack';
 import path from 'path';
-import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 import lessModules from '@kkt/less-modules';
 import rawModules from '@kkt/raw-modules';
 import scopePluginOptions from '@kkt/scope-plugin-options';
@@ -163,36 +162,5 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
   };
 
   conf.output = { ...conf.output, publicPath: './' };
-
-  /**
-   * Fix `.chunk.js is 5.38 MB, and won't be precached. Configure maximumFileSizeToCacheInBytes to change this limit.`
-   */
-  if (conf.plugins) {
-    conf.plugins = conf.plugins.map((item) => {
-      if (item.constructor && item.constructor.name && /(GenerateSW)/.test(item.constructor.name)) {
-        return null;
-      }
-      return item;
-    }).filter(Boolean) as webpack.Plugin[];
-    // Generate a service worker script that will precache, and keep up to date,
-    // the HTML & assets that are part of the Webpack build.
-    if (env === 'production') {
-      conf.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
-        maximumFileSizeToCacheInBytes: 1024 * 1024 * 8,
-        clientsClaim: true,
-        exclude: [/\.map$/, /asset-manifest\.json$/],
-        navigateFallback: options.paths.publicUrlOrPath + '/index.html',
-        navigateFallbackDenylist: [
-          // Exclude URLs starting with /_, as they're likely an API call
-          new RegExp('^/_'),
-          // Exclude any URLs whose last part seems to be a file extension
-          // as they're likely a resource and not a SPA route.
-          // URLs containing a "?" character won't be blacklisted as they're likely
-          // a route with query params (e.g. auth callbacks).
-          new RegExp('/[^/?]+\\.[^/]+$'),
-        ],
-      }));
-    }
-  }
   return conf;
 }
