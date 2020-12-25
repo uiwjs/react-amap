@@ -1471,10 +1471,10 @@
   dependencies:
     raw-loader "^4.0.2"
 
-"@kkt/scope-plugin-options@6.0.5":
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/@kkt/scope-plugin-options/-/scope-plugin-options-6.0.5.tgz#9809295702de8dea85e739515e43bd04ccdf5434"
-  integrity sha512-MbzZEp6kJVymvWmF/AnNxVeelZZN3cIRWPa2OON5tMAnK8WuVXnaTaTXSTSuazR0lhXjvlOhnrS7+OdXoOtNrw==
+"@kkt/scope-plugin-options@6.0.11":
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/@kkt/scope-plugin-options/-/scope-plugin-options-6.0.11.tgz#3796aa7831c8c817bf893a5374e42f51f220b151"
+  integrity sha512-V3Yvikh58BXnh8g5wHFeXm7OcvRQOOT7eMR0W2t21ST4o9pdaRYNKTy2eG/W7tzBvHfIAwcwUG+koWm+TrO7aw==
 
 "@loadable/component@5.14.1":
   version "5.14.1"
