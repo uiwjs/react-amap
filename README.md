@@ -2,6 +2,7 @@
   <a href="https://github.com/kktjs/kkt">
     <img src="https://uiwjs.github.io/react-amap/logo.svg" height="" alt="高德地图 React 组件 logo" />
   </a>
+  <h5>高德地图 React 组件</h5>
 </p>
 
 <p align="center">
