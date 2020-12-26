@@ -137,3 +137,10 @@ npm install # 安装依赖
 npm run watch # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
 npm run start # 文档网站运行
 ```
+
+## 相关连接
+
+- [@uiw/react-baidu-map](https://github.com/uiwjs/react-baidu-map) 百度地图 React 组件
+- [高德拾取坐标系统](https://lbs.amap.com/console/show/picker) 
+- [官方示例中心](https://lbs.amap.com/demo-center/jsapi-v2) 
+- [高德地图 JSAPI 2.0](https://a.amap.com/jsapi/static/doc/index.html) 
