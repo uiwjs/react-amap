@@ -10,22 +10,22 @@
     <img src="https://github.com/uiwjs/react-amap/workflows/Build%20and%20Deploy/badge.svg" alt="Build & Deploy">
   </a>
   <a href="https://github.com/uiwjs/react-amap/issues">
-    <img src="https://img.shields.io/github/issues/uiwjs/react-amap.svg" alt="Github issues">
+    <img src="https://img.shields.io/github/issues/uiwjs/react-amap.svg" alt="Issues">
   </a>
   <a href="https://github.com/uiwjs/react-amap/network">
-    <img src="https://img.shields.io/github/forks/uiwjs/react-amap.svg" alt="Github Forks">
+    <img src="https://img.shields.io/github/forks/uiwjs/react-amap.svg" alt="Forks">
   </a>
   <a href="https://github.com/uiwjs/react-amap/stargazers">
-    <img src="https://img.shields.io/github/stars/uiwjs/react-amap.svg" alt="Github Stars">
+    <img src="https://img.shields.io/github/stars/uiwjs/react-amap.svg" alt="Stars">
   </a>
   <a href="https://github.com/uiwjs/react-amap/releases">
-    <img src="https://img.shields.io/github/release/uiwjs/react-amap.svg" alt="Github Releases">
+    <img src="https://img.shields.io/github/release/uiwjs/react-amap.svg" alt="Releases">
   </a>
   <a href="https://www.npmjs.com/package/@uiw/react-amap">
     <img src="https://img.shields.io/npm/v/@uiw/react-amap.svg" alt="npm version">
   </a>
   <a href="https://gitee.com/uiw/react-amap">
-    <img src="https://jaywcjlove.github.io/sb/ico/gitee.svg" alt="Gitee repo">
+    <img src="https://jaywcjlove.github.io/sb/ico/gitee.svg" alt="Gitee Repo">
   </a>
 </p>
 
