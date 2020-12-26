@@ -1,12 +1,32 @@
-react-amap
-===
+<p align="center">
+  <a href="https://github.com/kktjs/kkt">
+    高德地图 React 组件
+  </a>
+</p>
 
-[![](https://img.shields.io/github/issues/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/issues)
-[![](https://img.shields.io/github/forks/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/network)
-[![](https://img.shields.io/github/stars/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/stargazers)
-[![](https://img.shields.io/github/release/uiwjs/react-amap)](https://github.com/uiwjs/react-amap/releases)
-[![](https://img.shields.io/npm/v/@uiw/react-amap.svg)](https://www.npmjs.com/package/@uiw/react-amap)
-[![](https://jaywcjlove.github.io/sb/ico/gitee.svg)](https://gitee.com/uiw/react-amap)
+<p align="center">
+  <a href="https://github.com/uiwjs/react-amap/actions">
+    <img src="https://github.com/uiwjs/react-amap/workflows/Build%20and%20Deploy/badge.svg" alt="Build & Deploy">
+  </a>
+  <a href="https://github.com/uiwjs/react-amap/issues">
+    <img src="https://img.shields.io/github/issues/uiwjs/react-amap.svg" alt="Github issues">
+  </a>
+  <a href="https://github.com/uiwjs/react-amap/network">
+    <img src="https://img.shields.io/github/forks/uiwjs/react-amap.svg" alt="Github Forks">
+  </a>
+  <a href="https://github.com/uiwjs/react-amap/stargazers">
+    <img src="https://img.shields.io/github/stars/uiwjs/react-amap.svg" alt="Github Stars">
+  </a>
+  <a href="https://github.com/uiwjs/react-amap/releases">
+    <img src="https://img.shields.io/github/release/uiwjs/react-amap.svg" alt="Github Releases">
+  </a>
+  <a href="https://www.npmjs.com/package/@uiw/react-amap">
+    <img src="https://img.shields.io/npm/v/@uiw/react-amap.svg" alt="npm version">
+  </a>
+  <a href="https://gitee.com/uiw/react-amap">
+    <img src="https://jaywcjlove.github.io/sb/ico/gitee.svg" alt="Gitee repo">
+  </a>
+</p>
 
 这是一个基于 React 封装的高德地图组件，帮助你轻松的接入地图到 React 项目中。除了必须引用的 APILoader/Map 组件外，我们目前提供了最常用的地图组件，能满足大部分简单的业务场景；如果你有更复杂的需求，或者觉得默认提供的组件功能不够，可以使用 Map 组件返回的地图实例，完全自定义一个地图组件，然后根据高德原生 API 做高德允许你做的一切事情。
 
