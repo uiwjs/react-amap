@@ -1,4 +1,4 @@
-const headElement = document.head || document.getElementsByTagName('head')[0];
+const headElement = document && (document.head || document.getElementsByTagName('head')[0]);
 const _importedScript: { [src: string]: true } = {};
 
 /**
