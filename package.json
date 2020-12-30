@@ -55,7 +55,7 @@
     "@types/loadable__component": "5.13.1",
     "@types/react": "16.14.2",
     "@types/react-dom": "16.9.10",
-    "@types/react-router-dom": "5.1.5",
+    "@types/react-router-dom": "5.1.7",
     "@types/workbox-webpack-plugin": "5.1.5",
     "@uiw/react-code-preview": "1.11.8",
     "@uiw/react-github-corners": "1.2.0",
