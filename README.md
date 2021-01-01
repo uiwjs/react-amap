@@ -3,7 +3,7 @@
     <img src="https://uiwjs.github.io/react-amap/logo.svg" height="80px" alt="高德地图 React 组件 logo" />
   </a>
 </p>
-<h4 align="center">高德地图 React 组件</h4>
+<h3 align="center">高德地图 React 组件</h3>
 
 <p align="center">
   <a href="https://github.com/uiwjs/react-amap/actions">
