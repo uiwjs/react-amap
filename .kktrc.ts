@@ -161,6 +161,5 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
     }
   };
 
-  conf.output = { ...conf.output, publicPath: './' };
   return conf;
 }
