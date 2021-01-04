@@ -9,8 +9,9 @@ import { Marker } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Marker } from '@uiw/react-amap';
 
@@ -73,8 +74,9 @@ ReactDOM.render((
 
 ### 点标注的文本标签
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Marker } from '@uiw/react-amap';
 
@@ -117,8 +119,9 @@ ReactDOM.render((
 
 ### 自适应显示多个点标记
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Marker } from '@uiw/react-amap';
 

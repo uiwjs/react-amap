@@ -9,8 +9,9 @@ import { Text } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Text } from '@uiw/react-amap';
 
@@ -64,6 +65,7 @@ ReactDOM.render((
 由于 text 参数与返回的 text 冲突，定义类型参考如下实例
 
 ```tsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useRef } from 'react';
 import { Text, TextProps } from './index';
 

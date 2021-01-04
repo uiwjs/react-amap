@@ -9,8 +9,9 @@ import { InfoWindow } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
 
@@ -53,8 +54,9 @@ ReactDOM.render((
 
 ### 设置信息窗体内容
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
 
@@ -92,8 +94,9 @@ ReactDOM.render((
 
 ### 点标记点弹出信息窗体
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, Marker, APILoader, InfoWindow } from '@uiw/react-amap';
 
@@ -157,8 +160,9 @@ ReactDOM.render((
 
 ### 点标记点弹出信息窗体 Ref 实现
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, Marker, APILoader, InfoWindow } from '@uiw/react-amap';
 

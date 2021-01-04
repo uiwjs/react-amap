@@ -9,8 +9,9 @@ import { Weather } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
 
@@ -54,8 +55,9 @@ ReactDOM.render((
 
 ### 查询四天预报天气
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
 
@@ -100,8 +102,9 @@ ReactDOM.render((
 
 ### 切换类型
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
 
@@ -143,8 +146,9 @@ ReactDOM.render((
 
 ### 不使用组件
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import { APILoader } from '@uiw/react-amap';
 

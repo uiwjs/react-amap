@@ -9,8 +9,9 @@ import { Polyline } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
 
@@ -79,8 +80,9 @@ ReactDOM.render((
 
 ### 受控组件
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
 

@@ -50,8 +50,9 @@ npm install @uiw/react-amap --save
 
 ## 使用
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
 

@@ -9,7 +9,7 @@ import { Geolocation } from '@uiw/react-amap';
 
 ### 地图定位控件
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Map, Geolocation } from '@uiw/react-amap';
@@ -59,7 +59,7 @@ ReactDOM.render((
 
 ### 只获取定位经纬度
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -107,7 +107,7 @@ ReactDOM.render((
 
 ### 只获取定位地址信息
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -156,8 +156,9 @@ ReactDOM.render((
 
 ### 不使用组件
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
 

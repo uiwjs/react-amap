@@ -16,9 +16,10 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
@@ -34,9 +35,10 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 参数设置
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
-import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
+import React, { Fragment, useState } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 function Demo() {
@@ -77,8 +79,9 @@ ReactDOM.render((
 
 获取地图实例对象。
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
@@ -116,8 +119,9 @@ ReactDOM.render((
 
 ### 事件触发
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
@@ -143,8 +147,9 @@ ReactDOM.render(<Demo />, _mount_);
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
-<!--DemoStart,bgWhite--> 
+<!--DemoStart,bgWhite,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
 
@@ -180,8 +185,9 @@ ReactDOM.render((
 
 ### 将子组件封装到一个组件中
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
 

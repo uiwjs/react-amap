@@ -9,9 +9,10 @@ import { BezierCurve } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll--> 
+<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
 ```jsx
 import React, { useState, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import { Map, APILoader, BezierCurve } from '@uiw/react-amap';
 
 const Example = () => {
