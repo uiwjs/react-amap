@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - v*
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
@@ -15,14 +13,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-
-    # - name: Cache dependencies
-    #   uses: actions/cache@v1
-    #   with:
-    #     path: ~/.npm
-    #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-node-
 
     - run: npm install
     - run: npm run build
