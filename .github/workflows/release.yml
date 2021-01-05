@@ -15,9 +15,7 @@ jobs:
         node-version: '10.x'
 
     - run: npm install
-    - run: npm run build
-    - run: npm run doc
-
+    - run: npm run build:lib
 
     - name: Generate changelog
       id: changelog
