@@ -4,43 +4,23 @@ import styles from './Footer.module.less';
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/uiwjs/react-amap/issues/new"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/uiwjs/react-amap/issues/new">
         提交 Bug
       </a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/uiwjs/react-amap"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/uiwjs/react-amap">
         GitHub
       </a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/kktjs/kkt"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/kktjs/kkt">
         kkt
       </a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/uiwjs/uiw"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/uiwjs/uiw">
         uiwjs
       </a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/uiwjs/react-baidu-map"
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/uiwjs/react-baidu-map">
         react-baidu-map
       </a>
     </div>
   );
-}
+};
 
 export default Footer;

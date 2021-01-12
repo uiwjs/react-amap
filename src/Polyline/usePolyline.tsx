@@ -17,19 +17,29 @@ export function usePolyline(props = {} as UsePolyline) {
           map && map.removeLayer(instance);
           setPolyline(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(polyline!, visiable);
-  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
-    'Path', 'Options', 'Map', 'ExtData'
-  ]);
+  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, ['Path', 'Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
-    'onHide', 'onShow', 'onMouseOut', 'onChange', 'onRightClick', 'onDblClick', 'onMouseDown',
-    'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp'
+    'onHide',
+    'onShow',
+    'onMouseOut',
+    'onChange',
+    'onRightClick',
+    'onDblClick',
+    'onMouseDown',
+    'onClick',
+    'onMouseOver',
+    'onTouchEnd',
+    'onTouchMove',
+    'onTouchStart',
+    'onMouseUp',
   ]);
   return {
-    polyline, setPolyline,
+    polyline,
+    setPolyline,
   };
 }

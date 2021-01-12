@@ -17,18 +17,28 @@ export const useRectangle = (props = {} as UseRectangle) => {
           map && map.removeLayer(instance);
           setRectangle(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(rectangle!, visiable);
-  useSettingProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, [
-    'Bounds', 'Options', 'Map', 'ExtData'
-  ]);
+  useSettingProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, ['Bounds', 'Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, [
-    'onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart'
+    'onHide',
+    'onShow',
+    'onClick',
+    'onDblClick',
+    'onRightClick',
+    'onMouseOut',
+    'onMouseOver',
+    'onMouseUp',
+    'onMouseDown',
+    'onTouchEnd',
+    'onTouchMove',
+    'onTouchStart',
   ]);
   return {
-    rectangle, setRectangle,
-  }
-}
+    rectangle,
+    setRectangle,
+  };
+};

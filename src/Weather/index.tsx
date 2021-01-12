@@ -16,7 +16,7 @@ export interface WeatherProps extends OverlayProps {
   onComplete?(data: AMap.WeatherForecastResult | AMap.WeatherLiveResult): void;
   /** 数据请求错误时触发事件。 */
   onError?(err: Error): void;
-};
+}
 export const Weather = React.forwardRef<WeatherProps, WeatherProps>((props, ref) => {
   const { weather } = useWeather(props);
   useImperativeHandle(ref, () => ({ ...props, weather }));

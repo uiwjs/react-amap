@@ -17,17 +17,27 @@ export const useCircle = (props = {} as UseCircle) => {
         map && map.remove(circle);
         setCircle(undefined);
       }
-    }
+    };
   }, [map]);
 
   useVisiable(circle!, visiable);
-  useSettingProperties<AMap.Circle, UseCircle>(circle!, props, [
-    'Center', 'Raius', 'Options', 'ExtData'
-  ]);
+  useSettingProperties<AMap.Circle, UseCircle>(circle!, props, ['Center', 'Raius', 'Options', 'ExtData']);
   useEventProperties<AMap.Circle, UseCircle>(circle!, props, [
-    'onHide', 'onShow', 'onRightClick', 'onClick', 'onTouchEnd', 'onDblClick', 'onTouchMove', 'onTouchStart', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown'
+    'onHide',
+    'onShow',
+    'onRightClick',
+    'onClick',
+    'onTouchEnd',
+    'onDblClick',
+    'onTouchMove',
+    'onTouchStart',
+    'onMouseOut',
+    'onMouseOver',
+    'onMouseUp',
+    'onMouseDown',
   ]);
   return {
-    circle, setCircle,
-  }
-}
+    circle,
+    setCircle,
+  };
+};

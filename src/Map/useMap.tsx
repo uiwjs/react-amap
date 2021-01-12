@@ -26,7 +26,7 @@ export const useMap = (props: UseMap = {}) => {
         setMap(undefined);
         // instance.destroy();
       }
-    }
+    };
   }, [container]);
 
   useMemo(() => {
@@ -36,16 +36,64 @@ export const useMap = (props: UseMap = {}) => {
     }
   }, [zoom, props.zoom]);
 
-  useSetStatus<AMap.Map, UseMap>(map!, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']);
+  useSetStatus<AMap.Map, UseMap>(map!, props, [
+    'dragEnable',
+    'zoomEnable',
+    'jogEnable',
+    'pitchEnable',
+    'rotateEnable',
+    'animateEnable',
+    'keyboardEnable',
+  ]);
   // setStatus, setZoomAndCenter, setFitView
   useSettingProperties<AMap.Map, UseMap>(map!, props, [
-    'Zoom', 'LabelzIndex', 'Layers', 'Center', 'City', 'Bounds', 'LimitBounds', 'Lang', 'Rotation', 'DefaultCursor', 'MapStyle', 'Features', 'DefaultLayer', 'Pitch'
+    'Zoom',
+    'LabelzIndex',
+    'Layers',
+    'Center',
+    'City',
+    'Bounds',
+    'LimitBounds',
+    'Lang',
+    'Rotation',
+    'DefaultCursor',
+    'MapStyle',
+    'Features',
+    'DefaultLayer',
+    'Pitch',
   ]);
   useEventProperties<AMap.Map, UseMap>(map!, props, [
-    'onMouseMove', 'onZoomChange', 'onMapMove', 'onMouseWheel', 'onZoomStart', 'onMouseOver', 'onMouseOut', 'onDblClick', 'onClick', 'onZoomEnd', 'onMoveEnd', 'onMouseUp', 'onMouseDown', 'onRightClick', 'onMoveStart', 'onDragStart', 'onDragging', 'onDragEnd', 'onHotspotOut', 'onHotspotOver', 'onTouchStart', 'onComplete', 'onHotspotClick', 'onTouchMove', 'onTouchEnd', 'onResize',
+    'onMouseMove',
+    'onZoomChange',
+    'onMapMove',
+    'onMouseWheel',
+    'onZoomStart',
+    'onMouseOver',
+    'onMouseOut',
+    'onDblClick',
+    'onClick',
+    'onZoomEnd',
+    'onMoveEnd',
+    'onMouseUp',
+    'onMouseDown',
+    'onRightClick',
+    'onMoveStart',
+    'onDragStart',
+    'onDragging',
+    'onDragEnd',
+    'onHotspotOut',
+    'onHotspotOver',
+    'onTouchStart',
+    'onComplete',
+    'onHotspotClick',
+    'onTouchMove',
+    'onTouchEnd',
+    'onResize',
   ]);
   return {
-    map, setMap,
-    container, setContainer,
+    map,
+    setMap,
+    container,
+    setContainer,
   };
-}
+};

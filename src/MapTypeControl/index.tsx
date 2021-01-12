@@ -1,6 +1,6 @@
 import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '../common/map';
-import {useMapTypeControl} from './useMapTypeControl';
+import { useMapTypeControl } from './useMapTypeControl';
 
 export interface MapTypeControlProps extends OverlayProps, AMap.MapTypeOptions {}
 

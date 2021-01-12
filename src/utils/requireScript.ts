@@ -14,16 +14,16 @@ export function requireCss(src: string): Promise<void> {
     script.type = 'text/css';
     script.rel = 'stylesheet';
     script.href = src;
-    script.onerror = err => {
+    script.onerror = (err) => {
       headElement.removeChild(script);
       reject(new URIError(`The css ${src} is no accessible.`));
-    }
+    };
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
-    }
+    };
     headElement.appendChild(script);
-  })
+  });
 }
 
 /**
@@ -33,7 +33,7 @@ export function requireScript(src: string, id: string = '_react_amap'): Promise<
   return new Promise((resolve, reject) => {
     if (src in _importedScript) {
       resolve();
-      return
+      return;
     }
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -41,14 +41,14 @@ export function requireScript(src: string, id: string = '_react_amap'): Promise<
     script.async = true;
     script.defer = true;
     script.src = src;
-    script.onerror = err => {
+    script.onerror = (err) => {
       headElement.removeChild(script);
       reject(new URIError(`The Script ${src} is no accessible.`));
-    }
+    };
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
-    }
+    };
     headElement.appendChild(script);
-  })
+  });
 }

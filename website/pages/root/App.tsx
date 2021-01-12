@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import GitHubCorners from '@uiw/react-github-corners';
 import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
@@ -22,15 +22,15 @@ export default function App() {
         </div>
       </div>
     </HashRouter>
-  )
+  );
 }
 
 function RouteWithSubRoutes(route: any) {
   return (
     <Route
       path={route.path}
-      render={props => {
-        return <route.component {...props} routes={route.routes} />
+      render={(props) => {
+        return <route.component {...props} routes={route.routes} />;
       }}
     />
   );

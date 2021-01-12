@@ -17,18 +17,29 @@ export const usePolygon = (props = {} as UsePolygon) => {
           map && map.removeLayer(instance);
           setPolygon(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(polygon!, visiable);
-  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
-    'Path', 'ExtData', 'ExtData'
-  ]);
+  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'ExtData', 'ExtData']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
-    'onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onTouchStart', 'onTouchMove', 'onTouchEnd'
+    'onClick',
+    'onDblClick',
+    'onRightClick',
+    'onHide',
+    'onShow',
+    'onMouseDown',
+    'onMouseUp',
+    'onMouseOver',
+    'onMouseOut',
+    'onChange',
+    'onTouchStart',
+    'onTouchMove',
+    'onTouchEnd',
   ]);
   return {
-    polygon, setPolygon,
-  }
-}
+    polygon,
+    setPolygon,
+  };
+};

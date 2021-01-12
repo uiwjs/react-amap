@@ -17,18 +17,28 @@ export const useEllipse = (props = {} as UseEllipse) => {
           map && map.removeLayer(instance);
           setEllipse(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(ellipse!, visiable);
-  useSettingProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, [
-    'Center', 'Radius', 'Options', 'ExtData'
-  ]);
+  useSettingProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, ['Center', 'Radius', 'Options', 'ExtData']);
   useEventProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, [
-    'onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart'
+    'onHide',
+    'onShow',
+    'onClick',
+    'onDblClick',
+    'onRightClick',
+    'onMouseOut',
+    'onMouseOver',
+    'onMouseUp',
+    'onMouseDown',
+    'onTouchEnd',
+    'onTouchMove',
+    'onTouchStart',
   ]);
   return {
-    ellipse, setEllipse,
-  }
-}
+    ellipse,
+    setEllipse,
+  };
+};

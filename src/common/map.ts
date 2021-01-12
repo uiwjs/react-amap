@@ -1,13 +1,12 @@
-
 export interface Config {
   /**
    * akay 密钥
    * 您需先[申请密钥(ak)](https://lbs.amap.com/dev/key/app)。开发文档说明地址：https://lbs.amap.com/api/javascript-api/guide/abc/prepare
-   * 
-   * 1. 首先，[注册开发者账号](https://lbs.amap.com/dev/id/newuser)，成为高德开放平台开发者  
-   * 2. 登陆之后，在进入「应用管理」 页面「创建新应用」  
-   * 3. 为应用[添加 Key](https://lbs.amap.com/dev/key/app)，「服务平台」一项请选择「 Web 端 ( JSAPI ) 」  
-   * 
+   *
+   * 1. 首先，[注册开发者账号](https://lbs.amap.com/dev/id/newuser)，成为高德开放平台开发者
+   * 2. 登陆之后，在进入「应用管理」 页面「创建新应用」
+   * 3. 为应用[添加 Key](https://lbs.amap.com/dev/key/app)，「服务平台」一项请选择「 Web 端 ( JSAPI ) 」
+   *
    */
   akay: string;
   /**

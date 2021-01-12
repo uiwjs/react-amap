@@ -7,7 +7,7 @@ import { requireScript } from '../utils/requireScript';
 
 export function delay(time: number): Promise<undefined> {
   return new Promise((resolve, reject) => {
-    window.setTimeout(resolve, time)
+    window.setTimeout(resolve, time);
   });
 }
 
@@ -34,7 +34,7 @@ export class APILoader extends React.Component<APILoaderProps> {
     hostAndPath: 'webapi.amap.com/maps',
     version: '2.0',
     callbackName: 'load_amap_sdk',
-  }
+  };
 
   /**
    * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
@@ -42,7 +42,7 @@ export class APILoader extends React.Component<APILoaderProps> {
   private static waitQueue: Array<[Function, Function]> = [];
   public state: State = {
     loaded: !!window.AMap,
-  }
+  };
 
   public constructor(props: APILoaderProps) {
     super(props);
@@ -90,9 +90,9 @@ export class APILoader extends React.Component<APILoaderProps> {
       // flush queue
       const queue = APILoader.waitQueue;
       APILoader.waitQueue = [];
-      queue.forEach(task => task[0]());
+      queue.forEach((task) => task[0]());
       this.finish();
-    }
+    };
 
     for (let i = 0; i < DEFAULT_RETRY_TIME; i++) {
       try {
@@ -104,7 +104,7 @@ export class APILoader extends React.Component<APILoaderProps> {
           // flush queue
           const queue = APILoader.waitQueue;
           APILoader.waitQueue = [];
-          queue.forEach(task => task[1](err));
+          queue.forEach((task) => task[1](err));
           this.handleError(err);
           return;
         }
@@ -115,11 +115,11 @@ export class APILoader extends React.Component<APILoaderProps> {
 
   private handleError = (error: Error) => {
     this.setState({ error });
-  }
+  };
 
   private finish = () => {
     this.setState({
       loaded: true,
     });
-  }
+  };
 }

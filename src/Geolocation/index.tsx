@@ -10,7 +10,7 @@ export interface GeolocationProps extends OverlayProps, AMap.GeolocationEvents, 
    * @default position
    */
   type?: 'position' | 'cityInfo';
-};
+}
 export const Geolocation = React.forwardRef<GeolocationProps, GeolocationProps>((props, ref) => {
   const { geolocation } = useGeolocation(props);
   useImperativeHandle(ref, () => ({ ...props, geolocation }));

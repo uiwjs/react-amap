@@ -1,4 +1,4 @@
-import webpack, {Configuration} from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import path from 'path';
 import lessModules from '@kkt/less-modules';
 import rawModules from '@kkt/raw-modules';
@@ -35,12 +35,14 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
       path.resolve(process.cwd(), 'src/Geolocation/README.md'),
       path.resolve(process.cwd(), 'src/AutoComplete/README.md'),
       path.resolve(process.cwd(), 'src/ContextMenu/README.md'),
-    ]
+    ],
   });
   // Get the project version.
-  conf.plugins!.push(new webpack.DefinePlugin({
-    VERSION: JSON.stringify(pkg.version),
-  }));
+  conf.plugins!.push(
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(pkg.version),
+    }),
+  );
 
   conf.optimization = {
     ...conf.optimization,
@@ -157,9 +159,9 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
           test: /[\\/]node_modules[\\/](@babel\/traverse)[\\/]/,
           priority: -5,
         },
-      }
-    }
+      },
+    },
   };
 
   return conf;
-}
+};

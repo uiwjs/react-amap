@@ -17,18 +17,41 @@ export const useCircleMarker = (props = {} as UseCircleMarker) => {
           map && map.removeLayer(instance);
           setCircleMarker(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(circleMarker!, visiable);
   useSettingProperties<AMap.CircleMarker, UseCircleMarker>(circleMarker!, props, [
-    'Center', 'Raius', 'zIndex', 'Bubble', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'Draggable', 'ExtData'
+    'Center',
+    'Raius',
+    'zIndex',
+    'Bubble',
+    'Cursor',
+    'StrokeColor',
+    'StrokeOpacity',
+    'StrokeWeight',
+    'FillColor',
+    'FillOpacity',
+    'Draggable',
+    'ExtData',
   ]);
   useEventProperties<AMap.CircleMarker, UseCircleMarker>(circleMarker!, props, [
-    'onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart','onMousedown','onDblclick'
+    'onHide',
+    'onShow',
+    'onMouseover',
+    'onTouchend',
+    'onClick',
+    'onTouchmove',
+    'onRightclick',
+    'onMouseup',
+    'onMouseout',
+    'onTouchstart',
+    'onMousedown',
+    'onDblclick',
   ]);
   return {
-    circleMarker, setCircleMarker,
-  }
-}
+    circleMarker,
+    setCircleMarker,
+  };
+};
