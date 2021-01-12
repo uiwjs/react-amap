@@ -39,8 +39,8 @@
     "main.css": "/react-amap/static/css/main.c59fb489.chunk.css",
     "main.js": "/react-amap/static/js/main.09ba533c.chunk.js",
     "main.js.map": "/react-amap/static/js/main.09ba533c.chunk.js.map",
-    "runtime-main.js": "/react-amap/static/js/runtime-main.4b408d8c.js",
-    "runtime-main.js.map": "/react-amap/static/js/runtime-main.4b408d8c.js.map",
+    "runtime-main.js": "/react-amap/static/js/runtime-main.adbd66a0.js",
+    "runtime-main.js.map": "/react-amap/static/js/runtime-main.adbd66a0.js.map",
     "vendors-react.js": "/react-amap/static/js/vendors-react.0ac08ac0.chunk.js",
     "vendors-react.js.map": "/react-amap/static/js/vendors-react.0ac08ac0.chunk.js.map",
     "vendors~main.css": "/react-amap/static/css/vendors~main.a5f222f3.chunk.css",
@@ -149,7 +149,7 @@
     "static/js/vendors~main.70371e35.chunk.js.LICENSE.txt": "/react-amap/static/js/vendors~main.70371e35.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4b408d8c.js",
+    "static/js/runtime-main.adbd66a0.js",
     "static/js/babel_plugin.1a508650.chunk.js",
     "static/js/vendors-react.0ac08ac0.chunk.js",
     "static/css/vendors~main.a5f222f3.chunk.css",
