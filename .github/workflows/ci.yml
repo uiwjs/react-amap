@@ -3,9 +3,10 @@ on:
   push:
     branches:
       - master
+
 jobs:
   build-deploy:
-    runs-on: [ubuntu-20.04, windows-2019]
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
 
@@ -55,3 +56,18 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
+
+jobs:
+  build-deploy-windows:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - run: npm install
+      - run: npm run build
+      - run: npm run doc
