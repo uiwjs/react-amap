@@ -57,7 +57,7 @@ jobs:
           draft: false
           prerelease: false
 
-jobs-windows:
+jobs2:
   build-deploy-windows:
     runs-on: windows-2019
     steps:
