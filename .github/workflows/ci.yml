@@ -56,8 +56,6 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
-
-jobs2:
   build-deploy-windows:
     runs-on: windows-2019
     steps:
