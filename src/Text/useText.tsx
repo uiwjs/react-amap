@@ -17,19 +17,46 @@ export const useText = (props = {} as UseText) => {
           instance.remove();
           setText(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(text!, visiable);
   useSettingProperties<AMap.Text, UseText>(text!, props, [
-    'Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position',
-    'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData'
+    'Style',
+    'Title',
+    'Clickable',
+    'Draggable',
+    'Map',
+    'Position',
+    'Offset',
+    'Angle',
+    'zIndex',
+    'Top',
+    'Cursor',
+    'ExtData',
   ]);
   useEventProperties<AMap.Text, UseText>(text!, props, [
-    'onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging',
+    'onMoving',
+    'onTouchMove',
+    'onTouchEnd',
+    'onMoveaLong',
+    'onTouchStart',
+    'onMoveEnd',
+    'onClick',
+    'onDblClick',
+    'onRightClick',
+    'onMouseMove',
+    'onMouseOver',
+    'onMouseOut',
+    'onMouseDown',
+    'onMouseUp',
+    'onDragStart',
+    'onDragEnd',
+    'onDragging',
   ]);
   return {
-    text, setText,
-  }
-}
+    text,
+    setText,
+  };
+};

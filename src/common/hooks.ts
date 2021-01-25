@@ -2,17 +2,21 @@ import React, { useEffect, useState, useRef } from 'react';
 
 /**
  * 对实例有 setStatus 更改状态的处理
- * @param instance 
- * @param props 
- * @param propsName 
+ * @param instance
+ * @param props
+ * @param propsName
  */
-export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: any) => void; }, F = {}>(instance: T, props = {} as F, propsName: string[] = []) {
+export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: any) => void }, F = {}>(
+  instance: T,
+  props = {} as F,
+  propsName: string[] = [],
+) {
   propsName.forEach((name) => {
     const eName = name as keyof F;
     const [state, setState] = useState(props[eName]);
     useEffect(() => {
       if (instance && props[eName] !== undefined) {
-        if(props[eName] !== state) {
+        if (props[eName] !== state) {
           // map.setStatus({
           //   dragEnable: true,
           //   keyboardEnable: true,
@@ -33,7 +37,7 @@ export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: 
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-export function useVisiable<T extends { show: () => void; hide: () => void; }>(instance: T, visiable?: boolean) {
+export function useVisiable<T extends { show: () => void; hide: () => void }>(instance: T, visiable?: boolean) {
   const [state, setState] = useState(visiable);
   useEffect(() => {
     if (instance && visiable !== undefined) {
@@ -42,7 +46,7 @@ export function useVisiable<T extends { show: () => void; hide: () => void; }>(i
       } else {
         instance.hide && instance.hide();
       }
-      if(visiable !== state) {
+      if (visiable !== state) {
         setState(visiable);
       }
     }
@@ -77,7 +81,7 @@ export type EventNameType = 'LowerCase';
  * @param instance 实例对象
  * @param props 传递进来的 props
  * @param eventName 事件的名字，如，我们使用 `onClick` 事件，最终被转换成，`click` 绑定到实例中，`onDblClick` => `dblclick`
- * 
+ *
  * @example
  * ```js
  * useEventProperties<BMap.Marker, UseMarker>(marker!, props, [
@@ -85,12 +89,17 @@ export type EventNameType = 'LowerCase';
  * ]);
  * ```
  */
-export function useEventProperties<T extends AMap.MapEventListener<any>, F>(instance: T, props = {} as F, eventName: string[] = [], type?: EventNameType) {
+export function useEventProperties<T extends AMap.MapEventListener<any>, F>(
+  instance: T,
+  props = {} as F,
+  eventName: string[] = [],
+  type?: EventNameType,
+) {
   eventName.forEach((name) => {
     const eventName = name as keyof F;
     const eventHandle = props[eventName];
     useEffect(() => {
-      if(!instance) return;
+      if (!instance) return;
       let eName = name.toLocaleLowerCase().replace(/^on/, '');
       if (eventHandle && eName) {
         instance.on(eName, eventHandle);
@@ -99,7 +108,7 @@ export function useEventProperties<T extends AMap.MapEventListener<any>, F>(inst
         if (eName && eventHandle) {
           instance.off(eName, eventHandle);
         }
-      }
+      };
     }, [instance, props[eventName]]);
   });
 }
@@ -123,7 +132,7 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
     const [state, setState] = useState(props[vName]);
     useEffect(() => {
       if (instance && props[vName] !== undefined) {
-        if(props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
+        if (props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
           (instance[eName] as any)(props[vName]);
           setState(props[vName]);
         }

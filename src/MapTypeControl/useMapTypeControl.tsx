@@ -19,12 +19,13 @@ export function useMapTypeControl(props = {} as UseMapTypeControl) {
         if (instance) {
           map.removeControl(instance);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(mapTypeControl!, visiable);
   return {
-    mapTypeControl, setMapTypeControl,
+    mapTypeControl,
+    setMapTypeControl,
   };
 }

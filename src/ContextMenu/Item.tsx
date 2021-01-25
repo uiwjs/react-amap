@@ -5,12 +5,12 @@ export interface ContextMenuItem extends MapChildProps {
   contextMenu?: AMap.ContextMenu;
   text?: string;
   onClick?: (event: MouseEvent) => void;
-};
+}
 
-const noop = function() {}
+const noop = function () {};
 
 export default (props: ContextMenuItem = {}) => {
-  const {text = '', onClick = noop } = props;
+  const { text = '', onClick = noop } = props;
   useEffect(() => {
     if (props.contextMenu) {
       props.contextMenu.addItem(text, onClick, 1);
@@ -19,7 +19,7 @@ export default (props: ContextMenuItem = {}) => {
       if (props.contextMenu) {
         props.contextMenu.removeItem(text, onClick);
       }
-    }
+    };
   }, [props.contextMenu, props.text, props.onClick]);
   return null;
-}
+};

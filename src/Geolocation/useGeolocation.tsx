@@ -16,12 +16,12 @@ export const useGeolocation = (props = {} as UseGeolocation) => {
         if (instance) {
           setGeolocation(undefined);
         }
-      }
+      };
     }
   }, [AMap]);
 
   function callback(status: 'error' | 'complete', result: AMap.GeolocationResult) {
-    if(status === 'complete' && onComplete){
+    if (status === 'complete' && onComplete) {
       onComplete(result);
     } else if (onError) {
       onError(result);
@@ -40,6 +40,7 @@ export const useGeolocation = (props = {} as UseGeolocation) => {
   }, [geolocation]);
 
   return {
-    geolocation, setGeolocation,
-  }
-}
+    geolocation,
+    setGeolocation,
+  };
+};

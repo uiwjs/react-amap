@@ -13,7 +13,7 @@ export function useScaleControl(props = {} as UseScaleControl) {
       map.plugin(['AMap.Scale'], () => {
         instance = new AMap.Scale({
           offset: offset,
-          position
+          position,
         });
         map.addControl(instance);
         setScaleControl(instance);
@@ -22,12 +22,13 @@ export function useScaleControl(props = {} as UseScaleControl) {
         if (instance) {
           map.removeControl(instance);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(scaleControl!, visiable);
   return {
-    scaleControl, setScaleControl,
+    scaleControl,
+    setScaleControl,
   };
 }

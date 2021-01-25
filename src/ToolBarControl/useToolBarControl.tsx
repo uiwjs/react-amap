@@ -13,7 +13,7 @@ export function useToolBarControl(props = {} as UseToolBarControl) {
       map.plugin(['AMap.ToolBar'], () => {
         instance = new AMap.ToolBar({
           offset,
-          position
+          position,
         });
         map.addControl(instance);
         setToolBarControl(instance);
@@ -22,12 +22,13 @@ export function useToolBarControl(props = {} as UseToolBarControl) {
         if (instance) {
           map.removeControl(instance);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(toolBarControl!, visiable);
   return {
-    toolBarControl, setToolBarControl,
+    toolBarControl,
+    setToolBarControl,
   };
 }

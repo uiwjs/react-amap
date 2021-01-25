@@ -19,13 +19,12 @@ export const useContextMenu = (props = {} as UseContextMenu) => {
           map && map.removeLayer(instance);
           setContextMenu(undefined);
         }
-      }
+      };
     }
   }, [map]);
-  useEventProperties<AMap.ContextMenu, UseContextMenu>(contextMenu!, props, [
-    'onOpen', 'onClose'
-  ]);
+  useEventProperties<AMap.ContextMenu, UseContextMenu>(contextMenu!, props, ['onOpen', 'onClose']);
   return {
-    contextMenu, setContextMenu,
+    contextMenu,
+    setContextMenu,
   };
-}
+};

@@ -16,18 +16,33 @@ export const useBezierCurve = (props = {} as UseBezierCurve) => {
           map && map.removeLayer(instance);
           setBezierCurve(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(bezierCurve!, visiable);
   useSettingProperties<AMap.BezierCurve, UseBezierCurve>(bezierCurve!, props, [
-    'Options', 'Path', 'ExtData', 'ExtData'
+    'Options',
+    'Path',
+    'ExtData',
+    'ExtData',
   ]);
   useEventProperties<AMap.BezierCurve, UseBezierCurve>(bezierCurve!, props, [
-    'onHide', 'onShow', 'onDblClick', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onclick', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onRightClick', 'onMouseOut',
+    'onHide',
+    'onShow',
+    'onDblClick',
+    'onMouseOver',
+    'onMouseUp',
+    'onMouseDown',
+    'onclick',
+    'onTouchEnd',
+    'onTouchMove',
+    'onTouchStart',
+    'onRightClick',
+    'onMouseOut',
   ]);
   return {
-    bezierCurve, setBezierCurve,
-  }
-}
+    bezierCurve,
+    setBezierCurve,
+  };
+};

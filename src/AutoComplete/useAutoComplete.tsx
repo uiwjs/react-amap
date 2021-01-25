@@ -17,16 +17,13 @@ export const useAutoComplete = (props = {} as UseAutoComplete) => {
         if (instance) {
           setAutoComplete(undefined);
         }
-      }
+      };
     }
   }, []);
-  useSettingProperties<AMap.AutoComplete, UseAutoComplete>(autoComplete!, props, [
-    'Type', 'City', 'CityLimit'
-  ]);
-  useEventProperties<AMap.AutoComplete, UseAutoComplete>(autoComplete!, props, [
-    'onChoose', 'onSelect'
-  ]);
+  useSettingProperties<AMap.AutoComplete, UseAutoComplete>(autoComplete!, props, ['Type', 'City', 'CityLimit']);
+  useEventProperties<AMap.AutoComplete, UseAutoComplete>(autoComplete!, props, ['onChoose', 'onSelect']);
   return {
-    autoComplete, setAutoComplete,
-  }
-}
+    autoComplete,
+    setAutoComplete,
+  };
+};

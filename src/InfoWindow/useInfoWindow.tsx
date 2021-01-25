@@ -21,7 +21,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
           map && map.remove(instance);
           setInfoWindow(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
@@ -43,13 +43,10 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     infoWindow.open(map, position || positionCenter);
   }, [position]);
 
-  useSettingProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
-    'Content', 'Anchor', 'Size'
-  ]);
-  useEventProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, [
-    'onOpen', 'onClose', 'onChange'
-  ]);
+  useSettingProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['Content', 'Anchor', 'Size']);
+  useEventProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['onOpen', 'onClose', 'onChange']);
   return {
-    infoWindow, setInfoWindow,
+    infoWindow,
+    setInfoWindow,
   };
-}
+};

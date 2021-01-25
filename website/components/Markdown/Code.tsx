@@ -12,7 +12,7 @@ export interface CodeProps {
 export default function Code({ language, value, dependencies, ...other }: CodeProps) {
   const props: CodePreviewProps = {};
   let onlyRead: boolean = false;
-  if(/\^(js|jsx)/.test(language) || !regxOpts.test(value)) {
+  if (/\^(js|jsx)/.test(language) || !regxOpts.test(value)) {
     onlyRead = true;
   }
   props.code = value.replace(regxOpts, '');
@@ -38,10 +38,7 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
                   content: `<div id="container"></div>`,
                 },
                 'src/index.js': {
-                  content: props.code!.replace(
-                    '_mount_',
-                    'document.getElementById("container")',
-                  ),
+                  content: props.code!.replace('_mount_', 'document.getElementById("container")'),
                 },
                 '.kktrc.js': {
                   content: `import webpack from "webpack";\nimport lessModules from "@kkt/less-modules";\nexport default (conf, env, options) => {\nconf = lessModules(conf, env, options);\nreturn conf;\n};`,
@@ -66,39 +63,28 @@ export default function Code({ language, value, dependencies, ...other }: CodePr
                       build: 'kkt build',
                       test: 'kkt test --env=jsdom',
                     },
-                    browserslist: [
-                      '>0.2%',
-                      'not dead',
-                      'not ie <= 11',
-                      'not op_mini all',
-                    ],
+                    browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
                   },
                 },
               },
-            }
+            };
             return;
           }
           if (keyName === 'codePen') {
             return;
           }
           props[keyName as keyof CodePreviewProps] = item[keyName as keyof CodePreviewProps];
-        })
+        });
       });
     } catch (error) {}
   }
   if (onlyRead) {
-    const cls = [
-      language ? `language-${language}` : null
-    ].filter(Boolean).join(' ').trim();
+    const cls = [language ? `language-${language}` : null].filter(Boolean).join(' ').trim();
     return (
       <pre className={cls}>
-        <code className={cls}>
-          {value}
-        </code>
+        <code className={cls}>{value}</code>
       </pre>
-    )
+    );
   }
-  return (
-    <CodePreview {...props} language={language} dependencies={dependencies} />
-  );
+  return <CodePreview {...props} language={language} dependencies={dependencies} />;
 }

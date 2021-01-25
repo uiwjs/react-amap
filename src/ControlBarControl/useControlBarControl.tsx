@@ -13,7 +13,7 @@ export function useControlBarControl(props = {} as UseControlBarControl) {
       map.plugin(['AMap.ControlBar', 'AMap.HawkEye'], () => {
         instance = new AMap.ControlBar({
           offset: offset,
-          position
+          position,
         });
         map.addControl(instance);
         setControlBarControl(instance);
@@ -22,12 +22,13 @@ export function useControlBarControl(props = {} as UseControlBarControl) {
         if (instance) {
           map.removeControl(instance);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(controlBarControl!, visiable);
   return {
-    controlBarControl, setControlBarControl,
+    controlBarControl,
+    setControlBarControl,
   };
 }

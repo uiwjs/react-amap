@@ -8,13 +8,16 @@ export const useWeather = (props = {} as UseWeather) => {
   const funName = type === 'live' ? 'getLive' : 'getForecast';
   function getData(instance: AMap.Weather) {
     if (type && city && /^(live|forecast)$/.test(type)) {
-      instance[funName as keyof AMap.Weather](city, (err?: Error, data?: AMap.WeatherForecastResult | AMap.WeatherLiveResult) => {
-        if (err && onError) {
-          onError(err);
-        } else if (data && onComplete) {
-          onComplete(data)
-        }
-      });
+      instance[funName as keyof AMap.Weather](
+        city,
+        (err?: Error, data?: AMap.WeatherForecastResult | AMap.WeatherLiveResult) => {
+          if (err && onError) {
+            onError(err);
+          } else if (data && onComplete) {
+            onComplete(data);
+          }
+        },
+      );
     }
   }
   useEffect(() => {
@@ -28,7 +31,7 @@ export const useWeather = (props = {} as UseWeather) => {
         if (instance) {
           setWeather(undefined);
         }
-      }
+      };
     }
   }, []);
 
@@ -39,6 +42,7 @@ export const useWeather = (props = {} as UseWeather) => {
   }, [weather, city, type]);
 
   return {
-    weather, setWeather,
-  }
-}
+    weather,
+    setWeather,
+  };
+};

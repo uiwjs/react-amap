@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { HawkEyeControlProps } from '.';
 import { useVisiable } from '../common/hooks';
 
-export interface UseHawkEyeControl extends HawkEyeControlProps {};
+export interface UseHawkEyeControl extends HawkEyeControlProps {}
 
 export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
   const [hawkEyeControl, setHawkEyeControl] = useState<AMap.HawkEye>();
@@ -21,12 +21,13 @@ export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
           map.removeLayer(instance);
           setHawkEyeControl(undefined);
         }
-      }
+      };
     }
   }, [map]);
 
   useVisiable(hawkEyeControl! as any, visiable);
   return {
-    hawkEyeControl, setHawkEyeControl,
+    hawkEyeControl,
+    setHawkEyeControl,
   };
 }

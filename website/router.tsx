@@ -1,9 +1,9 @@
 import React from 'react';
-import loadable from "@loadable/component";
+import loadable from '@loadable/component';
 
 const options = {
-  fallback: <div>loading</div>
-}
+  fallback: <div>loading</div>,
+};
 
 export type Routes = {
   path: string;
@@ -13,96 +13,95 @@ export type Routes = {
 
 export const routes: Routes = [
   {
-    path: "/",
+    path: '/',
     exact: true,
     component: loadable(() => import('./pages/home'), options),
   },
   {
-    path: "/api-loader",
+    path: '/api-loader',
     component: loadable(() => import('./pages/api-loader'), options),
   },
   {
-    path: "/map",
+    path: '/map',
     component: loadable(() => import('./pages/map'), options),
   },
   {
-    path: "/scale-control",
+    path: '/scale-control',
     component: loadable(() => import('./pages/scale-control'), options),
   },
   {
-    path: "/tool-bar-control",
+    path: '/tool-bar-control',
     component: loadable(() => import('./pages/tool-bar-control'), options),
   },
   {
-    path: "/control-bar-control",
+    path: '/control-bar-control',
     component: loadable(() => import('./pages/control-bar-control'), options),
   },
   {
-    path: "/map-type-control",
+    path: '/map-type-control',
     component: loadable(() => import('./pages/map-type-control'), options),
   },
   {
-    path: "/hawk-eye-control",
+    path: '/hawk-eye-control',
     component: loadable(() => import('./pages/hawk-eye-control'), options),
   },
   {
-    path: "/polyline",
+    path: '/polyline',
     component: loadable(() => import('./pages/polyline'), options),
   },
   {
-    path: "/marker",
+    path: '/marker',
     component: loadable(() => import('./pages/marker'), options),
   },
   {
-    path: "/text",
+    path: '/text',
     component: loadable(() => import('./pages/text'), options),
   },
   {
-    path: "/circle",
+    path: '/circle',
     component: loadable(() => import('./pages/circle'), options),
   },
   {
-    path: "/ellipse",
+    path: '/ellipse',
     component: loadable(() => import('./pages/ellipse'), options),
   },
   {
-    path: "/rectangle",
+    path: '/rectangle',
     component: loadable(() => import('./pages/rectangle'), options),
   },
   {
-    path: "/beizer-curve",
+    path: '/beizer-curve',
     component: loadable(() => import('./pages/beizer-curve'), options),
   },
   {
-    path: "/polygon",
+    path: '/polygon',
     component: loadable(() => import('./pages/polygon'), options),
   },
   {
-    path: "/info-window",
+    path: '/info-window',
     component: loadable(() => import('./pages/info-window'), options),
   },
   {
-    path: "/circle-marker",
+    path: '/circle-marker',
     component: loadable(() => import('./pages/circle-marker'), options),
   },
   {
-    path: "/weather",
+    path: '/weather',
     component: loadable(() => import('./pages/weather'), options),
   },
   {
-    path: "/geolocation",
+    path: '/geolocation',
     component: loadable(() => import('./pages/geolocation'), options),
   },
   {
-    path: "/auto-complete",
+    path: '/auto-complete',
     component: loadable(() => import('./pages/auto-complete'), options),
   },
   {
-    path: "/context-menu",
+    path: '/context-menu',
     component: loadable(() => import('./pages/context-menu'), options),
   },
 ];
-
 
 export const menus = [
   {
@@ -273,4 +272,4 @@ export const menus = [
     target: '__blank',
     path: 'https://uiwjs.github.io/react-baidu-map/',
   },
-]
+];
