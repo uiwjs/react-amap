@@ -18,8 +18,8 @@
   <a href="https://github.com/uiwjs/react-amap/stargazers">
     <img src="https://img.shields.io/github/stars/uiwjs/react-amap.svg" alt="Stars">
   </a>
-  <a href="https://github.com/uiwjs/react-amap/releases">
-    <img src="https://img.shields.io/github/release/uiwjs/react-amap.svg" alt="Releases">
+  <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-amap/file/README.md">
+    <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
   </a>
   <a href="https://www.npmjs.com/package/@uiw/react-amap">
     <img src="https://img.shields.io/npm/v/@uiw/react-amap.svg" alt="npm version">
