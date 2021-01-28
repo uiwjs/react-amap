@@ -52,7 +52,7 @@ jobs:
           tag_name: ${{ steps.create_tag.outputs.version }}
           release_name: ${{ steps.create_tag.outputs.version }}
           body: |
-            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-amap@${{versionNumber}}/file/README.md) [![](https://img.shields.io/github/issues/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/releases) [![](https://img.shields.io/github/forks/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/network) [![](https://img.shields.io/github/stars/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/stargazers) [![](https://img.shields.io/github/release/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/releases)
+            [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-amap@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![](https://img.shields.io/github/issues/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/releases) [![](https://img.shields.io/github/forks/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/network) [![](https://img.shields.io/github/stars/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/stargazers) [![](https://img.shields.io/github/release/uiwjs/react-amap.svg)](https://github.com/uiwjs/react-amap/releases)
 
             ${{ steps.changelog.outputs.compareurl }}
             ${{ steps.changelog.outputs.changelog }}
