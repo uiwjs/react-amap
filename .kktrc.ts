@@ -63,10 +63,9 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
           priority: -2,
         },
         prismjs: {
-          name: 'vendors-prismjs',
-          chunks: 'all',
           test: /[\\/]node_modules[\\/](prismjs)[\\/]/,
-          priority: -2,
+          name: 'prismjs-vendor',
+          chunks: 'async',
         },
         react_code_preview: {
           name: 'vendors-code-preview',
