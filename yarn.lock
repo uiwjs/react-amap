@@ -2270,10 +2270,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kkt/less-modules@6.0.12":
-  version "6.0.12"
-  resolved "https://registry.yarnpkg.com/@kkt/less-modules/-/less-modules-6.0.12.tgz#f4294213bf4bf1b962272b7241c3b54cba160260"
-  integrity sha512-Ej9p9phh/ngM7rulEheVQjPbl15OaiaI1d56ioRZljCTLT3UdepSVLkIYXKg7iyi7uw5hGJ18gTaeAgDHSn42Q==
+"@kkt/less-modules@6.7.2":
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/@kkt/less-modules/-/less-modules-6.7.2.tgz#29749eb2b40ffc8ed4de3c8e4182645c2d3e6933"
+  integrity sha512-s5f7T6GhnqsD4dCfG5UtlYQf4RQhV+vnPIDLLpXuVPDQQJXm7k6hPJC/oCToDN4/sAP83cskRaJ4LbwgPPzfrQ==
   dependencies:
     less "^3.13.1"
     less-loader "^7.1.0"
