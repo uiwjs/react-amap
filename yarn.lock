@@ -2819,10 +2819,10 @@
   resolved "https://registry.yarnpkg.com/@types/less/-/less-3.0.2.tgz#2761d477678c8374cb9897666871662eb1d1115e"
   integrity sha512-62vfe65cMSzYaWmpmhqCMMNl0khen89w57mByPi1OseGfcV/LV03fO8YVrNj7rFQsRWNJo650WWyh6m7p8vZmA==
 
-"@types/loadable__component@5.13.1":
-  version "5.13.1"
-  resolved "https://registry.yarnpkg.com/@types/loadable__component/-/loadable__component-5.13.1.tgz#97c24081676a194b29722ff6e3c24a3676984f2e"
-  integrity sha512-Zb/Qkw3BnlRoFkL6FJwDvhFhOfeotXRCWd7dHdjVLusHZ3dZjKNi3ERngYBt3tffk2NF4roGVKA/oZMA1KdbCg==
+"@types/loadable__component@5.13.3":
+  version "5.13.3"
+  resolved "https://registry.yarnpkg.com/@types/loadable__component/-/loadable__component-5.13.3.tgz#ea620b218fb2b6744ce5b2efd9a6a5c1a525a021"
+  integrity sha512-nkRRYpKxspH9yiYGSvyfM7GX1m57B9AVMrVEWY7Hlv9ueK2XCu39M5QyBTDHXcj5qixdD+MyAmNgoy2dEDxGLQ==
   dependencies:
     "@types/react" "*"
 
