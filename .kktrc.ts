@@ -1,13 +1,13 @@
 import webpack, { Configuration } from 'webpack';
 import path from 'path';
+import { LoaderConfOptions } from 'kkt';
 import lessModules from '@kkt/less-modules';
 import rawModules from '@kkt/raw-modules';
 import scopePluginOptions from '@kkt/scope-plugin-options';
-import { ParsedArgs } from 'minimist';
 import pkg from './package.json';
 
-export default (conf: Configuration, env: string, options: ParsedArgs) => {
-  conf = rawModules(conf, env, { ...options });
+export default (conf: Configuration, env: 'production' | 'development', options: LoaderConfOptions) => {
+  conf = rawModules(conf, env, options);
   conf = lessModules(conf, env, options);
   conf = scopePluginOptions(conf, env, {
     ...options,
@@ -162,7 +162,8 @@ export default (conf: Configuration, env: string, options: ParsedArgs) => {
     },
   };
 
-  conf.output = { ...conf.output, publicPath: './' };
-
+  if (env === 'production') {
+    conf.output = { ...conf.output, publicPath: './' };
+  }
   return conf;
 };
