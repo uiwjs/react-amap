@@ -75,7 +75,7 @@
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.7.0",
     "cross-env": "7.0.3",
-    "husky": "4.3.7",
+    "husky": "5.2.0",
     "kkt": "6.7.2",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
