@@ -2918,10 +2918,10 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
-"@types/workbox-webpack-plugin@5.1.5":
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-5.1.5.tgz#3c54ebf8864b4039dab7fe7cb5cf6acd7fbc31fd"
-  integrity sha512-FLFbhnilR3MXCkaRx7D9rxeRlvHwTl6bMnRa1gJux1wSFbTRb9E1K1kQeyxCYuuUAqk3C/QABCg1FAl4onZrDQ==
+"@types/workbox-webpack-plugin@5.1.6":
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-5.1.6.tgz#5348f6dce39f423a278cd98c84d2737fbe0de3fe"
+  integrity sha512-4Tehepg934ZMSpP3i3eEqjqyGUtDncllhXzqp09+kNDJPlt+XBVINO1Act+4cvY5/i5p/pp86LEGm5fxvvf3FA==
 
 "@types/yargs-parser@*":
   version "20.2.0"
