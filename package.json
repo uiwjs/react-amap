@@ -63,7 +63,7 @@
     "@kkt/less-modules": "6.8.2",
     "@kkt/raw-modules": "6.8.2",
     "@kkt/scope-plugin-options": "6.8.2",
-    "@loadable/component": "5.14.1",
+    "@loadable/component": "5.15.0",
     "@types/loadable__component": "5.13.3",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
