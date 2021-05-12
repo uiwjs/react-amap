@@ -6,7 +6,7 @@ const _importedScript: { [src: string]: true } = {};
  */
 export function requireCss(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript) {
+    if (src in _importedScript || !document) {
       resolve();
       return;
     }
@@ -31,7 +31,7 @@ export function requireCss(src: string): Promise<void> {
  */
 export function requireScript(src: string, id: string = '_react_amap'): Promise<void> {
   return new Promise((resolve, reject) => {
-    if (src in _importedScript) {
+    if (src in _importedScript || !document) {
       resolve();
       return;
     }
