@@ -57,16 +57,16 @@
     "高德地图"
   ],
   "dependencies": {
-    "@babel/runtime": "7.13.10"
+    "@babel/runtime": "7.14.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.8.2",
-    "@kkt/raw-modules": "6.8.2",
-    "@kkt/scope-plugin-options": "6.8.2",
-    "@loadable/component": "5.14.1",
+    "@kkt/less-modules": "6.9.0",
+    "@kkt/raw-modules": "6.9.0",
+    "@kkt/scope-plugin-options": "6.9.0",
+    "@loadable/component": "5.15.0",
     "@types/loadable__component": "5.13.3",
-    "@types/react": "17.0.3",
-    "@types/react-dom": "17.0.3",
+    "@types/react": "17.0.5",
+    "@types/react-dom": "17.0.4",
     "@types/react-router-dom": "5.1.7",
     "@types/workbox-webpack-plugin": "5.1.6",
     "@uiw/react-code-preview": "1.11.12",
@@ -76,9 +76,9 @@
     "compile-less-cli": "1.7.0",
     "cross-env": "7.0.3",
     "husky": "4.3.8",
-    "kkt": "6.8.2",
-    "lint-staged": "10.5.4",
-    "prettier": "2.2.1",
+    "kkt": "6.9.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0",
