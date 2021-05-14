@@ -9,7 +9,7 @@ import { Geolocation } from '@uiw/react-amap';
 
 ### 地图定位控件
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Map, Geolocation } from '@uiw/react-amap';
@@ -55,11 +55,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 只获取定位经纬度
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -103,11 +102,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 只获取定位地址信息
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -152,7 +150,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 不使用组件
 
@@ -194,7 +191,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 

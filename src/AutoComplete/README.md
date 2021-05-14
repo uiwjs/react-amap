@@ -9,7 +9,7 @@ import { AutoComplete } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
@@ -50,7 +50,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 

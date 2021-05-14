@@ -11,7 +11,7 @@ import { CircleMarker } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -108,7 +108,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 

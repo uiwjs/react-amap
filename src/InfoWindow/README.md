@@ -9,7 +9,7 @@ import { InfoWindow } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -50,11 +50,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 设置信息窗体内容
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -90,11 +89,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 点标记点弹出信息窗体
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -156,11 +154,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 点标记点弹出信息窗体 Ref 实现
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -207,7 +204,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 

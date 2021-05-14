@@ -122,12 +122,6 @@ export default (conf: Configuration, env: 'production' | 'development', options:
           test: /[\\/]node_modules[\\/](@babel\/core)[\\/]/,
           priority: -5,
         },
-        babel_remark: {
-          name: 'vendors-remark',
-          chunks: 'all',
-          test: /[\\/]node_modules[\\/](remark-parse)[\\/]/,
-          priority: -5,
-        },
         babel_runtime_generator: {
           name: 'vendors-runtime-generator',
           chunks: 'all',

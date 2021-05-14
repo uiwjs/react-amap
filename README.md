@@ -50,7 +50,7 @@ npm install @uiw/react-amap --save
 
 ## 使用
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -84,7 +84,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ## 组件
 

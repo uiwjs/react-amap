@@ -16,7 +16,7 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -31,11 +31,10 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 参数设置
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { Fragment, useState } from 'react';
@@ -73,13 +72,12 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Ref
 
 获取地图实例对象。
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -115,11 +113,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 事件触发
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -141,13 +138,12 @@ const Demo = () => (
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
-<!--End-->
 
 ### 特殊使用方法
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -181,11 +177,10 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### 将子组件封装到一个组件中
 
-<!--DemoStart,bgWhite,noScroll,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -222,7 +217,6 @@ ReactDOM.render((
   </APILoader>
 ), _mount_);
 ```
-<!--End-->
 
 ### Props
 
