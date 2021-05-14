@@ -38,7 +38,7 @@ ReactDOM.render(<Demo />, _mount_);
  * 代码注释参数
  *
  * ```md
- * <!--DemoStart,bgWhite,noCode,noPreview,noScroll,codePen-->
+ * <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
  * ```
  * 参数用英文逗号隔开
  *

@@ -153,7 +153,7 @@ ReactDOM.render((
 
 ### 不使用组件
 
-<!--DemoStart,bgWhite,codePen,codeSandbox-->
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';
