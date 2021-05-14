@@ -20,20 +20,6 @@ const getCodeStr = (data: any[] = [], code: string = '') => {
   return code;
 };
 
-const code = `import React from 'react';
-import ReactDOM from 'react-dom';
-import { Map, APILoader } from '@uiw/react-amap';
-
-const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-      <Map />
-    </APILoader>
-  </div>
-);
-ReactDOM.render(<Demo />, _mount_);
-`;
-
 /**
  * 代码注释参数
  *

@@ -41,8 +41,8 @@ export default function Code({ language, dependencies, codePen, ...other }: Code
               '@uiw/react-amap': 'latest',
             },
             devDependencies: {
-              '@kkt/less-modules': '6.0.x',
-              kkt: '6.0.11',
+              '@kkt/less-modules': '6.9.0',
+              kkt: '6.9.0',
               typescript: '4.1.3',
             },
             license: 'MIT',
