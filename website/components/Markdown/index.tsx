@@ -76,9 +76,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
            * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
            */
           code: ({ 'data-config': config, inline, node, ...props }) => {
-            if (inline) {
-              return <code {...props} />;
-            }
             if (config) {
               const { noPreview, noScroll, bgWhite, noCode, codePen } = config as CodeProps;
               return (
