@@ -38,7 +38,7 @@ export default function Code({ language, dependencies, codePen, ...other }: Code
             dependencies: {
               react: 'latest',
               'react-dom': 'latest',
-              '@uiw/react-baidu-map': 'latest',
+              '@uiw/react-amap': 'latest',
             },
             devDependencies: {
               '@kkt/less-modules': '6.9.0',
