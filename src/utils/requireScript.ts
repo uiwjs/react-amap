@@ -1,12 +1,12 @@
-const headElement = document && (document.head || document.getElementsByTagName('head')[0]);
 const _importedScript: { [src: string]: true } = {};
 
 /**
  * load dependency by css tag
  */
 export function requireCss(src: string): Promise<void> {
+  const headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   return new Promise((resolve, reject) => {
-    if (src in _importedScript || !document) {
+    if (!document || src in _importedScript) {
       resolve();
       return;
     }
@@ -30,8 +30,9 @@ export function requireCss(src: string): Promise<void> {
  * load dependency by script tag
  */
 export function requireScript(src: string, id: string = '_react_amap'): Promise<void> {
+  const headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   return new Promise((resolve, reject) => {
-    if (src in _importedScript || !document) {
+    if (!document || src in _importedScript) {
       resolve();
       return;
     }
