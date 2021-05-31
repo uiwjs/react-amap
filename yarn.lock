@@ -11830,10 +11830,10 @@ regjsparser@^0.6.4:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-attr@1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/rehype-attr/-/rehype-attr-1.1.6.tgz#3853c3f65da202a2fe8c780d28bc161a927507e4"
-  integrity sha512-SORaWw6mBX+Uvq4RNVbj8BUt1AJWBehtfqLk449V99dxIV/IQ/wecisLQyS3hfUL9/Tgf87zW3FQRHyiX/oMFQ==
+rehype-attr@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/rehype-attr/-/rehype-attr-1.3.2.tgz#28d71e002f37ae96b99d827786d3583bb0371fda"
+  integrity sha512-f7teKp5/51Dyx5KTwRQlxXOBdrsxNS0k6Pjb4oupK2CsDHTUxOGMbuUnOiUXeVYtLzJSxu6Xz0wIVafbpcsAsQ==
   dependencies:
     ts-mdast "1.0.0"
     unified "9.2.1"
