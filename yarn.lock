@@ -3381,10 +3381,10 @@
   dependencies:
     codesandbox-import-utils "2.2.2"
 
-"@uiw/react-github-corners@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@uiw/react-github-corners/-/react-github-corners-1.2.0.tgz#d3b9c8f1a1dd8984428b73bc61fe4fa71280ae71"
-  integrity sha512-IpUrD4DzLyvQFQ5VXMR/Neb+6sD8zmiONzaneY+TwHn3dFbL9lSBXMVr47VLVEEmOeGJ+cPqYYAXJY7WeOVZBQ==
+"@uiw/react-github-corners@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@uiw/react-github-corners/-/react-github-corners-1.4.0.tgz#65ff7a09caeedfd8120a8494acf659010b60d3b3"
+  integrity sha512-hXPPJq0JgMNbkqJBdqCX2fXxsUjNm/vdNi9ogQLAZao+hYkim4+9MwS6GNEIljUpdYgsBqjlQ1fxeXVsStMfMg==
 
 "@uiw/react-markdown-preview@3.1.1":
   version "3.1.1"
