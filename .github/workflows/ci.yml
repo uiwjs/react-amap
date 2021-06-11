@@ -14,8 +14,7 @@ jobs:
           node-version: 14
 
       - run: npm install
-      - run: npm run build
-      - run: npm run doc
+      - run: npm run build:lib && npm run doc
 
       - run: npm install @jsdevtools/npm-publish
       - run: ./node_modules/.bin/npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
