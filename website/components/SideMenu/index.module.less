@@ -24,9 +24,15 @@
     display: block;
     padding: 8px 10px 8px 15px;
     text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    > svg {
+      fill: #888;
+    }
     &:hover {
       text-decoration: underline;
       color: #eaeaea;
+      background-color: #3e3e3e;
     }
     &:global(.active) {
       text-decoration: underline;

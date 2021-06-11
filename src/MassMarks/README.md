@@ -9,6 +9,8 @@ import { MassMarks } from '@uiw/react-amap';
 
 ### 基本用法
 
+[官方示例](https://lbs.amap.com/demo/jsapi-v2/example/mass-markers/massmarks)
+
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
