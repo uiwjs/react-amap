@@ -15,9 +15,11 @@ import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, MassMarks } from '@uiw/react-amap';
 
-const Example = () => {
+const Example = (props) => {
   const [show, setShow] = useState(true);
   const [points, setPoints] = useState([]);
+  const map = useRef()
+  const marker = useRef()
   useEffect(() => {
     if(points.length === 0) {
       requireScript('https://a.amap.com/jsapi_demos/static/citys.js').then(() => {
@@ -34,7 +36,22 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
-          <MassMarks visiable={show} data={points} />
+          <MassMarks
+            visiable={show}
+            data={points}
+            onMouseMove={(evn) => {
+              if (!map.current) {
+                map.current = evn.target.getMap();
+                if (!marker.current) {
+                  marker.current = new AMap.Marker({ content: ' ', map: map.current });
+                }
+              }
+              if (marker.current) {
+                marker.current.setPosition(evn.data.lnglat);
+                marker.current.setLabel({content: evn.data.name})
+              }
+            }}
+          />
         </Map>
       </div>
     </>
