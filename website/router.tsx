@@ -162,7 +162,7 @@ export const menus = [
     path: '/marker',
   },
   {
-    label: 'MassMarks 点标记',
+    label: 'MassMarks 海量点标记',
     path: '/mass-marks',
   },
   {
