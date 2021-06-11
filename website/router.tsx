@@ -54,6 +54,10 @@ export const routes: Routes = [
     component: loadable(() => import('./pages/marker'), options),
   },
   {
+    path: '/mass-marks',
+    component: loadable(() => import('./pages/mass-marks'), options),
+  },
+  {
     path: '/text',
     component: loadable(() => import('./pages/text'), options),
   },
@@ -156,6 +160,10 @@ export const menus = [
   {
     label: 'Marker 点标记',
     path: '/marker',
+  },
+  {
+    label: 'MassMarks 点标记',
+    path: '/mass-marks',
   },
   {
     label: 'Text 文本标记',

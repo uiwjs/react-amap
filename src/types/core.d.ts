@@ -147,7 +147,7 @@ declare namespace AMap {
      * 添加覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features 覆盖物对象或者数组 VectorOverlay | Array<any>
      */
-    add(features: Array<any> | TileLayer | Polyline | Marker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle): void;
+    add(features: Array<any> | TileLayer | Polyline | Marker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
     /**
      * 删除覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features Array<any> | VectorOverlay

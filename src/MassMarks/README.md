@@ -1,0 +1,77 @@
+MassMarks 海量点
+===
+
+在地图上加载海量点，适合需要显示大量 `Marker` 的场景。
+
+```jsx
+import { MassMarks } from '@uiw/react-amap';
+```
+
+### 基本用法
+
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, MassMarks } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  const [points, setPoints] = useState([]);
+  useEffect(() => {
+    if(points.length === 0) {
+      requireScript('https://a.amap.com/jsapi_demos/static/citys.js').then(() => {
+        if(citys && Array.isArray(citys)) {
+          setPoints(citys);
+        }
+      });
+    }
+  });
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map zoom={4}>
+          <MassMarks visiable={show} data={points} />
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+
+### Props
+
+[更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L8-L111)
+
+| 参数 | 说明 | 类型 | 默认值 |
+|--------- |-------- |--------- |-------- |
+| data | 海量点数据参数 | `Array<MassMarkersDataOptions>` | - |
+| zIndex | 图标叠加层级，值越大层级越高 | `number` | - |
+| opacity | 图标显示透明度。 | `number` | `1` |
+| zooms | 海量点显示层级范围，范围外不显示。 | `Vector` | `[2, 20]` |
+| style | 点标记显示位置偏移量。 | `MassMarkersStyleOptions` | `Array<MassMarkersStyleOptions>` | - |
+
+### 事件
+
+[事件类型文档](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L112-L182)
+
+| 参数 | 说明 | 类型 |
+| ---- | ---- | ---- |
+| onClick | 鼠标左键单击事件 | `(event: MapsEvent): void;` |
+| onDblClick | 鼠标左键双击事件 | `(event: MapsEvent): void;` |
+| onMouseMove | 鼠标移动 | `(event: MapsEvent): void;` |
+| onMouseOut | 鼠标移出点标记时触发事件 | `(event: MapsEvent): void;` |
+| onMouseUp | 鼠标在点标记上按下后抬起时触发事件 | `(event: MapsEvent): void;` |
+| onMouseDown | 鼠标在点标记上按下时触发事件 | `(event: MapsEvent): void;` |
+| onMouseOver | 鼠标移近点标记时触发事件 | `(event: MapsEvent): void;` |
+| onTouchStart | 触摸开始时触发事件，仅适用移动设备 | `(event: MapsEvent): void;` |
+| onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | `(event: MapsEvent): void;` |

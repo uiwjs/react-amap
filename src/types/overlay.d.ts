@@ -5,7 +5,7 @@ declare namespace AMap {
   /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
-  class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'>, MoveAnimation {
+  class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> extends MoveAnimation {
     constructor(opts: MarkerOptions);
     /** 获取点标记的文字提示 */
     getTitle(): ?string;
@@ -871,7 +871,7 @@ declare namespace AMap {
     onChange?(): void;
   }
    /** 文本标记 */
-   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'>, MoveAnimation {
+   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'> extends MoveAnimation {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
@@ -1052,7 +1052,9 @@ declare namespace AMap {
   }
   /** 海量点类 */
   class MassMarks extends MapEventListener<'touchstart' | 'touchend' | 'mousemove' | 'dbclick' | 'click' | 'complete' | 'mouseover' | 'mousedown' | 'mouseup' | 'mouseout'> {
+    /** 官方文档示例，https://a.amap.com/jsapi/static/doc/index.html#massmarks **/ 
     constructor(data: MassMarkersDataOptions, opts: Array<MassMarkersOptions>)
+    constructor(data: MassMarkersDataOptions, opts: MassMarkersOptions)
     setMap(map: Map): void;
     getMap(): Map;
     getData(): MassMarkersDataOptions;
@@ -1142,7 +1144,7 @@ declare namespace AMap {
     autoRotation?: boolean;
   }
   /** 标注类 */
-  class LabelMarker extends MapEventListener<'mousedown' | 'mouseup' | 'touchstart' | 'touchmove' | 'touchend' | 'click' | 'mousemove' | 'mouseover' | 'mouseout'>, MoveAnimation {
+  class LabelMarker extends MapEventListener<'mousedown' | 'mouseup' | 'touchstart' | 'touchmove' | 'touchend' | 'click' | 'mousemove' | 'mouseover' | 'mouseout'> extends MoveAnimation {
     constructor(opts: LabelMarkerOptions);
     getName(): string | undefined;
     setName(name: string): void;

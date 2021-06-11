@@ -19,6 +19,7 @@ export const useMarker = (props = {} as UseMarker) => {
         }
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
   useVisiable(marker!, visiable);

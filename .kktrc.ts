@@ -19,6 +19,7 @@ export default (conf: Configuration, env: 'production' | 'development', options:
       path.resolve(process.cwd(), 'src/ScaleControl/README.md'),
       path.resolve(process.cwd(), 'src/ToolBarControl/README.md'),
       path.resolve(process.cwd(), 'src/MapTypeControl/README.md'),
+      path.resolve(process.cwd(), 'src/MassMarks/README.md'),
       path.resolve(process.cwd(), 'src/ControlBarControl/README.md'),
       path.resolve(process.cwd(), 'src/HawkEyeControl/README.md'),
       path.resolve(process.cwd(), 'src/Polyline/README.md'),

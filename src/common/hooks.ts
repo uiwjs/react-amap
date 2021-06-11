@@ -13,7 +13,9 @@ export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: 
 ) {
   propsName.forEach((name) => {
     const eName = name as keyof F;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [state, setState] = useState(props[eName]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       if (instance && props[eName] !== undefined) {
         if (props[eName] !== state) {
@@ -29,6 +31,7 @@ export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: 
           setState(props[eName]);
         }
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eName]]);
   });
 }
@@ -50,6 +53,7 @@ export function useVisiable<T extends { show: () => void; hide: () => void }>(in
         setState(visiable);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instance, visiable]);
 }
 
@@ -98,6 +102,7 @@ export function useEventProperties<T extends AMap.MapEventListener<any>, F>(
   eventName.forEach((name) => {
     const eventName = name as keyof F;
     const eventHandle = props[eventName];
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       if (!instance) return;
       let eName = name.toLocaleLowerCase().replace(/^on/, '');
@@ -109,6 +114,7 @@ export function useEventProperties<T extends AMap.MapEventListener<any>, F>(
           instance.off(eName, eventHandle);
         }
       };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eventName]]);
   });
 }
@@ -129,7 +135,9 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
   propsName.forEach((name) => {
     const eName = `set${name}` as keyof T;
     const vName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [state, setState] = useState(props[vName]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       if (instance && props[vName] !== undefined) {
         if (props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
@@ -137,6 +145,7 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
           setState(props[vName]);
         }
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[vName]]);
   });
 }

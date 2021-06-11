@@ -6,6 +6,8 @@ export * from './Polyline';
 export * from './Polyline/usePolyline';
 export * from './Marker';
 export * from './Marker/useMarker';
+export * from './MassMarks';
+export * from './MassMarks/useMassMarks';
 export * from './Text';
 export * from './Text/useText';
 export * from './Circle';
