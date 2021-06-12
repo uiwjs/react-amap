@@ -16,8 +16,8 @@ jobs:
       - run: npm install
       - run: npm run build:lib && npm run doc
 
-      - run: npm install @jsdevtools/npm-publish
-      - run: ./node_modules/.bin/npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+      - run: npm install @jsdevtools/npm-publish -g
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
 
       - name: Create Tag
         id: create_tag
