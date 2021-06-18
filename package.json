@@ -66,7 +66,7 @@
     "@loadable/component": "5.15.0",
     "@types/loadable__component": "5.13.3",
     "@types/react": "17.0.11",
-    "@types/react-dom": "17.0.7",
+    "@types/react-dom": "17.0.8",
     "@types/react-router-dom": "5.1.7",
     "@uiw/react-code-preview": "1.11.13",
     "@uiw/react-github-corners": "1.4.0",
