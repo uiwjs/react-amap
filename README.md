@@ -9,6 +9,9 @@
   <a href="https://github.com/uiwjs/react-amap/actions">
     <img src="https://github.com/uiwjs/react-amap/workflows/Build%20and%20Deploy/badge.svg" alt="Build & Deploy">
   </a>
+  <a href="https://www.npmjs.com/package/@uiw/react-amap">
+    <img src="https://img.shields.io/npm/dm/@uiw/react-amap.svg?style=flat" alt="Downloads">
+  </a>
   <a href="https://github.com/uiwjs/react-amap/issues">
     <img src="https://img.shields.io/github/issues/uiwjs/react-amap.svg" alt="Issues">
   </a>

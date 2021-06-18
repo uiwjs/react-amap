@@ -29,7 +29,7 @@ export const Map = React.forwardRef<MapProps & { map?: AMap.Map }, MapProps & Re
             if (typeof child === 'string') {
               return React.cloneElement(<Fragment>{child}</Fragment>, { key });
             }
-            if (!React.isValidElement(child)) return;
+            if (!React.isValidElement(child)) return null;
             if (child.type && typeof child.type === 'string') {
               return React.cloneElement(child, { key });
             }
