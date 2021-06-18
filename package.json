@@ -60,7 +60,7 @@
     "@babel/runtime": "7.14.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.10.3",
+    "@kkt/less-modules": "6.10.4",
     "@kkt/raw-modules": "6.10.3",
     "@kkt/scope-plugin-options": "6.10.3",
     "@loadable/component": "5.15.0",
