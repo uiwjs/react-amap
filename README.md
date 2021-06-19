@@ -12,15 +12,6 @@
   <a href="https://www.npmjs.com/package/@uiw/react-amap">
     <img src="https://img.shields.io/npm/dm/@uiw/react-amap.svg?style=flat" alt="Downloads">
   </a>
-  <a href="https://github.com/uiwjs/react-amap/issues">
-    <img src="https://img.shields.io/github/issues/uiwjs/react-amap.svg" alt="Issues">
-  </a>
-  <a href="https://github.com/uiwjs/react-amap/network">
-    <img src="https://img.shields.io/github/forks/uiwjs/react-amap.svg" alt="Forks">
-  </a>
-  <a href="https://github.com/uiwjs/react-amap/stargazers">
-    <img src="https://img.shields.io/github/stars/uiwjs/react-amap.svg" alt="Stars">
-  </a>
   <a href="https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-amap/file/README.md">
     <img src="https://img.shields.io/badge/Open%20in-unpkg-blue" alt="Open in unpkg">
   </a>
