@@ -251,7 +251,7 @@ declare namespace AMap {
      * @param maxZoom 最大 zoom 级别
      * @returns 新的地图视口范围
      */
-    setFitView(overlays: Array<TileLayer>, immediately: boolean = false, avoid: Array<number>, maxZoom: number): Bounds;
+    setFitView(overlays: Array<TileLayer> | null, immediately: boolean = false, avoid: Array<number>, maxZoom?: number): Bounds;
     /**
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
      * @param control 控件对象
