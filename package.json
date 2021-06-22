@@ -6,7 +6,7 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "scripts": {
-    "prepare": "npm run build:lib",
+    "prepare": "husky install && npm run build:lib",
     "doc": "kkt build --app-src ./website",
     "start": "kkt start --app-src ./website",
     "build": "npm run build:lib && npm run doc",
@@ -57,7 +57,7 @@
     "高德地图"
   ],
   "dependencies": {
-    "@babel/runtime": "7.14.0"
+    "@babel/runtime": "7.14.6"
   },
   "devDependencies": {
     "@kkt/less-modules": "6.10.4",
@@ -74,7 +74,7 @@
     "@uiw/reset.css": "1.0.4",
     "compile-less-cli": "1.8.0",
     "cross-env": "7.0.3",
-    "husky": "4.3.8",
+    "husky": "6.0.0",
     "kkt": "6.10.4",
     "lint-staged": "11.0.0",
     "prettier": "2.3.1",
