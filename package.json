@@ -52,32 +52,32 @@
     "高德地图"
   ],
   "dependencies": {
-    "@babel/runtime": "7.14.6"
+    "@babel/runtime": "7.14.8"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.10.4",
-    "@kkt/raw-modules": "6.10.4",
-    "@kkt/scope-plugin-options": "6.10.4",
+    "@kkt/less-modules": "6.11.0",
+    "@kkt/raw-modules": "6.11.0",
+    "@kkt/scope-plugin-options": "6.11.0",
     "@loadable/component": "5.15.0",
-    "@types/loadable__component": "5.13.3",
-    "@types/react": "17.0.11",
-    "@types/react-dom": "17.0.8",
-    "@types/react-router-dom": "5.1.7",
+    "@types/loadable__component": "5.13.4",
+    "@types/react": "17.0.16",
+    "@types/react-dom": "17.0.9",
+    "@types/react-router-dom": "5.1.8",
     "@uiw/react-code-preview": "1.11.13",
     "@uiw/react-github-corners": "1.4.0",
-    "@uiw/react-markdown-preview": "3.1.1",
+    "@uiw/react-markdown-preview": "3.1.3",
     "@uiw/reset.css": "1.0.5",
     "compile-less-cli": "1.8.0",
     "cross-env": "7.0.3",
     "husky": "6.0.0",
-    "kkt": "6.10.4",
-    "lint-staged": "11.0.0",
-    "prettier": "2.3.1",
-    "rehype-attr": "1.3.2",
+    "kkt": "6.11.0",
+    "lint-staged": "11.1.2",
+    "prettier": "2.3.2",
+    "rehype-attr": "1.4.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router-dom": "5.2.0",
-    "tsbb": "2.2.1"
+    "tsbb": "2.3.1"
   },
   "eslintConfig": {
     "extends": [
