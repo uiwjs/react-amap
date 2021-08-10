@@ -26,9 +26,13 @@ const Example = () => {
             // 超过10秒后停止定位，默认：5s
             timeout={10000}
             // 定位按钮的停靠位置
-            buttonPosition="RB"
+            // 官方 v2 不再支持
+            // buttonPosition="RB"
+
             // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-            buttonOffset={new AMap.Pixel(10, 20)}
+            // 官方 v2 不再支持
+            // buttonOffset={new AMap.Pixel(10, 20)}
+            
             // 定位成功后是否自动调整地图视野到定位点
             zoomToAccuracy={true}
             onComplete={(data) => {
@@ -41,10 +45,10 @@ const Example = () => {
             }}
           />
         </Map>
-        <pre style={{ padding: 10, marginTop: 10 }}>
-          {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
-        </pre>
       </div>
+      <pre style={{ padding: 10, marginTop: 10 }}>
+        {data ? JSON.stringify(data, null, 2) : '{正在获取}'}
+      </pre>
     </>
   );
 }
@@ -122,7 +126,7 @@ const Example = () => {
           // 超过10秒后停止定位，默认：5s
           timeout={10000}
           // 定位按钮的停靠位置
-          buttonPosition="RB"
+          buttonPosition="RT"
           // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
           buttonOffset={new AMap.Pixel(10, 20)}
           // 定位成功后是否自动调整地图视野到定位点

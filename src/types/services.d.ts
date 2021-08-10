@@ -130,6 +130,16 @@ declare namespace AMap {
     needAddress?: boolean;
     /** 是否需要详细的逆地理编码信息，默认为'base'只返回基本信息，可选'all' */
     extensions?: 'base' | 'all';
+    /**
+     * 定位按钮的停靠位置
+     * @deprecated 官方 v2 不再支持
+     */
+    buttonPosition?: 'RT' | 'RB' | 'LT' | 'LB';
+    /**
+     * 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+     * @deprecated 官方 v2 不再支持
+     */
+    buttonOffset?: Pixel;
   }
   interface GeolocationEvents {
     /** 数据请求完成时触发事件。 */
