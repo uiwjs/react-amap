@@ -55,3 +55,4 @@ ReactDOM.render(<Demo />, _mount_);
 | protocol | 协议，默认是根据当前网站协议的 | `http`/`https` | `window.location.protocol` |
 | hostAndPath | 请求 SDK 的前半部分 | string | `webapi.amap.com/maps` |
 | callbackName | 回调函数 | string | `load_amap_sdk` |
+| plugin | 加载一个或者多个插件 `AMap.ToolBar,AMap.Driving` | string | `-` |

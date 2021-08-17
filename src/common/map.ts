@@ -28,6 +28,11 @@ export interface Config {
    * JSONP 回调函数
    */
   callbackName?: string;
+  /**
+   * 加载一个或者多个插件
+   * @example `AMap.ToolBar,AMap.Driving`
+   */
+  plugin?: string;
 }
 
 /**

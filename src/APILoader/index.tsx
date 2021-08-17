@@ -34,6 +34,7 @@ export class APILoader extends React.Component<APILoaderProps> {
     hostAndPath: 'webapi.amap.com/maps',
     version: '2.0',
     callbackName: 'load_amap_sdk',
+    plugin: '',
   };
 
   /**
@@ -78,7 +79,13 @@ export class APILoader extends React.Component<APILoaderProps> {
     if (protocol!.indexOf(':') === -1) {
       protocol += ':';
     }
-    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&key=${cfg.akay}&callback=${cfg.callbackName}`;
+
+    let plugin = '';
+    if (cfg.plugin) {
+      plugin = `&plugin=${cfg.plugin}`;
+    }
+
+    return `${protocol}//${cfg.hostAndPath}?v=${cfg.version}&key=${cfg.akay}&callback=${cfg.callbackName}${plugin}`;
   }
   /**
    * load BaiduMap in script tag
