@@ -316,6 +316,8 @@ declare namespace AMap {
       'AMap.OverView' |
       'AMap.Weather' |
       'AMap.HeatMap' |
+      'AMap.MouseTool' |
+      'AMap.PolyEditor' |
       'AMap.MarkerCluster'
       >, callBack: () => void): void;
   }
