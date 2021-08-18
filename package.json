@@ -67,7 +67,7 @@
     "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-markdown-preview": "3.2.0",
     "@uiw/reset.css": "1.0.5",
-    "compile-less-cli": "1.8.0",
+    "compile-less-cli": "1.8.1",
     "cross-env": "7.0.3",
     "husky": "6.0.0",
     "kkt": "6.11.0",
