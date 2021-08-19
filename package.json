@@ -60,7 +60,7 @@
     "@kkt/scope-plugin-options": "6.11.0",
     "@loadable/component": "5.15.0",
     "@types/loadable__component": "5.13.4",
-    "@types/react": "17.0.16",
+    "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@types/react-router-dom": "5.1.8",
     "@uiw/react-code-preview": "1.11.13",
