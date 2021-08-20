@@ -318,6 +318,7 @@ declare namespace AMap {
       'AMap.HeatMap' |
       'AMap.MouseTool' |
       'AMap.PolyEditor' |
+      'AMap.Geocoder' |
       'AMap.MarkerCluster'
       >, callBack: () => void): void;
   }
