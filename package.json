@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "homepage": "https://uiwjs.github.io/react-amap",
   "main": "lib/cjs/index.js",
