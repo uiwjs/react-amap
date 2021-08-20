@@ -73,6 +73,44 @@ declare namespace AMap {
     showRoad?: boolean;
   }
   /**
+   * 地理编码与逆地理编码类，用于地址描述与经纬度坐标之间的转换。用户可以通过回调函数获取查询结果。 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/geocoder/geocoding)
+   */
+  class Geocoder extends Control {
+    constructor(opts: GeocoderOptions);
+  }
+  interface GeocoderOptions {
+    /**
+     * 城市，地理编码时，设置地址描述所在城市
+     * 可选值：城市名（中文或中文全拼）、citycode、adcode
+     * @default 全国
+     */
+    city?: string;
+    /**
+     * 逆地理编码时，以给定坐标为中心点，单位：米
+     * 取值范围：0 - 3000
+     * @default 1000
+     */
+    radius?: number;
+    /**
+     * 设置语言类型
+     * 可选值：zh_cn（中文）、en(英文)
+     * @default zh_cn(中文)
+     */
+    lang?: string;
+    /**
+     * 是否批量查询
+     * batch 设置为 false 时，只返回第一条记录
+     */
+    batch?: boolean;
+    /**
+     * 逆地理编码时，返回信息的详略  
+     * 默认值：`base`，返回基本地址信息  
+     * 取值为：`all`，返回地址信息及附近poi、道路、道路交叉口等信息
+     * @default base
+     */
+    extensions?: string;
+  }
+  /**
    * 组合了旋转、倾斜、复位在内的地图控件。 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
    */
   class ControlBar extends Control {
