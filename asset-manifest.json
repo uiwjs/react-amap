@@ -34,8 +34,8 @@
     "static/js/13.75f4640d.chunk.js": "/react-amap/static/js/13.75f4640d.chunk.js",
     "static/js/13.75f4640d.chunk.js.map": "/react-amap/static/js/13.75f4640d.chunk.js.map",
     "main.css": "/react-amap/static/css/main.d943a597.chunk.css",
-    "main.js": "/react-amap/static/js/main.5b1b18b9.chunk.js",
-    "main.js.map": "/react-amap/static/js/main.5b1b18b9.chunk.js.map",
+    "main.js": "/react-amap/static/js/main.1560e321.chunk.js",
+    "main.js.map": "/react-amap/static/js/main.1560e321.chunk.js.map",
     "runtime-main.js": "/react-amap/static/js/runtime-main.91638af6.js",
     "runtime-main.js.map": "/react-amap/static/js/runtime-main.91638af6.js.map",
     "vendors-react.js": "/react-amap/static/js/vendors-react.f9d84754.chunk.js",
@@ -147,7 +147,8 @@
     "static/js/prismjs-vendor.1819fca3.chunk.js.LICENSE.txt": "/react-amap/static/js/prismjs-vendor.1819fca3.chunk.js.LICENSE.txt",
     "static/js/vendors-react.f9d84754.chunk.js.LICENSE.txt": "/react-amap/static/js/vendors-react.f9d84754.chunk.js.LICENSE.txt",
     "static/js/vendors-uiwjs.77ccfc2b.chunk.js.LICENSE.txt": "/react-amap/static/js/vendors-uiwjs.77ccfc2b.chunk.js.LICENSE.txt",
-    "static/js/vendors~main.e0bc553f.chunk.js.LICENSE.txt": "/react-amap/static/js/vendors~main.e0bc553f.chunk.js.LICENSE.txt"
+    "static/js/vendors~main.e0bc553f.chunk.js.LICENSE.txt": "/react-amap/static/js/vendors~main.e0bc553f.chunk.js.LICENSE.txt",
+    "static/media/logo.552138f6.svg": "/react-amap/static/media/logo.552138f6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.91638af6.js",
@@ -156,6 +157,6 @@
     "static/css/vendors~main.7b0fd986.chunk.css",
     "static/js/vendors~main.e0bc553f.chunk.js",
     "static/css/main.d943a597.chunk.css",
-    "static/js/main.5b1b18b9.chunk.js"
+    "static/js/main.1560e321.chunk.js"
   ]
 }
