@@ -28,6 +28,10 @@
     "地图",
     "高德地图"
   ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
     "@uiw/react-amap-types": "^2.0.1"
   },

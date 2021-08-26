@@ -11,10 +11,6 @@
   },
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
   "files": [
     "src",
     "esm",
@@ -30,6 +26,10 @@
     "地图",
     "高德地图"
   ],
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
   "dependencies": {
     "@uiw/react-amap-types": "^2.0.1",
     "@uiw/react-amap-utils": "^2.0.1"

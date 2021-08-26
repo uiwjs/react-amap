@@ -25,6 +25,10 @@
     "地图",
     "高德地图"
   ],
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "devDependencies": {
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9"
