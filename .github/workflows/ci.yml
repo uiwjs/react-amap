@@ -48,6 +48,7 @@ jobs:
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/types/package.json
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/utils/package.json
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/weather/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polygon-editor/package.json
 
       - name: Is a tag created auto?
         id: create_tag
