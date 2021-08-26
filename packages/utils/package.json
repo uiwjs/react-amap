@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "homepage": "https://uiwjs.github.io/react-amap",
   "main": "cjs/index.js",
@@ -29,7 +29,7 @@
     "高德地图"
   ],
   "dependencies": {
-    "@uiw/react-amap-types": "^2.0.0"
+    "@uiw/react-amap-types": "^2.0.1"
   },
   "devDependencies": {
     "@types/react": "17.0.19",
