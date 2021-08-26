@@ -5,6 +5,5 @@ import Markdown from '../../components/Markdown';
 export default class Page extends Markdown {
   editorUrl = '/packages/info-window/README.md';
   dependencies = { APILoader, Map, useMap, InfoWindow, useInfoWindow, Marker, useRef, useEffect, useState };
-  // getMdStr = () => import('@uiw/react-amap-info-window/README.md');
-  getMdStr = () => import('../../../node_modules/@uiw/react-amap/node_modules/@uiw/react-amap-info-window/README.md');
+  getMdStr = () => import('@uiw/react-amap-info-window/README.md');
 }

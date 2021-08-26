@@ -5,6 +5,5 @@ import Markdown from '../../components/Markdown';
 export default class Page extends Markdown {
   editorUrl = '/packages/auto-complete/README.md';
   dependencies = { APILoader, Map, useMap, AutoComplete, useAutoComplete, useRef, useEffect, useState };
-  // getMdStr = () => import('@uiw/react-amap-auto-complete/README.md');
-  getMdStr = () => import('../../../node_modules/@uiw/react-amap/node_modules/@uiw/react-amap-auto-complete/README.md');
+  getMdStr = () => import('@uiw/react-amap-auto-complete/README.md');
 }

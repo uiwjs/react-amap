@@ -5,6 +5,5 @@ import Markdown from '../../components/Markdown';
 export default class Page extends Markdown {
   editorUrl = '/packages/bezier-curve/README.md';
   dependencies = { APILoader, Map, useMap, BezierCurve, useBezierCurve, useRef, useEffect, useState };
-  // getMdStr = () => import('@uiw/react-amap-bezier-curve/README.md');
-  getMdStr = () => import('../../../node_modules/@uiw/react-amap/node_modules/@uiw/react-amap-bezier-curve/README.md');
+  getMdStr = () => import('@uiw/react-amap-bezier-curve/README.md');
 }
