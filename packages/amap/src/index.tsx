@@ -16,6 +16,7 @@ export * from '@uiw/react-amap-map-type-control';
 export * from '@uiw/react-amap-marker';
 export * from '@uiw/react-amap-mass-marks';
 export * from '@uiw/react-amap-polygon';
+export * from '@uiw/react-amap-polygon-editor';
 export * from '@uiw/react-amap-polyline';
 export * from '@uiw/react-amap-rectangle';
 export * from '@uiw/react-amap-require-script';

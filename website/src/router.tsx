@@ -77,6 +77,10 @@ export const routes: Routes = [
     component: lazy(() => import('./pages/polygon')),
   },
   {
+    path: '/polygon-editor',
+    component: lazy(() => import('./pages/polygon-editor')),
+  },
+  {
     path: '/info-window',
     component: lazy(() => import('./pages/info-window')),
   },
@@ -175,6 +179,10 @@ export const menus = [
   {
     label: 'Polygon 多边形',
     path: '/polygon',
+  },
+  {
+    label: 'PolygonEditor 编辑器',
+    path: '/polygon-editor',
   },
   {
     label: 'Polyline 折线',

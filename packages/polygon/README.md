@@ -20,12 +20,12 @@ import { Map, APILoader, Polygon } from '@uiw/react-amap';
 const Example = () => {
   const [show, setShow] = useState(true);
   // 多边形轮廓线的节点坐标数组
-  // const path = [
-  //   new AMap.LngLat(116.368904,39.913423),
-  //   new AMap.LngLat(116.382122,39.901176),
-  //   new AMap.LngLat(116.387271,39.912501),
-  //   new AMap.LngLat(116.398258,39.904600)
-  // ];
+  const path2 = [
+    new AMap.LngLat(116.368904,39.913423),
+    new AMap.LngLat(116.382122,39.901176),
+    new AMap.LngLat(116.387271,39.912501),
+    new AMap.LngLat(116.398258,39.904600)
+  ];
   const path = [
     [116.403322, 39.920255],
     [116.410703, 39.897555],
@@ -39,19 +39,26 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
-          {show && (
-
-            <Polygon
-              // visiable={show}
-              path={path}
-              strokeColor="#FF33FF"
-              strokeWeight={6}
-              strokeOpacity={0.2}
-              fillOpacity={0.4}
-              fillColor="#1791fc"
-              zIndex={50}
-            />
-          )}
+          <Polygon
+            visiable={show}
+            path={path}
+            strokeColor="#FF33FF"
+            strokeWeight={6}
+            strokeOpacity={0.2}
+            fillOpacity={0.4}
+            fillColor="#1791fc"
+            zIndex={50}
+          />
+          <Polygon
+            visiable={show}
+            path={path2}
+            strokeColor="#FF33FF"
+            strokeWeight={6}
+            strokeOpacity={0.2}
+            fillOpacity={0.4}
+            fillColor="#1791fc"
+            zIndex={50}
+          />
         </Map>
       </div>
     </>
@@ -72,7 +79,7 @@ ReactDOM.render((
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
-| path | 多边形轮廓线的节点坐标数组，当为“环”多边形时（多边形区域在多边形内显示为“岛”），path为二维数组，数组元素为多边形轮廓线的节点坐标数组, “环”多边形时，要求数组第一个元素为外多边形，其余为“岛”多边形，外多边形需包含“岛”多边形，否则程序不作处理 | `Array<LngLat> | Array<Array<LngLat>>` | - |
+| path | 多边形轮廓线的节点坐标数组，当为“环”多边形时（多边形区域在多边形内显示为“岛”），path为二维数组，数组元素为多边形轮廓线的节点坐标数组, “环”多边形时，要求数组第一个元素为外多边形，其余为“岛”多边形，外多边形需包含“岛”多边形，否则程序不作处理 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
 
 ### 事件
 

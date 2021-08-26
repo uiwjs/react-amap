@@ -47,6 +47,7 @@
     "@uiw/react-amap-marker": "^2.0.2",
     "@uiw/react-amap-mass-marks": "^2.0.2",
     "@uiw/react-amap-polygon": "^2.0.2",
+    "@uiw/react-amap-polygon-editor": "^2.0.2",
     "@uiw/react-amap-polyline": "^2.0.2",
     "@uiw/react-amap-rectangle": "^2.0.2",
     "@uiw/react-amap-require-script": "^2.0.2",

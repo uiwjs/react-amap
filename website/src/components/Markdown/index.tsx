@@ -1,7 +1,7 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import rehypeAttr from 'rehype-attr';
-import Code, { CodeProps } from './Code';
+import Code from './Code';
 import Footer from '../Footer';
 import styles from './index.module.less';
 
@@ -47,7 +47,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
           style={{ padding: '20px 26px' }}
           source={this.state.mdStr}
           className={styles.markdown}
-          rehypePlugins={[rehypeAttr as any]}
+          rehypePlugins={[[rehypeAttr, { properties: 'attr' }]]}
           components={{
             /**
              * 代码注释参数
@@ -64,19 +64,22 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * - `codePen` 显示 Codepen 按钮，要特别注意 `包导入的问题`，实例中的 `import` 主要用于 Codepen 使用。
              */
             code: ({ inline, node, ...props }) => {
-              const config = (props as any)['data-config'] as CodeProps;
-              if (config) {
-                const { noPreview, noScroll, bgWhite, noCode, codePen } = config as CodeProps;
-                return (
-                  <Code
-                    code={getCodeStr(node.children)}
-                    dependencies={this.dependencies}
-                    language={(props.className || '').replace(/^language-/, '')}
-                    {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
-                  />
-                );
+              const { noPreview, noScroll, bgWhite, noCode, codePen } = props as any;
+              if (inline) {
+                return <code {...props} />;
               }
-              return <code {...props} />;
+              const config = { noPreview, noScroll, bgWhite, noCode, codePen } as any;
+              if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
+                return <code {...props} />;
+              }
+              return (
+                <Code
+                  code={getCodeStr(node.children)}
+                  dependencies={this.dependencies}
+                  language={(props.className || '').replace(/^language-/, '')}
+                  {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
+                />
+              );
             },
           }}
         />

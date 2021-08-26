@@ -2,10 +2,10 @@ import React from 'react';
 import CodePreview, { CodePreviewProps } from '@uiw/react-code-preview';
 
 export interface CodeProps extends CodePreviewProps {
-  language: string;
-  code: string;
-  codePen: boolean;
-  dependencies: any;
+  language?: string;
+  code?: string;
+  codePen?: boolean;
+  dependencies?: any;
 }
 
 export default function Code({ language, dependencies, codePen, ...other }: CodeProps) {

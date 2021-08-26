@@ -827,6 +827,32 @@ declare namespace AMap {
     onChange?(): void;
   }
   /**
+   * Polygon 编辑器
+   */
+  class PolygonEditor {
+    constructor(map: AMap.Map, polygon: Polygon);
+    editable: boolean;
+    /** 开始编辑对象 */
+    open(): void;
+    /** 停止编辑对象 */
+    close(): void;
+    /** 设置编辑对象 */
+    setTarget(overlay: AMap.Overlay): void;
+    /** 获取编辑对象 */
+    getTarget(): Polygon | undefined;
+    /** 设置吸附多边形 */
+    setAdsorbPolygons(list: Polygon | Array<Polygon>): void;
+    /** 清空所有的吸附多边形 */
+    clearAdsorbPolygons(): void;
+    /** 添加吸附多边形 */
+    addAdsorbPolygons(list: Polygon | Array<Polygon>): void;
+    /** 删除吸附多边形 */
+    removeAdsorbPolygons(list: Polygon | Array<Polygon>): void;
+  }
+  interface PolygonEditorEvents {
+    
+  }
+  /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
    */
   class InfoWindow extends MapEventListener<'open' | 'close'> {

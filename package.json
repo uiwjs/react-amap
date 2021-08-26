@@ -22,6 +22,7 @@
     "watch:marker": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-marker",
     "watch:mass-marks": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-mass-marks",
     "watch:polygon": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polygon",
+    "watch:polygon-editor": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polygon-editor",
     "watch:polyline": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polyline",
     "watch:rectangle": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-rectangle",
     "watch:require-script": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-require-script",
