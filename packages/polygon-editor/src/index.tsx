@@ -1,10 +1,12 @@
 import { forwardRef, useEffect, useState } from 'react';
+import { useEventProperties } from '@uiw/react-amap-utils';
 
-export interface PolygonEditorProps extends AMap.PolygonEditorEvents, AMap.PolygonOptions {
+export interface PolygonEditorProps extends AMap.PolygonEditor, AMap.PolygonEditorEvents {
   /** 是否开启编辑功能 */
   active?: boolean;
   polygon?: AMap.Polygon;
 }
+
 export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>((props, ref) => {
   const { active, map, polygon } = props;
   const [visiable, setVisiable] = useState<boolean>(true);
@@ -32,5 +34,12 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
     }
   }, [active, visiable]);
 
+  useEventProperties<AMap.Polygon, AMap.PolygonEditorEvents>(polygon!, props, [
+    'onEnd',
+    'onAddnode',
+    'onAdjust',
+    'onMove',
+    'onAdd',
+  ]);
   return null;
 });

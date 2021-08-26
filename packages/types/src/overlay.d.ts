@@ -832,6 +832,8 @@ declare namespace AMap {
   class PolygonEditor {
     constructor(map: AMap.Map, polygon: Polygon);
     editable: boolean;
+    /** 要显示该polygon的地图对象 */
+    map?: Map;
     /** 开始编辑对象 */
     open(): void;
     /** 停止编辑对象 */
@@ -850,7 +852,11 @@ declare namespace AMap {
     removeAdsorbPolygons(list: Polygon | Array<Polygon>): void;
   }
   interface PolygonEditorEvents {
-    
+    onEnd(data: { target: Polygon}): void;
+    onAddnode(data: { target: Polygon, lnglat: Lnglat, pixel: Pixel }): void;
+    onAdjust(data: {target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;
+    onMove(data: {target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;
+    onAdd(data: { target: Polygon}): void;
   }
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
