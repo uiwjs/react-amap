@@ -2,6 +2,7 @@
  * 高德地图 SDK
  */
 
+/// <reference path="./src/browser.d.ts" />
 /// <reference path="./src/base.d.ts" />
 /// <reference path="./src/core.d.ts" />
 /// <reference path="./src/control.d.ts" />
