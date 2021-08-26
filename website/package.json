@@ -59,6 +59,7 @@
     "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-markdown-preview": "3.2.2",
     "@uiw/reset.css": "1.0.5",
+    "@uiw/react-loader": "4.9.4",
     "kkt": "6.11.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
