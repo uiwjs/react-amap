@@ -1,14 +1,13 @@
-import React from 'react';
-import loadable from '@loadable/component';
-import Loader from '@uiw/react-loader';
+import React, { lazy } from 'react';
+// import Loader from '@uiw/react-loader';
 
-const options = {
-  fallback: (
-    <div style={{ padding: 30 }}>
-      <Loader tip="loading..." />
-    </div>
-  ),
-};
+// const options = {
+//   fallback: (
+//     <div style={{ padding: 30 }}>
+//       <Loader tip="loading..." />
+//     </div>
+//   ),
+// };
 
 export type Routes = {
   path: string;
@@ -20,95 +19,95 @@ export const routes: Routes = [
   {
     path: '/',
     exact: true,
-    component: loadable(() => import('./pages/home'), options),
+    component: lazy(() => import('./pages/home')),
   },
   {
     path: '/api-loader',
-    component: loadable(() => import('./pages/api-loader'), options),
+    component: lazy(() => import('./pages/api-loader')),
   },
   {
     path: '/map',
-    component: loadable(() => import('./pages/map'), options),
+    component: lazy(() => import('./pages/map')),
   },
   {
     path: '/scale-control',
-    component: loadable(() => import('./pages/scale-control'), options),
+    component: lazy(() => import('./pages/scale-control')),
   },
   {
     path: '/tool-bar-control',
-    component: loadable(() => import('./pages/tool-bar-control'), options),
+    component: lazy(() => import('./pages/tool-bar-control')),
   },
   {
     path: '/control-bar-control',
-    component: loadable(() => import('./pages/control-bar-control'), options),
+    component: lazy(() => import('./pages/control-bar-control')),
   },
   {
     path: '/map-type-control',
-    component: loadable(() => import('./pages/map-type-control'), options),
+    component: lazy(() => import('./pages/map-type-control')),
   },
   {
     path: '/hawk-eye-control',
-    component: loadable(() => import('./pages/hawk-eye-control'), options),
+    component: lazy(() => import('./pages/hawk-eye-control')),
   },
   {
     path: '/polyline',
-    component: loadable(() => import('./pages/polyline'), options),
+    component: lazy(() => import('./pages/polyline')),
   },
   {
     path: '/marker',
-    component: loadable(() => import('./pages/marker'), options),
+    component: lazy(() => import('./pages/marker')),
   },
   {
     path: '/mass-marks',
-    component: loadable(() => import('./pages/mass-marks'), options),
+    component: lazy(() => import('./pages/mass-marks')),
   },
   {
     path: '/text',
-    component: loadable(() => import('./pages/text'), options),
+    component: lazy(() => import('./pages/text')),
   },
   {
     path: '/circle',
-    component: loadable(() => import('./pages/circle'), options),
+    component: lazy(() => import('./pages/circle')),
   },
   {
     path: '/ellipse',
-    component: loadable(() => import('./pages/ellipse'), options),
+    component: lazy(() => import('./pages/ellipse')),
   },
   {
     path: '/rectangle',
-    component: loadable(() => import('./pages/rectangle'), options),
+    component: lazy(() => import('./pages/rectangle')),
   },
   {
     path: '/beizer-curve',
-    component: loadable(() => import('./pages/beizer-curve'), options),
+    component: lazy(() => import('./pages/beizer-curve')),
   },
   {
     path: '/polygon',
-    component: loadable(() => import('./pages/polygon'), options),
+    component: lazy(() => import('./pages/polygon')),
   },
   {
     path: '/info-window',
-    component: loadable(() => import('./pages/info-window'), options),
+    component: lazy(() => import('./pages/info-window')),
   },
   {
     path: '/circle-marker',
-    component: loadable(() => import('./pages/circle-marker'), options),
+    component: lazy(() => import('./pages/circle-marker')),
   },
   {
     path: '/weather',
-    component: loadable(() => import('./pages/weather'), options),
+    component: lazy(() => import('./pages/weather')),
   },
   {
     path: '/geolocation',
-    component: loadable(() => import('./pages/geolocation'), options),
+    component: lazy(() => import('./pages/geolocation')),
   },
   {
     path: '/auto-complete',
-    component: loadable(() => import('./pages/auto-complete'), options),
+    component: lazy(() => import('./pages/auto-complete')),
   },
   {
     path: '/context-menu',
-    component: loadable(() => import('./pages/context-menu'), options),
+    component: lazy(() => import('./pages/context-menu')),
   },
 ];
 
@@ -284,5 +283,15 @@ export const menus = [
     label: '百度地图 React 组件',
     target: '__blank',
     path: 'https://uiwjs.github.io/react-baidu-map/',
+  },
+  {
+    label: 'React Web 组件库',
+    target: '__blank',
+    path: 'https://uiwjs.github.io/',
+  },
+  {
+    label: 'React Native 组件库',
+    target: '__blank',
+    path: 'https://uimjs.github.io/',
   },
 ];

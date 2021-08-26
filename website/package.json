@@ -19,6 +19,11 @@
   },
   "dependencies": {
     "@babel/runtime": "7.15.3",
+    "@uiw/react-code-preview": "1.12.1",
+    "@uiw/react-github-corners": "1.4.0",
+    "@uiw/react-markdown-preview": "3.2.2",
+    "@uiw/reset.css": "1.0.5",
+    "@uiw/react-loader": "4.9.4",
     "@uiw/react-amap": "^2.0.1",
     "@uiw/react-amap-api-loader": "^2.0.1",
     "@uiw/react-amap-auto-complete": "^2.0.1",
@@ -44,27 +49,20 @@
     "@uiw/react-amap-tool-bar-control": "^2.0.1",
     "@uiw/react-amap-types": "^2.0.1",
     "@uiw/react-amap-utils": "^2.0.1",
-    "@uiw/react-amap-weather": "^2.0.1"
+    "@uiw/react-amap-weather": "^2.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "5.2.0",
+    "rehype-attr": "1.4.2"
   },
   "devDependencies": {
     "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
-    "@loadable/component": "5.15.0",
-    "@types/loadable__component": "5.13.4",
     "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@types/react-router-dom": "5.1.8",
-    "@uiw/react-code-preview": "1.12.1",
-    "@uiw/react-github-corners": "1.4.0",
-    "@uiw/react-markdown-preview": "3.2.2",
-    "@uiw/reset.css": "1.0.5",
-    "@uiw/react-loader": "4.9.4",
-    "kkt": "6.11.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-router-dom": "5.2.0",
-    "rehype-attr": "1.4.2"
+    "kkt": "6.11.0"
   },
   "eslintConfig": {
     "extends": [

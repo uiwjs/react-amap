@@ -3,6 +3,8 @@ import { menus } from '../../router';
 import styles from './index.module.less';
 
 export default function SideMenu() {
+  // @ts-ignore
+  const version = VERSION;
   return (
     <div className={styles.side}>
       <div className={styles.logo}>
@@ -44,7 +46,9 @@ export default function SideMenu() {
             fill="#0093FD"
           />
         </svg>
-        <div>高德地图 React 组件</div>
+        <div>
+          高德地图 React 组件<sup>{version}</sup>
+        </div>
       </div>
       <div className={styles.menus}>
         {menus.map(({ label, path, divider, ...otherItem }, idx) => {
