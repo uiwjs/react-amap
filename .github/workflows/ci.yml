@@ -49,7 +49,7 @@ jobs:
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/utils/package.json
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/weather/package.json
 
-      - name: Create Tag
+      - name: Is a tag created auto?
         id: create_tag
         uses: jaywcjlove/create-tag-action@v1.2.0
         with:
@@ -69,7 +69,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./website/build
 
       - name: Create Release
         uses: ncipollo/release-action@v1
