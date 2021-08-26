@@ -4,6 +4,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "lerna exec \"tsbb build\" --scope @uiw/* --ignore @uiw/react-amap-types",
+    "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:amap": "lerna exec \"tsbb watch\" --scope @uiw/react-amap",
     "watch:api-loader": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-api-loader",
     "watch:auto-complete": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-auto-complete",
@@ -29,6 +30,7 @@
     "watch:tool-bar-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-tool-bar-control",
     "watch:utils": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-utils",
     "watch:weather": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-weather",
+    "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "version": "lerna version --no-changelog --no-git-tag-version --no-push --yes",
     "bootstrap": "lerna bootstrap",
     "hoist": "lerna bootstrap --hoist",

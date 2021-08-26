@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-tool-bar-control",
   "version": "2.0.1",
   "description": "地图操作工具条插件。可支持方向导航、位置定位、视野级别缩放、视野级别选择等操作。",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/tool-bar-control",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

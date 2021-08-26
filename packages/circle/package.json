@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-circle",
   "version": "2.0.1",
   "description": "构造圆形对象，通过 CircleOptions 指定多边形样式",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/circle",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

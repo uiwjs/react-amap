@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-polyline",
   "version": "2.0.1",
   "description": "构造折线对象，支持 `lineString` 和 `MultiLineString`。",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/polyline",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

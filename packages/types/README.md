@@ -9,7 +9,6 @@ $ npm i @uiw/react-amap-types
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
+```tsx
 /// <reference path="@uiw/react-amap-types" />
 ```

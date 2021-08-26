@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-context-menu",
   "version": "2.0.1",
   "description": "地图图面一种特殊的信息窗体，即右键菜单。",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/context-menu",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

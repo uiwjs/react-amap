@@ -1,13 +1,4 @@
 import React, { lazy } from 'react';
-// import Loader from '@uiw/react-loader';
-
-// const options = {
-//   fallback: (
-//     <div style={{ padding: 30 }}>
-//       <Loader tip="loading..." />
-//     </div>
-//   ),
-// };
 
 export type Routes = {
   path: string;
@@ -108,6 +99,10 @@ export const routes: Routes = [
   {
     path: '/context-menu',
     component: lazy(() => import('./pages/context-menu')),
+  },
+  {
+    path: '/types',
+    component: lazy(() => import('./pages/types')),
   },
 ];
 
@@ -244,6 +239,10 @@ export const menus = [
   {
     divider: true,
     label: '其它',
+  },
+  {
+    label: '高德地图 API 类型 types 定义',
+    path: '/types',
   },
   {
     label: '高德拾取坐标系统',

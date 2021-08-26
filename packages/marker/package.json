@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-marker",
   "version": "2.0.1",
   "description": "点标记是用来标示某个位置点信息的一种地图要素，本章介绍如何在地图图面使用点标记。",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/marker",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {

@@ -57,8 +57,6 @@ export default function Code({ language, dependencies, codePen, ...other }: Code
       },
     };
   }
-  // const deps = { ...dependencies };
-  console.log('deps:1:', React);
   return (
     <CodePreview
       {...props}

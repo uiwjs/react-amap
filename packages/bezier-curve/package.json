@@ -2,7 +2,7 @@
   "name": "@uiw/react-amap-bezier-curve",
   "version": "2.0.1",
   "description": "贝塞尔曲线",
-  "homepage": "https://uiwjs.github.io/react-amap",
+  "homepage": "https://uiwjs.github.io/react-amap/#/beizer-curve",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {
