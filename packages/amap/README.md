@@ -145,7 +145,8 @@ Package | Bundle size(gzip) | Version/unpkg
 ## 开发
 
 ```bash
-npm install # 安装依赖
+npm install   # 安装依赖
+npm run hoist # 安装子包依赖
 
 npm run watch # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
 npm run start # 文档网站运行
