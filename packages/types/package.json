@@ -1,0 +1,32 @@
+{
+  "name": "@uiw/react-amap-types",
+  "version": "2.0.0",
+  "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
+  "homepage": "https://uiwjs.github.io/react-amap",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-amap.git"
+  },
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "files": [
+    "index.d.ts",
+    "src"
+  ],
+  "keywords": [
+    "react-amap",
+    "amap",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "高德",
+    "地图",
+    "高德地图"
+  ],
+  "devDependencies": {
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9"
+  }
+}

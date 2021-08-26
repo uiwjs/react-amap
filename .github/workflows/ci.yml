@@ -15,10 +15,35 @@ jobs:
 
       - run: npm install
       - run: npm run build
-      - run: npm run doc
+      - run: npm run doc:build
 
       - run: npm install @jsdevtools/npm-publish -g
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/amap/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/api-loader/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/auto-complete/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/bezier-curve/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/circle/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/circle-marker/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/context-menu/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/control-bar-control/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/ellipse/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/geolocation/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/hawk-eye-control/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/info-window/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/map/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/map-type-control/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/marker/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/mass-marks/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polygon/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polyline/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/rectangle/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/require-script/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/scale-control/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/text/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/tool-bar-control/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/types/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/utils/package.json
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/weather/package.json
 
       - name: Create Tag
         id: create_tag
@@ -29,7 +54,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.4.2
+        uses: jaywcjlove/changelog-generator@v1.4.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           head-ref: ${{steps.create_tag.outputs.version}}
@@ -51,11 +76,13 @@ jobs:
           tag: ${{ steps.create_tag.outputs.version }}
           body: |
             [![](https://img.shields.io/badge/Open%20in-unpkg-blue)](https://uiwjs.github.io/npm-unpkg/#/pkg/@uiw/react-amap@${{steps.create_tag.outputs.versionNumber}}/file/README.md) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@uiw/react-amap)](https://bundlephobia.com/result?p=@uiw/react-amap@${{steps.create_tag.outputs.versionNumber}})
+
             ```bash
             npm i @uiw/react-amap@${{steps.create_tag.outputs.versionNumber}}
             ```
 
             ${{ steps.changelog.outputs.compareurl }}
+
             ${{ steps.changelog.outputs.changelog }}
 
   build-deploy-windows:
@@ -68,4 +95,4 @@ jobs:
 
       - run: npm install
       - run: npm run build
-      - run: npm run doc
+      - run: npm run doc:build

@@ -12,6 +12,7 @@ yarn.lock
 .rdoc-dist
 .vscode
 
+*.log
 *.bak
 *.tem
 *.temp

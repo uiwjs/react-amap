@@ -5,22 +5,20 @@
     "module": "esnext",
     "lib": ["esnext", "dom"],
     "moduleResolution": "node",
+    "strict": true,
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "baseUrl": "website",
+    "baseUrl": ".",
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "removeComments": false,
     "noEmit": true
-  },
-  "include": ["website", ".kktrc.ts"]
+  }
 }

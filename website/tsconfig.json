@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig",
+  "include": ["./src/**/*", ".kktrc.ts", "./src/react-app-env.d.ts"],
+  "files": ["./src/react-app-env.d.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "types": ["node"]
+  }
+}

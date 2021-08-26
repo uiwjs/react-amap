@@ -1,0 +1,40 @@
+{
+  "name": "@uiw/react-amap-mass-marks",
+  "version": "2.0.0",
+  "description": "在地图上加载海量点，适合需要显示大量 `Marker` 的场景。",
+  "homepage": "https://uiwjs.github.io/react-amap",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-amap.git"
+  },
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "files": [
+    "src",
+    "esm",
+    "cjs"
+  ],
+  "keywords": [
+    "react-amap",
+    "api-loader",
+    "amap",
+    "mass-marks",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "高德",
+    "地图",
+    "高德地图"
+  ],
+  "dependencies": {
+    "@uiw/react-amap-map": "^2.0.0",
+    "@uiw/react-amap-utils": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9"
+  }
+}

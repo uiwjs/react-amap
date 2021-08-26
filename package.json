@@ -1,90 +1,56 @@
 {
-  "name": "@uiw/react-amap",
-  "version": "1.8.8",
-  "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
+  "private": true,
   "homepage": "https://uiwjs.github.io/react-amap",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
   "scripts": {
-    "prepare": "husky install && npm run build",
-    "doc": "kkt build --app-src ./website",
-    "start": "kkt start --app-src ./website",
-    "build": "tsbb build",
-    "watch": "tsbb watch",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/uiwjs/react-amap.git"
+    "prepare": "husky install",
+    "build": "lerna exec \"tsbb build\" --scope @uiw/* --ignore @uiw/react-amap-types",
+    "watch:amap": "lerna exec \"tsbb watch\" --scope @uiw/react-amap",
+    "watch:api-loader": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-api-loader",
+    "watch:auto-complete": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-auto-complete",
+    "watch:bezier-curve": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-bezier-curve",
+    "watch:circle": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-circle",
+    "watch:circle-marker": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-circle-marker",
+    "watch:context-menu": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-context-menu",
+    "watch:control-bar-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-control-bar-control",
+    "watch:ellipse": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-ellipse",
+    "watch:geolocation": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-geolocation",
+    "watch:hawk-eye-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-hawk-eye-control",
+    "watch:info-window": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-info-window",
+    "watch:map": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-map",
+    "watch:map-type-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-map-type-control",
+    "watch:marker": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-marker",
+    "watch:mass-marks": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-mass-marks",
+    "watch:polygon": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polygon",
+    "watch:polyline": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polyline",
+    "watch:rectangle": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-rectangle",
+    "watch:require-script": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-require-script",
+    "watch:scale-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-scale-control",
+    "watch:text": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-text",
+    "watch:tool-bar-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-tool-bar-control",
+    "watch:utils": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-utils",
+    "watch:weather": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-weather",
+    "version": "lerna version --no-changelog --no-git-tag-version --no-push --yes",
+    "bootstrap": "lerna bootstrap",
+    "hoist": "lerna bootstrap --hoist",
+    "doc:build": "lerna exec \"npm run build\" --scope website",
+    "doc": "lerna exec \"npm run start\" --scope website",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "clean": "lerna clean --yes"
   },
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "files": [
-    "src",
-    "lib"
-  ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx,less,md,json}": [
       "prettier --write"
     ]
   },
-  "keywords": [
-    "react-amap",
-    "amap",
-    "map",
-    "react",
-    "bdmap",
-    "高德",
-    "地图",
-    "高德地图"
-  ],
-  "dependencies": {
-    "@babel/runtime": "7.15.3"
-  },
   "devDependencies": {
-    "@kkt/less-modules": "6.11.0",
-    "@kkt/raw-modules": "6.11.0",
-    "@kkt/scope-plugin-options": "6.11.0",
-    "@loadable/component": "5.15.0",
-    "@types/loadable__component": "5.13.4",
-    "@types/react": "17.0.19",
-    "@types/react-dom": "17.0.9",
-    "@types/react-router-dom": "5.1.8",
-    "@uiw/react-code-preview": "1.11.13",
-    "@uiw/react-github-corners": "1.4.0",
-    "@uiw/react-markdown-preview": "3.2.2",
-    "@uiw/reset.css": "1.0.5",
+    "@types/node": "16.7.1",
     "cross-env": "7.0.3",
-    "husky": "7.0.1",
-    "kkt": "6.11.0",
-    "lint-staged": "11.1.2",
+    "husky": "7.0.2",
     "prettier": "2.3.2",
-    "rehype-attr": "1.4.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-router-dom": "5.2.0",
-    "tsbb": "3.0.0-rc.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "lint-staged": "11.1.2",
+    "lerna": "4.0.0",
+    "tsbb": "3.0.0-rc.13"
   }
 }
