@@ -54,7 +54,24 @@ const Example = () => {
             fillColor="#1791fc"
             zIndex={50}
           >
-            <PolygonEditor active={active} />
+            <PolygonEditor
+              active={active}
+              onEnd={() => {
+                console.log('onEnd:>>')
+              }}
+              onAdjust={() => {
+                console.log('onAdjust:>>')
+              }}
+              onMove={() => {
+                console.log('onMove:>>')
+              }}
+              onAdd={() => {
+                console.log('onAdd:>>')
+              }}
+              onAddnode={() => {
+                console.log('onAddnode:>>')
+              }}
+            />
           </Polygon>
         </Map>
       </div>
