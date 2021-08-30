@@ -46,7 +46,7 @@
     "@uiw/react-amap-types": "^2.2.1",
     "@uiw/react-amap-utils": "^2.2.1",
     "@uiw/react-amap-weather": "^2.2.1",
-    "@uiw/react-code-preview": "1.12.1",
+    "@uiw/react-code-preview": "1.12.2",
     "@uiw/react-github-corners": "1.4.0",
     "@uiw/react-loader": "4.9.4",
     "@uiw/react-markdown-preview": "3.3.0",
