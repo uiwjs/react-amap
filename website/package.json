@@ -18,7 +18,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.15.3",
+    "@babel/runtime": "7.15.4",
     "@uiw/react-amap": "^2.2.1",
     "@uiw/react-amap-api-loader": "^2.2.1",
     "@uiw/react-amap-auto-complete": "^2.2.1",
