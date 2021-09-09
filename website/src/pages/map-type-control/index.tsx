@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { APILoader, Map, useMap, MapTypeControl, useMapTypeControl } from '@uiw/react-amap';
 import Markdown from '../../components/Markdown';
+import './index.css';
 
 export default class Page extends Markdown {
   editorUrl = '/packages/map-type-control/README.md';
