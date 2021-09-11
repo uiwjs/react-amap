@@ -57,12 +57,5 @@ export default function Code({ language, dependencies, codePen, ...other }: Code
       },
     };
   }
-  return (
-    <CodePreview
-      {...props}
-      language={language}
-      dependencies={{ ...dependencies, React, ...React }}
-      style={{ marginBottom: 0 }}
-    />
-  );
+  return <CodePreview {...props} dependencies={{ ...dependencies, React, ...React }} style={{ marginBottom: 0 }} />;
 }
