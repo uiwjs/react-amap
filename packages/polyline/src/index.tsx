@@ -4,7 +4,10 @@ import { usePolyline } from './usePolyline';
 
 export * from './usePolyline';
 
-export interface PolylineProps extends OverlayProps, AMap.PolylineEvents, AMap.PolylineOptions {}
+export interface PolylineProps extends OverlayProps, AMap.PolylineEvents, AMap.PolylineOptions {
+  /** 覆盖物是否可见 */
+  visiable?: boolean;
+}
 export const Polyline = React.forwardRef<PolylineProps, PolylineProps>((props, ref) => {
   const { polyline } = usePolyline(props);
   useImperativeHandle(ref, () => ({ ...props, polyline }), [polyline]);

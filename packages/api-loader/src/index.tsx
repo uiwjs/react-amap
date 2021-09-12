@@ -140,7 +140,7 @@ export class APILoader extends Component<APILoaderProps> {
       try {
         await requireScript(src);
         break;
-      } catch (error) {
+      } catch (error: any) {
         if (i === DEFAULT_RETRY_TIME - 1) {
           const err = new Error(`Failed to load AMap: ${error.message}`);
           // flush queue

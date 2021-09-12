@@ -4,7 +4,10 @@ import { useText } from './useText';
 
 export * from './useText';
 
-export interface TextProps extends OverlayProps, AMap.TextEvents, AMap.TextOptions {}
+export interface TextProps extends OverlayProps, AMap.TextEvents, AMap.TextOptions {
+  /** 覆盖物是否可见 */
+  visiable?: boolean;
+}
 export const Text = forwardRef<Omit<TextProps, 'text'> & { text?: AMap.Text }, TextProps>((props, ref) => {
   const { text } = useText(props);
   useImperativeHandle(ref, () => ({ ...props, text }));

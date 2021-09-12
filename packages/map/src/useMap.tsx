@@ -2,12 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useSetStatus, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { MapProps } from '.';
 
-export interface OverlayProps extends MapChildProps {
-  /**
-   * 覆盖物是否可见
-   */
-  visiable?: boolean;
-}
+export interface OverlayProps extends MapChildProps {}
 
 /**
  * 此类型是 `<Map>` 组件传递给子组件(如 `<Marker>`)的两个 props
