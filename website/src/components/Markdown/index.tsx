@@ -53,7 +53,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * 代码注释参数
              *
              * ```md
-             * <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+             * <!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
              * ```
              * 参数用英文逗号隔开
              *
@@ -62,13 +62,15 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * - `noPreview` 不显示代码预览效果。
              * - `noScroll` 预览区域不显示滚动条。
              * - `codePen` 显示 Codepen 按钮，要特别注意 `包导入的问题`，实例中的 `import` 主要用于 Codepen 使用。
+             * - `codeSandbox` 显示 codeSandbox 按钮，要特别注意 `包导入的问题`，实例中的 `import` 主要用于 codeSandbox 使用。
              */
             code: ({ inline, node, ...props }) => {
-              const { noPreview, noScroll, bgWhite, noCode, codePen } = props as any;
+              const { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } = props as any;
               if (inline) {
                 return <code {...props} />;
               }
-              const config = { noPreview, noScroll, bgWhite, noCode, codePen } as any;
+              console.log('props:', props);
+              const config = { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } as any;
               if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
                 return <code {...props} />;
               }
@@ -76,7 +78,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
                 <Code
                   code={getCodeStr(node.children)}
                   dependencies={this.dependencies}
-                  language={(props.className || '').replace(/^language-/, '')}
                   {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
                 />
               );

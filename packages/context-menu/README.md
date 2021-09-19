@@ -13,7 +13,7 @@ import { ContextMenu } from '@uiw/react-amap-context-menu';
 
 地图上右击鼠标，弹出自定义样式的右键菜单
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

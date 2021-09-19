@@ -18,7 +18,7 @@ import { Map } from '@uiw/react-amap-map';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -36,7 +36,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 参数设置
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { Fragment, useState } from 'react';
@@ -79,7 +79,7 @@ ReactDOM.render((
 
 获取地图实例对象。
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -118,7 +118,7 @@ ReactDOM.render((
 
 ### 事件触发
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -145,7 +145,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -182,7 +182,7 @@ ReactDOM.render((
 
 ### 将子组件封装到一个组件中
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

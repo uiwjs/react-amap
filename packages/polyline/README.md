@@ -11,7 +11,7 @@ import { Polyline } from '@uiw/react-amap-polyline';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -81,7 +81,7 @@ ReactDOM.render((
 
 ### 受控组件
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codePen=true-->
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

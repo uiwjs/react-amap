@@ -2,15 +2,17 @@ import React from 'react';
 import CodePreview, { CodePreviewProps } from '@uiw/react-code-preview';
 
 export interface CodeProps extends CodePreviewProps {
-  language?: string;
   code?: string;
-  codePen?: boolean;
+  codePen?: string;
+  codeSandbox?: boolean;
   dependencies?: any;
 }
 
-export default function Code({ language, dependencies, codePen, ...other }: CodeProps) {
+export default function Code({ dependencies, codeSandbox, codePen, ...other }: CodeProps) {
   const props: CodePreviewProps = { ...other };
   if (codePen) {
+  }
+  if (codeSandbox) {
     props.codeSandboxOption = {
       files: {
         'sandbox.config.json': {
