@@ -1,6 +1,5 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import rehypeAttr from 'rehype-attr';
 import Code from './Code';
 import Footer from '../Footer';
 import styles from './index.module.less';
@@ -47,7 +46,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
           style={{ padding: '20px 26px' }}
           source={this.state.mdStr}
           className={styles.markdown}
-          rehypePlugins={[[rehypeAttr, { properties: 'attr' }]]}
           components={{
             /**
              * 代码注释参数
@@ -69,7 +67,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
               if (inline) {
                 return <code {...props} />;
               }
-              console.log('props:', props);
               const config = { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } as any;
               if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
                 return <code {...props} />;
