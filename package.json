@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/node": "16.7.1",
     "cross-env": "7.0.3",
-    "husky": "7.0.2",
+    "husky": "7.0.4",
     "prettier": "2.4.1",
     "lint-staged": "11.1.2",
     "lerna": "4.0.0",
