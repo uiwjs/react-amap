@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-import React, { useEffect, useImperativeHandle, useMemo } from 'react';
+import React, { useEffect, useImperativeHandle, useMemo, Fragment } from 'react';
 import { OverlayProps } from '@uiw/react-amap-map';
 import { useInfoWindow } from './useInfoWindow';
 
@@ -11,7 +11,7 @@ export interface InfoWindowProps extends OverlayProps, AMap.InforWindowEvents, A
 export const InfoWindow = React.forwardRef<InfoWindowProps, InfoWindowProps>((props, ref) => {
   const { children } = props;
   const container = useMemo(() => document.createElement('div'), []);
-  useEffect(() => render(<div>{children}</div>, container), [children]);
+  useEffect(() => render(<Fragment>{children}</Fragment>, container), [children]);
   const { infoWindow } = useInfoWindow({ ...props, content: children ? container : props.content });
   useImperativeHandle(ref, () => ({ ...props, infoWindow }));
   return null;

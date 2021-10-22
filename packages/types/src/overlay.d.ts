@@ -110,7 +110,7 @@ declare namespace AMap {
     /**
      * 点标记显示内容，可以是HTML要素字符串或者HTML DOM对象。content有效时，icon 属性将被覆盖
      */
-    content?: string | Object;
+    content?: string | HTMLElement;
     /**
      * 鼠标点击时marker是否置顶，默认false, 不置顶（自v1.3 新增）
      * @default false 默认值

@@ -12,15 +12,14 @@ export const useMarker = (props = {} as UseMarker) => {
       let instance: AMap.Marker = new AMap.Marker({ ...other });
       map.add(instance);
       setMarker(instance);
-      return () => {
-        if (instance) {
-          instance.remove();
-          setMarker(undefined);
-        }
-      };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [map]);
+    return () => {
+      if (marker) {
+        marker.remove();
+        setMarker(undefined);
+      }
+    };
+  }, [marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

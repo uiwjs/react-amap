@@ -78,7 +78,7 @@ ReactDOM.render((
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Map, APILoader, Marker } from '@uiw/react-amap';
 
 const Example = () => {
@@ -89,21 +89,47 @@ const Example = () => {
         {show ? '隐藏' : '显示'}
       </button>
       <div style={{ width: '100%', height: '300px' }}>
-        <Map zoom={12} center={[116.397428, 39.90923]}>
+        <Map zoom={4}>
           <Marker
             visiable={show}
             title="北京市"
-            offset={new AMap.Pixel(-13, -30)}
+            // offset={new AMap.Pixel(-13, -30)}
             label={{
               // 设置文本标注偏移量
-              offset: new AMap.Pixel(20, 20),
+              // offset: new AMap.Pixel(20, 20),
               // 设置文本标注内容
               content: "<div class='info'>我是 marker 的 label 标签</div>",
               // 设置文本标注方位
               direction: 'right'
             }}
-            position={new AMap.LngLat(116.405285,39.904989)}
+            position={new AMap.LngLat(117.283042,31.86119)}
           />
+          <Marker
+            visiable={show}
+            title="北京市"
+            label={{
+              // 设置文本标注内容
+              content: "<div class='info'>我是 marker 的 label 标签</div>",
+              // 设置文本标注方位
+              direction: 'right'
+            }}
+            draggable
+            bubble={true}
+            // content="<div>我是 marker 的 label 标签</div>"
+            position={new AMap.LngLat(113.280637,23.125178)}
+          >
+            <div
+              style={{
+                height: '32px',
+                width: '23px',
+                margin: '-31px 0 0 -10px',
+                background: 'url(https://amap.com/assets/img/poi-marker.png) 437px 267px',
+                backgroundSize: '437px 267px',
+                backgroundPosition: '-9px -3px'
+              }}
+            />
+            <div>我是 marker 的 label 标签</div>
+          </Marker>
         </Map>
       </div>
     </>
@@ -200,6 +226,8 @@ ReactDOM.render((
 | map | 要显示该marker的地图对象 | `Map` | - |
 | position | 点标记在地图上显示的位置，默认为地图中心点 | `LngLat` | - |
 | offset | 点标记显示位置偏移量，默认值为 `Pixel(-10,-34)`。 | `Pixel` | - |
+| content | 点标记显示内容。可以是 `HTML` 要素字符串或者 `HTML DOM` 对象。`icon` 属性将被覆盖。 | `ReactNode` | - |
+| children | 点标记显示内容。`children`有效时，`icon` 属性将被覆盖。 | `ReactNode` | - |
 
 ### 事件
 

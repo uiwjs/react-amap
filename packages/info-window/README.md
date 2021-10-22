@@ -53,7 +53,9 @@ ReactDOM.render((
 ), _mount_);
 ```
 
-### 基本用法
+### 支持 ReactNode
+
+通过 `children` 支持 `React` 的方式展现内容，因为窗口信息内容通过 `content` 展示内容，它支持 `string/HTMLElement` 添加事件并不方便。
 
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
 ```jsx
@@ -77,19 +79,17 @@ const Example = () => {
               console.log('evn', evn);
             }}
           >
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10 }}>
-                <img height={16} src="https://webapi.amap.com/images/autonavi.png"/>
-                <h2>
-                  <span style={{color: 'red'}}>{num}</span> - 高德软件
-                </h2>
-              </div>
-              <p>电话：010-84107000   邮编：100102</p>
-              <p>地址：北京市朝阳区望京阜荣街10号首开广场4层</p>
-              <button onClick={() => setNum(num + 1)}>
-                点击事件 + 1
-              </button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10 }}>
+              <img height={16} src="https://webapi.amap.com/images/autonavi.png"/>
+              <h2>
+                <span style={{color: 'red'}}>{num}</span> - 高德软件
+              </h2>
             </div>
+            <p>电话：010-84107000   邮编：100102</p>
+            <p>地址：北京市朝阳区望京阜荣街10号首开广场4层</p>
+            <button onClick={() => setNum(num + 1)}>
+              点击事件 + 1
+            </button>
           </InfoWindow>
         </Map>
       </div>
