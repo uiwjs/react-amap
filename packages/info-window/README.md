@@ -53,6 +53,57 @@ ReactDOM.render((
 ), _mount_);
 ```
 
+### 基本用法
+
+<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, InfoWindow } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  const [num, setNum] = useState(1)
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <div style={{ width: '100%', height: '500px' }}>
+        <Map zoom={14} center={[116.397637, 39.900001]}>
+          <InfoWindow
+            visiable={show}
+            onClose={(evn) => {
+              console.log('evn', evn);
+            }}
+          >
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10 }}>
+                <img height={16} src="https://webapi.amap.com/images/autonavi.png"/>
+                <h2>
+                  <span style={{color: 'red'}}>{num}</span> - 高德软件
+                </h2>
+              </div>
+              <p>电话：010-84107000   邮编：100102</p>
+              <p>地址：北京市朝阳区望京阜荣街10号首开广场4层</p>
+              <button onClick={() => setNum(num + 1)}>
+                点击事件 + 1
+              </button>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+
 ### 设置信息窗体内容
 
 <!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
@@ -213,14 +264,15 @@ ReactDOM.render((
 |--------- |-------- |--------- |-------- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | position | 信息窗体显示基点位置，默认地图的中间 | `LngLat` | - |
+| content | 信息窗体尺寸（isCustom为 `true` 时，该属性无效） | `string/HTMLElement` | - |
+| **children** | 替代 `content`，支持 `ReactNode` | `ReactNode` | - |
 | offset | 信息窗体显示位置偏移量。默认基准点为信息窗体的底部中心（若设置了anchor，则以anchor值为基准点）。 | `Pixel` | - |
 | anchor | 信息窗体锚点 | `top-left`,`top-center`,`top-right`,`middle-left`,`center`,`middle-right`,`bottom-left`,`bottom-center`,`bottom-right` | `bottom-center` |
 | autoMove | 是否自动调整窗体到视野内（当信息窗体超出视野范围时，通过该属性设置是否自动平移地图，使信息窗体完全显示） | `boolean` | - |
 | size | 信息窗体显示基点位置，默认地图的中间 | `Size` | - |
-| closeWhenClickMap | 控制是否在鼠标点击地图后关闭信息窗体，默认false，鼠标点击地图后不关闭信息窗体 | `boolean` | - |
-| content | 信息窗体尺寸（isCustom为true时，该属性无效） | `string/HTMLElement` | - |
-| avoid | autoMove 为 true 时，自动平移到视野内后的上右下左的避让宽度。默认值： `[20, 20, 20, 20]` | `Array<number>` | - |
-| isCustom | 是否自定义窗体。设为true时，信息窗体外框及内容完全按照content所设的值添加（默认为false，即在系统默认的信息窗体外框中显示content内容） | `boolean` | - |
+| closeWhenClickMap | 控制是否在鼠标点击地图后关闭信息窗体，默认 `false`，鼠标点击地图后不关闭信息窗体 | `boolean` | - |
+| avoid | `autoMove` 为 `true` 时，自动平移到视野内后的上右下左的避让宽度。默认值： `[20, 20, 20, 20]` | `Array<number>` | - |
+| isCustom | 是否自定义窗体。设为 `true` 时，信息窗体外框及内容完全按照 `content` 所设的值添加（默认为false，即在系统默认的信息窗体外框中显示 `content` 内容） | `boolean` | - |
 
 ### 事件
 

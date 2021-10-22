@@ -35,5 +35,9 @@
   "dependencies": {
     "@uiw/react-amap-require-script": "2.2.6",
     "@uiw/react-amap-types": "2.2.6"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.21",
+    "@types/react-dom": "17.0.9"
   }
 }
