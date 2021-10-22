@@ -31,8 +31,8 @@
     "static/js/12.80a6e07b.chunk.js": "/react-amap/static/js/12.80a6e07b.chunk.js",
     "static/js/12.80a6e07b.chunk.js.map": "/react-amap/static/js/12.80a6e07b.chunk.js.map",
     "main.css": "/react-amap/static/css/main.d943a597.chunk.css",
-    "main.js": "/react-amap/static/js/main.c9a876c9.chunk.js",
-    "main.js.map": "/react-amap/static/js/main.c9a876c9.chunk.js.map",
+    "main.js": "/react-amap/static/js/main.dfd35aa0.chunk.js",
+    "main.js.map": "/react-amap/static/js/main.dfd35aa0.chunk.js.map",
     "runtime-main.js": "/react-amap/static/js/runtime-main.4ba72a1a.js",
     "runtime-main.js.map": "/react-amap/static/js/runtime-main.4ba72a1a.js.map",
     "vendors-react.js": "/react-amap/static/js/vendors-react.42b6180e.chunk.js",
@@ -165,6 +165,6 @@
     "static/css/vendors~main.a03966d8.chunk.css",
     "static/js/vendors~main.18277dbc.chunk.js",
     "static/css/main.d943a597.chunk.css",
-    "static/js/main.c9a876c9.chunk.js"
+    "static/js/main.dfd35aa0.chunk.js"
   ]
 }
