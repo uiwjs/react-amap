@@ -39,6 +39,7 @@
     "doc:build": "lerna exec \"npm run build\" --scope website",
     "doc": "lerna exec \"npm run start\" --scope website",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "remove": "lerna exec \"rm -rf package-lock.json\" --scope @uiw/*",
     "clean": "lerna clean --yes"
   },
   "author": "Kenny Wong <wowohoo@qq.com>",
