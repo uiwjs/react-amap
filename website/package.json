@@ -18,7 +18,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.15.4",
+    "@babel/runtime": "7.16.0",
     "@uiw/react-amap": "2.4.0",
     "@uiw/react-amap-api-loader": "2.4.0",
     "@uiw/react-amap-auto-complete": "2.4.0",
@@ -46,7 +46,7 @@
     "@uiw/react-amap-types": "2.4.0",
     "@uiw/react-amap-utils": "2.4.0",
     "@uiw/react-amap-weather": "2.4.0",
-    "@uiw/react-code-preview": "2.1.4",
+    "@uiw/react-code-preview": "2.2.0",
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-loader": "4.9.7",
     "@uiw/react-markdown-preview": "3.4.1",
@@ -59,8 +59,8 @@
     "@kkt/less-modules": "6.11.0",
     "@kkt/raw-modules": "6.11.0",
     "@kkt/scope-plugin-options": "6.11.0",
-    "@types/react": "17.0.21",
-    "@types/react-dom": "17.0.9",
+    "@types/react": "17.0.34",
+    "@types/react-dom": "17.0.11",
     "@types/react-router-dom": "5.3.2",
     "kkt": "6.11.0"
   },
