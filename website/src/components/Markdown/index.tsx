@@ -71,7 +71,6 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
               if (Object.keys(config).filter((name) => config[name] !== undefined).length === 0) {
                 return <code {...props} />;
               }
-              console.log('>>>', this.dependencies);
               return (
                 <Code
                   code={getCodeStr(node.children)}

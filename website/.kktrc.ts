@@ -19,7 +19,7 @@ export default (conf: Configuration, env: 'production' | 'development', options:
       VERSION: JSON.stringify(pkg.version),
     }),
   );
-
+  conf.module!.exprContextCritical = false;
   conf.optimization = {
     ...conf.optimization,
     splitChunks: {
