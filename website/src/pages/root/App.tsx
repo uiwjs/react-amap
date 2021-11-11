@@ -6,8 +6,7 @@ import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
 import styles from './App.module.less';
 
-// @ts-ignore
-const Loading = () => (
+const Loading = (
   <div style={{ padding: 30 }}>
     <Loader tip="loading..." />
   </div>
