@@ -22,34 +22,140 @@ jobs:
       - run: npm run type-check
       - run: npm run doc:build
 
-      - run: npm install @jsdevtools/npm-publish -g
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/amap/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/api-loader/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/auto-complete/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/bezier-curve/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/circle/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/circle-marker/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/context-menu/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/control-bar-control/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/ellipse/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/geolocation/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/hawk-eye-control/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/info-window/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/map/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/map-type-control/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/marker/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/mass-marks/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polygon/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polyline/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/rectangle/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/require-script/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/scale-control/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/text/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/tool-bar-control/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/types/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/utils/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/weather/package.json
-      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" packages/polygon-editor/package.json
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/amap/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/api-loader/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/auto-complete/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/bezier-curve/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/circle/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/circle-marker/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/context-menu/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/control-bar-control/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/ellipse/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/geolocation/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/hawk-eye-control/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/info-window/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/map/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/map-type-control/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/marker/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/mass-marks/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/polygon/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/polygon-editor/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/polyline/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/rectangle/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/require-script/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/scale-control/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/text/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/tool-bar-control/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/types/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/utils/package.json
+
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: packages/weather/package.json
 
       - name: Is a tag created auto?
         id: create_tag
