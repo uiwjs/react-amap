@@ -31,7 +31,7 @@
 ### 特性
 
 - ♻️ 自动加载高德地图 SDK（通过创建 Script 标签的形式加载），包括第三方 SDK。
-- 📚 使用 Typescript 编写，集成高德地图 SDK [@type](https://github.com/uiwjs/react-amap/tree/master/src/types) 声明文件（包括中文注释）。
+- 📚 使用 Typescript 编写，集成高德地图 SDK [@type](https://github.com/uiwjs/react-amap/tree/master/packages/types) 声明文件（包括中文注释）。
 - ⚛️ 支持 React Hook 新增特性（需要 React 16.8+）。
 - 💝 不依赖任何第三方组件。
 - 📦 拆分成多个包，按需使用包。
