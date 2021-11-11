@@ -11,7 +11,7 @@ import { InfoWindow } from '@uiw/react-amap-info-window';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -57,7 +57,7 @@ ReactDOM.render((
 
 通过 `children` 支持 `React` 的方式展现内容，因为窗口信息内容通过 `content` 展示内容，它支持 `string/HTMLElement` 添加事件并不方便。
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -106,7 +106,7 @@ ReactDOM.render((
 
 ### 设置信息窗体内容
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -145,7 +145,7 @@ ReactDOM.render((
 
 ### 点标记点弹出信息窗体
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -210,7 +210,7 @@ ReactDOM.render((
 
 ### 点标记点弹出信息窗体 Ref 实现
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

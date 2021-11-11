@@ -11,7 +11,7 @@ import { ScaleControl } from '@uiw/react-amap-scale-control';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';

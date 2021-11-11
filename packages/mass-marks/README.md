@@ -13,7 +13,7 @@ import { MassMarks } from '@uiw/react-amap-mass-marks';
 
 [官方示例](https://lbs.amap.com/demo/jsapi-v2/example/mass-markers/massmarks)
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

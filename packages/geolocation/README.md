@@ -11,7 +11,7 @@ import { Geolocation } from '@uiw/react-amap-geolocation';
 
 ### 地图定位控件
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Map, Geolocation } from '@uiw/react-amap';
@@ -64,7 +64,7 @@ ReactDOM.render((
 
 ### 只获取定位经纬度
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -111,7 +111,7 @@ ReactDOM.render((
 
 ### 只获取定位地址信息
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -159,7 +159,7 @@ ReactDOM.render((
 
 ### 不使用组件
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';

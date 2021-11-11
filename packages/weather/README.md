@@ -9,7 +9,7 @@ import { Weather } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -54,7 +54,7 @@ ReactDOM.render((
 
 ### 查询四天预报天气
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -100,7 +100,7 @@ ReactDOM.render((
 
 ### 切换类型
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -143,7 +143,7 @@ ReactDOM.render((
 
 ### 不使用组件
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';

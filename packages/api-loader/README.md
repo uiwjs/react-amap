@@ -13,7 +13,7 @@ import { APILoader } from '@uiw/react-amap-api-loader';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';
@@ -30,7 +30,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 ### 多个地图
 
-<!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';

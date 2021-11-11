@@ -11,7 +11,7 @@ import { AutoComplete } from '@uiw/react-amap-auto-complete';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';

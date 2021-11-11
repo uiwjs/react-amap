@@ -11,7 +11,7 @@ import { BezierCurve } from '@uiw/react-amap-bezier-curve';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React, { useState, useRef } from 'react';
 import ReactDOM from 'react-dom';

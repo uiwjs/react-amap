@@ -11,7 +11,7 @@ import { Marker } from '@uiw/react-amap-marker';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
@@ -75,7 +75,7 @@ ReactDOM.render((
 
 ### 点标注的文本标签
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
@@ -145,7 +145,7 @@ ReactDOM.render((
 
 ### 自适应显示多个点标记
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

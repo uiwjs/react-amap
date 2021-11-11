@@ -18,7 +18,7 @@ import { PolygonEditor } from '@uiw/react-amap-polygon-editor';
 ```
 <!--rehype:style=background: #fff3b7;-->
 
-<!--rehype:bgWhite=true&noScroll=true&codeSandbox=true&codeSandbox=true-->
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
