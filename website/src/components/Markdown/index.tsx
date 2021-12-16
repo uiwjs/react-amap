@@ -51,7 +51,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * 代码注释参数
              *
              * ```md
-             * <!--rehype:bgWhite=true&codeSandbox=true&codeSandbox=true-->
+             * <!--rehype:bgWhite=true&codeSandbox=true-->
              * ```
              * 参数用英文逗号隔开
              *
@@ -75,7 +75,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
                 <Code
                   code={getCodeStr(node.children)}
                   dependencies={this.dependencies}
-                  {...{ noPreview, noScroll, bgWhite, noCode, codePen }}
+                  {...{ noPreview, noScroll, bgWhite, noCode, codePen, codeSandbox }}
                 />
               );
             },
