@@ -31,7 +31,6 @@ export default (conf: Configuration, env: 'production' | 'development', options:
         maxAsyncRequests: 30, // 同时加载的模块数量最多是_个，只分割出同时引入的前_个文件（按需加载模块）
         maxInitialRequests: 25, // 首页加载的时候引入的文件最多 _ 个（加载初始页面）
         automaticNameDelimiter: '~', // 缓存组和生成文件名称之间的连接符
-        name: true, // 缓存组里面的 filename 生效，覆盖默认命名
         cacheGroups: {
           reactvendor: {
             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
