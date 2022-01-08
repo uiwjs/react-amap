@@ -27,7 +27,6 @@ export default (conf: Configuration, env: 'production' | 'development', options:
       splitChunks: {
         chunks: 'all', // async对异步引入的代码分割 initial 对同步引入代码分割 all对同步异步引入的分割都开启
         minSize: 30000, // 字节 引入的文件大于30kb才进行分割
-        maxSize: 0, // 文件的最大尺寸，优先级：maxInitialRequest/maxAsyncRequests < maxSize < minSize，需要注意的是这个如果配置了，umi.js 就可能被拆开，最后构建出来的 chunkMap 中可能就找不到 umi.js 了
         minChunks: 1, // 模块至少使用次数
         maxAsyncRequests: 30, // 同时加载的模块数量最多是_个，只分割出同时引入的前_个文件（按需加载模块）
         maxInitialRequests: 25, // 首页加载的时候引入的文件最多 _ 个（加载初始页面）
