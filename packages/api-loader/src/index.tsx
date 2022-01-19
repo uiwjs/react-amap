@@ -1,6 +1,6 @@
 /// <reference types="@uiw/react-amap-types" />
 
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { requireScript } from '@uiw/react-amap-require-script';
 
 export interface APILoaderConfig {
@@ -99,13 +99,16 @@ export class APILoader extends Component<APILoaderProps> {
   }
 
   public render() {
-    return this.state.loaded ? (
-      this.props.children
-    ) : this.props.fallback ? (
-      this.props.fallback(this.state.error)
-    ) : this.state.error ? (
-      <div style={{ color: 'red' }}>{this.state.error.message}</div>
-    ) : null;
+    if (this.state.loaded) {
+      return this.props.children;
+    }
+    if (this.props.fallback) {
+      return this.props.fallback(this.state.error);
+    }
+    if (this.state.error) {
+      return <div style={{ color: 'red' }}>{this.state.error.message}</div>;
+    }
+    return null;
   }
 
   private getScriptSrc() {
