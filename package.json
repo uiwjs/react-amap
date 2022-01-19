@@ -3,7 +3,7 @@
   "homepage": "https://uiwjs.github.io/react-amap",
   "scripts": {
     "prepare": "husky install",
-    "build": "lerna exec \"tsbb build\" --scope @uiw/react-amap-api-loader --ignore @uiw/react-amap-types",
+    "build": "lerna exec \"tsbb build\" --scope @uiw/* --ignore @uiw/react-amap-types",
     "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:amap": "lerna exec \"tsbb watch\" --scope @uiw/react-amap",
     "watch:api-loader": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-api-loader",
