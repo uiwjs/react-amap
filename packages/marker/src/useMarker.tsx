@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { MarkerProps } from './';
 
 export interface UseMarker extends MarkerProps {}
 export const useMarker = (props = {} as UseMarker) => {
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
+  const { state } = useMapContext();
   const [marker, setMarker] = useState<AMap.Marker>();
+
   useEffect(() => {
-    if (!AMap || !map) return;
-    if (!marker) {
+    if (!marker && state.map) {
       let instance: AMap.Marker = new AMap.Marker({ ...other });
-      map.add(instance);
+      state.map.add(instance);
       setMarker(instance);
     }
     return () => {
@@ -19,7 +21,7 @@ export const useMarker = (props = {} as UseMarker) => {
         setMarker(undefined);
       }
     };
-  }, [marker]);
+  }, [state.map, marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

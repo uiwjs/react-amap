@@ -86,7 +86,9 @@ declare namespace AMap {
   }
   interface MarkerOptions {
     /**
-     * 要显示该marker的地图对象
+     * 要显示该 marker 的地图对象
+     * ~~v2.5.0+~~ 版本以上，不需要传递这个参数
+     * @deprecated 
      */
     map?: Map;
     /**
