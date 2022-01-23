@@ -1,6 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useContext } from 'react';
 import { useSetStatus, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { MapProps } from '.';
+import { Context } from './context';
 
 export interface OverlayProps extends MapChildProps {}
 
@@ -30,6 +31,7 @@ export const useMap = (props: UseMap = {}) => {
   const [map, setMap] = useState<AMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState(props.container);
+  const { dispatch } = useContext(Context);
   useEffect(() => {
     let instance: AMap.Map;
     if (container && !map && AMap) {
@@ -39,10 +41,18 @@ export const useMap = (props: UseMap = {}) => {
     return () => {
       if (instance) {
         setMap(undefined);
-        // instance.destroy();
       }
     };
   }, [container]);
+
+  useEffect(() => {
+    if (map && container) {
+      dispatch({ map, container, AMap });
+    }
+    return () => {
+      dispatch({ map: undefined, container: undefined, AMap: undefined });
+    };
+  }, [map, container]);
 
   useMemo(() => {
     if (map && typeof props.zoom === 'number' && zoom !== props.zoom && props.zoom >= 2 && props.zoom <= 20) {

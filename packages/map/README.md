@@ -34,6 +34,58 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_);
 ```
 
+### Context
+
+通过 React 的 Context 提供了一个`无需`为每层组件手动注入 ~~`map`~~，~~`container`~~ 和 ~~`AMap`~~ 三个属性 `props`，就能在组件树间进行传递。
+
+<!--rehype:bgWhite=true&codeSandbox=true-->
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Map, useMapContext, APILoader } from '@uiw/react-amap';
+
+const Marker = () => {
+  const { state } = useMapContext();
+  useEffect(() => {
+    if (state.map) {
+      const marker = new AMap.Marker({
+        icon: new AMap.Icon({
+          imageSize: new AMap.Size(25, 34),
+          image: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png'
+        }),
+        position: [116.405285,39.904989],
+        offset: new AMap.Pixel(-13, -30)
+      });
+      marker.setMap(state.map);
+    }
+  }, [state.map]);
+
+  return null;
+}
+
+const Demo = () => (
+  <div style={{ width: '100%', height: '300px' }}>
+    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+      <Map center={[116.397428, 39.90923]} zoom={12}>
+        <div>
+          <Marker />
+        </div>
+      </Map>
+    </APILoader>
+  </div>
+);
+ReactDOM.render(<Demo />, _mount_);
+```
+
+```jsx
+import { useMapContext } from '@uiw/react-amap';
+
+const { state } = useMapContext();
+// => state.AMaps
+// => state.map
+// => state.container
+```
+
 ### 参数设置
 
 <!--rehype:bgWhite=true&codeSandbox=true-->

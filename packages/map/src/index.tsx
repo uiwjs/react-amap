@@ -8,10 +8,13 @@ import {
   cloneElement,
   isValidElement,
   forwardRef,
+  useReducer,
 } from 'react';
 import { useMap } from './useMap';
+import { Context, reducer, initialState } from './context';
 
 export * from './useMap';
+export * from './context';
 
 type RenderProps =
   | { children: (data: { AMap: typeof AMap; map: AMap.Map; container?: HTMLDivElement | null }) => void }
@@ -24,13 +27,21 @@ export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
 
 export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderProps>(
   ({ className, style, children, ...props }, ref) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const elmRef = useRef<HTMLDivElement>(null);
     const { setContainer, container, map } = useMap({ container: elmRef.current, ...props });
     useEffect(() => setContainer(elmRef.current), [elmRef.current]);
     useImperativeHandle(ref, () => ({ ...props, map, AMap, container: elmRef.current }), [map]);
     const childs = Children.toArray(children);
+
+    useEffect(() => {
+      if (map) {
+        dispatch({ map, container: elmRef.current, AMap });
+      }
+    }, [map]);
+
     return (
-      <Fragment>
+      <Context.Provider value={{ state, dispatch }}>
         <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
         {AMap && map && typeof children === 'function' && children({ AMap, map, container })}
         {AMap &&
@@ -51,7 +62,7 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
               key,
             });
           })}
-      </Fragment>
+      </Context.Provider>
     );
   },
 );
