@@ -278,7 +278,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| center | 初始中心经纬度 | `[number, number] | LngLat` | - |
+| center | 初始中心经纬度 | `[number, number] \| LngLat` | - |
 
 ### 事件
 
