@@ -1854,6 +1854,7 @@ var useMap = function useMap(props) {
 
     return () => {
       if (instance) {
+        instance.destroy();
         setMap(undefined);
       }
     };
