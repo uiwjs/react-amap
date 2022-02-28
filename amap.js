@@ -918,6 +918,7 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
 
 }
 APILoader.defaultProps = {
+  protocol: /^file:/.test(window.location.protocol) ? 'https' : window.location.protocol,
   akay: '',
   hostAndPath: 'webapi.amap.com/maps',
   version: '2.0',
