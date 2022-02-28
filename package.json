@@ -6,7 +6,7 @@
     "build": "lerna exec \"tsbb build\" --scope @uiw/* --ignore @uiw/react-amap-types",
     "bundle": "lerna exec \"ncc build src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
     "bundle:watch": "lerna exec \"ncc watch src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
-    "bundle:min": "lerna exec \"ncc build src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
+    "bundle:min": "lerna exec \"ncc build src/index.tsx --target web --filename amap --minify\" --scope @uiw/react-amap",
     "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:amap": "lerna exec \"tsbb watch\" --scope @uiw/react-amap",
     "watch:api-loader": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-api-loader",
