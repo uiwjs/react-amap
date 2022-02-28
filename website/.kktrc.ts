@@ -7,8 +7,8 @@ import scopePluginOptions from '@kkt/scope-plugin-options';
 import pkg from './package.json';
 
 export default (conf: Configuration, env: 'production' | 'development', options: LoaderConfOptions) => {
-  conf = rawModules(conf, env, options);
   conf = lessModules(conf, env, options);
+  conf = rawModules(conf, env, options);
   conf = scopePluginOptions(conf, env, {
     ...options,
     allowedFiles: [path.resolve(process.cwd(), 'README.md')],

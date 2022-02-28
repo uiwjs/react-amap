@@ -34,7 +34,7 @@ const Demo = () => (
 ReactDOM.render(<Demo />, _mount_);
 ```
 
-### Context
+### useMapContext
 
 通过 React 的 Context 提供了一个`无需`为每层组件手动注入 ~~`map`~~，~~`container`~~ 和 ~~`AMap`~~ 三个属性 `props`，就能在组件树间进行传递。
 

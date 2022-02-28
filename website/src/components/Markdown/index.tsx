@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import pkg from '@uiw/react-amap/package.json';
 import Code from './Code';
 import Footer from '../Footer';
 import styles from './index.module.less';
@@ -55,12 +56,12 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
              * ```
              * 参数用英文逗号隔开
              *
-             * - `bgWhite` 设置代码预览背景白色，否则为格子背景。
-             * - `noCode` 不显示代码编辑器。
-             * - `noPreview` 不显示代码预览效果。
-             * - `noScroll` 预览区域不显示滚动条。
-             * - `codePen` 显示 Codepen 按钮，要特别注意 `包导入的问题`，实例中的 `import` 主要用于 Codepen 使用。
-             * - `codeSandbox` 显示 codeSandbox 按钮，要特别注意 `包导入的问题`，实例中的 `import` 主要用于 codeSandbox 使用。
+             * bordered 边框
+             * bgWhite 设置代码预览背景白色，否则为格子背景。
+             * noCode 不显示代码编辑器。
+             * noPreview 不显示代码预览效果。
+             * noScroll 预览区域不显示滚动条。
+             * codePen 显示 Codepen 按钮，要特别注意 包导入的问题，实例中的 import 主要用于 Codepen 使用。
              */
             code: ({ inline, node, ...props }) => {
               const { noPreview, noScroll, bgWhite, noCode, codeSandbox, codePen } = props as any;
@@ -73,6 +74,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
               }
               return (
                 <Code
+                  version={pkg.version}
                   code={getCodeStr(node.children)}
                   dependencies={this.dependencies}
                   {...{ noPreview, noScroll, bgWhite, noCode, codePen, codeSandbox }}

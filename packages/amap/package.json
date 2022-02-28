@@ -16,6 +16,7 @@
     "react-dom": ">=16.14.0"
   },
   "files": [
+    "dist",
     "src",
     "esm",
     "cjs"

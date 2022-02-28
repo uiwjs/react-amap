@@ -40,7 +40,7 @@
     "@uiw/react-amap-utils": "2.5.0"
   },
   "devDependencies": {
-    "@types/react": "17.0.38",
-    "@types/react-dom": "17.0.11"
+    "@types/react": "~17.0.39",
+    "@types/react-dom": "~17.0.11"
   }
 }

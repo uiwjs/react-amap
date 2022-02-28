@@ -4,6 +4,9 @@
   "scripts": {
     "prepare": "husky install",
     "build": "lerna exec \"tsbb build\" --scope @uiw/* --ignore @uiw/react-amap-types",
+    "bundle": "lerna exec \"ncc build src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
+    "bundle:watch": "lerna exec \"ncc watch src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
+    "bundle:min": "lerna exec \"ncc build src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
     "⬇️⬇️⬇️⬇️⬇️ watch ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch:amap": "lerna exec \"tsbb watch\" --scope @uiw/react-amap",
     "watch:api-loader": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-api-loader",
@@ -50,11 +53,13 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "7.0.3",
-    "husky": "7.0.4",
-    "prettier": "2.5.1",
-    "lint-staged": "12.1.7",
-    "lerna": "4.0.0",
-    "tsbb": "3.5.4"
+    "@kkt/less-modules": "~7.1.1",
+    "@kkt/ncc": "~1.0.8",
+    "cross-env": "~7.0.3",
+    "husky": "~7.0.4",
+    "prettier": "~2.5.1",
+    "lint-staged": "~12.3.4",
+    "lerna": "~4.0.0",
+    "tsbb": "~3.7.0"
   }
 }
