@@ -65,6 +65,7 @@ const DEFAULT_RETRY_TIME = 3;
  */
 export class APILoader extends Component<APILoaderProps> {
   public static defaultProps = {
+    protocol: /^file:/.test(window.location.protocol) ? 'https' : window.location.protocol,
     akay: '',
     hostAndPath: 'webapi.amap.com/maps',
     version: '2.0',
