@@ -61,6 +61,65 @@ ReactDOM.render((
 ), _mount_);
 ```
 
+### 通过 `children` 定义 `text`
+
+定义 `children` 定义的 `text` props 将失效。
+
+<!--rehype:bgWhite=true&&codeSandbox=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, Text } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map zoom={13} center={[116.4, 39.92]}>
+          <Text
+            text="纯文本标记2"
+            anchor="center"
+            draggable={true}
+            cursor="pointer"
+            className="test-text"
+            angle={10}
+            visiable={show}
+            style={{
+              'padding': '.75rem 1.25rem',
+              'margin-bottom': '1rem',
+              'border-radius': '.25rem',
+              'background-color': 'white',
+              'width': '15rem',
+              'border-width': 0,
+              'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+              'text-align': 'center',
+              'font-size': '20px',
+              'color': 'blue'
+            }}
+            // title="北京市"
+            position={new AMap.LngLat(116.396923,39.918203)}
+          >
+            <div style={{ color: 'red' }}>
+              纯文本标记3
+            </div>
+          </Text>
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+
 ### TypeScript 中 Ref 类型定义
 
 由于 text 参数与返回的 text 冲突，定义类型参考如下实例
@@ -102,6 +161,7 @@ function Demo() {
 |--------- |-------- |--------- |-------- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | text | 标记显示的文本内容。 | `string` | - |
+| children | 标记显示的文本内容，`text` 参数将失效。 | `string` | - |
 
 ### 事件
 

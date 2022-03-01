@@ -914,7 +914,7 @@ declare namespace AMap {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
-    text(text: string): void;
+    setText(text: string): void;
     setStyle(style: any): void;
     getTitle(): string | undefined;
     setTitle(title: string): void;

@@ -34,9 +34,5 @@
   },
   "dependencies": {
     "@uiw/react-amap-types": "2.6.0"
-  },
-  "devDependencies": {
-    "@types/react": "~17.0.39",
-    "@types/react-dom": "~17.0.11"
   }
 }
