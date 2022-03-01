@@ -167,8 +167,8 @@ npm run start       # 文档网站运行
 
 As always, thanks to our amazing contributors!
 
-<a href="https://github.com/jaywcjlove/react-amap/graphs/contributors">
-  <img src="https://jaywcjlove.github.io/react-amap/CONTRIBUTORS.svg" />
+<a href="https://github.com/uiwjs/react-amap/graphs/contributors">
+  <img src="https://uiwjs.github.io/react-amap/CONTRIBUTORS.svg" />
 </a>
 
 Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
