@@ -1847,15 +1847,23 @@ var useMap = function useMap(props) {
     var instance;
 
     if (container && !map && AMap) {
-      instance = new AMap.Map(container, _extends({
+      var wapper = document.createElement('div');
+      wapper.className = 'react-amap-wapper';
+      wapper.style.height = '100%';
+      wapper.style.width = '100%';
+      instance = new AMap.Map(wapper, _extends({
         zoom
       }, other));
+      container.appendChild(wapper);
       setMap(instance);
     }
 
     return () => {
       if (instance) {
         instance.destroy();
+        instance.clearMap();
+        instance.clearInfoWindow();
+        instance.clearLimitBounds();
         setMap(undefined);
       }
     };
@@ -1922,13 +1930,13 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
     container,
     map
   } = useMap(_extends({
-    container: elmRef.current
+    container: props.container || elmRef.current
   }, props));
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setContainer(elmRef.current), [elmRef.current]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     map,
     AMap,
-    container: elmRef.current
+    container: props.container || elmRef.current
   }), [map]);
   var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_.Children.toArray(children);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -1945,7 +1953,7 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
       state,
       dispatch
     },
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+    children: [!props.container && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       ref: elmRef,
       className: className,
       style: _extends({
