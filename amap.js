@@ -2535,14 +2535,35 @@ var useText = function useText(props) {
 ;// CONCATENATED MODULE: ../text/esm/index.js
 
 
+var text_esm_excluded = ["children"];
+
+
+
 
 
 var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
+    children
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, text_esm_excluded);
+
+  var textDom = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,react_dom.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: children
+  }), textDom), [children]);
+  var labels = children ? textDom.innerHTML : props.text;
+  var {
     text
-  } = useText(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    text
+  } = useText(_extends({}, other, {
+    text: labels
+  }));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (children && text) {
+      text.setText(labels || '');
+    }
+  }, [children, text]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, other, {
+    text: text
   }));
   return null;
 });
