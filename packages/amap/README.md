@@ -162,3 +162,17 @@ npm run start       # 文档网站运行
 - [高德拾取坐标系统](https://lbs.amap.com/console/show/picker) 
 - [官方示例中心](https://lbs.amap.com/demo-center/jsapi-v2) 
 - [高德地图 JSAPI 2.0](https://a.amap.com/jsapi/static/doc/index.html) 
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/jaywcjlove/react-amap/graphs/contributors">
+  <img src="https://jaywcjlove.github.io/react-amap/CONTRIBUTORS.svg" />
+</a>
+
+Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+
+## License
+
+Licensed under the MIT License.
