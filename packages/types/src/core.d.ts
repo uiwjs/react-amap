@@ -158,7 +158,7 @@ declare namespace AMap {
      */
     destroy(): void;
     /**
-     * 注销地图对象，并清空地图容器
+     * 获取Map的限制区域
      */
     getLimitBounds(): any;
     /**
