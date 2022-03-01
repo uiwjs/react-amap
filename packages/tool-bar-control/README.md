@@ -26,7 +26,7 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: 600 }}>
         <Map>
-          <ToolBarControl visiable={show} autoPosition={true} offset={[10, 10]} position="RT" viewMode="2D" />
+          <ToolBarControl visiable={show} offset={[10, 10]} position="RT" />
           {show && (
             <ToolBarControl
               visiable={show}
