@@ -49,7 +49,7 @@ export default function Code({ version, dependencies, codeSandbox, codePen, ...o
             dependencies: {
               react: '^17.0.2',
               'react-dom': '^17.0.2',
-              uiw: 'latest',
+              '@uiw/react-amap': 'latest',
             },
             devDependencies: {
               '@kkt/less-modules': '~7.1.1',
