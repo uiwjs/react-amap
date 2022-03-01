@@ -30,17 +30,25 @@ export const useMap = (props: UseMap = {}) => {
   const { ...other } = props;
   const [map, setMap] = useState<AMap.Map>();
   const [zoom, setZoom] = useState(props.zoom || 15);
-  const [container, setContainer] = useState(props.container);
+  const [container, setContainer] = useState<HTMLDivElement | null | undefined>(props.container);
   const { dispatch } = useContext(Context);
   useEffect(() => {
     let instance: AMap.Map;
     if (container && !map && AMap) {
-      instance = new AMap.Map(container, { zoom, ...other });
+      const wapper = document.createElement('div');
+      wapper.className = 'react-amap-wapper';
+      wapper.style.height = '100%';
+      wapper.style.width = '100%';
+      instance = new AMap.Map(wapper, { zoom, ...other });
+      container.appendChild(wapper);
       setMap(instance);
     }
     return () => {
       if (instance) {
         instance.destroy();
+        instance.clearMap();
+        instance.clearInfoWindow();
+        instance.clearLimitBounds();
         setMap(undefined);
       }
     };

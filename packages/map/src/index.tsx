@@ -17,21 +17,25 @@ export * from './useMap';
 export * from './context';
 
 type RenderProps =
-  | { children: (data: { AMap: typeof AMap; map: AMap.Map; container?: HTMLDivElement | null }) => void }
-  | { children: React.ReactNode };
+  | { children?: (data: { AMap: typeof AMap; map: AMap.Map; container?: HTMLDivElement | null }) => void }
+  | { children?: React.ReactNode };
 
 export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
+  container?: HTMLDivElement | null;
 }
 
 export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderProps>(
   ({ className, style, children, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const elmRef = useRef<HTMLDivElement>(null);
-    const { setContainer, container, map } = useMap({ container: elmRef.current, ...props });
+    const { setContainer, container, map } = useMap({
+      container: props.container || (elmRef.current as MapProps['container']),
+      ...props,
+    });
     useEffect(() => setContainer(elmRef.current), [elmRef.current]);
-    useImperativeHandle(ref, () => ({ ...props, map, AMap, container: elmRef.current }), [map]);
+    useImperativeHandle(ref, () => ({ ...props, map, AMap, container: props.container || elmRef.current }), [map]);
     const childs = Children.toArray(children);
 
     useEffect(() => {
@@ -42,7 +46,9 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
 
     return (
       <Context.Provider value={{ state, dispatch }}>
-        <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
+        {!props.container && (
+          <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
+        )}
         {AMap && map && typeof children === 'function' && children({ AMap, map, container })}
         {AMap &&
           map &&
