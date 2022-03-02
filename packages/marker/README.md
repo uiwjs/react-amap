@@ -83,6 +83,7 @@ import { Map, APILoader, Marker } from '@uiw/react-amap';
 
 const Example = () => {
   const [show, setShow] = useState(true);
+  const [count, setCount] = useState(1);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -109,7 +110,7 @@ const Example = () => {
             title="北京市"
             label={{
               // 设置文本标注内容
-              content: "<div class='info'>我是 marker 的 label 标签</div>",
+              content: "<div class='info'>我是 marker 222的 label 标签</div>",
               // 设置文本标注方位
               direction: 'right'
             }}
@@ -128,7 +129,12 @@ const Example = () => {
                 backgroundPosition: '-9px -3px'
               }}
             />
-            <div>我是 marker 的 label 标签</div>
+            <div>
+              我是 marker 的 {count} label 标签
+              <button onClick={() => setCount(count + 1)}>
+                {count} 点击 + 1
+              </button>
+            </div>
           </Marker>
         </Map>
       </div>

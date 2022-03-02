@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
-import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useVisiable, useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { MarkerProps } from './';
 
 export interface UseMarker extends MarkerProps {}
-export const useMarker = (props = {} as UseMarker) => {
-  const { visiable, ...other } = props;
-  const { state } = useMapContext();
+export const useMarker = (props: UseMarker = {}) => {
+  const { visiable, children, ...other } = props;
+  const { map } = useMapContext();
   const [marker, setMarker] = useState<AMap.Marker>();
+  const { container } = useRenderDom({ children: props.children });
 
   useEffect(() => {
-    if (!marker && state.map) {
+    if (!marker && map) {
+      if (props.children) {
+        other.content = container;
+      }
       let instance: AMap.Marker = new AMap.Marker({ ...other });
-      state.map.add(instance);
+      map.add(instance);
       setMarker(instance);
     }
     return () => {
@@ -21,7 +25,13 @@ export const useMarker = (props = {} as UseMarker) => {
         setMarker(undefined);
       }
     };
-  }, [state.map, marker]);
+  }, [map, marker]);
+
+  useEffect(() => {
+    if (marker) {
+      marker.setContent(props.children ? container : props.content || '');
+    }
+  }, [props.children, container, marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

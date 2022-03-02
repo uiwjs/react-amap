@@ -1,6 +1,6 @@
 /// <reference types="@uiw/react-amap-types" />
-
-import { useEffect, useState, useRef } from 'react';
+import { render } from 'react-dom';
+import React, { Fragment, useEffect, useState, useRef, useLayoutEffect } from 'react';
 
 /**
  * 对实例有 setStatus 更改状态的处理
@@ -150,4 +150,13 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[vName]]);
   });
+}
+
+export function useRenderDom(props: { children: React.ReactNode }) {
+  const container = useRef(document.createElement('div'));
+  useLayoutEffect(() => {
+    render(<Fragment>{props.children}</Fragment>, container.current);
+  }, [props.children]);
+
+  return { container: container.current };
 }
