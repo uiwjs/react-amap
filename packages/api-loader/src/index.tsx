@@ -73,6 +73,8 @@ export class APILoader extends Component<APILoaderProps> {
     plugin: '',
   };
 
+  private isMountedOk: boolean = false;
+
   /**
    * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
    */
@@ -89,6 +91,7 @@ export class APILoader extends Component<APILoaderProps> {
   }
 
   public componentDidMount() {
+    this.isMountedOk = true;
     const { callbackName } = this.props;
     if (window.AMap == null) {
       if (window[callbackName as any]) {
@@ -97,6 +100,10 @@ export class APILoader extends Component<APILoaderProps> {
       }
       this.loadMap();
     }
+  }
+
+  componentWillUnmount() {
+    this.isMountedOk = false;
   }
 
   public render() {
@@ -160,12 +167,16 @@ export class APILoader extends Component<APILoaderProps> {
   }
 
   private handleError = (error: Error) => {
-    this.setState({ error });
+    if (this.isMountedOk) {
+      this.setState({ error });
+    }
   };
 
   private finish = () => {
-    this.setState({
-      loaded: true,
-    });
+    if (this.isMountedOk) {
+      this.setState({
+        loaded: true,
+      });
+    }
   };
 }
