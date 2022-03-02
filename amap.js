@@ -248,6 +248,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Polygon": () => (/* reexport */ Polygon),
   "PolygonEditor": () => (/* reexport */ PolygonEditor),
   "Polyline": () => (/* reexport */ Polyline),
+  "Provider": () => (/* reexport */ Provider),
   "Rectangle": () => (/* reexport */ Rectangle),
   "ScaleControl": () => (/* reexport */ ScaleControl),
   "Text": () => (/* reexport */ Text),
@@ -278,6 +279,7 @@ __webpack_require__.d(__webpack_exports__, {
   "usePolyline": () => (/* reexport */ usePolyline),
   "usePrevious": () => (/* reexport */ usePrevious),
   "useRectangle": () => (/* reexport */ useRectangle),
+  "useRenderDom": () => (/* reexport */ useRenderDom),
   "useScaleControl": () => (/* reexport */ useScaleControl),
   "useSetStatus": () => (/* reexport */ useSetStatus),
   "useSettingProperties": () => (/* reexport */ useSettingProperties),
@@ -419,20 +421,25 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
    */
   constructor(props) {
     super(props);
+    this.isMountedOk = false;
     this.state = {
       loaded: !!window.AMap
     };
 
     this.handleError = error => {
-      this.setState({
-        error
-      });
+      if (this.isMountedOk) {
+        this.setState({
+          error
+        });
+      }
     };
 
     this.finish = () => {
-      this.setState({
-        loaded: true
-      });
+      if (this.isMountedOk) {
+        this.setState({
+          loaded: true
+        });
+      }
     };
 
     if (props.akay === null) {
@@ -441,6 +448,7 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
   }
 
   componentDidMount() {
+    this.isMountedOk = true;
     var {
       callbackName
     } = this.props;
@@ -453,6 +461,10 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
 
       this.loadMap();
     }
+  }
+
+  componentWillUnmount() {
+    this.isMountedOk = false;
   }
 
   render() {
@@ -589,9 +601,12 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
   return target;
 }
+// EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
+var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
 ;// CONCATENATED MODULE: ../utils/esm/index.js
 
 /// <reference types="@uiw/react-amap-types" />
+
 
 /**
  * 对实例有 setStatus 更改状态的处理
@@ -599,6 +614,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
  * @param props
  * @param propsName
  */
+
 
 function useSetStatus(instance, props, propsName) {
   if (props === void 0) {
@@ -763,6 +779,17 @@ function useSettingProperties(instance, props, propsName) {
 
     }, [instance, props[vName]]);
   });
+}
+function useRenderDom(props) {
+  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(document.createElement('div'));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
+    (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+      children: props.children
+    }), container.current);
+  }, [props.children]);
+  return {
+    container: container.current
+  };
 }
 
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
@@ -1332,8 +1359,6 @@ var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
   return null;
 });
 
-// EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
-var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
 ;// CONCATENATED MODULE: ../info-window/esm/useInfoWindow.js
 
 
@@ -1448,10 +1473,10 @@ function useMapContext() {
     state,
     dispatch
   } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
-  return {
+  return _extends({}, state, {
     state,
     dispatch
-  };
+  });
 }
 
 ;// CONCATENATED MODULE: ../map/esm/useMap.js
@@ -1472,31 +1497,27 @@ var useMap = function useMap(props) {
   var {
     dispatch
   } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    var instance;
-
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (container && !map && AMap) {
-      var wapper = document.createElement('div');
-      wapper.className = 'react-amap-wapper';
-      wapper.style.height = '100%';
-      wapper.style.width = '100%';
-      instance = new AMap.Map(wapper, _extends({
+      container.className = 'react-amap-wapper';
+      container.style.height = '100%';
+      container.style.width = '100%';
+      var instance = new AMap.Map(container, _extends({
         zoom
       }, other));
-      container.appendChild(wapper);
       setMap(instance);
     }
 
     return () => {
-      if (instance) {
-        instance.destroy();
-        instance.clearMap();
-        instance.clearInfoWindow();
-        instance.clearLimitBounds();
+      if (map) {
+        map.destroy();
+        map.clearMap();
+        map.clearInfoWindow();
+        map.clearLimitBounds();
         setMap(undefined);
       }
     };
-  }, [container]);
+  }, [container, map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && container) {
       dispatch({
@@ -1520,13 +1541,21 @@ var useMap = function useMap(props) {
       map.setZoom(props.zoom);
     }
   }, [zoom, props.zoom]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
+    if (props.center && map) {
+      map.setCenter(props.center);
+    }
+  }, [map, props.center]);
   useSetStatus(map, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']); // setStatus, setZoomAndCenter, setFitView
+  // 'Center',
 
-  useSettingProperties(map, props, ['Zoom', 'LabelzIndex', 'Layers', 'Center', 'City', 'Bounds', 'LimitBounds', 'Lang', 'Rotation', 'DefaultCursor', 'MapStyle', 'Features', 'DefaultLayer', 'Pitch']);
+  useSettingProperties(map, props, ['Zoom', 'LabelzIndex', 'Layers', 'City', 'Bounds', 'LimitBounds', 'Lang', 'Rotation', 'DefaultCursor', 'MapStyle', 'Features', 'DefaultLayer', 'Pitch']);
   useEventProperties(map, props, ['onMouseMove', 'onZoomChange', 'onMapMove', 'onMouseWheel', 'onZoomStart', 'onMouseOver', 'onMouseOut', 'onDblClick', 'onClick', 'onZoomEnd', 'onMoveEnd', 'onMouseUp', 'onMouseDown', 'onRightClick', 'onMoveStart', 'onDragStart', 'onDragging', 'onDragEnd', 'onHotspotOut', 'onHotspotOver', 'onTouchStart', 'onComplete', 'onHotspotClick', 'onTouchMove', 'onTouchEnd', 'onResize']);
   return {
     map,
     setMap,
+    zoom,
+    setZoom,
     container,
     setContainer
   };
@@ -1544,6 +1573,16 @@ var esm_excluded = ["className", "style", "children"];
 
 
 
+function Provider(props) {
+  var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
+    value: _extends({}, state, {
+      state,
+      dispatch
+    }),
+    children: props.children
+  });
+}
 var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
   var {
     className,
@@ -1578,10 +1617,10 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
     }
   }, [map]);
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(Context.Provider, {
-    value: {
+    value: _extends({}, state, {
       state,
       dispatch
-    },
+    }),
     children: [!props.container && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       ref: elmRef,
       className: className,
@@ -1594,6 +1633,8 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
       map,
       container
     }), AMap && map && childs.map((child, key) => {
+      if (! /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(child)) return null;
+
       if (typeof child === 'string') {
         return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
           children: child
@@ -1601,8 +1642,6 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
           key
         });
       }
-
-      if (! /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(child)) return null;
 
       if (child.type && typeof child.type === 'string') {
         return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(child, {
@@ -1682,7 +1721,7 @@ var MapTypeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
 ;// CONCATENATED MODULE: ../marker/esm/useMarker.js
 
 
-var useMarker_excluded = ["visiable"];
+var useMarker_excluded = ["visiable", "children"];
 
 
 
@@ -1697,13 +1736,22 @@ var useMarker = function useMarker(props) {
       other = _objectWithoutPropertiesLoose(props, useMarker_excluded);
 
   var {
-    state
+    map
   } = useMapContext();
   var [marker, setMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!marker && state.map) {
+    if (!marker && map) {
+      if (props.children) {
+        other.content = container;
+      }
+
       var instance = new AMap.Marker(_extends({}, other));
-      state.map.add(instance);
+      map.add(instance);
       setMarker(instance);
     }
 
@@ -1713,7 +1761,12 @@ var useMarker = function useMarker(props) {
         setMarker(undefined);
       }
     };
-  }, [state.map, marker]);
+  }, [map, marker]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (marker) {
+      marker.setContent(props.children ? container : props.content || '');
+    }
+  }, [props.children, container, marker]);
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
@@ -1726,30 +1779,12 @@ var useMarker = function useMarker(props) {
 ;// CONCATENATED MODULE: ../marker/esm/index.js
 
 
-var marker_esm_excluded = ["children", "className", "content"];
 
 
-
-
-
-var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
-  var {
-    children,
-    className,
-    content
-  } = _ref,
-      props = _objectWithoutPropertiesLoose(_ref, marker_esm_excluded);
-
-  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  container.className = className || '';
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: children
-  }), container), [children]);
+var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
     marker
-  } = useMarker(_extends({}, props, {
-    content: children ? container : content
-  }));
+  } = useMarker(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     marker
   }), [marker]);
