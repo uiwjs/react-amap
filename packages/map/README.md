@@ -18,7 +18,6 @@ import { Map } from '@uiw/react-amap-map';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -42,12 +41,19 @@ ReactDOM.render(<Demo />, _mount_);
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Map, useMapContext, APILoader } from '@uiw/react-amap';
+import { useMap, useRef, useMapContext, APILoader, Provider } from '@uiw/react-amap';
 
 const Marker = () => {
-  const { state } = useMapContext();
+  const warpper = useRef(null);
+  const { map, state } = useMapContext();
+  const { setContainer } = useMap({
+    container: warpper.current,
+    center: [116.397428, 39.90923],
+    zoom: 10
+  });
+
   useEffect(() => {
-    if (state.map) {
+    if (map) {
       const marker = new AMap.Marker({
         icon: new AMap.Icon({
           imageSize: new AMap.Size(25, 34),
@@ -56,31 +62,40 @@ const Marker = () => {
         position: [116.405285,39.904989],
         offset: new AMap.Pixel(-13, -30)
       });
+      // 创建点标记
+      const marker1 = new AMap.Marker({
+        position: new AMap.LngLat(116.32945,39.939772)
+      });
+      map.add(marker1);
       marker.setMap(state.map);
     }
-  }, [state.map]);
+  }, [map]);
+  
+  useEffect(() => {
+    if (warpper.current) {
+      setContainer(warpper.current);
+    }
+  }, [warpper.current]);
 
-  return null;
+  return <div ref={warpper} />;
 }
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-      <Map center={[116.397428, 39.90923]} zoom={12}>
-        <div>
-          <Marker />
-        </div>
-      </Map>
-    </APILoader>
-  </div>
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Provider>
+      <div style={{ height: 300 }}>
+        <Marker />
+      </div>
+    </Provider>
+  </APILoader>
 );
 ReactDOM.render(<Demo />, _mount_);
 ```
 
 ```jsx
-import { useMapContext } from '@uiw/react-amap';
+import { useMapContext, Provider } from '@uiw/react-amap';
 
-const { state } = useMapContext();
+const { AMaps, map, container, state, dispatch } = useMapContext();
 // => state.AMaps
 // => state.map
 // => state.container
@@ -88,7 +103,6 @@ const { state } = useMapContext();
 
 ### 参数设置
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { Fragment, useState } from 'react';
@@ -131,7 +145,6 @@ ReactDOM.render((
 
 获取地图实例对象。
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -170,7 +183,6 @@ ReactDOM.render((
 
 ### 事件触发
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -197,7 +209,6 @@ ReactDOM.render(<Demo />, _mount_);
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -234,7 +245,6 @@ ReactDOM.render((
 
 ### 将子组件封装到一个组件中
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

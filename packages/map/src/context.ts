@@ -32,5 +32,5 @@ export const Context = React.createContext<Context>({
 
 export function useMapContext() {
   const { state, dispatch } = useContext(Context);
-  return { state, dispatch };
+  return { ...state, state, dispatch };
 }

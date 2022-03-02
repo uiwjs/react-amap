@@ -26,6 +26,11 @@ export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   container?: HTMLDivElement | null;
 }
 
+export function Provider(props: RenderProps) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return <Context.Provider value={{ ...state, state, dispatch }}>{props.children}</Context.Provider>;
+}
+
 export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderProps>(
   ({ className, style, children, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -45,7 +50,7 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
     }, [map]);
 
     return (
-      <Context.Provider value={{ state, dispatch }}>
+      <Context.Provider value={{ ...state, state, dispatch }}>
         {!props.container && (
           <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
         )}
@@ -53,10 +58,10 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
         {AMap &&
           map &&
           childs.map((child, key) => {
+            if (!isValidElement(child)) return null;
             if (typeof child === 'string') {
               return cloneElement(<Fragment>{child}</Fragment>, { key });
             }
-            if (!isValidElement(child)) return null;
             if (child.type && typeof child.type === 'string') {
               return cloneElement(child, { key });
             }

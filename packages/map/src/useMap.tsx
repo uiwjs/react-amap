@@ -32,27 +32,24 @@ export const useMap = (props: UseMap = {}) => {
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState<HTMLDivElement | null | undefined>(props.container);
   const { dispatch } = useContext(Context);
-  useEffect(() => {
-    let instance: AMap.Map;
+  useMemo(() => {
     if (container && !map && AMap) {
-      const wapper = document.createElement('div');
-      wapper.className = 'react-amap-wapper';
-      wapper.style.height = '100%';
-      wapper.style.width = '100%';
-      instance = new AMap.Map(wapper, { zoom, ...other });
-      container.appendChild(wapper);
+      container.className = 'react-amap-wapper';
+      container.style.height = '100%';
+      container.style.width = '100%';
+      const instance = new AMap.Map(container, { zoom, ...other });
       setMap(instance);
     }
     return () => {
-      if (instance) {
-        instance.destroy();
-        instance.clearMap();
-        instance.clearInfoWindow();
-        instance.clearLimitBounds();
+      if (map) {
+        map.destroy();
+        map.clearMap();
+        map.clearInfoWindow();
+        map.clearLimitBounds();
         setMap(undefined);
       }
     };
-  }, [container]);
+  }, [container, map]);
 
   useEffect(() => {
     if (map && container) {
@@ -80,11 +77,11 @@ export const useMap = (props: UseMap = {}) => {
     'keyboardEnable',
   ]);
   // setStatus, setZoomAndCenter, setFitView
+  // 'Center',
   useSettingProperties<AMap.Map, UseMap>(map!, props, [
     'Zoom',
     'LabelzIndex',
     'Layers',
-    'Center',
     'City',
     'Bounds',
     'LimitBounds',
@@ -127,6 +124,8 @@ export const useMap = (props: UseMap = {}) => {
   return {
     map,
     setMap,
+    zoom,
+    setZoom,
     container,
     setContainer,
   };
