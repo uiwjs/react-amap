@@ -18,6 +18,7 @@ import { Map } from '@uiw/react-amap-map';
 
 Map 的父组件必须具有宽度和高度；
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -103,6 +104,7 @@ const { AMaps, map, container, state, dispatch } = useMapContext();
 
 ### 参数设置
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { Fragment, useState } from 'react';
@@ -112,6 +114,7 @@ function Demo() {
   const [dragEnable, setDragEnable] = useState(true);
   const [display, setDisplay] = useState(true);
   const [zoom, setZoom] = useState(15);
+  const [center, setCenter] = useState([116.397428, 39.90923]);
   const [viewMode, setViewMode] = useState('3D');
   return (
     <Fragment>
@@ -120,11 +123,15 @@ function Demo() {
       <button onClick={() => setViewMode(viewMode === '3D' ? '2D' : '3D')}>{viewMode}地图</button>
       <button onClick={() => setZoom(zoom + 1)}>放大 +1 -> ({zoom})</button>
       <button onClick={() => setZoom(zoom - 1)}>缩小 -1 -> ({zoom})</button>
+      <button onClick={() => setZoom(zoom - 1)}>缩小 -1 -> ({zoom})</button>
+      <button onClick={() => setCenter([121.394147,31.262488])}>上海</button>
+      <button onClick={() => setCenter([116.397428, 39.90923])}>北京</button>
       <div style={{ width: '100%', height: 350 }}>
         {display && (
           <Map
             dragEnable={dragEnable}
             zoom={zoom}
+            center={center}
             viewMode={viewMode}
             pitch={viewMode === '2D' ? 0 : 70}
           />
@@ -145,6 +152,7 @@ ReactDOM.render((
 
 获取地图实例对象。
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -183,6 +191,7 @@ ReactDOM.render((
 
 ### 事件触发
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -209,6 +218,7 @@ ReactDOM.render(<Demo />, _mount_);
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
@@ -245,6 +255,7 @@ ReactDOM.render((
 
 ### 将子组件封装到一个组件中
 
+<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';

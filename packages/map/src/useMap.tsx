@@ -67,6 +67,12 @@ export const useMap = (props: UseMap = {}) => {
     }
   }, [zoom, props.zoom]);
 
+  useMemo(() => {
+    if (props.center && map) {
+      map.setCenter(props.center);
+    }
+  }, [map, props.center]);
+
   useSetStatus<AMap.Map, UseMap>(map!, props, [
     'dragEnable',
     'zoomEnable',
