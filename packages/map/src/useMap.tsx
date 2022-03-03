@@ -34,9 +34,7 @@ export const useMap = (props: UseMap = {}) => {
   const { dispatch } = useContext(Context);
   useMemo(() => {
     if (container && !map && AMap) {
-      container.className = 'react-amap-wapper';
-      container.style.height = '100%';
-      container.style.width = '100%';
+      container.className = container.className + ' react-amap-wapper';
       const instance = new AMap.Map(container, { zoom, ...other });
       setMap(instance);
     }

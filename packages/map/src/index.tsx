@@ -32,7 +32,7 @@ export function Provider(props: RenderProps) {
 }
 
 export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderProps>(
-  ({ className, style, children, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const elmRef = useRef<HTMLDivElement>(null);
     const { setContainer, container, map } = useMap({
@@ -52,7 +52,11 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
     return (
       <Context.Provider value={{ ...state, state, dispatch }}>
         {!props.container && (
-          <div ref={elmRef} className={className} style={{ fontSize: 1, height: '100%', ...style }} />
+          <div
+            ref={elmRef}
+            className={`react-amap-wapper ${className}`}
+            style={{ fontSize: 1, width: '100%', height: '100%', ...props.style }}
+          />
         )}
         {AMap && map && typeof children === 'function' && children({ AMap, map, container })}
         {AMap &&

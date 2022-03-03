@@ -13,7 +13,6 @@ import { APILoader } from '@uiw/react-amap-api-loader';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
 import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';
