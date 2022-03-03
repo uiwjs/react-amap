@@ -586,21 +586,6 @@ function _extends() {
 
   return _extends.apply(this, arguments);
 }
-;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
 ;// CONCATENATED MODULE: ../utils/esm/index.js
@@ -782,20 +767,20 @@ function useSettingProperties(instance, props, propsName) {
 }
 function useRenderDom(props) {
   var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(document.createElement('div'));
+  var [content, setContent] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.children);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-      children: props.children
+      children: content
     }), container.current);
-  }, [props.children]);
+  }, [content]);
   return {
-    container: container.current
+    container: container.current,
+    content,
+    setContent
   };
 }
 
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
-
-
-var _excluded = ["map"];
 
 
 var useAutoComplete = function useAutoComplete(props) {
@@ -803,14 +788,12 @@ var useAutoComplete = function useAutoComplete(props) {
     props = {};
   }
 
-  var other = _objectWithoutPropertiesLoose(props, _excluded);
-
   var [autoComplete, setAutoComplete] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !autoComplete) {
       var instance;
       AMap.plugin(['AMap.AutoComplete'], () => {
-        instance = new AMap.AutoComplete(_extends({}, other));
+        instance = new AMap.AutoComplete(props);
         setAutoComplete(instance);
       });
       return () => {
@@ -843,621 +826,21 @@ var AutoComplete = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   return null;
 });
 
-;// CONCATENATED MODULE: ../bezier-curve/esm/useBezierCurve.js
+;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
 
-
-var useBezierCurve_excluded = ["map", "visiable"];
-
-
-var useBezierCurve = function useBezierCurve(props) {
-  if (props === void 0) {
-    props = {};
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
   }
 
-  var {
-    map,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
-
-  var [bezierCurve, setBezierCurve] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (AMap && map && !bezierCurve) {
-      var instance = new AMap.BezierCurve(_extends({}, other));
-      map.add(instance);
-      setBezierCurve(instance);
-      return () => {
-        if (instance) {
-          map && map.removeLayer(instance);
-          setBezierCurve(undefined);
-        }
-      };
-    }
-  }, [map]);
-  useVisiable(bezierCurve, visiable);
-  useSettingProperties(bezierCurve, props, ['Options', 'Path', 'ExtData', 'ExtData']);
-  useEventProperties(bezierCurve, props, ['onHide', 'onShow', 'onDblClick', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onclick', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onRightClick', 'onMouseOut']);
-  return {
-    bezierCurve,
-    setBezierCurve
-  };
-};
-
-;// CONCATENATED MODULE: ../bezier-curve/esm/index.js
-
-
-
-
-var BezierCurve = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    bezierCurve
-  } = useBezierCurve(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    bezierCurve
-  }));
-  return null;
-});
-
-;// CONCATENATED MODULE: ../circle/esm/useCircle.js
-
-
-var useCircle_excluded = ["map", "visiable"];
-
-
-var useCircle = function useCircle(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
-
-  var [circle, setCircle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (AMap && map && !circle) {
-      var instance = new AMap.Circle(_extends({}, other));
-      map.add(instance);
-      setCircle(instance);
-    }
-
-    return () => {
-      if (circle) {
-        map && map.remove(circle);
-        setCircle(undefined);
-      }
-    };
-  }, [map]);
-  useVisiable(circle, visiable);
-  useSettingProperties(circle, props, ['Center', 'Raius', 'Options', 'ExtData']);
-  useEventProperties(circle, props, ['onHide', 'onShow', 'onRightClick', 'onClick', 'onTouchEnd', 'onDblClick', 'onTouchMove', 'onTouchStart', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown']);
-  return {
-    circle,
-    setCircle
-  };
-};
-
-;// CONCATENATED MODULE: ../circle/esm/index.js
-
-
-
-
-var Circle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    circle
-  } = useCircle(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    circle
-  }));
-  return null;
-});
-
-;// CONCATENATED MODULE: ../circle-marker/esm/useCircleMarker.js
-
-
-var useCircleMarker_excluded = ["map", "visiable"];
-
-
-var useCircleMarker = function useCircleMarker(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
-
-  var [circleMarker, setCircleMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!AMap || !map) return;
-
-    if (!circleMarker) {
-      var instance = new AMap.CircleMarker(_extends({}, other));
-      map.add(instance);
-      setCircleMarker(instance);
-      return () => {
-        if (instance) {
-          map && map.removeLayer(instance);
-          setCircleMarker(undefined);
-        }
-      };
-    }
-  }, [map]);
-  useVisiable(circleMarker, visiable);
-  useSettingProperties(circleMarker, props, ['Center', 'Raius', 'zIndex', 'Bubble', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'Draggable', 'ExtData']);
-  useEventProperties(circleMarker, props, ['onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart', 'onMousedown', 'onDblclick']);
-  return {
-    circleMarker,
-    setCircleMarker
-  };
-};
-
-;// CONCATENATED MODULE: ../circle-marker/esm/index.js
-
-
-
-
-var CircleMarker = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    circleMarker
-  } = useCircleMarker(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    circleMarker
-  }));
-  return null;
-});
-
-;// CONCATENATED MODULE: ../context-menu/esm/useContextMenu.js
-
-
-var useContextMenu_excluded = ["map", "position"];
-
-
-var useContextMenu = function useContextMenu(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    position
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useContextMenu_excluded);
-
-  var [contextMenu, setContextMenu] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!AMap || !map) return;
-
-    if (!contextMenu) {
-      var instance = new AMap.ContextMenu(_extends({}, other));
-      setContextMenu(instance);
-
-      var rightclick = e => instance.open(map, position || e.lnglat);
-
-      map.on('rightclick', rightclick);
-      return () => {
-        if (instance) {
-          map.off('rightclick', rightclick);
-          map && map.removeLayer(instance);
-          setContextMenu(undefined);
-        }
-      };
-    }
-  }, [map]);
-  useEventProperties(contextMenu, props, ['onOpen', 'onClose']);
-  return {
-    contextMenu,
-    setContextMenu
-  };
-};
-
-;// CONCATENATED MODULE: ../context-menu/esm/Item.js
-
-
-var noop = function noop() {};
-
-/* harmony default export */ const Item = (function (props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    text = '',
-    onClick = noop
-  } = props;
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (props.contextMenu) {
-      props.contextMenu.addItem(text, onClick, 1);
-    }
-
-    return () => {
-      if (props.contextMenu) {
-        props.contextMenu.removeItem(text, onClick);
-      }
-    };
-  }, [props.contextMenu, props.text, props.onClick]);
-  return null;
-});
-
-;// CONCATENATED MODULE: ../context-menu/esm/index.js
-
-
-
-
-
-
-
-var ContextMenu = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    contextMenu
-  } = useContextMenu(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    contextMenu
-  }));
-  var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(props.children);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: AMap && contextMenu && childs.map((child, key) => {
-      if (! /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) return null;
-      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, _extends({}, child.props, {
-        AMap,
-        map: props.map,
-        contextMenu,
-        key
-      }));
-    })
-  });
-});
-ContextMenu.Item = Item;
-
-;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
-
-
-function useControlBarControl(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var [controlBarControl, setControlBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    map,
-    position,
-    visiable,
-    offset
-  } = props;
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (map && !controlBarControl) {
-      var instance;
-      map.plugin(['AMap.ControlBar', 'AMap.HawkEye'], () => {
-        instance = new AMap.ControlBar({
-          offset: offset,
-          position
-        });
-        map.addControl(instance);
-        setControlBarControl(instance);
-      });
-      return () => {
-        if (instance) {
-          map.removeControl(instance);
-        }
-      };
-    }
-  }, [map]);
-  useVisiable(controlBarControl, visiable);
-  return {
-    controlBarControl,
-    setControlBarControl
-  };
+  return target;
 }
-
-;// CONCATENATED MODULE: ../control-bar-control/esm/index.js
-
-
-
-
-var ControlBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    controlBarControl
-  } = useControlBarControl(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    controlBarControl
-  }), [controlBarControl]);
-  return null;
-});
-
-;// CONCATENATED MODULE: ../ellipse/esm/useEllipse.js
-
-
-var useEllipse_excluded = ["map", "visiable"];
-
-
-var useEllipse = function useEllipse(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
-
-  var [ellipse, setEllipse] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!AMap || !map) return;
-
-    if (!ellipse) {
-      var instance = new AMap.Ellipse(_extends({}, other));
-      map.add(instance);
-      setEllipse(instance);
-      return () => {
-        if (instance) {
-          map && map.removeLayer(instance);
-          setEllipse(undefined);
-        }
-      };
-    }
-  }, [map]);
-  useVisiable(ellipse, visiable);
-  useSettingProperties(ellipse, props, ['Center', 'Radius', 'Options', 'ExtData']);
-  useEventProperties(ellipse, props, ['onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart']);
-  return {
-    ellipse,
-    setEllipse
-  };
-};
-
-;// CONCATENATED MODULE: ../ellipse/esm/index.js
-
-
-
-
-var Ellipse = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    ellipse
-  } = useEllipse(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    ellipse
-  }));
-  return null;
-});
-
-;// CONCATENATED MODULE: ../geolocation/esm/useGeolocation.js
-
-
-var useGeolocation_excluded = ["map", "type", "onComplete", "onError"];
-
-var useGeolocation = function useGeolocation(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    type = 'position',
-    onComplete,
-    onError
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useGeolocation_excluded);
-
-  var [geolocation, setGeolocation] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (AMap && !geolocation) {
-      var instance;
-      AMap.plugin(['AMap.Geolocation'], () => {
-        instance = new AMap.Geolocation(_extends({}, other));
-        setGeolocation(instance);
-      });
-      return () => {
-        if (instance) {
-          setGeolocation(undefined);
-        }
-      };
-    }
-  }, [AMap]);
-
-  function callback(status, result) {
-    if (status === 'complete' && onComplete) {
-      onComplete(result);
-    } else if (onError) {
-      onError(result);
-    }
-  }
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (!/^(position|cityInfo)$/.test(type)) return;
-    var funName = type === 'position' ? 'getCurrentPosition' : 'getCityInfo';
-
-    if (geolocation && map) {
-      geolocation[funName](callback);
-      map.addControl(geolocation);
-    } else if (geolocation) {
-      geolocation[funName](callback);
-    }
-  }, [geolocation]);
-  return {
-    geolocation,
-    setGeolocation
-  };
-};
-
-;// CONCATENATED MODULE: ../geolocation/esm/index.js
-
-
-
-
-var Geolocation = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    geolocation
-  } = useGeolocation(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    geolocation
-  }));
-  return null;
-});
-
-;// CONCATENATED MODULE: ../hawk-eye-control/esm/useHawkEyeControl.js
-
-
-var useHawkEyeControl_excluded = ["map", "offset", "visiable"];
-
-
-function useHawkEyeControl(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var [hawkEyeControl, setHawkEyeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-
-  var {
-    map,
-    offset,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
-
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (map && !hawkEyeControl) {
-      var instance;
-      map.plugin(['AMap.HawkEye'], () => {
-        instance = new AMap.HawkEye(_extends({
-          offset: offset
-        }, other));
-        map.addControl(instance);
-        setHawkEyeControl(instance);
-      });
-      return () => {
-        if (instance && map) {
-          map.removeLayer(instance);
-          setHawkEyeControl(undefined);
-        }
-      };
-    }
-  }, [map]);
-  useVisiable(hawkEyeControl, visiable);
-  return {
-    hawkEyeControl,
-    setHawkEyeControl
-  };
-}
-
-;// CONCATENATED MODULE: ../hawk-eye-control/esm/index.js
-
-
-
-
-var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    hawkEyeControl
-  } = useHawkEyeControl(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    hawkEyeControl
-  }), [hawkEyeControl]);
-  return null;
-});
-
-;// CONCATENATED MODULE: ../info-window/esm/useInfoWindow.js
-
-
-var useInfoWindow_excluded = ["map", "visiable", "position"];
-
-
-var useInfoWindow = function useInfoWindow(props) {
-  if (props === void 0) {
-    props = {};
-  }
-
-  var {
-    map,
-    visiable,
-    position
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
-
-  var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
-  var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    container
-  } = useRenderDom({
-    children: props.children
-  });
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!AMap || !map) return;
-
-    if (!infoWindow) {
-      var positionCenter = map.getCenter();
-
-      if (props.children) {
-        other.content = container;
-      }
-
-      var instance = new AMap.InfoWindow(_extends({}, other, {
-        position: position || positionCenter
-      }));
-      setInfoWindow(instance);
-
-      if (isOpen) {
-        instance.open(map, position || positionCenter);
-      }
-
-      return () => {
-        if (instance) {
-          map && map.remove(instance);
-          setInfoWindow(undefined);
-        }
-      };
-    }
-  }, [map]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (infoWindow) {
-      infoWindow.setContent(props.children ? container : other.content || '');
-    }
-  }, [props.children, container, other.content, infoWindow]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (isOpen !== visiable && infoWindow && map) {
-      setIsOpen(visiable);
-
-      if (visiable) {
-        var positionCenter = map.getCenter();
-        infoWindow.open(map, position || positionCenter);
-      } else {
-        infoWindow.close();
-      }
-    }
-  }, [visiable, infoWindow]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!map || !infoWindow || !visiable) return;
-    var positionCenter = map.getCenter();
-    infoWindow.open(map, position || positionCenter);
-  }, [position]);
-  useSettingProperties(infoWindow, props, ['Content', 'Anchor', 'Size']);
-  useEventProperties(infoWindow, props, ['onOpen', 'onClose', 'onChange']);
-  return {
-    isOpen,
-    setIsOpen,
-    infoWindow,
-    setInfoWindow
-  };
-};
-
-;// CONCATENATED MODULE: ../info-window/esm/index.js
-
-
-
-
-var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    infoWindow
-  } = useInfoWindow(props);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    infoWindow
-  }));
-  return null;
-});
-
 ;// CONCATENATED MODULE: ../map/esm/context.js
 
 
@@ -1570,7 +953,7 @@ var useMap = function useMap(props) {
 ;// CONCATENATED MODULE: ../map/esm/index.js
 
 
-var esm_excluded = ["className", "style", "children"];
+var _excluded = ["className", "style", "children"];
 /// <reference types="@uiw/react-amap-types" />
 
 
@@ -1595,7 +978,7 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
     style,
     children
   } = _ref,
-      props = _objectWithoutPropertiesLoose(_ref, esm_excluded);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded);
 
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
@@ -1665,10 +1048,653 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
   });
 });
 
+;// CONCATENATED MODULE: ../bezier-curve/esm/useBezierCurve.js
+
+
+var useBezierCurve_excluded = ["visiable"];
+
+
+
+var useBezierCurve = function useBezierCurve(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    visiable
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [bezierCurve, setBezierCurve] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (AMap && map && !bezierCurve) {
+      var instance = new AMap.BezierCurve(_extends({}, other));
+      map.add(instance);
+      setBezierCurve(instance);
+      return () => {
+        if (instance) {
+          map && map.removeLayer(instance);
+          setBezierCurve(undefined);
+        }
+      };
+    }
+  }, [map]);
+  useVisiable(bezierCurve, visiable);
+  useSettingProperties(bezierCurve, props, ['Options', 'Path', 'ExtData', 'ExtData']);
+  useEventProperties(bezierCurve, props, ['onHide', 'onShow', 'onDblClick', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onclick', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onRightClick', 'onMouseOut']);
+  return {
+    bezierCurve,
+    setBezierCurve
+  };
+};
+
+;// CONCATENATED MODULE: ../bezier-curve/esm/index.js
+
+
+
+
+var BezierCurve = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    bezierCurve
+  } = useBezierCurve(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    bezierCurve
+  }));
+  return null;
+});
+
+;// CONCATENATED MODULE: ../circle/esm/useCircle.js
+
+
+var useCircle_excluded = ["visiable"];
+
+
+
+var useCircle = function useCircle(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    visiable
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [circle, setCircle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (AMap && map && !circle) {
+      var instance = new AMap.Circle(_extends({}, other));
+      map.add(instance);
+      setCircle(instance);
+    }
+
+    return () => {
+      if (circle) {
+        map && map.remove(circle);
+        setCircle(undefined);
+      }
+    };
+  }, [map]);
+  useVisiable(circle, visiable);
+  useSettingProperties(circle, props, ['Center', 'Raius', 'Options', 'ExtData']);
+  useEventProperties(circle, props, ['onHide', 'onShow', 'onRightClick', 'onClick', 'onTouchEnd', 'onDblClick', 'onTouchMove', 'onTouchStart', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown']);
+  return {
+    circle,
+    setCircle
+  };
+};
+
+;// CONCATENATED MODULE: ../circle/esm/index.js
+
+
+
+
+var Circle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    circle
+  } = useCircle(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    circle
+  }));
+  return null;
+});
+
+;// CONCATENATED MODULE: ../circle-marker/esm/useCircleMarker.js
+
+
+var useCircleMarker_excluded = ["visiable"];
+
+
+
+var useCircleMarker = function useCircleMarker(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    visiable
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [circleMarker, setCircleMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!AMap || !map) return;
+
+    if (!circleMarker) {
+      var instance = new AMap.CircleMarker(_extends({}, other));
+      map.add(instance);
+      setCircleMarker(instance);
+      return () => {
+        if (instance) {
+          map && map.removeLayer(instance);
+          setCircleMarker(undefined);
+        }
+      };
+    }
+  }, [map]);
+  useVisiable(circleMarker, visiable);
+  useSettingProperties(circleMarker, props, ['Center', 'Raius', 'zIndex', 'Bubble', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'Draggable', 'ExtData']);
+  useEventProperties(circleMarker, props, ['onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart', 'onMousedown', 'onDblclick']);
+  return {
+    circleMarker,
+    setCircleMarker
+  };
+};
+
+;// CONCATENATED MODULE: ../circle-marker/esm/index.js
+
+
+
+
+var CircleMarker = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    circleMarker
+  } = useCircleMarker(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    circleMarker
+  }));
+  return null;
+});
+
+;// CONCATENATED MODULE: ../context-menu/esm/useContextMenu.js
+
+
+var useContextMenu_excluded = ["position"];
+
+
+
+var useContextMenu = function useContextMenu(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    position
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useContextMenu_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [contextMenu, setContextMenu] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!AMap || !map) return;
+
+    if (!contextMenu) {
+      var instance = new AMap.ContextMenu(_extends({}, other));
+      setContextMenu(instance);
+
+      var rightclick = e => instance.open(map, position || e.lnglat);
+
+      map.on('rightclick', rightclick);
+      return () => {
+        if (instance) {
+          map.off('rightclick', rightclick);
+          map && map.removeLayer(instance);
+          setContextMenu(undefined);
+        }
+      };
+    }
+  }, [map]);
+  useEventProperties(contextMenu, props, ['onOpen', 'onClose']);
+  return {
+    contextMenu,
+    setContextMenu
+  };
+};
+
+;// CONCATENATED MODULE: ../context-menu/esm/Item.js
+
+
+var noop = function noop() {};
+
+/* harmony default export */ const Item = (function (props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    text = '',
+    onClick = noop
+  } = props;
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (props.contextMenu) {
+      props.contextMenu.addItem(text, onClick, 1);
+    }
+
+    return () => {
+      if (props.contextMenu) {
+        props.contextMenu.removeItem(text, onClick);
+      }
+    };
+  }, [props.contextMenu, props.text, props.onClick]);
+  return null;
+});
+
+;// CONCATENATED MODULE: ../context-menu/esm/index.js
+
+
+
+
+
+
+
+var ContextMenu = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    contextMenu
+  } = useContextMenu(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    contextMenu
+  }));
+  var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_default().Children.toArray(props.children);
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+    children: AMap && contextMenu && childs.map((child, key) => {
+      if (! /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().isValidElement(child)) return null;
+      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().cloneElement(child, _extends({}, child.props, {
+        AMap,
+        map: props.map,
+        contextMenu,
+        key
+      }));
+    })
+  });
+});
+ContextMenu.Item = Item;
+
+;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
+
+
+
+function useControlBarControl(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    position,
+    visiable,
+    offset
+  } = props;
+  var [controlBarControl, setControlBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    map
+  } = useMapContext();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (map && !controlBarControl) {
+      var instance;
+      map.plugin(['AMap.ControlBar', 'AMap.HawkEye'], () => {
+        instance = new AMap.ControlBar({
+          offset: offset,
+          position
+        });
+        map.addControl(instance);
+        setControlBarControl(instance);
+      });
+      return () => {
+        if (instance) {
+          map.removeControl(instance);
+        }
+      };
+    }
+  }, [map]);
+  useVisiable(controlBarControl, visiable);
+  return {
+    controlBarControl,
+    setControlBarControl
+  };
+}
+
+;// CONCATENATED MODULE: ../control-bar-control/esm/index.js
+
+
+
+
+var ControlBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    controlBarControl
+  } = useControlBarControl(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    controlBarControl
+  }), [controlBarControl]);
+  return null;
+});
+
+;// CONCATENATED MODULE: ../ellipse/esm/useEllipse.js
+
+
+var useEllipse_excluded = ["visiable"];
+
+
+
+var useEllipse = function useEllipse(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    visiable
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [ellipse, setEllipse] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!AMap || !map) return;
+
+    if (!ellipse) {
+      var instance = new AMap.Ellipse(_extends({}, other));
+      map.add(instance);
+      setEllipse(instance);
+      return () => {
+        if (instance) {
+          map && map.removeLayer(instance);
+          setEllipse(undefined);
+        }
+      };
+    }
+  }, [map]);
+  useVisiable(ellipse, visiable);
+  useSettingProperties(ellipse, props, ['Center', 'Radius', 'Options', 'ExtData']);
+  useEventProperties(ellipse, props, ['onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart']);
+  return {
+    ellipse,
+    setEllipse
+  };
+};
+
+;// CONCATENATED MODULE: ../ellipse/esm/index.js
+
+
+
+
+var Ellipse = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    ellipse
+  } = useEllipse(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    ellipse
+  }));
+  return null;
+});
+
+;// CONCATENATED MODULE: ../geolocation/esm/useGeolocation.js
+
+
+var useGeolocation_excluded = ["type", "onComplete", "onError"];
+
+
+var useGeolocation = function useGeolocation(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    type = 'position',
+    onComplete,
+    onError
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useGeolocation_excluded);
+
+  var [geolocation, setGeolocation] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    map
+  } = useMapContext();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (AMap && !geolocation) {
+      var instance;
+      AMap.plugin(['AMap.Geolocation'], () => {
+        instance = new AMap.Geolocation(_extends({}, other));
+        setGeolocation(instance);
+      });
+      return () => {
+        if (instance) {
+          setGeolocation(undefined);
+        }
+      };
+    }
+  }, [AMap]);
+
+  function callback(status, result) {
+    if (status === 'complete' && onComplete) {
+      onComplete(result);
+    } else if (onError) {
+      onError(result);
+    }
+  }
+
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
+    if (!/^(position|cityInfo)$/.test(type)) return;
+    var funName = type === 'position' ? 'getCurrentPosition' : 'getCityInfo';
+
+    if (geolocation && map) {
+      geolocation[funName](callback);
+      map.addControl(geolocation);
+    } else if (geolocation) {
+      geolocation[funName](callback);
+    }
+  }, [geolocation]);
+  return {
+    geolocation,
+    setGeolocation
+  };
+};
+
+;// CONCATENATED MODULE: ../geolocation/esm/index.js
+
+
+
+
+var Geolocation = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    geolocation
+  } = useGeolocation(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    geolocation
+  }));
+  return null;
+});
+
+;// CONCATENATED MODULE: ../hawk-eye-control/esm/useHawkEyeControl.js
+
+
+var useHawkEyeControl_excluded = ["offset", "visiable"];
+
+
+
+function useHawkEyeControl(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var [hawkEyeControl, setHawkEyeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+
+  var {
+    offset,
+    visiable
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (map && !hawkEyeControl) {
+      var instance;
+      map.plugin(['AMap.HawkEye'], () => {
+        instance = new AMap.HawkEye(_extends({
+          offset: offset
+        }, other));
+        map.addControl(instance);
+        setHawkEyeControl(instance);
+      });
+      return () => {
+        if (instance && map) {
+          map.removeLayer(instance);
+          setHawkEyeControl(undefined);
+        }
+      };
+    }
+  }, [map]);
+  useVisiable(hawkEyeControl, visiable);
+  return {
+    hawkEyeControl,
+    setHawkEyeControl
+  };
+}
+
+;// CONCATENATED MODULE: ../hawk-eye-control/esm/index.js
+
+
+
+
+var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    hawkEyeControl
+  } = useHawkEyeControl(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    hawkEyeControl
+  }), [hawkEyeControl]);
+  return null;
+});
+
+;// CONCATENATED MODULE: ../info-window/esm/useInfoWindow.js
+
+
+var useInfoWindow_excluded = ["visiable", "position"];
+
+
+
+var useInfoWindow = function useInfoWindow(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var {
+    visiable,
+    position
+  } = props,
+      other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
+
+  var {
+    map
+  } = useMapContext();
+  var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
+  var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!AMap || !map) return;
+
+    if (!infoWindow) {
+      var positionCenter = map.getCenter();
+
+      if (props.children) {
+        other.content = container;
+      }
+
+      var instance = new AMap.InfoWindow(_extends({}, other, {
+        position: position || positionCenter
+      }));
+      setInfoWindow(instance);
+
+      if (isOpen) {
+        instance.open(map, position || positionCenter);
+      }
+
+      return () => {
+        if (instance) {
+          map && map.remove(instance);
+          setInfoWindow(undefined);
+        }
+      };
+    }
+  }, [map]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (infoWindow) {
+      infoWindow.setContent(props.children ? container : other.content || '');
+    }
+  }, [props.children, container, other.content, infoWindow]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
+    if (isOpen !== visiable && infoWindow && map) {
+      setIsOpen(visiable);
+
+      if (visiable) {
+        var positionCenter = map.getCenter();
+        infoWindow.open(map, position || positionCenter);
+      } else {
+        infoWindow.close();
+      }
+    }
+  }, [visiable, infoWindow]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!map || !infoWindow || !visiable) return;
+    var positionCenter = map.getCenter();
+    infoWindow.open(map, position || positionCenter);
+  }, [position]);
+  useSettingProperties(infoWindow, props, ['Content', 'Anchor', 'Size']);
+  useEventProperties(infoWindow, props, ['onOpen', 'onClose', 'onChange']);
+  return {
+    isOpen,
+    setIsOpen,
+    infoWindow,
+    setInfoWindow
+  };
+};
+
+;// CONCATENATED MODULE: ../info-window/esm/index.js
+
+
+
+
+var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    infoWindow
+  } = useInfoWindow(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    infoWindow
+  }));
+  return null;
+});
+
 ;// CONCATENATED MODULE: ../map-type-control/esm/useMapTypeControl.js
 
 
-var useMapTypeControl_excluded = ["map", "visiable", "defaultType"];
+var useMapTypeControl_excluded = ["visiable", "defaultType"];
+
 
 
 function useMapTypeControl(props) {
@@ -1679,12 +1705,14 @@ function useMapTypeControl(props) {
   var [mapTypeControl, setMapTypeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
 
   var {
-    map,
     visiable,
     defaultType = 0
   } = props,
       other = _objectWithoutPropertiesLoose(props, useMapTypeControl_excluded);
 
+  var {
+    map
+  } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !mapTypeControl) {
       var instance;
@@ -1799,7 +1827,8 @@ var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_
 
 ;// CONCATENATED MODULE: ../mass-marks/esm/useMassMarks.js
 
-var useMassMarks_excluded = ["map", "visiable"];
+var useMassMarks_excluded = ["visiable"];
+
 
 
 var useMassMarks = function useMassMarks(props) {
@@ -1808,11 +1837,13 @@ var useMassMarks = function useMassMarks(props) {
   }
 
   var {
-    map,
     visiable
   } = props,
       other = _objectWithoutPropertiesLoose(props, useMassMarks_excluded);
 
+  var {
+    map
+  } = useMapContext();
   var {
     opacity = 0.8,
     zIndex = 1111,
@@ -1898,7 +1929,8 @@ var MassMarks = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../polygon/esm/usePolygon.js
 
 
-var usePolygon_excluded = ["map", "visiable"];
+var usePolygon_excluded = ["visiable"];
+
 
 
 var usePolygon = function usePolygon(props) {
@@ -1907,11 +1939,13 @@ var usePolygon = function usePolygon(props) {
   }
 
   var {
-    map,
     visiable
   } = props,
       other = _objectWithoutPropertiesLoose(props, usePolygon_excluded);
 
+  var {
+    map
+  } = useMapContext();
   var [polygon, setPolygon] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
@@ -1959,12 +1993,15 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
 ;// CONCATENATED MODULE: ../polygon-editor/esm/index.js
 
 
+
 var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
     active,
-    map,
     polygon
   } = props;
+  var {
+    map
+  } = useMapContext();
   var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
   var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -1995,7 +2032,8 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
 
 
-var usePolyline_excluded = ["map", "visiable"];
+var usePolyline_excluded = ["visiable"];
+
 
 
 function usePolyline(props) {
@@ -2006,11 +2044,13 @@ function usePolyline(props) {
   var [polyline, setPolyline] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
 
   var {
-    map,
     visiable
   } = props,
       other = _objectWithoutPropertiesLoose(props, usePolyline_excluded);
 
+  var {
+    map
+  } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !polyline) {
       var instance = new AMap.Polyline(_extends({}, other));
@@ -2051,7 +2091,8 @@ var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_a
 ;// CONCATENATED MODULE: ../rectangle/esm/useRectangle.js
 
 
-var useRectangle_excluded = ["map", "visiable"];
+var useRectangle_excluded = ["visiable"];
+
 
 
 var useRectangle = function useRectangle(props) {
@@ -2060,11 +2101,13 @@ var useRectangle = function useRectangle(props) {
   }
 
   var {
-    map,
     visiable
   } = props,
       other = _objectWithoutPropertiesLoose(props, useRectangle_excluded);
 
+  var {
+    map
+  } = useMapContext();
   var [rectangle, setRectangle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
@@ -2108,6 +2151,7 @@ var Rectangle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../scale-control/esm/useScaleControl.js
 
 
+
 function useScaleControl(props) {
   if (props === void 0) {
     props = {};
@@ -2115,11 +2159,13 @@ function useScaleControl(props) {
 
   var [scaleControl, setScaleControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
-    map,
     position,
     visiable,
     offset
   } = props;
+  var {
+    map
+  } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !scaleControl) {
       var instance;
@@ -2163,7 +2209,8 @@ var ScaleControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
 ;// CONCATENATED MODULE: ../text/esm/useText.js
 
 
-var useText_excluded = ["map", "visiable"];
+var useText_excluded = ["visiable"];
+
 
 
 var useText = function useText(props) {
@@ -2172,12 +2219,14 @@ var useText = function useText(props) {
   }
 
   var {
-    map,
     visiable
   } = props,
       other = _objectWithoutPropertiesLoose(props, useText_excluded);
 
   var [text, setText] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    map
+  } = useMapContext();
   var {
     container
   } = useRenderDom({
@@ -2234,6 +2283,7 @@ var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_am
 ;// CONCATENATED MODULE: ../tool-bar-control/esm/useToolBarControl.js
 
 
+
 function useToolBarControl(props) {
   if (props === void 0) {
     props = {};
@@ -2241,11 +2291,13 @@ function useToolBarControl(props) {
 
   var [toolBarControl, setToolBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
-    map,
     position,
     visiable,
     offset
   } = props;
+  var {
+    map
+  } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !toolBarControl) {
       var instance;
