@@ -1,7 +1,7 @@
 @uiw/react-amap-require-script
 ===
 
-用于加载高德地图其它 SDK 依赖，加载完成。
+用于加载高德地图其它 SDK 依赖，官方示例中的 css, js加载。
 
 ```jsx
 import { APILoader } from '@uiw/react-amap';

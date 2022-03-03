@@ -105,6 +105,10 @@ export const routes: Routes = [
     component: lazy(() => import('./pages/context-menu')),
   },
   {
+    path: '/require-script',
+    component: lazy(() => import('./pages/require-script')),
+  },
+  {
     path: '/types',
     component: lazy(() => import('./pages/types')),
   },
@@ -223,6 +227,14 @@ export const menus = [
   {
     label: 'ContextMenu 右键菜单',
     path: '/context-menu',
+  },
+  {
+    divider: true,
+    label: '工具',
+  },
+  {
+    label: 'Require Script',
+    path: '/require-script',
   },
   {
     divider: true,

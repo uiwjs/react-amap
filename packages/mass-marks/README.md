@@ -26,7 +26,7 @@ const Example = (props) => {
   const marker = useRef()
   useEffect(() => {
     if(points.length === 0) {
-      requireScript('https://a.amap.com/jsapi_demos/static/citys.js').then(() => {
+      requireScript('https://a.amap.com/jsapi_demos/static/citys.js', 'citys_id').then(() => {
         if(citys && Array.isArray(citys)) {
           setPoints(citys);
         }
