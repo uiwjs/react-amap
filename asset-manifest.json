@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-amap/static/css/main.6d541420.css",
-    "main.js": "/react-amap/static/js/main.f7af8cd0.js",
+    "main.js": "/react-amap/static/js/main.87c07610.js",
     "static/css/6555.cb72943d.chunk.css": "/react-amap/static/css/6555.cb72943d.chunk.css",
     "static/js/6555.ca46d438.chunk.js": "/react-amap/static/js/6555.ca46d438.chunk.js",
     "static/css/5741.cb72943d.chunk.css": "/react-amap/static/css/5741.cb72943d.chunk.css",
@@ -85,11 +85,11 @@
     "react-vendor.js": "/react-amap/static/js/react-vendor.62574d7d.js",
     "static/js/7764.576aa8e7.chunk.js": "/react-amap/static/js/7764.576aa8e7.chunk.js",
     "static/js/3243.84e55020.js": "/react-amap/static/js/3243.84e55020.js",
-    "static/js/2515.7ce74929.chunk.js": "/react-amap/static/js/2515.7ce74929.chunk.js",
+    "static/js/2515.ce56ff96.chunk.js": "/react-amap/static/js/2515.ce56ff96.chunk.js",
     "static/media/logo.svg": "/react-amap/static/media/logo.552138f67b47aa2ff9779e6ffc2abeed.svg",
     "index.html": "/react-amap/index.html",
     "main.6d541420.css.map": "/react-amap/static/css/main.6d541420.css.map",
-    "main.f7af8cd0.js.map": "/react-amap/static/js/main.f7af8cd0.js.map",
+    "main.87c07610.js.map": "/react-amap/static/js/main.87c07610.js.map",
     "6555.cb72943d.chunk.css.map": "/react-amap/static/css/6555.cb72943d.chunk.css.map",
     "6555.ca46d438.chunk.js.map": "/react-amap/static/js/6555.ca46d438.chunk.js.map",
     "5741.cb72943d.chunk.css.map": "/react-amap/static/css/5741.cb72943d.chunk.css.map",
@@ -173,13 +173,13 @@
     "react-vendor.62574d7d.js.map": "/react-amap/static/js/react-vendor.62574d7d.js.map",
     "7764.576aa8e7.chunk.js.map": "/react-amap/static/js/7764.576aa8e7.chunk.js.map",
     "3243.84e55020.js.map": "/react-amap/static/js/3243.84e55020.js.map",
-    "2515.7ce74929.chunk.js.map": "/react-amap/static/js/2515.7ce74929.chunk.js.map"
+    "2515.ce56ff96.chunk.js.map": "/react-amap/static/js/2515.ce56ff96.chunk.js.map"
   },
   "entrypoints": [
     "static/js/uiw-vendor.e9672d8c.js",
     "static/js/react-vendor.62574d7d.js",
     "static/js/3243.84e55020.js",
     "static/css/main.6d541420.css",
-    "static/js/main.f7af8cd0.js"
+    "static/js/main.87c07610.js"
   ]
 }

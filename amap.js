@@ -1379,11 +1379,21 @@ var useInfoWindow = function useInfoWindow(props) {
 
   var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
 
     if (!infoWindow) {
       var positionCenter = map.getCenter();
+
+      if (props.children) {
+        other.content = container;
+      }
+
       var instance = new AMap.InfoWindow(_extends({}, other, {
         position: position || positionCenter
       }));
@@ -1401,6 +1411,11 @@ var useInfoWindow = function useInfoWindow(props) {
       };
     }
   }, [map]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (infoWindow) {
+      infoWindow.setContent(props.children ? container : other.content || '');
+    }
+  }, [container, other.content, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
@@ -1421,6 +1436,8 @@ var useInfoWindow = function useInfoWindow(props) {
   useSettingProperties(infoWindow, props, ['Content', 'Anchor', 'Size']);
   useEventProperties(infoWindow, props, ['onOpen', 'onClose', 'onChange']);
   return {
+    isOpen,
+    setIsOpen,
     infoWindow,
     setInfoWindow
   };
@@ -1431,21 +1448,10 @@ var useInfoWindow = function useInfoWindow(props) {
 
 
 
-
-
 var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    children
-  } = props;
-  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: children
-  }), container), [children]);
-  var {
     infoWindow
-  } = useInfoWindow(_extends({}, props, {
-    content: children ? container : props.content
-  }));
+  } = useInfoWindow(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
   }));
