@@ -174,7 +174,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.4.9
+        uses: jaywcjlove/changelog-generator@v1.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           head-ref: ${{steps.create_tag.outputs.version}}
@@ -205,3 +205,6 @@ jobs:
             ${{ steps.changelog.outputs.compareurl }}
 
             ${{ steps.changelog.outputs.changelog }}
+
+            Document react-amap@${{ steps.changelog.outputs.tag }}:
+            https://raw.githack.com/uiwjs/uiw-admin/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
