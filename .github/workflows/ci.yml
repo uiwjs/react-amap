@@ -172,6 +172,17 @@ jobs:
         with:
           package-path: ./packages/amap/package.json
 
+      - name: get tag version
+        id: tag_version
+        uses: jaywcjlove/changelog-generator@v1.5.0
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
+          commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
+
       - name: Generate Changelog
         id: changelog
         uses: jaywcjlove/changelog-generator@v1.5.0
@@ -180,13 +191,6 @@ jobs:
           head-ref: ${{steps.create_tag.outputs.version}}
           filter-author: (renovate-bot|Renovate Bot)
           filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/build
-          commit_message: ${{steps.changelog.outputs.tag}} ${{ github.event.head_commit.message }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
@@ -207,4 +211,4 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
 
             Document react-amap@${{ steps.changelog.outputs.tag }}:
-            https://raw.githack.com/uiwjs/uiw-admin/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
+            https://raw.githack.com/uiwjs/react-amap/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html
