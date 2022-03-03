@@ -31,7 +31,7 @@ export const useMarker = (props: UseMarker = {}) => {
     if (marker) {
       marker.setContent(props.children ? container : props.content || '');
     }
-  }, [props.children, container, marker]);
+  }, [props.children, container, props.content, marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

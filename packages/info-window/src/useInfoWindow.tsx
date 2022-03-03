@@ -34,7 +34,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
-  }, [container, other.content, infoWindow]);
+  }, [props.children, container, other.content, infoWindow]);
 
   useMemo(() => {
     if (isOpen !== visiable && infoWindow && map) {
