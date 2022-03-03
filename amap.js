@@ -1415,7 +1415,7 @@ var useInfoWindow = function useInfoWindow(props) {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
-  }, [container, other.content, infoWindow]);
+  }, [props.children, container, other.content, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
@@ -1772,7 +1772,7 @@ var useMarker = function useMarker(props) {
     if (marker) {
       marker.setContent(props.children ? container : props.content || '');
     }
-  }, [props.children, container, marker]);
+  }, [props.children, container, props.content, marker]);
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
@@ -2178,10 +2178,19 @@ var useText = function useText(props) {
       other = _objectWithoutPropertiesLoose(props, useText_excluded);
 
   var [text, setText] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    container
+  } = useRenderDom({
+    children: props.children
+  });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
 
     if (!text) {
+      if (props.children) {
+        other.text = container.innerHTML;
+      }
+
       var instance = new AMap.Text(_extends({}, other));
       map.add(instance);
       setText(instance);
@@ -2193,6 +2202,11 @@ var useText = function useText(props) {
       };
     }
   }, [map]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (text) {
+      text.setText(props.children ? container.innerHTML : props.text || '');
+    }
+  }, [props.children, props.text, container, text]);
   useVisiable(text, visiable);
   useSettingProperties(text, props, ['Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position', 'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData']);
   useEventProperties(text, props, ['onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging']);
@@ -2205,35 +2219,14 @@ var useText = function useText(props) {
 ;// CONCATENATED MODULE: ../text/esm/index.js
 
 
-var text_esm_excluded = ["children"];
-
-
-
 
 
 var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
-    children
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, text_esm_excluded);
-
-  var textDom = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => document.createElement('div'), []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-    children: children
-  }), textDom), [children]);
-  var labels = children ? textDom.innerHTML : props.text;
-  var {
     text
-  } = useText(_extends({}, other, {
-    text: labels
-  }));
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (children && text) {
-      text.setText(labels || '');
-    }
-  }, [children, text]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, other, {
-    text: text
+  } = useText(_extends({}, props));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    text
   }));
   return null;
 });
