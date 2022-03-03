@@ -174,7 +174,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.4.8
+        uses: jaywcjlove/changelog-generator@v1.4.9
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           head-ref: ${{steps.create_tag.outputs.version}}
@@ -186,7 +186,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/build
-          commit_message: ${{steps.create_tag.outputs.version}} ${{ github.event.head_commit.message }}
+          commit_message: ${{steps.changelog.outputs.tag}} ${{ github.event.head_commit.message }}
 
       - name: Create Release
         uses: ncipollo/release-action@v1
