@@ -40,9 +40,9 @@ ReactDOM.render(<Demo />, _mount_);
 
 <!--rehype:bgWhite=true&codeSandbox=true-->
 ```jsx
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useMap, useRef, useMapContext, APILoader, Provider } from '@uiw/react-amap';
+import { useMap, useMapContext, APILoader, Provider } from '@uiw/react-amap';
 
 const Marker = () => {
   const warpper = useRef(null);
