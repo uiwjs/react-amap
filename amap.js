@@ -895,9 +895,7 @@ var useMap = function useMap(props) {
   } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (container && !map && AMap) {
-      container.className = 'react-amap-wapper';
-      container.style.height = '100%';
-      container.style.width = '100%';
+      container.className = container.className + ' react-amap-wapper';
       var instance = new AMap.Map(container, _extends({
         zoom
       }, other));
@@ -960,7 +958,7 @@ var useMap = function useMap(props) {
 ;// CONCATENATED MODULE: ../map/esm/index.js
 
 
-var _excluded = ["className", "style", "children"];
+var _excluded = ["className", "children"];
 /// <reference types="@uiw/react-amap-types" />
 
 
@@ -982,7 +980,6 @@ function Provider(props) {
 var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
   var {
     className,
-    style,
     children
   } = _ref,
       props = _objectWithoutPropertiesLoose(_ref, _excluded);
@@ -1019,11 +1016,12 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
     }),
     children: [!props.container && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       ref: elmRef,
-      className: className,
+      className: "react-amap-wapper " + className,
       style: _extends({
         fontSize: 1,
+        width: '100%',
         height: '100%'
-      }, style)
+      }, props.style)
     }), AMap && map && typeof children === 'function' && children({
       AMap,
       map,
