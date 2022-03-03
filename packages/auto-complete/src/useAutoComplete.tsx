@@ -4,13 +4,12 @@ import { AutoCompleteProps } from './';
 
 export interface UseAutoComplete extends AutoCompleteProps {}
 export const useAutoComplete = (props = {} as UseAutoComplete) => {
-  const { map, ...other } = props;
   const [autoComplete, setAutoComplete] = useState<AMap.AutoComplete>();
   useEffect(() => {
     if (AMap && !autoComplete) {
       let instance: AMap.AutoComplete;
       AMap.plugin(['AMap.AutoComplete'], () => {
-        instance = new AMap.AutoComplete({ ...other });
+        instance = new AMap.AutoComplete(props);
         setAutoComplete(instance);
       });
       return () => {

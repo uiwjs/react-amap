@@ -72,8 +72,8 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| position | 右键菜单显示的位置 | `Vector | LngLat` | - |
-| content | 右键菜单内容（针对自定义菜单时，添加菜单内容及功能。可以是HTML要素字符串或者HTML DOM对象。） | `string | HTMLElement` | - |
+| position | 右键菜单显示的位置 | `Vector \| LngLat` | - |
+| content | 右键菜单内容（针对自定义菜单时，添加菜单内容及功能。可以是HTML要素字符串或者HTML DOM对象。） | `string \| HTMLElement` | - |
 
 ### 事件
 

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { CircleMarkerProps } from '.';
 
 export interface UseCircleMarker extends CircleMarkerProps {}
 export const useCircleMarker = (props = {} as UseCircleMarker) => {
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
+  const { map } = useMapContext();
   const [circleMarker, setCircleMarker] = useState<AMap.CircleMarker>();
   useEffect(() => {
     if (!AMap || !map) return;

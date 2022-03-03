@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { TextProps } from './';
 
 export interface UseText extends TextProps {}
 export const useText = (props = {} as UseText) => {
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
   const [text, setText] = useState<AMap.Text>();
+  const { map } = useMapContext();
   const { container } = useRenderDom({ children: props.children });
   useEffect(() => {
     if (!AMap || !map) return;

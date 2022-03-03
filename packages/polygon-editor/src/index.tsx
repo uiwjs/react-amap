@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { useEventProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 
 export interface PolygonEditorProps extends AMap.PolygonEditor, AMap.PolygonEditorEvents {
   /** 是否开启编辑功能 */
@@ -8,7 +9,8 @@ export interface PolygonEditorProps extends AMap.PolygonEditor, AMap.PolygonEdit
 }
 
 export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>((props, ref) => {
-  const { active, map, polygon } = props;
+  const { active, polygon } = props;
+  const { map } = useMapContext();
   const [visiable, setVisiable] = useState<boolean>(true);
   const [polyEditor, setPolyEditor] = useState<AMap.PolygonEditor>();
 

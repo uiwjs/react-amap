@@ -154,9 +154,12 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
 
 export function useRenderDom(props: { children: React.ReactNode }) {
   const container = useRef(document.createElement('div'));
-  useLayoutEffect(() => {
-    render(<Fragment>{props.children}</Fragment>, container.current);
-  }, [props.children]);
 
-  return { container: container.current };
+  const [content, setContent] = useState(props.children);
+
+  useLayoutEffect(() => {
+    render(<Fragment>{content}</Fragment>, container.current);
+  }, [content]);
+
+  return { container: container.current, content, setContent };
 }

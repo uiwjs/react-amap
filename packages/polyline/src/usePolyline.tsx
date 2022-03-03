@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { PolylineProps } from '.';
 
 export interface UsePolyline extends PolylineProps {}
 
 export function usePolyline(props = {} as UsePolyline) {
   const [polyline, setPolyline] = useState<AMap.Polyline>();
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !polyline) {
       let instance: AMap.Polyline = new AMap.Polyline({ ...other });

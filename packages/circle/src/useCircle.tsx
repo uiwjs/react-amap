@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { CircleProps } from '.';
 
 export interface UseCircle extends CircleProps {}
 export const useCircle = (props = {} as UseCircle) => {
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
+  const { map } = useMapContext();
   const [circle, setCircle] = useState<AMap.Circle>();
   useEffect(() => {
     if (AMap && map && !circle) {

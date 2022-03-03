@@ -1,10 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { InfoWindowProps } from '.';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 export const useInfoWindow = (props = {} as UseInfoWindow) => {
-  const { map, visiable, position, ...other } = props;
+  const { visiable, position, ...other } = props;
+  const { map } = useMapContext();
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
   const { container } = useRenderDom({ children: props.children });

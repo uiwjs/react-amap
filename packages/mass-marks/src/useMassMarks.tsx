@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { MassMarksProps } from './';
 
 export interface UseMassMarks extends MassMarksProps {}
 export const useMassMarks = (props = {} as UseMassMarks) => {
-  const { map, visiable, ...other } = props;
+  const { visiable, ...other } = props;
+  const { map } = useMapContext();
   const { opacity = 0.8, zIndex = 1111, style, data } = other || {};
   const [massMarks, setMassMarks] = useState<AMap.MassMarks>();
 

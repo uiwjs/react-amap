@@ -1,10 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
+import { useMapContext } from '@uiw/react-amap-map';
 import { GeolocationProps } from '.';
 
 export interface UseGeolocation extends GeolocationProps {}
 export const useGeolocation = (props = {} as UseGeolocation) => {
-  const { map, type = 'position', onComplete, onError, ...other } = props;
+  const { type = 'position', onComplete, onError, ...other } = props;
   const [geolocation, setGeolocation] = useState<AMap.Geolocation>();
+  const { map } = useMapContext();
   useEffect(() => {
     if (AMap && !geolocation) {
       let instance: AMap.Geolocation;

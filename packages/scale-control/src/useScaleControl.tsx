@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useVisiable } from '@uiw/react-amap-utils';
+import { useMapContext } from '@uiw/react-amap-map';
 import { ScaleControlProps } from './';
 
 export interface UseScaleControl extends ScaleControlProps {}
 
 export function useScaleControl(props = {} as UseScaleControl) {
   const [scaleControl, setScaleControl] = useState<AMap.Scale>();
-  const { map, position, visiable, offset } = props;
+  const { position, visiable, offset } = props;
+  const { map } = useMapContext();
   useEffect(() => {
     if (map && !scaleControl) {
       let instance: AMap.Control;
