@@ -334,10 +334,15 @@ var _importedScript = {};
  * load dependency by css tag
  */
 
-function requireCss(src) {
+function requireCss(src, id) {
+  if (id === void 0) {
+    id = '_react_amap_css';
+  }
+
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
+  var dom = document.getElementById(id);
   return new Promise((resolve, reject) => {
-    if (!document || src in _importedScript) {
+    if (!document || src in _importedScript || dom) {
       resolve();
       return;
     }
@@ -345,6 +350,7 @@ function requireCss(src) {
     var script = document.createElement('link');
     script.type = 'text/css';
     script.rel = 'stylesheet';
+    script.id = id;
     script.href = src;
 
     script.onerror = err => {
@@ -366,12 +372,13 @@ function requireCss(src) {
 
 function requireScript(src, id) {
   if (id === void 0) {
-    id = '_react_amap';
+    id = '_react_amap_plugin';
   }
 
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
+  var dom = document.getElementById(id);
   return new Promise((resolve, reject) => {
-    if (!document || src in _importedScript) {
+    if (!document || src in _importedScript || dom) {
       resolve();
       return;
     }
