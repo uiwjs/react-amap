@@ -168,7 +168,7 @@ jobs:
 
       - name: Is a tag created auto?
         id: create_tag
-        uses: jaywcjlove/create-tag-action@v1.3.5
+        uses: jaywcjlove/create-tag-action@v1.3.6
         with:
           package-path: ./packages/amap/package.json
 
