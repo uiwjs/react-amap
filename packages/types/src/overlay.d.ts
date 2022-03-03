@@ -878,6 +878,10 @@ declare namespace AMap {
     getIsOpen(): boolean;
     /** 设置信息窗体大小（isCustom为false时有效） */
     setSize(): Size | Vector;
+    /** 获取信息窗体大小 */
+    setContent(content: HTMLElement | string): void;
+    /** 设置信息窗体锚点 默认值：'bottom-center'。 */
+    setAnchor(anchor: 'top-left'|'top-center'|'top-right'|'middle-left'|'center'|'middle-right'|'bottom-left'|'bottom-center'|'bottom-right'): void;
   }
   interface InforWindowOptions {
     /** 是否自定义窗体。设为true时，信息窗体外框及内容完全按照content所设的值添加（默认为false，即在系统默认的信息窗体外框中显示content内容） */

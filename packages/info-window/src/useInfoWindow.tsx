@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
+import { useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
 import { InfoWindowProps } from '.';
 
 export interface UseInfoWindow extends InfoWindowProps {}
@@ -7,10 +7,15 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   const { map, visiable, position, ...other } = props;
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
+  const { container } = useRenderDom({ children: props.children });
+
   useEffect(() => {
     if (!AMap || !map) return;
     if (!infoWindow) {
       const positionCenter = map.getCenter();
+      if (props.children) {
+        other.content = container;
+      }
       let instance: AMap.InfoWindow = new AMap.InfoWindow({ ...other, position: position || positionCenter });
       setInfoWindow(instance);
       if (isOpen) {
@@ -24,6 +29,12 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
       };
     }
   }, [map]);
+
+  useEffect(() => {
+    if (infoWindow) {
+      infoWindow.setContent(props.children ? container : other.content || '');
+    }
+  }, [container, other.content, infoWindow]);
 
   useMemo(() => {
     if (isOpen !== visiable && infoWindow && map) {
@@ -46,6 +57,8 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   useSettingProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['Content', 'Anchor', 'Size']);
   useEventProperties<AMap.InfoWindow, UseInfoWindow>(infoWindow!, props, ['onOpen', 'onClose', 'onChange']);
   return {
+    isOpen,
+    setIsOpen,
     infoWindow,
     setInfoWindow,
   };
