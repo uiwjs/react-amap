@@ -1617,7 +1617,8 @@ var useInfoWindow = function useInfoWindow(props) {
   var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
-    container
+    container,
+    setContent
   } = useRenderDom({
     children: props.children
   });
@@ -1653,6 +1654,11 @@ var useInfoWindow = function useInfoWindow(props) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
   }, [props.children, container, other.content, infoWindow]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (infoWindow) {
+      setContent(props.children);
+    }
+  }, [props.children, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
