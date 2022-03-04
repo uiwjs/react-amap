@@ -1779,7 +1779,8 @@ var useMarker = function useMarker(props) {
   } = useMapContext();
   var [marker, setMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
-    container
+    container,
+    setContent
   } = useRenderDom({
     children: props.children
   });
@@ -1806,6 +1807,11 @@ var useMarker = function useMarker(props) {
       marker.setContent(props.children ? container : props.content || '');
     }
   }, [props.children, container, props.content, marker]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (marker) {
+      setContent(props.children);
+    }
+  }, [props.children, marker]);
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
