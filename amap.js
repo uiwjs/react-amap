@@ -2245,7 +2245,8 @@ var useText = function useText(props) {
     map
   } = useMapContext();
   var {
-    container
+    container,
+    setContent
   } = useRenderDom({
     children: props.children
   });
@@ -2273,6 +2274,11 @@ var useText = function useText(props) {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (text) {
+      setContent(props.children);
+    }
+  }, [props.children, text]);
   useVisiable(text, visiable);
   useSettingProperties(text, props, ['Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position', 'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData']);
   useEventProperties(text, props, ['onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging']);
