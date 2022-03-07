@@ -202,11 +202,13 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| type | 获取 position: "获取 用户的精确位置，有失败几率" 或 cityInfo: "根据用户 IP 获取 用户所在城市信息" | `position|cityInfo` | `position` |
+| type | 获取 `position`: "获取 用户的精确位置，有失败几率" 或 `cityInfo`: "根据用户 IP 获取 用户所在城市信息" | `position\|cityInfo` | `position` |
+
+[更多 API 参考](https://github.com/uiwjs/react-amap/blob/bb001782e6daa9c28923dcffa131e15885d15fe0/packages/types/src/services.d.ts#L90-L143)
 
 ### 事件
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
-| onComplete | 数据请求完成时触发事件。 | `(data: GeolocationLiveResult | GeolocationForecastResult): void;` |
+| onComplete | 数据请求完成时触发事件。 | `(data: GeolocationLiveResult \| GeolocationForecastResult): void;` |
 | onError | 数据请求错误时触发事件。 | `(err): void;` |
