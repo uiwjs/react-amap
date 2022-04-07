@@ -32,7 +32,7 @@ export const useMap = (props: UseMap = {}) => {
   const [zoom, setZoom] = useState(props.zoom || 15);
   const [container, setContainer] = useState<HTMLDivElement | null | undefined>(props.container);
   const { dispatch } = useContext(Context);
-  useMemo(() => {
+  useEffect(() => {
     if (container && !map && AMap) {
       container.className = container.className + ' react-amap-wapper';
       const instance = new AMap.Map(container, { zoom, ...other });
