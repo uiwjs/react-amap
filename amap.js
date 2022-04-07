@@ -7,7 +7,7 @@
 		exports["@uiw/react-amap"] = factory(require("react"), require("react-dom"));
 	else
 		root["@uiw/react-amap"] = factory(root["React"], root["ReactDOM"]);
-})(self, function(__WEBPACK_EXTERNAL_MODULE__787__, __WEBPACK_EXTERNAL_MODULE__156__) {
+})(self, (__WEBPACK_EXTERNAL_MODULE__787__, __WEBPACK_EXTERNAL_MODULE__156__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -893,7 +893,7 @@ var useMap = function useMap(props) {
   var {
     dispatch
   } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (container && !map && AMap) {
       container.className = container.className + ' react-amap-wapper';
       var instance = new AMap.Map(container, _extends({
