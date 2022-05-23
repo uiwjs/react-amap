@@ -307,21 +307,32 @@ declare namespace AMap {
      * @param ControlType 
      * @param CallBack 
      */
-    plugin(ControlType: Array<
-      'AMap.Scale' |
-      'AMap.HawkEye' |
-      'AMap.MapType' |
-      'AMap.ToolBar' |
-      'AMap.ControlBar' |
-      'AMap.OverView' |
-      'AMap.Weather' |
-      'AMap.HeatMap' |
-      'AMap.MouseTool' |
-      'AMap.PolyEditor' |
-      'AMap.Geocoder' |
-      'AMap.MarkerCluster'
-      >, callBack: () => void): void;
+    plugin(ControlType: Array<ControlType>, callBack: () => void): void;
   }
+  type ControlType = 
+    'AMap.Autocomplete' |
+    'AMap.ControlBar' |
+    'AMap.Driving' |
+    'AMap.DragRoute' |
+    'AMap.ElasticMarker' |
+    'AMap.StationSearch' |
+    'AMap.Scale' |
+    'AMap.Geocoder' |
+    'AMap.HeatMap' |
+    'AMap.HawkEye' |
+    'AMap.LineSearch' |
+    'AMap.MouseTool' |
+    'AMap.MarkerCluster' |
+    'AMap.OverView' |
+    'AMap.PlaceSearch' |
+    'AMap.PolyEditor' |
+    'AMap.Riding' |
+    'AMap.Transfer' |
+    'AMap.TruckDriving' |
+    'AMap.ToolBar' |
+    'AMap.MapType' |
+    'AMap.Walking' |
+    'AMap.Weather';
   interface MapEvents {
     /**
      * 地图缩放级别更改后触发
@@ -564,14 +575,7 @@ declare namespace AMap {
      */
     mask?: Array<number>;
   }
-  function plugin(ControlType: Array<
-    'AMap.Weather' |
-    'AMap.Geolocation' |
-    'AMap.AutoComplete' |
-    'AMap.PlaceSearch' |
-    'AMap.Driving' |
-    'AMap.MoveAnimation'
-  >, callBack: () => void): void;
+  function plugin(ControlType: Array<ControlType>, callBack: () => void): void;
   /**
    * 为坐标转换类，支持将其他坐标系的坐标点转换为高德坐标系。坐标转换方法
    * @param lnglat 
