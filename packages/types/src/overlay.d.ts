@@ -324,11 +324,6 @@ declare namespace AMap {
      */
     strokeWeight?: number;
     /**
-     * 描边线宽度
-     * @default 2 默认值
-     */
-    borderWeight?: number;
-    /**
      * 是否显示描边,默认 `false`
      * @default false 默认值
      */
@@ -744,8 +739,6 @@ declare namespace AMap {
     strokeOpacity?: number;
     /** (default 2) 轮廓线宽度 */
     strokeWeight?: number;
-    /** (default 2) 描边线宽度 */
-    borderWeight?: number;
     /** (default false) 是否显示描边,默认false */
     isOutline?: boolean;
     /** (default 1) 描边的宽度，默认为1 */
