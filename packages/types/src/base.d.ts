@@ -19,12 +19,12 @@ declare namespace AMap {
      * 设置经度值
      * @param lng 经度值
      */
-    setLng?(lng): void;
+    setLng?(lng: number): void;
     /**
      * 获取纬度值
      * @param lat 纬度值
      */
-    setLat?(lat): void;
+    setLat?(lat: number): void;
     /**
      * 获取纬度值
      */
@@ -51,7 +51,7 @@ declare namespace AMap {
      * @param noWrap 是否将相减的结果经度值修正到 [-180,180] 区间内
      * @returns 两个经纬度相减的结果
      */
-    subtract?(another, noWrap): LngLat;
+    subtract?(another: LngLat, noWrap: boolean): LngLat;
     /**
      * 获取从当前经纬度位置向东移动 E 米，向北移动 N 米的坐标位置
      * @param E 经度方向移动，向东为正

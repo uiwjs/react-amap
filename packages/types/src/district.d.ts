@@ -8,10 +8,10 @@ declare namespace AMap {
    * - 国家简易行政区图层 AMap.DistrictLayer.Country [相关示例](https://lbs.amap.com/api/jsapi-v2/example/district/district-chn)
    * - 省市简易行政区图层 AMap.DistrictLayer.Province [相关示例](https://lbs.amap.com/api/jsapi-v2/example/district/district-pro)
    */
-  class DistrictLayer {
-    static World: typeof World;
-    static Country: typeof Country;
-    static Province: typeof Province;
+  class DistrictLayer<DistrictLayerStyle = any> {
+    World: typeof World;
+    Country: typeof Country;
+    Province: typeof Province;
     constructor(opts: DistrictLayerOptions);
     /** 设定显示的国家 SOC */
     setSOC(SOC: string): void;
@@ -22,7 +22,7 @@ declare namespace AMap {
     /** 设置样式信息 */
     setStyles(styles: DistrictLayerStyle): void;
     /** 获取样式信息 */
-    getStyles(): void;
+    getStyles(): DistrictLayerStyle;
     /** 获取该图层可显示的级别范围 */
     setZooms(zooms: [number, number]): void;
     /** 获取图层透明度 */
@@ -44,7 +44,7 @@ declare namespace AMap {
     /** 设置图层层级，数字越大图层层级越高 */
     setzIndex(zIndex: number): void;
   }
-  interface DistrictLayerOptions {
+  interface DistrictLayerOptions<DistrictLayerStyle = any> {
     /**	行政区的编码 adcode与省市行政区对照表 */
     adcode?: string;
     /** (default 'CHN') 设定显示的国家 SOC 国家代码、名称、Bounds对照表下载 */
@@ -69,23 +69,7 @@ declare namespace AMap {
      */
     styles?: DistrictLayerStyle;
   }
-  interface DistrictLayerStyle {
-    /** (default 1)	描边线宽 */
-    ['stroke-width']?: number
-    /** (default [0.18,0.63,0.94,1])	海岸线颜色 */
-    ['coastline-stroke']:? Array<string> | string | Function;
-    /** (default [0.35,0.35,0.35,1])	国境线颜色 */
-    ['nation-stroke']:? Array<string> | string | Function;
-    /** (default [0.5,0.5,0.5,1])	省界颜色 */
-    ['province-stroke']:? Array<string> | string | Function;
-    /** (default [0.7,0.7,0.7,1])	城市界颜色 */
-    ['city-stroke']:? Array<string> | string | Function;
-    /** (default [0.85,0.85,0.85,1])	区/县界颜色 */
-    ['county-stroke']:? Array<string> | string | Function;
-    /** (default [1,1,1,1])	填充色 */
-    fill?: Array<string> | string | Function;
-  }
-  private class World extends DistrictLayer {}
-  private class Country extends DistrictLayer {}
-  private class Province extends DistrictLayer {}
+  class World extends DistrictLayer {}
+  class Country extends DistrictLayer {}
+  class Province extends DistrictLayer {}
 }

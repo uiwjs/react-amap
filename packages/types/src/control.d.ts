@@ -161,7 +161,7 @@ declare namespace AMap {
     /**
      * 缩略图要显示的图层类型，默认为普通矢量地图
      */
-    layers?: array;
+    layers?: any[];
     /**
      * 缩略图的宽度，同CSS，如'200px'
      */

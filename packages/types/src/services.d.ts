@@ -259,7 +259,7 @@ declare namespace AMap {
     /** 设置是否强制限制城市 */
     setCityLimit(citylimit: boolean): void;
     /** 设置是否强制限制城市 */
-    search(keyword?: string, callback: (status: 'complete' | 'error' | 'no_data', result?: AutoCompleteSearchCallback) => void): void;
+    search(keyword?: string, callback?: (status: 'complete' | 'error' | 'no_data', result?: AutoCompleteSearchCallback) => void): void;
   }
   interface AutoCompleteSearchCallback {
     /** 查询状态说明 */

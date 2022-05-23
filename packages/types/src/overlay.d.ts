@@ -3,18 +3,6 @@
 
 declare namespace AMap {
   namespace Overlay {
-    interface EventMap<I> {
-      touchstart: MapsEvent<'touchstart', I>;
-      touchmove: MapsEvent<'touchmove', I>;
-      touchend: MapsEvent<'touchend', I>;
-      click: MapsEvent<'click', I>;
-      rightclick: MapsEvent<'rightclick', I>;
-      dblclick: MapsEvent<'dblclick', I>;
-      mousemove: MapsEvent<'mousemove', I>;
-      mouseover: MapsEvent<'mouseover', I>;
-      mousedown: MapsEvent<'mousedown', I>;
-      mouseup: MapsEvent<'mouseup', I>;
-    }
     interface Options<ExtraData = any> {
       /**
        * 所属地图
@@ -42,16 +30,8 @@ declare namespace AMap {
       draggable?: boolean | undefined;
     }
   }
-  abstract class Overlay<ExtraData = any> extends EventEmitter {
+  abstract class Overlay<ExtraData = any> extends MapEventListener<'touchstart' | 'touchmove' | 'touchend' | 'click' | 'rightclick' | 'dblclick' | 'mousemove' | 'mouseover' | 'mousedown' | 'mouseup'> {
     constructor(options?: Overlay.Options);
-    /**
-     * 显示覆盖物
-     */
-    show(): void;
-    /**
-     * 隐藏覆盖物
-     */
-    hide(): void;
     /**
      * 获取所属地图
      */
@@ -78,10 +58,10 @@ declare namespace AMap {
   /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
-  class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> extends MoveAnimation {
+  class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> {
     constructor(opts: MarkerOptions);
     /** 获取点标记的文字提示 */
-    getTitle(): ?string;
+    getTitle(): string | undefined;
     /** 鼠标滑过点标时的文字提示 */
     setTitle(title: string): void;
     /** 当点标记未自定义图标时，获取Icon内容 */
@@ -156,6 +136,18 @@ declare namespace AMap {
     setAngle(angle: number): void;
     /** 如设置了尺寸，获取设置的尺寸 */
     getSize(): Vector;
+    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
+    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
+    pauseMove(): void;
+    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    resumeMove(): void;
+    /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    stopMove(): void;
+    /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    startMove(): void;
+    /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
+    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
   interface MarkerOptions {
     /**
@@ -980,7 +972,7 @@ declare namespace AMap {
     onChange?(): void;
   }
    /** 文本标记 */
-   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'> extends MoveAnimation {
+   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'> {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
@@ -994,7 +986,7 @@ declare namespace AMap {
     setDraggable(draggable: boolean): void;
     getTop(): boolean;
     getzIndex(): number | undefined;;
-    getMap(): ?Map;
+    getMap(): Map | undefined;
     setMap(map: Map): void;
     addTo(map: Map): void;
     add(map: Map): void;
@@ -1015,6 +1007,18 @@ declare namespace AMap {
     getExtData(): any | undefined;
     setExtData(extData: any | undefined): void;
     remove(): void;
+    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
+    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
+    pauseMove(): void;
+    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    resumeMove(): void;
+    /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    stopMove(): void;
+    /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    startMove(): void;
+    /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
+    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
   interface TextEvents extends EventsCommonProps {
     onMoveaLong?(): void;
@@ -1207,11 +1211,7 @@ declare namespace AMap {
    * 用于实现点标记沿线段或者路径轨迹移动的动画基类，可用于满足轨迹回放、实时轨迹等场景。
    * MoveAnimation无需单独声明或初始化，Marker、Text、LabelMarker均已继承了 MoveAnimation的实现。
    */
-  interface MoveAnimation {
-    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
-    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
-    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    pauseMove(): void;
+  class MoveAnimation {
     /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
     resumeMove(): void;
     /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
@@ -1253,7 +1253,7 @@ declare namespace AMap {
     autoRotation?: boolean;
   }
   /** 标注类 */
-  class LabelMarker extends MapEventListener<'mousedown' | 'mouseup' | 'touchstart' | 'touchmove' | 'touchend' | 'click' | 'mousemove' | 'mouseover' | 'mouseout'> extends MoveAnimation {
+  class LabelMarker extends MapEventListener<'mousedown' | 'mouseup' | 'touchstart' | 'touchmove' | 'touchend' | 'click' | 'mousemove' | 'mouseover' | 'mouseout'> {
     constructor(opts: LabelMarkerOptions);
     getName(): string | undefined;
     setName(name: string): void;
@@ -1278,6 +1278,18 @@ declare namespace AMap {
     getVisible(): boolean | undefined;
     getCollision(): boolean | undefined;
     remove(): void;
+    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
+    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
+    pauseMove(): void;
+    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    resumeMove(): void;
+    /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    stopMove(): void;
+    /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
+    startMove(): void;
+    /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
+    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
   interface LabelMarkerOptions {
     /** 标注名称，作为标注标识，并非最终在地图上显示的文字内容，显示文字内容请设置 opts.text.content */

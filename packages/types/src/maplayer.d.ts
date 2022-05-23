@@ -19,7 +19,7 @@ declare namespace AMap {
     /** 获取图层层级 */
     getzIndex(): number;
     /** 设置图层透明度，范围 [0 ~ 1] */
-    setOpacity(opacity): number;
+    setOpacity(opacity: number): number;
     /** 获取图层透明度 */
     getOpacity(): number;
     /** 获取图层参数信息 */
@@ -211,10 +211,10 @@ declare namespace AMap {
     hideFloorBar?: boolean;
   }
   /** 矢量覆盖物图层，可添加/删除/查询矢量覆盖物(Polygon/Polyline/CircleMarker/Ellipse/RectAngle/BezierCurve)的图层 */
-  class VectorLayer {
+  class VectorLayer<VectorOverlay = any> {
     constructor(opts: VectorLayerOptions);
     /** 添加矢量覆盖物到集合中，不支持添加重复的覆盖物 */
-    add(vectors): void;
+    add(vectors: VectorOverlay | VectorOverlay[]): void;
     /** 删除矢量覆盖物 */
     remove(vectors: VectorLayer | Array<VectorLayer>): void;
     /** 判断传入的矢量覆盖物实例是否在VectorLayer这中 */
@@ -292,11 +292,11 @@ declare namespace AMap {
     /** 热力图中单个点的半径，默认：30，单位：pixel */
     radius?: number;
     /** 热力图的渐变区间，热力图按照设置的颜色及间隔显示热力图，例{0.4:'rgb(0, 255, 255)',0.85:'rgb(100, 0, 255)',},其中 key 表示间隔位置，取值范围： [0,1] ，value 为颜色值。默认：heatmap.js标准配色方案 */
-    gradient?: object;
+    gradient?: Record<number, string>;
     /** 热力图透明度区间数组，取值范围 [0,1] ，0表示完全透明，1表示不透明，默认： [0,1] */
-    opacity?: array;
+    opacity?: number[];
     /** 支持的缩放级别范围，取值范围 [3-20] ，默认： [3,20] */
-    zooms?: array;
+    zooms?: number[];
     /** 是否可见 */
     visible?: boolean;
     /** 热力图层在地图上的叠加顺序，默认 130 */
@@ -308,7 +308,7 @@ declare namespace AMap {
     /** 高度缩放因子，表示在单位高度上的缩放比例， 默认为 1 */
     heightScale?: number;
     /** 影响高度平滑度的贝塞尔曲线因子，默认 [0.5, 0, 1, 0.5] , */
-    heightBezier?: array;
+    heightBezier?: number[];
     /** 取样精度，越小越平滑，越大性能越高 */
     gridSize?: number;
   }

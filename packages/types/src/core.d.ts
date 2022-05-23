@@ -17,7 +17,7 @@ declare namespace AMap {
      * @param immediately 是否立即过渡到目标位置
      * @param duration 如果使用动画过度，动画过度的时长控制，单位 ms，默认值是内部自动计算的一个动态值。
      */
-    setCenter(center: [number, number] | LngLat, immediately: boolean = false, duration?: number): void;
+    setCenter(center: [number, number] | LngLat, immediately: boolean, duration?: number): void;
     /**
      * 地图缩放至指定级别并以指定点为地图显示中心点
      * @param zoom 缩放等级
@@ -25,7 +25,7 @@ declare namespace AMap {
      * @param immediately 是否立即过渡到目位置
      * @param duration 如果使用动画过度，动画过度的时长控制，单位 ms，默认值是内部自动计算的一个动态值。
      */
-    setZoomAndCenter(zoom: number, center: [number, number] | LngLat, immediately: boolean = false, duration?: number);
+    setZoomAndCenter(zoom: number, center: [number, number] | LngLat, immediately: boolean, duration?: number): void;
     /**
      * 获取当前地图视图范围/可视区域。
      * @returns 边界经纬度
@@ -39,7 +39,7 @@ declare namespace AMap {
      * @param immediately 
      * @param duration 
      */
-    setZoom(zoom: number, immediately: boolean = false, duration?: number): void;
+    setZoom(zoom: number, immediately: boolean, duration?: number): void;
     /**
      * 获取当前地图缩放级别, 默认取值范围为[2, 20]
      * @param digits zoom级别的小数位精度，缺省为2
@@ -57,7 +57,7 @@ declare namespace AMap {
      * @param immediately 是否立即过渡到目标位置
      * @param duration 如果使用动画过度，动画过度的时长控制，单位 ms，默认值是内部自动计算的一个动态值。
      */
-    setPitch(Pitch: number, immediately: boolean = false, duration?: number): void;
+    setPitch(Pitch: number, immediately: boolean, duration?: number): void;
     /** 返回地图对象的容器 */
     getContainer(): HTMLElement;
     /** 获取地图顺时针旋转角度, 范围: [0 ~ 360] */
@@ -70,7 +70,7 @@ declare namespace AMap {
      * @param immediately 是否立即过渡到目标位置
      * @param duration 动画过度的时长控制，单位 ms，默认值是内部自动计算的一个动态值。
      */
-    setRotation(rotation: number, immediately: boolean = false, duration?: number)
+    setRotation(rotation: number, immediately: boolean, duration?: number): number
     /**
      * 添加图层到地图上
      * @param layer 地图图层对象
@@ -119,7 +119,7 @@ declare namespace AMap {
      * 设置地图默认鼠标指针样式
      * @param cursor 设置鼠标指针默认样式，参数cursor应符合CSS的cursor属性规范。可为CSS标注中的光标样式， 如：setCursor(“pointer”)等；或者自定义的光标样式， 如：setCursor("url(' https://lbs.amap.com/webapi/static/Images//0.png' ),pointer")
      */
-    setDefaultCursor(cursor): void;
+    setDefaultCursor(cursor: string): void;
     /**
      * 从地图上移除图层
      * @param layer 地图图层
@@ -233,7 +233,7 @@ declare namespace AMap {
      * @param getCityCallBack 查询成功的回调函数
      * @param lnglat 查询的经纬度
      */
-    getCity(getCityCallBack: (data: CityCallBack) => void, lnglat: Array<number>)
+    getCity(getCityCallBack: (data: CityCallBack) => void, lnglat: Array<number>): CityCallBack;
     /**
      * 按照行政区名称或adcode来设置地图显示的中心点。
      * 行政区名称支持中国、省、市、区/县名称，如遇重名的情况，会按城市编码表顺序返回第一个。adcode请在城市编码表中查询。
@@ -251,7 +251,7 @@ declare namespace AMap {
      * @param maxZoom 最大 zoom 级别
      * @returns 新的地图视口范围
      */
-    setFitView(overlays: Array<TileLayer> | null, immediately: boolean = false, avoid: Array<number>, maxZoom?: number): Bounds;
+    setFitView(overlays: Array<TileLayer> | null, immediately: boolean, avoid: Array<number>, maxZoom?: number): Bounds;
     /**
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
      * @param control 控件对象
@@ -268,7 +268,7 @@ declare namespace AMap {
      * - 第二种：官方样式模版,如 "amap://styles/grey"。其他模版样式及自定义地图的使用说明见 [开发指南](https://lbs.amap.com/api/jsapi-v2/guide/map/map-style/) [相关示例](https://lbs.amap.com/api/jsapi-v2/example/personalized-map/set-theme-style/)
      * @param value 
      */
-    setMapStyle(value): void;
+    setMapStyle(value: string): void;
     /**
      * 获取地图显示样式
      */
