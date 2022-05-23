@@ -2,6 +2,79 @@
 /// <reference path="./core.d.ts" />
 
 declare namespace AMap {
+  namespace Overlay {
+    interface EventMap<I> {
+      touchstart: MapsEvent<'touchstart', I>;
+      touchmove: MapsEvent<'touchmove', I>;
+      touchend: MapsEvent<'touchend', I>;
+      click: MapsEvent<'click', I>;
+      rightclick: MapsEvent<'rightclick', I>;
+      dblclick: MapsEvent<'dblclick', I>;
+      mousemove: MapsEvent<'mousemove', I>;
+      mouseover: MapsEvent<'mouseover', I>;
+      mousedown: MapsEvent<'mousedown', I>;
+      mouseup: MapsEvent<'mouseup', I>;
+    }
+    interface Options<ExtraData = any> {
+      /**
+       * 所属地图
+       */
+      map?: Map | undefined;
+      /**
+       * 鼠标悬停时的鼠标样式
+       */
+      cursor?: string | undefined;
+      /**
+       * 自定义数据
+       */
+      extData?: ExtraData | undefined;
+      /**
+       * 事件是否穿透到地图
+       */
+      bubble?: boolean | undefined;
+      /**
+       * 是否支持点击
+       */
+      clickable?: boolean | undefined;
+      /**
+       * 是否支持拖拽
+       */
+      draggable?: boolean | undefined;
+    }
+  }
+  abstract class Overlay<ExtraData = any> extends EventEmitter {
+    constructor(options?: Overlay.Options);
+    /**
+     * 显示覆盖物
+     */
+    show(): void;
+    /**
+     * 隐藏覆盖物
+     */
+    hide(): void;
+    /**
+     * 获取所属地图
+     */
+    getMap(): Map | null | undefined;
+    /**
+     * 设置所属地图
+     * @param map 地图
+     */
+    setMap(map: Map | null): void;
+    /**
+     * 设置自定义数据
+     * @param extData 自定义数据
+     */
+    setExtData(extData: ExtraData): void;
+    /**
+     * 获取自定义数据
+     */
+    getExtData(): ExtraData | {};
+
+    // internal
+    setHeight(height?: number | string): void;
+    getHeight(): number | string;
+  }
   /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
@@ -1136,7 +1209,7 @@ declare namespace AMap {
    */
   interface MoveAnimation {
     /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
-    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts): void;
+    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
     /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
     pauseMove(): void;
     /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
@@ -1146,7 +1219,7 @@ declare namespace AMap {
     /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
     startMove(): void;
     /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
-    moveTo(targetPosition, opts): void;
+    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
   interface MoveAlongObj {}
   type MoveToOptions = {
