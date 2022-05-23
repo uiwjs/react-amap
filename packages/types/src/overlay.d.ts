@@ -915,11 +915,11 @@ declare namespace AMap {
     /** 调用 close 之后触发该事件，target即为编辑后的覆盖物对象 */
     onEnd(data: { target: Polygon}): void;
     /** 增加一个节点时触发此事件 */
-    onAddnode(data: { target: Polygon, lnglat: Lnglat, pixel: Pixel }): void;
+    onAddnode(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 调整折线上某个点时触发此事件 */
-    onAdjust(data: { target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;
+    onAdjust(data: { target: Polygon, lnglat: LngLat, pixel: Pixel}): void;
     /** 移动覆盖物时触发此事件 */
-    onMove(data: { target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;
+    onMove(data: { target: Polygon, lnglat: LngLat, pixel: Pixel}): void;
     /** 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 */
     onAdd(data: { target: Polygon}): void;
   }

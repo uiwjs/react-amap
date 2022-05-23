@@ -1,3 +1,4 @@
+// @ts-ignore
 declare global {
   interface Window {
     AMap: typeof AMap;
