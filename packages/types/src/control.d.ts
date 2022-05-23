@@ -126,7 +126,7 @@ declare namespace AMap {
   /**
    * 鹰眼控件，用于显示缩略地图，显示于地图右下角，可以随主图的视口变化而变化，也可以配置成固定位置实现类似于南海附图的效果。
    */
-  class HawkEye extends Omit<Control, 'addTo' | 'remove'> {
+  class HawkEye extends Control {
     constructor(opts: HawkEyeOptions);
     /**
      * 恢复鹰眼控件的正常大小

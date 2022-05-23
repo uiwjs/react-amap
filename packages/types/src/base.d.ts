@@ -261,7 +261,7 @@ declare namespace AMap {
     imageSize?: Size;
   }
   /** 共同部分事件定义 */
-  private interface EventsCommonProps {
+  interface EventsCommonProps {
     /** 鼠标左键单击事件 */
     onClick?(event: MapsEvent): void;
     /** 鼠标左键双击事件 */

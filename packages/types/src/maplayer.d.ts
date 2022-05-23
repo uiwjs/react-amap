@@ -102,7 +102,8 @@ declare namespace AMap {
   }
   interface WMTSLayerOptions extends WMSLayerOptions {}
   /** 卫星图层类，继承自 TileLayer。 */
-  class Satellite extends Omit<TileLayer, 'setTileUrl', 'reload'> {
+  class Satellite extends TileLayer {
+  // class Satellite extends Omit<typeof TileLayer, 'setTileUrl', 'reload'> {
     constructor(opts: SatelliteLayerOptions);
     /** 销毁图层 */
     destroy(): void;
@@ -110,7 +111,7 @@ declare namespace AMap {
   /** 卫星图层类，继承自 TileLayer。 */
   interface SatelliteLayerOptions extends Omit<TileLayerOptions, 'tileUrl' | 'dataZooms'> {}
   /** 实时交通图层类，继承自TileLayer。 */
-  class Traffic extends Omit<TileLayer, 'setTileUrl', 'reload'> {
+  class Traffic extends TileLayer {
     constructor(opts: TrafficLayerOptions);
     /** 停止自动更新数据 */
     stopFresh(): void;
