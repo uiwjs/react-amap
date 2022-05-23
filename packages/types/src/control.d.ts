@@ -42,21 +42,21 @@ declare namespace AMap {
    * 比例尺插件。位于地图右下角，用户可控制其显示与隐藏。继承自 AMap.Control [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
    */
   class Scale extends Control {
-    constructor(opts: ScaleOptions);
+    constructor(opts?: ScaleOptions);
   }
   interface ScaleOptions extends ControlOptions {}
   /**
    * 地图操作工具条插件。可支持方向导航、位置定位、视野级别缩放、视野级别选择等操作。继承自 AMap.Control [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
    */
   class ToolBar extends Control {
-    constructor(opts: ToolBarOptions);
+    constructor(opts?: ToolBarOptions);
   }
   interface ToolBarOptions extends ControlOptions {}
   /**
    * 地图类型切换插件。用户通过该插件进行地图切换。
    */
   class MapType extends Control {
-    constructor(opts:MapTypeOptions);
+    constructor(opts?: MapTypeOptions);
   }
   interface MapTypeOptions {
     /**

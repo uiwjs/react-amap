@@ -81,7 +81,7 @@ const Demo = () => (
   </div>
 );
 ReactDOM.render((
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader version="2.0.5" akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 ), _mount_);
