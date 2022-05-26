@@ -17,7 +17,7 @@ declare namespace AMap {
      * @param immediately 是否立即过渡到目标位置
      * @param duration 如果使用动画过度，动画过度的时长控制，单位 ms，默认值是内部自动计算的一个动态值。
      */
-    setCenter(center: [number, number] | LngLat, immediately: boolean, duration?: number): void;
+    setCenter(center: [number, number] | LngLat, immediately?: boolean, duration?: number): void;
     /**
      * 地图缩放至指定级别并以指定点为地图显示中心点
      * @param zoom 缩放等级
@@ -39,7 +39,7 @@ declare namespace AMap {
      * @param immediately 
      * @param duration 
      */
-    setZoom(zoom: number, immediately: boolean, duration?: number): void;
+    setZoom(zoom: number, immediately?: boolean, duration?: number): void;
     /**
      * 获取当前地图缩放级别, 默认取值范围为[2, 20]
      * @param digits zoom级别的小数位精度，缺省为2

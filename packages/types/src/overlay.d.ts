@@ -56,6 +56,17 @@ declare namespace AMap {
     getHeight(): number | string;
   }
   /**
+   * 添加文本标注
+   */
+  interface MarkerLabelOptions {
+    /** 文本标注的内容 */
+    content?: string;
+    /** 文本标注方位 可选值，默认值: `right`。 */
+    direction?: 'top'|'right'|'bottom'|'left'|'center';
+    /** 为偏移量。如设置了 direction，以 direction 方位为基准点进行偏移。 */
+    offset?: AMap.Pixel;
+  }
+  /**
    * [点标记](https://a.amap.com/jsapi/static/doc/index.html?v=2#marker)
    */
   class Marker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> {
@@ -69,9 +80,9 @@ declare namespace AMap {
     /** 当点标记未自定义图标时，获取Icon内容 */
     setIcon(icon: Icon | string): void;
     /** 获取点标记文本标签内容 */
-    getLabel(): TextOptions;
+    getLabel(): MarkerLabelOptions;
     /** 设置点标记文本标签内容相关示例（https://lbs.amap.com/api/javascript-api/example/marker/set-marker-text-label/） */
-    setLabel(opts: TextOptions): void;
+    setLabel(opts: MarkerLabelOptions): void;
     /** 获取点标记是否支持鼠标单击事件Boolean */
     getClickable(): boolean;
     /** 设置点标记是支持鼠标单击事件clickable:Boolean */
