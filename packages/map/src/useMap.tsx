@@ -40,10 +40,10 @@ export const useMap = (props: UseMap = {}) => {
     }
     return () => {
       if (map) {
-        map.destroy();
-        map.clearMap();
         map.clearInfoWindow();
         map.clearLimitBounds();
+        map.clearMap();
+        map.destroy();
         setMap(undefined);
       }
     };
