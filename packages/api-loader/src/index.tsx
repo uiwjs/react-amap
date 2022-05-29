@@ -38,6 +38,10 @@ export interface APILoaderConfig {
    * @example `AMap.ToolBar,AMap.Driving`
    */
   plugin?: string;
+  /**
+   * 子元素
+   */
+  children?: React.ReactNode;
 }
 
 export function delay(time: number): Promise<undefined> {
