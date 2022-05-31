@@ -1,9 +1,9 @@
 /// <reference types="@uiw/react-amap-types" />
 
-import React, { Component } from 'react';
+import React, { Component, PropsWithChildren } from 'react';
 import { requireScript } from '@uiw/react-amap-require-script';
 
-export interface APILoaderConfig {
+export type APILoaderConfig = PropsWithChildren<{
   /**
    * akay 密钥
    * 您需先[申请密钥(ak)](https://lbs.amap.com/dev/key/app)。开发文档说明地址：https://lbs.amap.com/api/javascript-api/guide/abc/prepare
@@ -38,11 +38,7 @@ export interface APILoaderConfig {
    * @example `AMap.ToolBar,AMap.Driving`
    */
   plugin?: string;
-  /**
-   * 子元素
-   */
-  children?: React.ReactNode;
-}
+}>
 
 export function delay(time: number): Promise<undefined> {
   return new Promise((resolve, reject) => {
