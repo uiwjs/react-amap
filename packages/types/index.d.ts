@@ -10,3 +10,4 @@
 /// <reference path="./src/maplayer.d.ts" />
 /// <reference path="./src/overlay.d.ts" />
 /// <reference path="./src/services.d.ts" />
+/// <reference path="./src/driving.d.ts" />
