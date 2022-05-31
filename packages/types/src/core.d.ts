@@ -539,6 +539,17 @@ declare namespace AMap {
      * 设置地图的显示样式，目前支持两种地图样式：
      * - 第一种：自定义地图样式，如 "amap://styles/d6bf8c1d69cea9f5c696185ad4ac4c86" 可前往地图自定义平台定制自己的个性地图样式；
      * - 第二种：官方样式模版,如"amap://styles/grey"。 其他模版样式及自定义地图的使用说明见开发指南
+     * - `amap://styles/normal`,
+     * - `amap://styles/dark`,
+     * - `amap://styles/light`,
+     * - `amap://styles/whitesmoke`,
+     * - `amap://styles/fresh`,
+     * - `amap://styles/grey`,
+     * - `amap://styles/graffiti`,
+     * - `amap://styles/macaron`,
+     * - `amap://styles/blue`,
+     * - `amap://styles/darkblue`,
+     * - `amap://styles/wine`,
      */
     mapStyle?: string;
     /**
