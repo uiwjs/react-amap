@@ -9,7 +9,7 @@ declare namespace AMap {
    * 若服务请求失败，系统将返回错误信息
    */
   class Driving {
-    constructor(opts: ControlBarOptions);
+    constructor(opts: DrivingOptions);
   }
   interface DrivingOptions {
     /**  AMap.Map对象, 展现结果的地图实例。当指定此参数后，搜索结果的标注、线路等均会自动添加到此地图上。可选 */
