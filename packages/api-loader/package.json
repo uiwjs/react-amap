@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-api-loader",
-  "version": "2.7.19",
+  "version": "2.7.20",
   "description": "用于加载高德地图 SDK 依赖，加载完成，全局将会有 **`window.AMap`** 对象。",
   "homepage": "https://uiwjs.github.io/react-amap/#/api-loader",
   "main": "cjs/index.js",
@@ -33,8 +33,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-require-script": "2.7.19",
-    "@uiw/react-amap-types": "2.7.19"
+    "@uiw/react-amap-require-script": "2.7.20",
+    "@uiw/react-amap-types": "2.7.20"
   },
   "devDependencies": {
     "@types/react": "~17.0.39",
