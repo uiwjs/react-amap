@@ -18,7 +18,7 @@ declare namespace AMap {
    * DrivingOptions 允许设置驾车策略和返回信息详略。用户可以通过自定义回调函数取回并显示查询结果。
    * 若服务请求失败，系统将返回错误信息
    */
-  class Driving {
+  class Driving extends MapEventListener<'complete' | 'error'> {
     constructor(opts: DrivingOptions);
     /** 清除搜索结果 */
     clear(): void;
@@ -39,6 +39,12 @@ declare namespace AMap {
     setProvinceAndNumber(province: string, number: string): void;
     /** 设置驾车路线规划策略。可选值为： 0：推荐路线及最快路线综合 1：推荐路线 2：最快路线 */
     setPolicy(policy: number): void;
+  }
+  interface DrivingEvents {
+    /** 当查询成功时触发此事件 */
+    onComplete?: (result: DrivingResult) => void;
+    /** 当查询失败时触发此事件 */
+    onError?: (result: DrivingResult) => void;
   }
   interface DrivingOptions {
     /**  AMap.Map对象, 展现结果的地图实例。当指定此参数后，搜索结果的标注、线路等均会自动添加到此地图上。可选 */
