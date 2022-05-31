@@ -2,6 +2,16 @@
 /// <reference path="./core.d.ts" />
 
 declare namespace AMap {
+  interface DrivingSearch {
+    /**
+     * 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定
+     * @param points 终点经纬度points为起点、终点和途经点（可选）名称及对应城市的数组，例如： [{keyword:‘北京南站’,city:‘北京市’},{keyword:‘广东大厦’,city:’北京市’},{ keyword:‘北京西站’,city:‘北京市’}] 系统取数组第一个元素和最后一个元素作为起点和终点，中间元素为途经点；
+     * @param callback status为complete时，result为DrivingResult；当status为error时，result为错误信息info；当status为no_data时，代表检索返回0结果。
+     */
+    (points: Array<{keyword: string;city: string}>, callback: (result: DrivingCallback) => void): void;
+    /** 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定 */
+    (origin: LngLat, destination: LngLat, opts: { waypoints: Array<LngLat>; }, callback: (result: DrivingCallback) => void): void;
+  }
   /**
    * 驾车路线规划服务，提供起、终点坐标的驾车导航路线[查询功能](https://a.amap.com/jsapi/static/doc/index.html#drivingresult)。
    * AMap.Driving 构造函数的参数为 DrivingOptions 对象。
@@ -12,14 +22,7 @@ declare namespace AMap {
     constructor(opts: DrivingOptions);
     /** 清除搜索结果 */
     clear(): void;
-    /**
-     * 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定
-     * @param points 终点经纬度points为起点、终点和途经点（可选）名称及对应城市的数组，例如： [{keyword:‘北京南站’,city:‘北京市’},{keyword:‘广东大厦’,city:’北京市’},{ keyword:‘北京西站’,city:‘北京市’}] 系统取数组第一个元素和最后一个元素作为起点和终点，中间元素为途经点；
-     * @param callback status为complete时，result为DrivingResult；当status为error时，result为错误信息info；当status为no_data时，代表检索返回0结果。
-     */
-    search(points: Array<{keyword: string;city: string}>, callback: (result: DrivingCallback) => void);
-    /** 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定 */
-    search(origin: LngLat, destination: LngLat, opts: { waypoints: Array<LngLat>; }, callback: (result: DrivingCallback) => void);
+    search: DrivingSearch;
     /** 设置避让区域，最大支持三个避让区域，参数为LngLat的二维数组 */
     setAvoidPolygons(areas: Array<Array<LngLatLike>>): void;
     /** 清除避让区域 */
