@@ -312,8 +312,10 @@ declare namespace AMap {
   type ControlType = 
     'AMap.Autocomplete' |
     'AMap.ControlBar' |
+    'AMap.CloudDataSearch' |
     'AMap.Driving' |
     'AMap.DragRoute' |
+    'AMap.DistrictSearch' |
     'AMap.ElasticMarker' |
     'AMap.StationSearch' |
     'AMap.Scale' |
