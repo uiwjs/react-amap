@@ -8,9 +8,9 @@ declare namespace AMap {
      * @param points 终点经纬度points为起点、终点和途经点（可选）名称及对应城市的数组，例如： [{keyword:‘北京南站’,city:‘北京市’},{keyword:‘广东大厦’,city:’北京市’},{ keyword:‘北京西站’,city:‘北京市’}] 系统取数组第一个元素和最后一个元素作为起点和终点，中间元素为途经点；
      * @param callback status为complete时，result为DrivingResult；当status为error时，result为错误信息info；当status为no_data时，代表检索返回0结果。
      */
-    (points: Array<{keyword: string;city: string}>, callback: (result: DrivingCallback) => void): void;
+    (points: Array<{keyword: string;city: string}>, callback?: (status: 'error' | 'complete' | 'no_data', result: DrivingResult) => void): void;
     /** 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定 */
-    (origin: LngLat, destination: LngLat, opts: { waypoints: Array<LngLat>; }, callback: (result: DrivingCallback) => void): void;
+    (origin: LngLat, destination: LngLat, opts: { waypoints: Array<LngLat>; }, callback?: (status: 'error' | 'complete' | 'no_data', result: DrivingResult) => void): void;
   }
   /**
    * 驾车路线规划服务，提供起、终点坐标的驾车导航路线[查询功能](https://a.amap.com/jsapi/static/doc/index.html#drivingresult)。
@@ -66,7 +66,6 @@ declare namespace AMap {
     /**  用于控制在路径规划结束后，是否自动调整地图视野使绘制的路线处于视口的可见范围 */
     autoFitView?: boolean;
   }
-  type DrivingCallback = () => DrivingResult;
   interface DrivingResult {
     /** 成功状态说明 */
     info: string;
