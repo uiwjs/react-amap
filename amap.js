@@ -255,6 +255,7 @@ __webpack_require__.d(__webpack_exports__, {
   "ToolBarControl": () => (/* reexport */ ToolBarControl),
   "Weather": () => (/* reexport */ Weather),
   "delay": () => (/* reexport */ delay),
+  "getReactDOMClient": () => (/* reexport */ getReactDOMClient),
   "initialState": () => (/* reexport */ initialState),
   "reducer": () => (/* reexport */ reducer),
   "requireCss": () => (/* reexport */ requireCss),
@@ -595,7 +596,9 @@ function _extends() {
 }
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
+var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default = /*#__PURE__*/__webpack_require__.n(external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_);
 ;// CONCATENATED MODULE: ../utils/esm/index.js
+
 
 /// <reference types="@uiw/react-amap-types" />
 
@@ -772,19 +775,68 @@ function useSettingProperties(instance, props, propsName) {
     }, [instance, props[vName]]);
   });
 }
+var getReactDOMClient = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator(function* () {
+    var _ReactDOM;
+
+    try {
+      // @ts-ignore
+      _ReactDOM = yield import(
+      /* webpackIgnore: true */
+      'react-dom/client'); // 使用 require 解决 react v17 ts 报错问题
+      // _ReactDOM = require('react-dom/client');
+    } catch (err) {// console.warn(`如果使用的是 react-dom 小于v18的版本，可以忽略此警告：${err}`)
+    }
+
+    return _ReactDOM;
+  });
+
+  return function getReactDOMClient() {
+    return _ref.apply(this, arguments);
+  };
+}();
+/**
+ * react 17
+ *
+ * ```jsx
+ * import ReactDOM from 'react-dom';
+ * ReactDOM.render(<div>, _mount_ );
+ * ```
+ *
+ * react 18
+ *
+ * ```jsx
+ * import ReactDOM from 'react-dom/client';
+ * ReactDOM.createRoot(_mount_).render(<div />)
+ * ```
+ */
+
 function useRenderDom(props) {
   var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(document.createElement('div'));
-  var [content, setContent] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.children);
+  var ReactDOMClient = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useCallback)( /*#__PURE__*/_asyncToGenerator(function* () {
+    return window.ReactDOM ? window.ReactDOM : yield getReactDOMClient();
+  }), []);
+  var maybeV18Root = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
-    (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-      children: content
-    }), container.current);
-  }, [content]);
-  return {
-    container: container.current,
-    content,
-    setContent
-  };
+    _asyncToGenerator(function* () {
+      var RDom = (yield ReactDOMClient()) || (external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default());
+      var isV18 = Reflect.has(RDom, 'createRoot');
+      maybeV18Root.current = isV18 ? RDom.createRoot(container.current) : null;
+    })();
+  }, []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
+    if (maybeV18Root.current) {
+      // @ts-ignore
+      maybeV18Root.current.render( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+        children: props.children
+      }));
+    } else if ((external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default())) {
+      external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_default().render( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+        children: props.children
+      }), container.current);
+    }
+  }, [props.children, container.current, maybeV18Root.current]);
+  return container.current;
 }
 
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
@@ -1616,10 +1668,7 @@ var useInfoWindow = function useInfoWindow(props) {
   } = useMapContext();
   var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    container,
-    setContent
-  } = useRenderDom({
+  var container = useRenderDom({
     children: props.children
   });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -1654,11 +1703,6 @@ var useInfoWindow = function useInfoWindow(props) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
   }, [props.children, container, other.content, infoWindow]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (infoWindow) {
-      setContent(props.children);
-    }
-  }, [props.children, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
@@ -1784,10 +1828,7 @@ var useMarker = function useMarker(props) {
     map
   } = useMapContext();
   var [marker, setMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    container,
-    setContent
-  } = useRenderDom({
+  var container = useRenderDom({
     children: props.children
   });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -1812,12 +1853,12 @@ var useMarker = function useMarker(props) {
     if (marker) {
       marker.setContent(props.children ? container : props.content || '');
     }
-  }, [props.children, container, props.content, marker]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (marker) {
-      setContent(props.children);
-    }
-  }, [props.children, marker]);
+  }, [props.children, container, props.content, marker]); // useEffect(() => {
+  //   if (marker) {
+  //     setContent(props.children);
+  //   }
+  // }, [props.children, marker]);
+
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
@@ -2244,10 +2285,7 @@ var useText = function useText(props) {
   var {
     map
   } = useMapContext();
-  var {
-    container,
-    setContent
-  } = useRenderDom({
+  var container = useRenderDom({
     children: props.children
   });
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -2274,11 +2312,6 @@ var useText = function useText(props) {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (text) {
-      setContent(props.children);
-    }
-  }, [props.children, text]);
   useVisiable(text, visiable);
   useSettingProperties(text, props, ['Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position', 'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData']);
   useEventProperties(text, props, ['onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging']);
