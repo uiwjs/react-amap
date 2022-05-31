@@ -10,7 +10,7 @@ declare namespace AMap {
      */
     (points: Array<{keyword: string;city: string}>, callback?: (status: 'error' | 'complete' | 'no_data', result: DrivingResult) => void): void;
     /** 根据起点、终点和途经点（可选）坐标或名称，实现驾车路线规划，途经点通过opts设定 */
-    (origin: LngLat, destination: LngLat, opts: { waypoints: Array<LngLat>; }, callback?: (status: 'error' | 'complete' | 'no_data', result: DrivingResult) => void): void;
+    (origin: LngLat, destination: LngLat, opts: { waypoints?: Array<LngLat>; }, callback?: (status: 'error' | 'complete' | 'no_data', result: DrivingResult) => void): void;
   }
   /**
    * 驾车路线规划服务，提供起、终点坐标的驾车导航路线[查询功能](https://a.amap.com/jsapi/static/doc/index.html#drivingresult)。
