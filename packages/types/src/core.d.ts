@@ -317,6 +317,7 @@ declare namespace AMap {
     'AMap.DragRoute' |
     'AMap.DistrictSearch' |
     'AMap.ElasticMarker' |
+    'AMap.Geolocation' |
     'AMap.StationSearch' |
     'AMap.Scale' |
     'AMap.Geocoder' |
