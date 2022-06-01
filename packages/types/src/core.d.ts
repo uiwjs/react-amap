@@ -310,7 +310,7 @@ declare namespace AMap {
     plugin(ControlType: Array<ControlType>, callBack: () => void): void;
   }
   type ControlType = 
-    'AMap.Autocomplete' |
+    'AMap.AutoComplete' |
     'AMap.ControlBar' |
     'AMap.CloudDataSearch' |
     'AMap.Driving' |
