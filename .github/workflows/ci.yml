@@ -16,6 +16,7 @@ jobs:
       - run: npm -v
       - run: npm install
       - run: npm run build
+      - run: npm install --workspaces
       - run: npm run type-check
       - run: npm run doc:build
 
