@@ -149,11 +149,10 @@ Package | Bundle size(gzip) | Version/unpkg
 
 ```bash
 npm install         # Step 1: 安装依赖
-npm run hoist       # Step 2: 安装子包依赖
-npm run build       # Step 3: 编译所有包
+npm run build       # Step 2: 编译所有包
 
-npm run watch:amap  # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
 npm run start       # 文档网站运行
+npm run watch:amap  # 监听编译输出 js 文件, 监听编译输出 .d.ts 类型文件
 ```
 
 ## 相关连接
