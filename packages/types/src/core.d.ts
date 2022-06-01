@@ -152,7 +152,7 @@ declare namespace AMap {
      * 删除覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features Array<any> | VectorOverlay
      */
-    remove(features: Array<any> | TileLayer | HawkEye | Marker | InfoWindow | Circle | Polygon): void;
+    remove(features: Array<any> | TileLayer | Polyline | Marker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
     /**
      * 注销地图对象，并清空地图容器
      */
