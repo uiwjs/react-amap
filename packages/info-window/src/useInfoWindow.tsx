@@ -9,7 +9,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   const { map } = useMapContext();
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
-  const container = useRenderDom({ children: props.children });
+  const { container, setContent } = useRenderDom({ children: props.children });
 
   useEffect(() => {
     if (!AMap || !map) return;
@@ -37,6 +37,12 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
   }, [props.children, container, other.content, infoWindow]);
+
+  useEffect(() => {
+    if (infoWindow) {
+      setContent(props.children);
+    }
+  }, [props.children, infoWindow]);
 
   useMemo(() => {
     if (isOpen !== visiable && infoWindow && map) {

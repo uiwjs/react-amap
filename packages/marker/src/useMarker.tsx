@@ -8,7 +8,7 @@ export const useMarker = (props: UseMarker = {}) => {
   const { visiable, children, ...other } = props;
   const { map } = useMapContext();
   const [marker, setMarker] = useState<AMap.Marker>();
-  const container = useRenderDom({ children: props.children });
+  const { container, setContent } = useRenderDom({ children: props.children });
 
   useEffect(() => {
     if (!marker && map) {
@@ -33,11 +33,11 @@ export const useMarker = (props: UseMarker = {}) => {
     }
   }, [props.children, container, props.content, marker]);
 
-  // useEffect(() => {
-  //   if (marker) {
-  //     setContent(props.children);
-  //   }
-  // }, [props.children, marker]);
+  useEffect(() => {
+    if (marker) {
+      setContent(props.children);
+    }
+  }, [props.children, marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

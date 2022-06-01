@@ -1,6 +1,6 @@
 /// <reference types="@uiw/react-amap-types" />
-import ReactDOM from 'react-dom';
-import React, { Fragment, useEffect, useState, useRef, useLayoutEffect, useCallback } from 'react';
+import { render } from 'react-dom';
+import React, { Fragment, useEffect, useState, useRef, useLayoutEffect } from 'react';
 
 /**
  * 对实例有 setStatus 更改状态的处理
@@ -152,55 +152,14 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
   });
 }
 
-export const getReactDOMClient = async () => {
-  let _ReactDOM;
-  try {
-    // @ts-ignore
-    _ReactDOM = await import(/* webpackIgnore: true */ 'react-dom/client');
-    // 使用 require 解决 react v17 ts 报错问题
-    // _ReactDOM = require('react-dom/client');
-  } catch (err) {
-    // console.warn(`如果使用的是 react-dom 小于v18的版本，可以忽略此警告：${err}`)
-  }
-  return _ReactDOM;
-};
-
-/**
- * react 17
- *
- * ```jsx
- * import ReactDOM from 'react-dom';
- * ReactDOM.render(<div>, _mount_ );
- * ```
- *
- * react 18
- *
- * ```jsx
- * import ReactDOM from 'react-dom/client';
- * ReactDOM.createRoot(_mount_).render(<div />)
- * ```
- */
 export function useRenderDom(props: { children: React.ReactNode }) {
   const container = useRef(document.createElement('div'));
-  const ReactDOMClient = useCallback(async () => (window.ReactDOM ? window.ReactDOM : await getReactDOMClient()), []);
-  const maybeV18Root = useRef();
+
+  const [content, setContent] = useState(props.children);
 
   useLayoutEffect(() => {
-    (async () => {
-      const RDom = (await ReactDOMClient()) || ReactDOM;
-      const isV18 = Reflect.has(RDom, 'createRoot');
-      maybeV18Root.current = isV18 ? RDom.createRoot(container.current) : null;
-    })();
-  }, []);
+    render(<Fragment>{content}</Fragment>, container.current);
+  }, [content]);
 
-  useLayoutEffect(() => {
-    if (maybeV18Root.current) {
-      // @ts-ignore
-      maybeV18Root.current.render(<Fragment>{props.children}</Fragment>);
-    } else if (ReactDOM) {
-      ReactDOM.render(<Fragment>{props.children}</Fragment>, container.current);
-    }
-  }, [props.children, container.current, maybeV18Root.current]);
-
-  return container.current;
+  return { container: container.current, content, setContent };
 }

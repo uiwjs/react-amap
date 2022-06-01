@@ -8,7 +8,7 @@ export const useText = (props = {} as UseText) => {
   const { visiable, ...other } = props;
   const [text, setText] = useState<AMap.Text>();
   const { map } = useMapContext();
-  const container = useRenderDom({ children: props.children });
+  const { container, setContent } = useRenderDom({ children: props.children });
   useEffect(() => {
     if (!AMap || !map) return;
     if (!text) {
@@ -32,6 +32,12 @@ export const useText = (props = {} as UseText) => {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
+
+  useEffect(() => {
+    if (text) {
+      setContent(props.children);
+    }
+  }, [props.children, text]);
 
   useVisiable(text!, visiable);
   useSettingProperties<AMap.Text, UseText>(text!, props, [
