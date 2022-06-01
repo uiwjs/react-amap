@@ -36,7 +36,7 @@
     "watch:utils": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-utils",
     "watch:weather": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-weather",
     "⬆️⬆️⬆️⬆️⬆️ watch ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
-    "type-check": "lerna exec \"tsc --noEmit\" --scope @uiw/react-amap-text",
+    "type-check": "lerna exec \"tsc --noEmit\" --scope @uiw/*",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "bootstrap": "lerna bootstrap",
     "hoist": "lerna bootstrap --hoist",
