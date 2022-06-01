@@ -277,9 +277,9 @@ __webpack_require__.d(__webpack_exports__, {
   "useMassMarks": () => (/* reexport */ useMassMarks),
   "usePolygon": () => (/* reexport */ usePolygon),
   "usePolyline": () => (/* reexport */ usePolyline),
+  "usePortal": () => (/* reexport */ usePortal),
   "usePrevious": () => (/* reexport */ usePrevious),
   "useRectangle": () => (/* reexport */ useRectangle),
-  "useRenderDom": () => (/* reexport */ useRenderDom),
   "useScaleControl": () => (/* reexport */ useScaleControl),
   "useSetStatus": () => (/* reexport */ useSetStatus),
   "useSettingProperties": () => (/* reexport */ useSettingProperties),
@@ -595,6 +595,50 @@ function _extends() {
 }
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
+;// CONCATENATED MODULE: ../utils/esm/usePortal.js
+
+
+var usePortal = () => {
+  var [container] = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useState(() => {
+    var el = document.createElement('div');
+    return el;
+  });
+  var [portal, setPortal] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)({
+    render: () => null,
+    remove: () => null
+  });
+  var ReactCreatePortal = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useCallback(elmm => {
+    var Portal = _ref => {
+      var {
+        children
+      } = _ref;
+      if (!children) return null;
+      return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
+    };
+
+    var remove = elm => {
+      elm && (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.unmountComponentAtNode)(elm);
+    };
+
+    return {
+      render: Portal,
+      remove
+    };
+  }, []);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (container) portal.remove();
+    var newPortal = ReactCreatePortal(container);
+    setPortal(newPortal);
+    return () => {
+      newPortal.remove(container);
+    };
+  }, [container]);
+  return {
+    Portal: portal.render,
+    container
+  };
+};
+
 ;// CONCATENATED MODULE: ../utils/esm/index.js
 
 /// <reference types="@uiw/react-amap-types" />
@@ -606,7 +650,6 @@ var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_
  * @param props
  * @param propsName
  */
-
 
 function useSetStatus(instance, props, propsName) {
   if (props === void 0) {
@@ -771,20 +814,6 @@ function useSettingProperties(instance, props, propsName) {
 
     }, [instance, props[vName]]);
   });
-}
-function useRenderDom(props) {
-  var container = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(document.createElement('div'));
-  var [content, setContent] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.children);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
-    (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.render)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-      children: content
-    }), container.current);
-  }, [content]);
-  return {
-    container: container.current,
-    content,
-    setContent
-  };
 }
 
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
@@ -1618,10 +1647,8 @@ var useInfoWindow = function useInfoWindow(props) {
   var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     container,
-    setContent
-  } = useRenderDom({
-    children: props.children
-  });
+    Portal
+  } = usePortal();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
 
@@ -1654,11 +1681,6 @@ var useInfoWindow = function useInfoWindow(props) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
   }, [props.children, container, other.content, infoWindow]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (infoWindow) {
-      setContent(props.children);
-    }
-  }, [props.children, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
@@ -1682,7 +1704,8 @@ var useInfoWindow = function useInfoWindow(props) {
     isOpen,
     setIsOpen,
     infoWindow,
-    setInfoWindow
+    setInfoWindow,
+    InfoWindowPortal: Portal
   };
 };
 
@@ -1691,14 +1714,18 @@ var useInfoWindow = function useInfoWindow(props) {
 
 
 
+
 var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
-    infoWindow
+    infoWindow,
+    InfoWindowPortal
   } = useInfoWindow(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
   }));
-  return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(InfoWindowPortal, {
+    children: props.children
+  });
 });
 
 ;// CONCATENATED MODULE: ../map-type-control/esm/useMapTypeControl.js
@@ -1786,10 +1813,8 @@ var useMarker = function useMarker(props) {
   var [marker, setMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     container,
-    setContent
-  } = useRenderDom({
-    children: props.children
-  });
+    Portal
+  } = usePortal();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!marker && map) {
       if (props.children) {
@@ -1808,22 +1833,13 @@ var useMarker = function useMarker(props) {
       }
     };
   }, [map, marker]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (marker) {
-      marker.setContent(props.children ? container : props.content || '');
-    }
-  }, [props.children, container, props.content, marker]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (marker) {
-      setContent(props.children);
-    }
-  }, [props.children, marker]);
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     marker,
-    setMarker
+    setMarker,
+    MarkerPortal: Portal
   };
 };
 
@@ -1832,14 +1848,18 @@ var useMarker = function useMarker(props) {
 
 
 
+
 var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
-    marker
+    marker,
+    MarkerPortal
   } = useMarker(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     marker
   }), [marker]);
-  return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(MarkerPortal, {
+    children: props.children
+  });
 });
 
 ;// CONCATENATED MODULE: ../mass-marks/esm/useMassMarks.js
@@ -2246,10 +2266,8 @@ var useText = function useText(props) {
   } = useMapContext();
   var {
     container,
-    setContent
-  } = useRenderDom({
-    children: props.children
-  });
+    Portal
+  } = usePortal();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
 
@@ -2274,17 +2292,13 @@ var useText = function useText(props) {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (text) {
-      setContent(props.children);
-    }
-  }, [props.children, text]);
   useVisiable(text, visiable);
   useSettingProperties(text, props, ['Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position', 'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData']);
   useEventProperties(text, props, ['onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging']);
   return {
     text,
-    setText
+    setText,
+    TextPortal: Portal
   };
 };
 
@@ -2293,14 +2307,19 @@ var useText = function useText(props) {
 
 
 
+
 var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
-    text
+    text,
+    TextPortal
   } = useText(_extends({}, props));
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     text
   }));
-  return null;
+  if (!props.children) return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(TextPortal, {
+    children: props.children
+  });
 });
 
 ;// CONCATENATED MODULE: ../tool-bar-control/esm/useToolBarControl.js
