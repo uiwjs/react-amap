@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useVisiable, useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
+import { useVisiable, useEventProperties, useSettingProperties, usePortal } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { MarkerProps } from './';
 
@@ -8,7 +8,7 @@ export const useMarker = (props: UseMarker = {}) => {
   const { visiable, children, ...other } = props;
   const { map } = useMapContext();
   const [marker, setMarker] = useState<AMap.Marker>();
-  const { container, setContent } = useRenderDom({ children: props.children });
+  const { container, Portal } = usePortal();
 
   useEffect(() => {
     if (!marker && map) {
@@ -26,18 +26,6 @@ export const useMarker = (props: UseMarker = {}) => {
       }
     };
   }, [map, marker]);
-
-  useEffect(() => {
-    if (marker) {
-      marker.setContent(props.children ? container : props.content || '');
-    }
-  }, [props.children, container, props.content, marker]);
-
-  useEffect(() => {
-    if (marker) {
-      setContent(props.children);
-    }
-  }, [props.children, marker]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [
@@ -83,5 +71,6 @@ export const useMarker = (props: UseMarker = {}) => {
   return {
     marker,
     setMarker,
+    MarkerPortal: Portal,
   };
 };

@@ -12,7 +12,7 @@ export interface MarkerProps extends OverlayProps, AMap.MarkerEvents, AMap.Marke
 }
 
 export const Marker = forwardRef<MarkerProps & { marker?: AMap.Marker }, MarkerProps>((props, ref) => {
-  const { marker } = useMarker(props);
+  const { marker, MarkerPortal } = useMarker(props);
   useImperativeHandle(ref, () => ({ ...props, marker }), [marker]);
-  return null;
+  return <MarkerPortal>{props.children}</MarkerPortal>;
 });

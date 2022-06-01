@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useVisiable, useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
+import { useVisiable, useEventProperties, useSettingProperties, usePortal } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { TextProps } from './';
 
@@ -8,7 +8,7 @@ export const useText = (props = {} as UseText) => {
   const { visiable, ...other } = props;
   const [text, setText] = useState<AMap.Text>();
   const { map } = useMapContext();
-  const { container, setContent } = useRenderDom({ children: props.children });
+  const { container, Portal } = usePortal();
   useEffect(() => {
     if (!AMap || !map) return;
     if (!text) {
@@ -32,12 +32,6 @@ export const useText = (props = {} as UseText) => {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
-
-  useEffect(() => {
-    if (text) {
-      setContent(props.children);
-    }
-  }, [props.children, text]);
 
   useVisiable(text!, visiable);
   useSettingProperties<AMap.Text, UseText>(text!, props, [
@@ -76,5 +70,6 @@ export const useText = (props = {} as UseText) => {
   return {
     text,
     setText,
+    TextPortal: Portal,
   };
 };

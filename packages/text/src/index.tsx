@@ -10,7 +10,8 @@ export interface TextProps extends OverlayProps, AMap.TextEvents, AMap.TextOptio
   children?: React.ReactNode;
 }
 export const Text = forwardRef<Omit<TextProps, 'text'> & { text?: AMap.Text }, TextProps>((props, ref) => {
-  const { text } = useText({ ...props });
+  const { text, TextPortal } = useText({ ...props });
   useImperativeHandle(ref, () => ({ ...props, text }));
-  return null;
+  if (!props.children) return null;
+  return <TextPortal>{props.children}</TextPortal>;
 });

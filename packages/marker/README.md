@@ -222,6 +222,61 @@ ReactDOM.render((
 ), _mount_);
 ```
 
+### 自定义标记
+
+<!--rehype:bgWhite=true&codeSandbox=true-->
+```jsx
+import ReactDOM from 'react-dom';
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, Marker } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  const [map, setMap] = useState();
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <button onClick={() => {
+        if (map) {
+          map.setFitView(null, false, [150, 60, 100, 60]);
+        }
+      }}>
+        地图自适应显示到合适的范围
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map
+          zoom={10}
+          center={[116.397428, 39.90923]}
+          ref={(instance) => {
+            if (instance && instance.map && !map) {
+              setMap(instance.map);
+            }
+          }}
+        >
+          <Marker
+            visiable={show}
+            offset={new AMap.Pixel(-13, -30)}
+            position={new AMap.LngLat(116.205467, 39.907761)}
+          >
+            <div style={{ background: 'red', color: '#fff' }}>
+              我是 Marker
+            </div>
+          </Marker>
+        </Map>
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render((
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+), _mount_);
+```
+
 ### Props
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L8-L111)

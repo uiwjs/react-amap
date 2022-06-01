@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useEventProperties, useSettingProperties, useRenderDom } from '@uiw/react-amap-utils';
+import { useEventProperties, useSettingProperties, usePortal } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { InfoWindowProps } from '.';
 
@@ -9,7 +9,7 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
   const { map } = useMapContext();
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
-  const { container, setContent } = useRenderDom({ children: props.children });
+  const { container, Portal } = usePortal();
 
   useEffect(() => {
     if (!AMap || !map) return;
@@ -38,12 +38,6 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     }
   }, [props.children, container, other.content, infoWindow]);
 
-  useEffect(() => {
-    if (infoWindow) {
-      setContent(props.children);
-    }
-  }, [props.children, infoWindow]);
-
   useMemo(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
@@ -69,5 +63,6 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     setIsOpen,
     infoWindow,
     setInfoWindow,
+    InfoWindowPortal: Portal,
   };
 };

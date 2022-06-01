@@ -9,7 +9,7 @@ export interface InfoWindowProps extends OverlayProps, AMap.InforWindowEvents, A
   children?: JSX.Element;
 }
 export const InfoWindow = React.forwardRef<InfoWindowProps, InfoWindowProps>((props, ref) => {
-  const { infoWindow } = useInfoWindow(props);
+  const { infoWindow, InfoWindowPortal } = useInfoWindow(props);
   useImperativeHandle(ref, () => ({ ...props, infoWindow }));
-  return null;
+  return <InfoWindowPortal>{props.children}</InfoWindowPortal>;
 });
