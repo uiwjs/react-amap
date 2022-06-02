@@ -161,7 +161,7 @@ declare namespace AMap {
      */
     toString?(): string;
   }
-  class MapEventListener<T = ''> extends EventEmitter {
+  class MapEventListener<T = ''> {
     /**
      * 设置控件可见
      */
