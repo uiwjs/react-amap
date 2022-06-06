@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-mass-marks",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "在地图上加载海量点，适合需要显示大量 `Marker` 的场景。",
   "homepage": "https://uiwjs.github.io/react-amap/#/mass-marks",
   "main": "cjs/index.js",
@@ -34,8 +34,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "3.0.2",
-    "@uiw/react-amap-utils": "3.0.2"
+    "@uiw/react-amap-map": "3.0.3",
+    "@uiw/react-amap-utils": "3.0.3"
   },
   "devDependencies": {
     "@types/react": "~17.0.39",
