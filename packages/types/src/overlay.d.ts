@@ -1177,8 +1177,7 @@ declare namespace AMap {
   /** 海量点类 */
   class MassMarks extends MapEventListener<'touchstart' | 'touchend' | 'mousemove' | 'dbclick' | 'click' | 'complete' | 'mouseover' | 'mousedown' | 'mouseup' | 'mouseout'> {
     /** 官方文档示例，https://a.amap.com/jsapi/static/doc/index.html#massmarks **/ 
-    constructor(data: MassMarkersDataOptions, opts: Array<MassMarkersOptions>)
-    constructor(data: MassMarkersDataOptions, opts: MassMarkersOptions)
+    constructor(data: MassMarkersDataOptions, opts?: Array<MassMarkersOptions> | MassMarkersOptions)
     setMap(map: Map): void;
     getMap(): Map;
     getData(): MassMarkersDataOptions;
