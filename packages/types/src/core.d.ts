@@ -335,7 +335,8 @@ declare namespace AMap {
     'AMap.ToolBar' |
     'AMap.MapType' |
     'AMap.Walking' |
-    'AMap.Weather';
+    'AMap.Weather' |
+    'AMap.MoveAnimation';
   interface MapEvents {
     /**
      * 地图缩放级别更改后触发
