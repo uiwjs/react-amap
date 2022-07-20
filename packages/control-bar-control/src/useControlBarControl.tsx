@@ -6,7 +6,7 @@ import { ControlBarControlProps } from '.';
 export interface UseControlBarControl extends ControlBarControlProps {}
 
 export function useControlBarControl(props = {} as UseControlBarControl) {
-  const { position, visiable, offset } = props;
+  const { position, visible, offset } = props;
   const [controlBarControl, setControlBarControl] = useState<AMap.ControlBar>();
   const { map } = useMapContext();
   useEffect(() => {
@@ -28,7 +28,7 @@ export function useControlBarControl(props = {} as UseControlBarControl) {
     }
   }, [map]);
 
-  useVisiable(controlBarControl!, visiable);
+  useVisiable(controlBarControl!, visible);
   return {
     controlBarControl,
     setControlBarControl,

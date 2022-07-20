@@ -7,7 +7,7 @@ export interface UsePolyline extends PolylineProps {}
 
 export function usePolyline(props = {} as UsePolyline) {
   const [polyline, setPolyline] = useState<AMap.Polyline>();
-  const { visiable, ...other } = props;
+  const { visible, ...other } = props;
   const { map } = useMapContext();
   useEffect(() => {
     if (map && !polyline) {
@@ -23,7 +23,7 @@ export function usePolyline(props = {} as UsePolyline) {
     }
   }, [map]);
 
-  useVisiable(polyline!, visiable);
+  useVisiable(polyline!, visible);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, ['Path', 'Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'onHide',

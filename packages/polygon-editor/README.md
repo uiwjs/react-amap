@@ -45,7 +45,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Polygon
-            visiable={show}
+            visible={show}
             path={path}
             strokeColor="#FF33FF"
             strokeWeight={6}

@@ -5,7 +5,7 @@ export * from './useCircle';
 
 export interface CircleProps extends OverlayProps, AMap.CircleEvents, AMap.CircleOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 export const Circle = React.forwardRef<CircleProps, CircleProps>((props, ref) => {
   const { circle } = useCircle(props);

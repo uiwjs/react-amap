@@ -11,7 +11,7 @@ import { useSetStatus, useVisiable, usePrevious } from '@uiw/react-amap-utils';
 
 ### useVisiable
 
-针对 Overlay 类型的组件，有公共的是否显示 对象处理，通过参数 `visiable` 来控制执行 `show()` or `hide()`
+针对 Overlay 类型的组件，有公共的是否显示 对象处理，通过参数 `visible` 来控制执行 `show()` or `hide()`
 
 ### usePrevious
 

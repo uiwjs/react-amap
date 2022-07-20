@@ -33,7 +33,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.397637, 39.900001]}>
           <InfoWindow
-            visiable={show}
+            visible={show}
             content={info.join('')}
             // position={[116.397046, 39.915698]}
             onClose={(evn) => {
@@ -74,7 +74,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.397637, 39.900001]}>
           <InfoWindow
-            visiable={show}
+            visible={show}
             onClose={(evn) => {
               console.log('evn', evn);
             }}
@@ -124,7 +124,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} pitch={70} viewMode="3D" center={[116.397637, 39.900001]}>
           <InfoWindow
-            visiable={show}
+            visible={show}
             content={content}
             onClose={(evn) => {
               console.log('evn', evn);
@@ -186,7 +186,7 @@ const Example = () => {
           />
           {winPosition && (
             <InfoWindow
-              visiable={show}
+              visible={show}
               position={winPosition}
               offset={{ x: 0, y: -10}}
               content={content}
@@ -262,7 +262,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | position | 信息窗体显示基点位置，默认地图的中间 | `LngLat` | - |
 | content | 信息窗体尺寸（isCustom为 `true` 时，该属性无效） | `string/HTMLElement` | - |
 | **children** | 替代 `content`，支持 `ReactNode` | `ReactNode` | - |

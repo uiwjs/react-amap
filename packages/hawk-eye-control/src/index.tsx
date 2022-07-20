@@ -5,7 +5,7 @@ export * from './useHawkEyeControl';
 
 export interface HawkEyeControlProps extends OverlayProps, AMap.HawkEyeOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 
 export const HawkEyeControl = React.forwardRef<HawkEyeControlProps, HawkEyeControlProps>((props, ref) => {

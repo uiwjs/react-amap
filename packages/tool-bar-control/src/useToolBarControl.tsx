@@ -7,7 +7,7 @@ export interface UseToolBarControl extends ToolBarControlProps {}
 
 export function useToolBarControl(props = {} as UseToolBarControl) {
   const [toolBarControl, setToolBarControl] = useState<AMap.ToolBar>();
-  const { position, visiable, offset } = props;
+  const { position, visible, offset } = props;
   const { map } = useMapContext();
   useEffect(() => {
     if (map && !toolBarControl) {
@@ -28,7 +28,7 @@ export function useToolBarControl(props = {} as UseToolBarControl) {
     }
   }, [map]);
 
-  useVisiable(toolBarControl!, visiable);
+  useVisiable(toolBarControl!, visible);
   return {
     toolBarControl,
     setToolBarControl,

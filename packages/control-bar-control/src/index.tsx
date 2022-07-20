@@ -5,7 +5,7 @@ export * from './useControlBarControl';
 
 export interface ControlBarControlProps extends OverlayProps, AMap.ControlBarOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 
 export const ControlBarControl = React.forwardRef<ControlBarControlProps, ControlBarControlProps>((props, ref) => {

@@ -11,7 +11,7 @@ export interface PolygonEditorProps extends AMap.PolygonEditor, AMap.PolygonEdit
 export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>((props, ref) => {
   const { active, polygon } = props;
   const { map } = useMapContext();
-  const [visiable, setVisiable] = useState<boolean>(true);
+  const [visible, setVisiable] = useState<boolean>(true);
   const [polyEditor, setPolyEditor] = useState<AMap.PolygonEditor>();
 
   useEffect(() => {
@@ -27,14 +27,14 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
     if (!polyEditor) {
       return;
     }
-    if (visiable && !active) {
+    if (visible && !active) {
       polyEditor.close();
-    } else if (visiable && active) {
+    } else if (visible && active) {
       polyEditor.open();
-    } else if (!visiable && active) {
+    } else if (!visible && active) {
       polyEditor.close();
     }
-  }, [active, visiable]);
+  }, [active, visible]);
 
   useEventProperties<AMap.PolygonEditor, AMap.PolygonEditorEvents>(polyEditor!, props, [
     'onEnd',

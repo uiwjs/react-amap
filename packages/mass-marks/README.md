@@ -41,7 +41,7 @@ const Example = (props) => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
           <MassMarks
-            visiable={show}
+            visible={show}
             data={points}
             onMouseMove={(evn) => {
               if (!map.current) {

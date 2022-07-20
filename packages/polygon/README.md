@@ -40,7 +40,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Polygon
-            visiable={show}
+            visible={show}
             path={path}
             strokeColor="#FF33FF"
             strokeWeight={6}
@@ -50,7 +50,7 @@ const Example = () => {
             zIndex={50}
           />
           <Polygon
-            visiable={show}
+            visible={show}
             path={path2}
             strokeColor="#FF33FF"
             strokeWeight={6}
@@ -78,7 +78,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | path | 多边形轮廓线的节点坐标数组，当为“环”多边形时（多边形区域在多边形内显示为“岛”），path为二维数组，数组元素为多边形轮廓线的节点坐标数组, “环”多边形时，要求数组第一个元素为外多边形，其余为“岛”多边形，外多边形需包含“岛”多边形，否则程序不作处理 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
 
 ### 事件

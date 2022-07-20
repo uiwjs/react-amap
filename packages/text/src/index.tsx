@@ -6,7 +6,7 @@ export * from './useText';
 
 export interface TextProps extends OverlayProps, AMap.TextEvents, AMap.TextOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
   children?: React.ReactNode;
 }
 export const Text = forwardRef<Omit<TextProps, 'text'> & { text?: AMap.Text }, TextProps>((props, ref) => {

@@ -32,7 +32,7 @@ const Example = () => {
             draggable={true}
             cursor="pointer"
             angle={10}
-            visiable={show}
+            visible={show}
             style={{
               'padding': '.75rem 1.25rem',
               'margin-bottom': '1rem',
@@ -87,7 +87,7 @@ const Example = () => {
             cursor="pointer"
             className="test-text"
             angle={10}
-            visiable={show}
+            visible={show}
             style={{
               'padding': '.75rem 1.25rem',
               'margin-bottom': '1rem',
@@ -159,7 +159,7 @@ function Demo() {
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | text | 标记显示的文本内容。 | `string` | - |
 | children | 标记显示的文本内容，`text` 参数将失效。 | `string` | - |
 

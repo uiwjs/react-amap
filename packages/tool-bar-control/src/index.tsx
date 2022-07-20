@@ -6,7 +6,7 @@ export * from './useToolBarControl';
 
 export interface ToolBarControlProps extends OverlayProps, AMap.ToolBarOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 
 export const ToolBarControl = React.forwardRef<ToolBarControlProps, ToolBarControlProps>((props, ref) => {

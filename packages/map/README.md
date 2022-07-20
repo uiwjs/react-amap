@@ -5,7 +5,7 @@ Map 组件是其他组件的基础，Map 组件会给所有的子组件注入三
 
 ⚠️ 注意
 
-> 1. 组件 `<Map>` 必须包裹在 `<APILoader>` 组件内，该组件作用是加载高德地图 SDK。  
+> 1. 组件 `<Map>` 必须包裹在 `<APILoader>` 组件内，该组件作用是加载高德地图 SDK。
 > 2. 其他地图组件必须作为 `<Map>` 的子组件使用；
 
 ```jsx
@@ -71,7 +71,7 @@ const Marker = () => {
       marker.setMap(state.map);
     }
   }, [map]);
-  
+
   useEffect(() => {
     if (warpper.current) {
       setContainer(warpper.current);
@@ -267,8 +267,8 @@ const path2 = [ [116.405289, 39.904987], [113.964458, 40.54664], [111.47836, 41.
 const ChildComp = (props = {}) => {
   return (
     <div>
-      <Polyline {...props} visiable={true} strokeOpacity={1} path={path1} />
-      <Polyline {...props} visiable={true} strokeOpacity={1} path={path2} />
+      <Polyline {...props} visible={true} strokeOpacity={1} path={path1} />
+      <Polyline {...props} visible={true} strokeOpacity={1} path={path2} />
     </div>
   )
 }

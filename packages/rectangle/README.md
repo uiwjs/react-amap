@@ -30,7 +30,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
           <Rectangle
-            visiable={show}
+            visible={show}
             bounds={bounds}
             strokeColor="red"
             strokeWeight={6}
@@ -62,7 +62,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | bounds | 矩形覆盖物的叠加顺序。地图上存在多个矩形覆盖物叠加时，通过该属性使级别较高的矩形覆盖物在上层显示 | `Bounds` | `10` |
 
 ### 事件

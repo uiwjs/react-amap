@@ -6,7 +6,7 @@ export * from './useRectangle';
 
 export interface RectangleProps extends OverlayProps, AMap.RectangleEvents, AMap.RectangleOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 export const Rectangle = React.forwardRef<RectangleProps, RectangleProps>((props, ref) => {
   const { rectangle } = useRectangle(props);

@@ -5,7 +5,7 @@ import { CircleProps } from '.';
 
 export interface UseCircle extends CircleProps {}
 export const useCircle = (props = {} as UseCircle) => {
-  const { visiable, ...other } = props;
+  const { visible, ...other } = props;
   const { map } = useMapContext();
   const [circle, setCircle] = useState<AMap.Circle>();
   useEffect(() => {
@@ -22,7 +22,7 @@ export const useCircle = (props = {} as UseCircle) => {
     };
   }, [map]);
 
-  useVisiable(circle!, visiable);
+  useVisiable(circle!, visible);
   useSettingProperties<AMap.Circle, UseCircle>(circle!, props, ['Center', 'Raius', 'Options', 'ExtData']);
   useEventProperties<AMap.Circle, UseCircle>(circle!, props, [
     'onHide',

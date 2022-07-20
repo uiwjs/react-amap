@@ -27,7 +27,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
           <Polyline
-            visiable={show}
+            visible={show}
             onHide={(obj) => {
               console.log('obj:', obj);
             }}
@@ -55,7 +55,7 @@ const Example = () => {
             ]}
           />
           <Polyline
-            visiable={show}
+            visible={show}
             strokeOpacity={1}
             path={[
               [121.099109,31.222311],
@@ -127,7 +127,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
           <Polyline
-            visiable={show}
+            visible={show}
             strokeOpacity={1}
             path={paths}
           />
@@ -150,7 +150,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | path | 路径，支持 lineString 和 MultiLineString。 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
 
 ### 事件

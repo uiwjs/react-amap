@@ -6,7 +6,7 @@ export * from './useMarker';
 
 export interface MarkerProps extends OverlayProps, AMap.MarkerEvents, AMap.MarkerOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
   className?: string;
   children?: JSX.Element;
 }

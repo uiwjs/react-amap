@@ -30,7 +30,7 @@ const Example = () => {
         <Map zoom={4} center={[116.400274, 39.905812]}>
           <CircleMarker
             center={new AMap.LngLat(116.407394, 39.904211)}
-            visiable={show}
+            visible={show}
             radius={10+Math.random()*10}
             strokeColor="#fff"
             strokeWeight={2}
@@ -44,7 +44,7 @@ const Example = () => {
           />
            <CircleMarker
             center={new AMap.LngLat(113.26641, 23.132324)}
-            visiable={show}
+            visible={show}
             radius={10+Math.random()*10}
             strokeColor="#fff"
             strokeWeight={2}
@@ -58,7 +58,7 @@ const Example = () => {
           />
            <CircleMarker
             center={new AMap.LngLat(112.562678, 37.873499)}
-            visiable={show}
+            visible={show}
             radius={10+Math.random()*10}
             strokeColor="#fff"
             strokeWeight={2}
@@ -72,7 +72,7 @@ const Example = () => {
           />
            <CircleMarker
             center={new AMap.LngLat(121.473662, 31.230372)}
-            visiable={show}
+            visible={show}
             radius={10+Math.random()*10}
             strokeColor="#fff"
             strokeWeight={2}
@@ -86,7 +86,7 @@ const Example = () => {
           />
            <CircleMarker
             center={new AMap.LngLat(117.329949, 31.733806)}
-            visiable={show}
+            visible={show}
             radius={10+Math.random()*10}
             strokeColor="#fff"
             strokeWeight={2}
@@ -117,7 +117,7 @@ ReactDOM.render((
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | center | 圆心位置 | `LngLat` | - |
 | radius | 圆半径，单位:px 最大值64 | `number` | - |
 | zIndex | 多边形覆盖物的叠加顺序。地图上存在多个多边形覆盖物叠加时，通过该属性使级别较高的多边形覆盖物在上层显示 | `number` | 10 |

@@ -5,7 +5,7 @@ import { useMapTypeControl } from './useMapTypeControl';
 export * from './useMapTypeControl';
 export interface MapTypeControlProps extends OverlayProps, AMap.MapTypeOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 
 export const MapTypeControl = React.forwardRef<MapTypeControlProps, MapTypeControlProps>((props, ref) => {

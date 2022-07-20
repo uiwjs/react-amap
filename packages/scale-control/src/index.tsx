@@ -6,7 +6,7 @@ export * from './useScaleControl';
 
 export interface ScaleControlProps extends OverlayProps, AMap.ScaleOptions {
   /** 覆盖物是否可见 */
-  visiable?: boolean;
+  visible?: boolean;
 }
 
 export const ScaleControl = React.forwardRef<ScaleControlProps, ScaleControlProps>((props, ref) => {
