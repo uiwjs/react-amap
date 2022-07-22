@@ -11,11 +11,9 @@ import { APILoader } from '@uiw/react-amap-require-script';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
-import ReactDOM from 'react-dom';
-import React, { useState, useRef } from 'react';
-import { Map, APILoader, MassMarks } from '@uiw/react-amap';
+```jsx mdx:preview
+import React, { useState, useRef, useEffect } from 'react';
+import { Map, APILoader, MassMarks, requireScript } from '@uiw/react-amap';
 
 const Example = (props) => {
   const [show, setShow] = useState(true);
@@ -60,11 +58,13 @@ const Example = (props) => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### API

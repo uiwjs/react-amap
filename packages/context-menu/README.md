@@ -13,8 +13,7 @@ import { ContextMenu } from '@uiw/react-amap-context-menu';
 
 地图上右击鼠标，弹出自定义样式的右键菜单
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, ContextMenu } from '@uiw/react-amap';
@@ -61,11 +60,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

@@ -11,8 +11,7 @@ import { Geolocation } from '@uiw/react-amap-geolocation';
 
 ### 地图定位控件
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { APILoader, Map, Geolocation } from '@uiw/react-amap';
 
@@ -55,17 +54,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 只获取定位经纬度
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
 
@@ -102,17 +102,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 只获取定位地址信息
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React, { useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
 
@@ -150,17 +151,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 不使用组件
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import { APILoader, Geolocation } from '@uiw/react-amap';
@@ -191,11 +193,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

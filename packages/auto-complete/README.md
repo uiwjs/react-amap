@@ -11,8 +11,7 @@ import { AutoComplete } from '@uiw/react-amap-auto-complete';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { APILoader, AutoComplete } from '@uiw/react-amap';
@@ -46,11 +45,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

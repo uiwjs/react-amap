@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import GitHubCorners from '@uiw/react-github-corners';
 import Loader from '@uiw/react-loader';
+import '@wcj/dark-mode';
 import { routes } from '../../router';
 import SideMenu from '../../components/SideMenu';
 import styles from './App.module.less';
@@ -19,6 +20,12 @@ export default function App() {
         <GitHubCorners fixed zIndex={99} size={60} target="__blank" href="https://github.com/uiwjs/react-amap" />
         <SideMenu />
         <div className={styles.content}>
+          <dark-mode
+            permanent
+            light="Light"
+            dark="Dark"
+            style={{ marginLeft: 16, top: 12, position: 'relative' }}
+          ></dark-mode>
           <Routes>
             {routes.map(({ component: Child, path }, idx) => {
               // @ts-ignore

@@ -11,8 +11,7 @@ import { Polygon } from '@uiw/react-amap-polygon';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polygon } from '@uiw/react-amap';
@@ -65,11 +64,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

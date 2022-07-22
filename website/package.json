@@ -18,7 +18,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@babel/runtime": "~7.17.2",
+    "@babel/runtime": "^7.18.9",
     "@uiw/react-amap": "3.0.4",
     "@uiw/react-amap-api-loader": "3.0.4",
     "@uiw/react-amap-auto-complete": "3.0.4",
@@ -49,19 +49,22 @@
     "@uiw/react-code-preview": "~4.0.5",
     "@uiw/react-github-corners": "~1.5.3",
     "@uiw/react-loader": "~4.13.0",
-    "@uiw/react-markdown-preview": "~3.5.0",
-    "@uiw/reset.css": "~1.0.5",
+    "@uiw/react-markdown-preview": "^4.0.23",
+    "@uiw/reset.css": "^1.0.6",
+    "@wcj/dark-mode": "^1.0.14",
+    "react-code-preview-layout": "^2.0.6",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
     "react-router-dom": "~6.2.1"
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.1.1",
-    "@kkt/raw-modules": "~7.1.1",
-    "@kkt/scope-plugin-options": "~7.1.1",
+    "@kkt/less-modules": "^7.2.0",
+    "@kkt/raw-modules": "^7.2.0",
+    "@kkt/scope-plugin-options": "^7.2.0",
     "@types/react": "~17.0.39",
     "@types/react-dom": "~17.0.11",
-    "kkt": "~7.1.5"
+    "markdown-react-code-preview-loader": "^2.1.2",
+    "kkt": "^7.2.0"
   },
   "eslintConfig": {
     "extends": [

@@ -9,8 +9,7 @@ import { Weather } from '@uiw/react-amap';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
@@ -45,17 +44,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 查询四天预报天气
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
@@ -74,7 +74,9 @@ const Example = () => {
       <button onClick={() => setCity('黄冈市')}>
         黄冈市
       </button>
-      <div style={{ width: '100%', height: '300px' }}>
+      <div style={{
+        width: '100%', height: '300px', overflow: 'auto'
+      }}>
         <Weather
           city={city}
           type="forecast"
@@ -91,17 +93,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 切换类型
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { APILoader, Weather } from '@uiw/react-amap';
@@ -134,17 +137,18 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 不使用组件
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useEffect, useState, useRef } from 'react';
 import { APILoader } from '@uiw/react-amap';
@@ -174,11 +178,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 

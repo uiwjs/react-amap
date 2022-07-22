@@ -13,39 +13,36 @@ import { APILoader } from '@uiw/react-amap-api-loader';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx mdx:preview
+import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-      <Map />
-    </APILoader>
-  </div>
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Map style={{ height: 300 }}/>
+  </APILoader>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ### 多个地图
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
-  <div style={{ width: '100%', height: 300 }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-      <Map style={{ height: 100, marginBottom: 10 }} />
-      <div style={{ border: '1px solid red' }}>
-        <Map style={{ height: 100 }} />
-      </div>
-    </APILoader>
-  </div>
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Map style={{ height: 100, marginBottom: 10 }} />
+    <div style={{ border: '1px solid red' }}>
+      <Map style={{ height: 100 }} />
+    </div>
+  </APILoader>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ### Props

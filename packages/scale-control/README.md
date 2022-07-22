@@ -11,13 +11,12 @@ import { ScaleControl } from '@uiw/react-amap-scale-control';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Map, APILoader, ScaleControl } from '@uiw/react-amap';
 
-const Example = () => {
+const Demo = () => {
   const [show, setShow] = useState(true);
   return (
     <>
@@ -44,11 +43,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-    <Example />
+    <Demo />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 

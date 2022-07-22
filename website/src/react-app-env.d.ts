@@ -1,8 +1,9 @@
 /// <reference types="react-scripts" />
 
-declare module "*.md" {
-  const value: any;
-  export default value;
+declare module '*.md' {
+  import { CodeBlockData } from 'markdown-react-code-preview-loader';
+  const src: CodeBlockData;
+  export default src;
 }
 
 declare module '*.module.less' {

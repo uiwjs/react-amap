@@ -52,15 +52,14 @@ npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-amap-example-y0n6c-y0n6c?fontsize=14&hidenavigation=1&theme=dark)
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
 
 const Demo = () => (
-  <div style={{ width: '100%', height: '300px' }}>
-    <Map>
+  <div>
+    <Map style={{ height: 300 }}>
       <ScaleControl offset={[16, 30]} position="LB" />
       <ToolBarControl offset={[16, 10]} position="RB" />
       <ControlBarControl offset={[16, 180]} position="RB" />
@@ -73,18 +72,20 @@ const Demo = () => (
         showCircle={true}
       />
     </Map>
-    <Map>
+    <Map style={{ height: 300 }}>
       {({ AMap, map, container }) => {
         return;
       }}
     </Map>
   </div>
 );
-ReactDOM.render((
+
+const Mount = () => (
   <APILoader version="2.0.5" akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
-), _mount_);
+)
+export default Mount
 ```
 
 ### 容器组件

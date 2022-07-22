@@ -18,8 +18,7 @@ import { Map } from '@uiw/react-amap-map';
 
 Map 的父组件必须具有宽度和高度；
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Map, APILoader } from '@uiw/react-amap';
@@ -31,15 +30,15 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ### useMapContext
 
 通过 React 的 Context 提供了一个`无需`为每层组件手动注入 ~~`map`~~，~~`container`~~ 和 ~~`AMap`~~ 三个属性 `props`，就能在组件树间进行传递。
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useMap, useMapContext, APILoader, Provider } from '@uiw/react-amap';
@@ -78,19 +77,18 @@ const Marker = () => {
     }
   }, [warpper.current]);
 
-  return <div ref={warpper} />;
+  return <div ref={warpper} style={{ height: 300 }} />;
 }
 
 const Demo = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Provider>
-      <div style={{ height: 300 }}>
-        <Marker />
-      </div>
+      <Marker />
     </Provider>
   </APILoader>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ```jsx
@@ -104,8 +102,7 @@ const { AMaps, map, container, state, dispatch } = useMapContext();
 
 ### 参数设置
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { Fragment, useState } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
@@ -141,19 +138,20 @@ function Demo() {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Ref
 
 获取地图实例对象。
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
@@ -182,17 +180,18 @@ function Demo() {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 事件触发
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Map, APILoader } from '@uiw/react-amap';
@@ -211,15 +210,15 @@ const Demo = () => (
     </APILoader>
   </div>
 );
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 
 ### 特殊使用方法
 
 通过 `Map` 的子组件函数，返回三个对象 **`map`**，**`container`** 和 **`AMap`**，
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useEffect, useRef, Fragment } from 'react';
 import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
@@ -246,17 +245,18 @@ const Demo = () => (
   </div>
 );
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 将子组件封装到一个组件中
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
@@ -273,7 +273,7 @@ const ChildComp = (props = {}) => {
   )
 }
 
-const Example = () => {
+const Demo = () => {
   const [show, setShow] = useState(true);
   return (
     <div style={{ width: '100%', height: '300px' }}>
@@ -286,11 +286,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
-    <Example />
+    <Demo />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

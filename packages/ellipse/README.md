@@ -11,8 +11,7 @@ import { Ellipse } from '@uiw/react-amap-ellipse';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Ellipse } from '@uiw/react-amap';
@@ -24,35 +23,35 @@ const Example = () => {
       <button onClick={() => setShow(!show)}>
         {show ? '隐藏' : '显示'}
       </button>
-      <div style={{ width: '100%', height: '300px' }}>
-        <Map zoom={4}>
-          <Ellipse
-            visiable={show}
-            radius={[1000000, 200000]}
-            borderWeight={3}
-            strokeColor="#FF33FF"
-            strokeOpacity={1}
-            strokeWeight={6}
-            strokeOpacity={0.2}
-            fillOpacity={0.4}
-            // 线样式还支持 'dashed'
-            strokeStyle="dashed"
-            strokeDasharray={[10, 10]}
-            fillColor="#1791fc"
-            zIndex={50}
-            center={new AMap.LngLat(116.433322, 39.900255)}
-          />
-        </Map>
-      </div>
+      <Map zoom={4} style={{ height: 300 }}>
+        <Ellipse
+          visiable={show}
+          radius={[1000000, 200000]}
+          borderWeight={3}
+          strokeColor="#FF33FF"
+          strokeOpacity={1}
+          strokeWeight={6}
+          strokeOpacity={0.2}
+          fillOpacity={0.4}
+          // 线样式还支持 'dashed'
+          strokeStyle="dashed"
+          strokeDasharray={[10, 10]}
+          fillColor="#1791fc"
+          zIndex={50}
+          center={new AMap.LngLat(116.433322, 39.900255)}
+        />
+      </Map>
     </>
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### Props

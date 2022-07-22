@@ -11,8 +11,7 @@ import { Text } from '@uiw/react-amap-text';
 
 ### 基本用法
 
-<!--rehype:bgWhite=true&&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Text } from '@uiw/react-amap';
@@ -54,19 +53,20 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### 通过 `children` 定义 `text`
 
 定义 `children` 定义的 `text` props 将失效。
 
-<!--rehype:bgWhite=true&&codeSandbox=true-->
-```jsx
+```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
 import { Map, APILoader, Text } from '@uiw/react-amap';
@@ -113,11 +113,13 @@ const Example = () => {
   );
 }
 
-ReactDOM.render((
+const Mount = () => (
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
-), _mount_);
+);
+
+export default Mount;
 ```
 
 ### TypeScript 中 Ref 类型定义
