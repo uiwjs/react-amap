@@ -1,6 +1,5 @@
 import { Component, Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-// import pkg from '@uiw/react-amap/package.json';
 import Footer from '../Footer';
 import { CodePreview } from './CodePreview';
 import styles from './index.module.less';
@@ -20,10 +19,10 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
     };
   }
   editorUrl?: string;
-  getMdStr?: any;
+  getMdStr?: () => Promise<{ default: CodeBlockData }>;
   componentDidMount() {
     if (this.getMdStr) {
-      this.getMdStr().then((str: any) => {
+      this.getMdStr().then((str) => {
         this.setState({
           data: str.default,
           mdStr: str.default.source,
