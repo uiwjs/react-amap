@@ -33,16 +33,6 @@ export default (conf: Configuration, env: 'production' | 'development', options:
             name: 'react-vendor',
             chunks: 'all',
           },
-          babelstandalone: {
-            test: /[\\/]node_modules[\\/](@babel[\\/]standalone)[\\/]/,
-            name: 'babel-standalone-vendor',
-            chunks: 'all',
-          },
-          prismjs: {
-            test: /[\\/]node_modules[\\/](refractor)[\\/]/,
-            name: 'refractor-vendor',
-            chunks: 'all',
-          },
           codemirror: {
             test: /[\\/]node_modules[\\/](@codemirror)[\\/]/,
             name: 'codemirror-vendor',
@@ -51,6 +41,36 @@ export default (conf: Configuration, env: 'production' | 'development', options:
           uiw: {
             test: /[\\/]node_modules[\\/](@uiw)[\\/]/,
             name: 'uiw-vendor',
+            chunks: 'all',
+          },
+          dagred3: {
+            test: /[\\/]node_modules[\\/](dagre-d3)[\\/]/,
+            name: 'dagre-d3-vendor',
+            chunks: 'all',
+          },
+          momentlodash: {
+            test: /[\\/]node_modules[\\/](moment-mini|lodash|d3-array|d3-geo|d3-shape|dagre)[\\/]/,
+            name: 'momentlodash-vendor',
+            chunks: 'all',
+          },
+          d3: {
+            test: /[\\/]node_modules[\\/](d3-\w+(-?\w+))[\\/]/,
+            name: 'd3-vendor',
+            chunks: 'all',
+          },
+          micromark: {
+            test: /[\\/]node_modules[\\/](micromark)[\\/]/,
+            name: 'micromark-vendor',
+            chunks: 'all',
+          },
+          prismjs: {
+            test: /[\\/]node_modules[\\/](refractor)[\\/]/,
+            name: 'refractor-prismjs-vendor',
+            chunks: 'all',
+          },
+          runtime: {
+            test: /[\\/]node_modules[\\/](@babel[\\/]runtime)[\\/]/,
+            name: 'babel-runtime-vendor',
             chunks: 'all',
           },
           parse5: {
