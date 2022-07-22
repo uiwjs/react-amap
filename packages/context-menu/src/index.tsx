@@ -5,7 +5,9 @@ import Item from './Item';
 
 export * from './useContextMenu';
 export * from './Item';
-export interface ContextMenuProps extends MapChildProps, AMap.ContextMenuOptions, AMap.ContextMenuEvents {}
+export interface ContextMenuProps extends MapChildProps, AMap.ContextMenuOptions, AMap.ContextMenuEvents {
+  children?: JSX.Element;
+}
 
 export const ContextMenu = React.forwardRef<ContextMenuProps, ContextMenuProps>((props, ref) => {
   const { contextMenu } = useContextMenu(props);

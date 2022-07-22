@@ -6,13 +6,14 @@ export * from './usePolygon';
 export interface PolygonProps extends OverlayProps, AMap.PolygonEvents, AMap.PolygonOptions {
   /** 覆盖物是否可见 */
   visiable?: boolean;
+  children?: JSX.Element;
 }
 export const Polygon = forwardRef<PolygonProps, PolygonProps>((props, ref) => {
   const { children } = props;
   const { polygon } = usePolygon(props);
   useImperativeHandle(ref, () => ({ ...props, polygon }));
-  if (children && isValidElement(children)) {
-    return cloneElement(children, { ...props, polygon });
+  if (children && isValidElement(children) && polygon) {
+    return cloneElement(children, Object.assign(props, { polygon }));
   }
   return null;
 });
