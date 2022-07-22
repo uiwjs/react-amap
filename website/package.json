@@ -48,7 +48,7 @@
     "@uiw/react-amap-weather": "3.0.4",
     "@uiw/react-code-preview": "~4.0.5",
     "@uiw/react-github-corners": "~1.5.3",
-    "@uiw/react-loader": "~4.13.0",
+    "@uiw/react-loader": "~4.21.0",
     "@uiw/react-markdown-preview": "^4.0.23",
     "@uiw/reset.css": "^1.0.6",
     "@wcj/dark-mode": "^1.0.14",
