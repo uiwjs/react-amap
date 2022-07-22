@@ -10,107 +10,107 @@ export const routes: Routes = [
   {
     path: '/',
     exact: true,
-    component: lazy(() => import('./pages/home')),
+    component: lazy(() => import('./pages/home')) as unknown as React.ReactNode,
   },
   {
     path: '/api-loader',
-    component: lazy(() => import('./pages/api-loader')),
+    component: lazy(() => import('./pages/api-loader')) as unknown as React.ReactNode,
   },
   {
     path: '/map',
-    component: lazy(() => import('./pages/map')),
+    component: lazy(() => import('./pages/map')) as unknown as React.ReactNode,
   },
   {
     path: '/scale-control',
-    component: lazy(() => import('./pages/scale-control')),
+    component: lazy(() => import('./pages/scale-control')) as unknown as React.ReactNode,
   },
   {
     path: '/tool-bar-control',
-    component: lazy(() => import('./pages/tool-bar-control')),
+    component: lazy(() => import('./pages/tool-bar-control')) as unknown as React.ReactNode,
   },
   {
     path: '/control-bar-control',
-    component: lazy(() => import('./pages/control-bar-control')),
+    component: lazy(() => import('./pages/control-bar-control')) as unknown as React.ReactNode,
   },
   {
     path: '/map-type-control',
-    component: lazy(() => import('./pages/map-type-control')),
+    component: lazy(() => import('./pages/map-type-control')) as unknown as React.ReactNode,
   },
   {
     path: '/hawk-eye-control',
-    component: lazy(() => import('./pages/hawk-eye-control')),
+    component: lazy(() => import('./pages/hawk-eye-control')) as unknown as React.ReactNode,
   },
   {
     path: '/polyline',
-    component: lazy(() => import('./pages/polyline')),
+    component: lazy(() => import('./pages/polyline')) as unknown as React.ReactNode,
   },
   {
     path: '/marker',
-    component: lazy(() => import('./pages/marker')),
+    component: lazy(() => import('./pages/marker')) as unknown as React.ReactNode,
   },
   {
     path: '/mass-marks',
-    component: lazy(() => import('./pages/mass-marks')),
+    component: lazy(() => import('./pages/mass-marks')) as unknown as React.ReactNode,
   },
   {
     path: '/text',
-    component: lazy(() => import('./pages/text')),
+    component: lazy(() => import('./pages/text')) as unknown as React.ReactNode,
   },
   {
     path: '/circle',
-    component: lazy(() => import('./pages/circle')),
+    component: lazy(() => import('./pages/circle')) as unknown as React.ReactNode,
   },
   {
     path: '/ellipse',
-    component: lazy(() => import('./pages/ellipse')),
+    component: lazy(() => import('./pages/ellipse')) as unknown as React.ReactNode,
   },
   {
     path: '/rectangle',
-    component: lazy(() => import('./pages/rectangle')),
+    component: lazy(() => import('./pages/rectangle')) as unknown as React.ReactNode,
   },
   {
     path: '/beizer-curve',
-    component: lazy(() => import('./pages/beizer-curve')),
+    component: lazy(() => import('./pages/beizer-curve')) as unknown as React.ReactNode,
   },
   {
     path: '/polygon',
-    component: lazy(() => import('./pages/polygon')),
+    component: lazy(() => import('./pages/polygon')) as unknown as React.ReactNode,
   },
   {
     path: '/polygon-editor',
-    component: lazy(() => import('./pages/polygon-editor')),
+    component: lazy(() => import('./pages/polygon-editor')) as unknown as React.ReactNode,
   },
   {
     path: '/info-window',
-    component: lazy(() => import('./pages/info-window')),
+    component: lazy(() => import('./pages/info-window')) as unknown as React.ReactNode,
   },
   {
     path: '/circle-marker',
-    component: lazy(() => import('./pages/circle-marker')),
+    component: lazy(() => import('./pages/circle-marker')) as unknown as React.ReactNode,
   },
   {
     path: '/weather',
-    component: lazy(() => import('./pages/weather')),
+    component: lazy(() => import('./pages/weather')) as unknown as React.ReactNode,
   },
   {
     path: '/geolocation',
-    component: lazy(() => import('./pages/geolocation')),
+    component: lazy(() => import('./pages/geolocation')) as unknown as React.ReactNode,
   },
   {
     path: '/auto-complete',
-    component: lazy(() => import('./pages/auto-complete')),
+    component: lazy(() => import('./pages/auto-complete')) as unknown as React.ReactNode,
   },
   {
     path: '/context-menu',
-    component: lazy(() => import('./pages/context-menu')),
+    component: lazy(() => import('./pages/context-menu')) as unknown as React.ReactNode,
   },
   {
     path: '/require-script',
-    component: lazy(() => import('./pages/require-script')),
+    component: lazy(() => import('./pages/require-script')) as unknown as React.ReactNode,
   },
   {
     path: '/types',
-    component: lazy(() => import('./pages/types')),
+    component: lazy(() => import('./pages/types')) as unknown as React.ReactNode,
   },
 ];
 
