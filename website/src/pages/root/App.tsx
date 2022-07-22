@@ -27,9 +27,8 @@ export default function App() {
             style={{ marginLeft: 16, top: 12, position: 'relative' }}
           ></dark-mode>
           <Routes>
-            {routes.map(({ component: Child, path }, idx) => {
-              // @ts-ignore
-              const Com = Child as any;
+            {(routes as any[]).map(({ component: Child, path }, idx) => {
+              const Com = Child;
               return (
                 <Route
                   key={idx}
