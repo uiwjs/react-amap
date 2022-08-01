@@ -1732,7 +1732,8 @@ var useMarker = function useMarker(props) {
     return () => {
       if (marker) {
         // @fix [244] https://github.com/uiwjs/react-amap/issues/244
-        typeof marker.remove === 'function' && marker.remove();
+        // typeof marker.remove === 'function' && marker.remove();
+        marker.setMap(null);
         setMarker(undefined);
       }
     };

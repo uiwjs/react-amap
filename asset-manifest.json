@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-amap/static/css/main.db267855.css",
-    "main.js": "/react-amap/static/js/main.880f419d.js",
+    "main.js": "/react-amap/static/js/main.27a8bd5e.js",
     "static/css/4069.7eab2721.chunk.css": "/react-amap/static/css/4069.7eab2721.chunk.css",
     "static/js/4069.bba6fec4.chunk.js": "/react-amap/static/js/4069.bba6fec4.chunk.js",
     "static/css/2556.7eab2721.chunk.css": "/react-amap/static/css/2556.7eab2721.chunk.css",
@@ -88,11 +88,11 @@
     "react-vendor.js": "/react-amap/static/js/react-vendor.23691f49.js",
     "static/js/5083.c26fae5d.chunk.js": "/react-amap/static/js/5083.c26fae5d.chunk.js",
     "static/js/8857.73320052.js": "/react-amap/static/js/8857.73320052.js",
-    "static/js/3609.4d53e7fd.chunk.js": "/react-amap/static/js/3609.4d53e7fd.chunk.js",
+    "static/js/3609.9c3ca7d6.chunk.js": "/react-amap/static/js/3609.9c3ca7d6.chunk.js",
     "index.html": "/react-amap/index.html",
     "static/media/logo.svg": "/react-amap/static/media/logo.552138f67b47aa2ff9779e6ffc2abeed.svg",
     "main.db267855.css.map": "/react-amap/static/css/main.db267855.css.map",
-    "main.880f419d.js.map": "/react-amap/static/js/main.880f419d.js.map",
+    "main.27a8bd5e.js.map": "/react-amap/static/js/main.27a8bd5e.js.map",
     "4069.7eab2721.chunk.css.map": "/react-amap/static/css/4069.7eab2721.chunk.css.map",
     "4069.bba6fec4.chunk.js.map": "/react-amap/static/js/4069.bba6fec4.chunk.js.map",
     "2556.7eab2721.chunk.css.map": "/react-amap/static/css/2556.7eab2721.chunk.css.map",
@@ -179,7 +179,7 @@
     "react-vendor.23691f49.js.map": "/react-amap/static/js/react-vendor.23691f49.js.map",
     "5083.c26fae5d.chunk.js.map": "/react-amap/static/js/5083.c26fae5d.chunk.js.map",
     "8857.73320052.js.map": "/react-amap/static/js/8857.73320052.js.map",
-    "3609.4d53e7fd.chunk.js.map": "/react-amap/static/js/3609.4d53e7fd.chunk.js.map"
+    "3609.9c3ca7d6.chunk.js.map": "/react-amap/static/js/3609.9c3ca7d6.chunk.js.map"
   },
   "entrypoints": [
     "static/js/babel-runtime-vendor.d524a7f3.js",
@@ -187,6 +187,6 @@
     "static/js/react-vendor.23691f49.js",
     "static/js/8857.73320052.js",
     "static/css/main.db267855.css",
-    "static/js/main.880f419d.js"
+    "static/js/main.27a8bd5e.js"
   ]
 }
