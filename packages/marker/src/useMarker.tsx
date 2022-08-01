@@ -21,7 +21,8 @@ export const useMarker = (props: UseMarker = {}) => {
     }
     return () => {
       if (marker) {
-        marker.remove();
+        // @fix [244] https://github.com/uiwjs/react-amap/issues/244
+        typeof marker.remove === 'function' && marker.remove();
         setMarker(undefined);
       }
     };
