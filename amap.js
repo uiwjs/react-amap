@@ -202,29 +202,24 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     reject(error);
     return;
   }
-
   if (info.done) {
     resolve(value);
   } else {
     Promise.resolve(value).then(_next, _throw);
   }
 }
-
 function _asyncToGenerator(fn) {
   return function () {
     var self = this,
-        args = arguments;
+      args = arguments;
     return new Promise(function (resolve, reject) {
       var gen = fn.apply(self, args);
-
       function _next(value) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
       }
-
       function _throw(err) {
         asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
       }
-
       _next(undefined);
     });
   };
@@ -234,15 +229,14 @@ var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_re
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 ;// CONCATENATED MODULE: ../require-script/esm/index.js
 var _importedScript = {};
+
 /**
  * load dependency by css tag
  */
-
 function requireCss(src, id) {
   if (id === void 0) {
     id = '_react_amap_css';
   }
-
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   var dom = document.getElementById(id);
   return new Promise((resolve, reject) => {
@@ -250,35 +244,30 @@ function requireCss(src, id) {
       resolve();
       return;
     }
-
     var script = document.createElement('link');
     script.type = 'text/css';
     script.rel = 'stylesheet';
     script.id = id;
     script.href = src;
-
     script.onerror = err => {
       headElement.removeChild(script);
       reject(new URIError("The css " + src + " is no accessible."));
     };
-
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-
     headElement.appendChild(script);
   });
 }
+
 /**
  * load dependency by script tag
  */
-
 function requireScript(src, id) {
   if (id === void 0) {
     id = '_react_amap_plugin';
   }
-
   var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
   var dom = document.getElementById(id);
   return new Promise((resolve, reject) => {
@@ -286,24 +275,20 @@ function requireScript(src, id) {
       resolve();
       return;
     }
-
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.id = id;
     script.async = true;
     script.defer = true;
     script.src = src;
-
     script.onerror = err => {
       headElement.removeChild(script);
       reject(new URIError("The Script " + src + " is no accessible."));
     };
-
     script.onload = () => {
       _importedScript[src] = true;
       resolve();
     };
-
     headElement.appendChild(script);
   });
 }
@@ -316,27 +301,28 @@ var jsx_runtime = __webpack_require__(664);
 
 
 
+
 function delay(time) {
   return new Promise((resolve, reject) => {
     window.setTimeout(resolve, time);
   });
 }
 var DEFAULT_RETRY_TIME = 3;
+
 /**
  * APILoader 用于加载百度地图依赖
  */
-
 class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_react_.Component {
   /**
    * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
    */
+
   constructor(props) {
     super(props);
     this.isMountedOk = false;
     this.state = {
       loaded: !!window.AMap
     };
-
     this.handleError = error => {
       if (this.isMountedOk) {
         this.setState({
@@ -344,7 +330,6 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
         });
       }
     };
-
     this.finish = () => {
       if (this.isMountedOk) {
         this.setState({
@@ -352,41 +337,33 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
         });
       }
     };
-
     if (props.akay === null) {
       throw new TypeError('AMap: akay is required');
     }
   }
-
   componentDidMount() {
     this.isMountedOk = true;
     var {
       callbackName
     } = this.props;
-
     if (window.AMap == null) {
       if (window[callbackName]) {
         APILoader.waitQueue.push([this.finish, this.handleError]);
         return;
       }
-
       this.loadMap();
     }
   }
-
   componentWillUnmount() {
     this.isMountedOk = false;
   }
-
   render() {
     if (this.state.loaded) {
       return this.props.children;
     }
-
     if (this.props.fallback) {
       return this.props.fallback(this.state.error);
     }
-
     if (this.state.error) {
       return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         style: {
@@ -395,50 +372,37 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
         children: this.state.error.message
       });
     }
-
     return null;
   }
-
   getScriptSrc() {
     var cfg = this.props;
     var protocol = cfg.protocol || window.location.protocol;
-
     if (protocol.indexOf(':') === -1) {
       protocol += ':';
     }
-
     var plugin = '';
-
     if (cfg.plugin) {
       plugin = "&plugin=" + cfg.plugin;
     }
-
     return protocol + "//" + cfg.hostAndPath + "?v=" + cfg.version + "&key=" + cfg.akay + "&callback=" + cfg.callbackName + plugin;
   }
   /**
    * load BaiduMap in script tag
    */
-
-
   loadMap() {
     var _this = this;
-
     return _asyncToGenerator(function* () {
       var {
         callbackName
       } = _this.props;
-
       var src = _this.getScriptSrc();
-
       window[callbackName] = () => {
         // flush queue
         var queue = APILoader.waitQueue;
         APILoader.waitQueue = [];
         queue.forEach(task => task[0]());
-
         _this.finish();
       };
-
       for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
         try {
           yield requireScript(src);
@@ -446,28 +410,23 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
         } catch (error) {
           if (i === DEFAULT_RETRY_TIME - 1) {
             var _ret = function () {
-              var err = new Error("Failed to load AMap: " + error.message); // flush queue
-
+              var err = new Error("Failed to load AMap: " + error.message);
+              // flush queue
               var queue = APILoader.waitQueue;
               APILoader.waitQueue = [];
               queue.forEach(task => task[1](err));
-
               _this.handleError(err);
-
               return {
                 v: void 0
               };
             }();
-
             if (typeof _ret === "object") return _ret.v;
           }
-
           yield delay(i * 1000);
         }
       }
     })();
   }
-
 }
 APILoader.defaultProps = {
   protocol: /^file:/.test(window.location.protocol) ? 'https' : window.location.protocol,
@@ -484,14 +443,12 @@ function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
   return _extends.apply(this, arguments);
@@ -518,11 +475,9 @@ var usePortal = () => {
       if (!children) return null;
       return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
     };
-
     var remove = elm => {
       elm && (0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.unmountComponentAtNode)(elm);
     };
-
     return {
       render: Portal,
       remove
@@ -547,27 +502,25 @@ var usePortal = () => {
 /// <reference types="@uiw/react-amap-types" />
 
 
+
 /**
  * 对实例有 setStatus 更改状态的处理
  * @param instance
  * @param props
  * @param propsName
  */
-
 function useSetStatus(instance, props, propsName) {
   if (props === void 0) {
     props = {};
   }
-
   if (propsName === void 0) {
     propsName = [];
   }
-
   propsName.forEach(name => {
-    var eName = name; // eslint-disable-next-line react-hooks/rules-of-hooks
-
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]); // eslint-disable-next-line react-hooks/rules-of-hooks
-
+    var eName = name;
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (instance && props[eName] !== undefined) {
         if (props[eName] !== state) {
@@ -584,16 +537,16 @@ function useSetStatus(instance, props, propsName) {
           }));
           setState(props[eName]);
         }
-      } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eName]]);
   });
 }
+
 /**
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-
 function useVisiable(instance, visiable) {
   var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -603,14 +556,14 @@ function useVisiable(instance, visiable) {
       } else {
         instance.hide && instance.hide();
       }
-
       if (visiable !== state) {
         setState(visiable);
       }
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instance, visiable]);
 }
+
 /**
  * 获取上一轮的 props 或 state
  * How to get the previous props or state?
@@ -624,7 +577,6 @@ function useVisiable(instance, visiable) {
  * }
  * ```
  */
-
 function usePrevious(value) {
   var ref = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
@@ -632,7 +584,6 @@ function usePrevious(value) {
   });
   return ref.current;
 }
-
 /**
  * 绑定事件
  * @param instance 实例对象
@@ -650,31 +601,29 @@ function useEventProperties(instance, props, eventName, type) {
   if (props === void 0) {
     props = {};
   }
-
   if (eventName === void 0) {
     eventName = [];
   }
-
   eventName.forEach(name => {
     var eventName = name;
-    var eventHandle = props[eventName]; // eslint-disable-next-line react-hooks/rules-of-hooks
-
+    var eventHandle = props[eventName];
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (!instance) return;
       var eName = name.toLocaleLowerCase().replace(/^on/, '');
-
       if (eventHandle && eName) {
         instance.on(eName, eventHandle);
       }
-
       return () => {
         if (eName && eventHandle) {
           instance.off(eName, eventHandle);
         }
-      }; // eslint-disable-next-line react-hooks/exhaustive-deps
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[eventName]]);
   });
 }
+
 /**
  * 属性受控
  * @param instance 实例对象
@@ -687,34 +636,30 @@ function useEventProperties(instance, props, eventName, type) {
  * ]);
  * ```
  */
-
 function useSettingProperties(instance, props, propsName) {
   if (instance === void 0) {
     instance = {};
   }
-
   if (props === void 0) {
     props = {};
   }
-
   if (propsName === void 0) {
     propsName = [];
   }
-
   propsName.forEach(name => {
     var eName = "set" + name;
-    var vName = "" + name.charAt(0).toLowerCase() + name.slice(1); // eslint-disable-next-line react-hooks/rules-of-hooks
-
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[vName]); // eslint-disable-next-line react-hooks/rules-of-hooks
-
+    var vName = "" + name.charAt(0).toLowerCase() + name.slice(1);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[vName]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (instance && props[vName] !== undefined) {
         if (props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
           instance[eName](props[vName]);
           setState(props[vName]);
         }
-      } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [instance, props[vName]]);
   });
 }
@@ -726,7 +671,6 @@ var useAutoComplete = function useAutoComplete(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [autoComplete, setAutoComplete] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !autoComplete) {
@@ -771,14 +715,16 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   var target = {};
   var sourceKeys = Object.keys(source);
   var key, i;
-
   for (i = 0; i < sourceKeys.length; i++) {
     key = sourceKeys[i];
     if (excluded.indexOf(key) >= 0) continue;
     target[key] = source[key];
   }
-
   return target;
+}
+;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectDestructuringEmpty.js
+function _objectDestructuringEmpty(obj) {
+  if (obj == null) throw new TypeError("Cannot destructure " + obj);
 }
 ;// CONCATENATED MODULE: ../map/esm/context.js
 
@@ -812,13 +758,12 @@ function useMapContext() {
 
 
 
+
 var useMap = function useMap(props) {
   if (props === void 0) {
     props = {};
   }
-
-  var other = _extends({}, props);
-
+  var other = _extends({}, (_objectDestructuringEmpty(props), props));
   var [map, setMap] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var [zoom, setZoom] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.zoom || 15);
   var [container, setContainer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.container);
@@ -833,7 +778,6 @@ var useMap = function useMap(props) {
       }, other));
       setMap(instance);
     }
-
     return () => {
       if (map) {
         map.clearInfoWindow();
@@ -852,7 +796,6 @@ var useMap = function useMap(props) {
         AMap
       });
     }
-
     return () => {
       dispatch({
         map: undefined,
@@ -872,9 +815,9 @@ var useMap = function useMap(props) {
       map.setCenter(props.center);
     }
   }, [map, props.center]);
-  useSetStatus(map, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']); // setStatus, setZoomAndCenter, setFitView
+  useSetStatus(map, props, ['dragEnable', 'zoomEnable', 'jogEnable', 'pitchEnable', 'rotateEnable', 'animateEnable', 'keyboardEnable']);
+  // setStatus, setZoomAndCenter, setFitView
   // 'Center',
-
   useSettingProperties(map, props, ['Zoom', 'LabelzIndex', 'Layers', 'City', 'Bounds', 'LimitBounds', 'Lang', 'Rotation', 'DefaultCursor', 'MapStyle', 'Features', 'DefaultLayer', 'Pitch']);
   useEventProperties(map, props, ['onMouseMove', 'onZoomChange', 'onMapMove', 'onMouseWheel', 'onZoomStart', 'onMouseOver', 'onMouseOut', 'onDblClick', 'onClick', 'onZoomEnd', 'onMoveEnd', 'onMouseUp', 'onMouseDown', 'onRightClick', 'onMoveStart', 'onDragStart', 'onDragging', 'onDragEnd', 'onHotspotOut', 'onHotspotOver', 'onTouchStart', 'onComplete', 'onHotspotClick', 'onTouchMove', 'onTouchEnd', 'onResize']);
   return {
@@ -911,11 +854,10 @@ var Provider = props => {
 };
 var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
   var {
-    className,
-    children
-  } = _ref,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded);
-
+      className,
+      children
+    } = _ref,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded);
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
   var {
@@ -960,7 +902,6 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
       container
     }), AMap && map && childs.map((child, key) => {
       if (! /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(child)) return null;
-
       if (typeof child === 'string') {
         return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
           children: child
@@ -968,13 +909,11 @@ var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd
           key
         });
       }
-
       if (child.type && typeof child.type === 'string') {
         return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(child, {
           key
         });
       }
-
       return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(child, _extends({}, child.props, {
         AMap,
         map,
@@ -996,12 +935,10 @@ var useBezierCurve = function useBezierCurve(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
   var {
     map
   } = useMapContext();
@@ -1054,12 +991,10 @@ var useCircle = function useCircle(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
   var {
     map
   } = useMapContext();
@@ -1070,7 +1005,6 @@ var useCircle = function useCircle(props) {
       map.add(instance);
       setCircle(instance);
     }
-
     return () => {
       if (circle) {
         map && map.remove(circle);
@@ -1113,19 +1047,16 @@ var useCircleMarker = function useCircleMarker(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
   var {
     map
   } = useMapContext();
   var [circleMarker, setCircleMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!circleMarker) {
       var instance = new AMap.CircleMarker(_extends({}, other));
       map.add(instance);
@@ -1173,25 +1104,20 @@ var useContextMenu = function useContextMenu(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    position
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useContextMenu_excluded);
-
+      position
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useContextMenu_excluded);
   var {
     map
   } = useMapContext();
   var [contextMenu, setContextMenu] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!contextMenu) {
       var instance = new AMap.ContextMenu(_extends({}, other));
       setContextMenu(instance);
-
       var rightclick = e => instance.open(map, position || e.lnglat);
-
       map.on('rightclick', rightclick);
       return () => {
         if (instance) {
@@ -1211,14 +1137,11 @@ var useContextMenu = function useContextMenu(props) {
 
 ;// CONCATENATED MODULE: ../context-menu/esm/Item.js
 
-
 var noop = function noop() {};
-
 /* harmony default export */ const Item = (function (props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     text = '',
     onClick = noop
@@ -1227,7 +1150,6 @@ var noop = function noop() {};
     if (props.contextMenu) {
       props.contextMenu.addItem(text, onClick, 1);
     }
-
     return () => {
       if (props.contextMenu) {
         props.contextMenu.removeItem(text, onClick);
@@ -1275,7 +1197,6 @@ function useControlBarControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     position,
     visiable,
@@ -1336,19 +1257,16 @@ var useEllipse = function useEllipse(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
   var {
     map
   } = useMapContext();
   var [ellipse, setEllipse] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!ellipse) {
       var instance = new AMap.Ellipse(_extends({}, other));
       map.add(instance);
@@ -1395,14 +1313,12 @@ var useGeolocation = function useGeolocation(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    type = 'position',
-    onComplete,
-    onError
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useGeolocation_excluded);
-
+      type = 'position',
+      onComplete,
+      onError
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useGeolocation_excluded);
   var [geolocation, setGeolocation] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     map
@@ -1421,7 +1337,6 @@ var useGeolocation = function useGeolocation(props) {
       };
     }
   }, [AMap]);
-
   function callback(status, result) {
     if (status === 'complete' && onComplete) {
       onComplete(result);
@@ -1429,11 +1344,9 @@ var useGeolocation = function useGeolocation(props) {
       onError(result);
     }
   }
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (!/^(position|cityInfo)$/.test(type)) return;
     var funName = type === 'position' ? 'getCurrentPosition' : 'getCityInfo';
-
     if (geolocation && map) {
       geolocation[funName](callback);
       map.addControl(geolocation);
@@ -1473,15 +1386,12 @@ function useHawkEyeControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [hawkEyeControl, setHawkEyeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-
   var {
-    offset,
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
-
+      offset,
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
   var {
     map
   } = useMapContext();
@@ -1536,13 +1446,11 @@ var useInfoWindow = function useInfoWindow(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable,
-    position
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
-
+      visiable,
+      position
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
   var {
     map
   } = useMapContext();
@@ -1554,23 +1462,18 @@ var useInfoWindow = function useInfoWindow(props) {
   } = usePortal();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!infoWindow) {
       var positionCenter = map.getCenter();
-
       if (props.children) {
         other.content = container;
       }
-
       var instance = new AMap.InfoWindow(_extends({}, other, {
         position: position || positionCenter
       }));
       setInfoWindow(instance);
-
       if (isOpen) {
         instance.open(map, position || positionCenter);
       }
-
       return () => {
         if (instance) {
           map && map.remove(instance);
@@ -1587,7 +1490,6 @@ var useInfoWindow = function useInfoWindow(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
     if (isOpen !== visiable && infoWindow && map) {
       setIsOpen(visiable);
-
       if (visiable) {
         var positionCenter = map.getCenter();
         infoWindow.open(map, position || positionCenter);
@@ -1642,15 +1544,12 @@ function useMapTypeControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [mapTypeControl, setMapTypeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-
   var {
-    visiable,
-    defaultType = 0
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useMapTypeControl_excluded);
-
+      visiable,
+      defaultType = 0
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useMapTypeControl_excluded);
   var {
     map
   } = useMapContext();
@@ -1704,12 +1603,10 @@ var useMarker = function useMarker(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useMarker_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useMarker_excluded);
   var {
     map
   } = useMapContext();
@@ -1723,12 +1620,10 @@ var useMarker = function useMarker(props) {
       if (props.children) {
         other.content = container;
       }
-
       var instance = new AMap.Marker(_extends({}, other));
       map.add(instance);
       setMarker(instance);
     }
-
     return () => {
       if (marker) {
         // @fix [244] https://github.com/uiwjs/react-amap/issues/244
@@ -1777,12 +1672,10 @@ var useMassMarks = function useMassMarks(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useMassMarks_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useMassMarks_excluded);
   var {
     map
   } = useMapContext();
@@ -1795,10 +1688,8 @@ var useMassMarks = function useMassMarks(props) {
   var [massMarks, setMassMarks] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!massMarks) {
       var initStyle = style;
-
       if (!initStyle) {
         // JSAPI 2.0 支持显示设置 zIndex, zIndex 越大约靠前，默认按顺序排列
         initStyle = [{
@@ -1818,14 +1709,13 @@ var useMassMarks = function useMassMarks(props) {
           zIndex: 1
         }];
       }
-
       var instance = new AMap.MassMarks(data || [], {
         opacity,
         zIndex,
         style: initStyle
-      }); // 将海量点实例添加到地图上
+      });
+      // 将海量点实例添加到地图上
       // map.add(instance);
-
       setMassMarks(instance);
       instance.setMap(map);
       return () => {
@@ -1834,12 +1724,13 @@ var useMassMarks = function useMassMarks(props) {
           setMassMarks(undefined);
         }
       };
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
   useVisiable(massMarks, visiable);
   useSettingProperties(massMarks, props, ['Map', 'Data', 'Style', 'Opacity', 'zIndex', 'Zooms']);
-  useEventProperties(massMarks, props, [// 'onRightClick',
+  useEventProperties(massMarks, props, [
+  // 'onRightClick',
   // 'onDragStart',
   // 'onDragging',
   // 'onDragEnd',
@@ -1879,19 +1770,16 @@ var usePolygon = function usePolygon(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, usePolygon_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, usePolygon_excluded);
   var {
     map
   } = useMapContext();
   var [polygon, setPolygon] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!polygon) {
       var instance = new AMap.Polygon(_extends({}, other));
       map.add(instance);
@@ -1922,13 +1810,11 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polygon
   }));
-
   if (children && /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(children) && polygon) {
     return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(children, Object.assign(props, {
       polygon
     }));
   }
-
   return null;
 });
 
@@ -1958,7 +1844,6 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
     if (!polyEditor) {
       return;
     }
-
     if (visiable && !active) {
       polyEditor.close();
     } else if (visiable && active) {
@@ -1982,14 +1867,11 @@ function usePolyline(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [polyline, setPolyline] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, usePolyline_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, usePolyline_excluded);
   var {
     map
   } = useMapContext();
@@ -2041,19 +1923,16 @@ var useRectangle = function useRectangle(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useRectangle_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useRectangle_excluded);
   var {
     map
   } = useMapContext();
   var [rectangle, setRectangle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!rectangle) {
       var instance = new AMap.Rectangle(_extends({}, other));
       map.add(instance);
@@ -2098,7 +1977,6 @@ function useScaleControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [scaleControl, setScaleControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     position,
@@ -2159,12 +2037,10 @@ var useText = function useText(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
-    visiable
-  } = props,
-      other = _objectWithoutPropertiesLoose(props, useText_excluded);
-
+      visiable
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useText_excluded);
   var [text, setText] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     map
@@ -2175,12 +2051,10 @@ var useText = function useText(props) {
   } = usePortal();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
-
     if (!text) {
       if (props.children) {
         other.text = container.innerHTML;
       }
-
       var instance = new AMap.Text(_extends({}, other));
       map.add(instance);
       setText(instance);
@@ -2235,7 +2109,6 @@ function useToolBarControl(props) {
   if (props === void 0) {
     props = {};
   }
-
   var [toolBarControl, setToolBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     position,
@@ -2291,7 +2164,6 @@ var useWeather = function useWeather(props) {
   if (props === void 0) {
     props = {};
   }
-
   var {
     city = '',
     type = 'live',
@@ -2300,7 +2172,6 @@ var useWeather = function useWeather(props) {
   } = props;
   var [weather, setWeather] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var funName = type === 'live' ? 'getLive' : 'getForecast';
-
   function getData(instance) {
     if (type && city && /^(live|forecast)$/.test(type)) {
       instance[funName](city, (err, data) => {
@@ -2312,7 +2183,6 @@ var useWeather = function useWeather(props) {
       });
     }
   }
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !weather) {
       var instance;
