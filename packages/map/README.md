@@ -162,7 +162,7 @@ function Demo() {
     console.log('mapRef:', mapRef)
   }, []);
   return (
-    <div style={{ width: '100%', height: 330 }}>
+    <div style={{ width: '100%', height: 130 }}>
       <Map
         layers={[new AMap.TileLayer.Satellite()]}
         ref={(instance) => {
@@ -181,9 +181,11 @@ function Demo() {
 }
 
 const Mount = () => (
+  <div style={{ width: '100%', height: '300px' }}>
   <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
+  </div>
 );
 
 export default Mount;
