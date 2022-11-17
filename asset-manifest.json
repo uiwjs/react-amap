@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-amap/static/css/main.5551b925.css",
-    "main.js": "/react-amap/static/js/main.a9b1e33b.js",
+    "main.js": "/react-amap/static/js/main.f3a96d13.js",
     "static/js/1841.417c0a0a.chunk.js": "/react-amap/static/js/1841.417c0a0a.chunk.js",
     "static/js/4164.61635ac6.chunk.js": "/react-amap/static/js/4164.61635ac6.chunk.js",
     "static/js/8960.a7d8805b.chunk.js": "/react-amap/static/js/8960.a7d8805b.chunk.js",
@@ -46,7 +46,7 @@
     "static/js/4831.3495c032.chunk.js": "/react-amap/static/js/4831.3495c032.chunk.js",
     "static/js/5418.67389fc4.chunk.js": "/react-amap/static/js/5418.67389fc4.chunk.js",
     "static/js/3971.d313d067.chunk.js": "/react-amap/static/js/3971.d313d067.chunk.js",
-    "static/js/5293.ffafdd42.chunk.js": "/react-amap/static/js/5293.ffafdd42.chunk.js",
+    "static/js/5293.35d2d6d8.chunk.js": "/react-amap/static/js/5293.35d2d6d8.chunk.js",
     "static/js/8254.38a68c97.chunk.js": "/react-amap/static/js/8254.38a68c97.chunk.js",
     "static/js/7881.c87779ba.chunk.js": "/react-amap/static/js/7881.c87779ba.chunk.js",
     "static/js/8864.26cf4472.chunk.js": "/react-amap/static/js/8864.26cf4472.chunk.js",
@@ -60,14 +60,14 @@
     "parse5-vendor.js": "/react-amap/static/js/parse5-vendor.ee39fc2e.chunk.js",
     "micromark-vendor.js": "/react-amap/static/js/micromark-vendor.9489adc9.chunk.js",
     "react-vendor.js": "/react-amap/static/js/react-vendor.96197fd5.js",
-    "static/js/7266.61662c0a.chunk.js": "/react-amap/static/js/7266.61662c0a.chunk.js",
+    "static/js/7266.f210f3f2.chunk.js": "/react-amap/static/js/7266.f210f3f2.chunk.js",
     "static/js/9597.fb2321ed.js": "/react-amap/static/js/9597.fb2321ed.js",
     "static/css/7972.7df87885.chunk.css": "/react-amap/static/css/7972.7df87885.chunk.css",
-    "static/js/3609.4a5f6485.chunk.js": "/react-amap/static/js/3609.4a5f6485.chunk.js",
+    "static/js/3609.98267b1f.chunk.js": "/react-amap/static/js/3609.98267b1f.chunk.js",
     "index.html": "/react-amap/index.html",
     "static/media/logo.svg": "/react-amap/static/media/logo.552138f67b47aa2ff9779e6ffc2abeed.svg",
     "main.5551b925.css.map": "/react-amap/static/css/main.5551b925.css.map",
-    "main.a9b1e33b.js.map": "/react-amap/static/js/main.a9b1e33b.js.map",
+    "main.f3a96d13.js.map": "/react-amap/static/js/main.f3a96d13.js.map",
     "1841.417c0a0a.chunk.js.map": "/react-amap/static/js/1841.417c0a0a.chunk.js.map",
     "4164.61635ac6.chunk.js.map": "/react-amap/static/js/4164.61635ac6.chunk.js.map",
     "8960.a7d8805b.chunk.js.map": "/react-amap/static/js/8960.a7d8805b.chunk.js.map",
@@ -112,7 +112,7 @@
     "4831.3495c032.chunk.js.map": "/react-amap/static/js/4831.3495c032.chunk.js.map",
     "5418.67389fc4.chunk.js.map": "/react-amap/static/js/5418.67389fc4.chunk.js.map",
     "3971.d313d067.chunk.js.map": "/react-amap/static/js/3971.d313d067.chunk.js.map",
-    "5293.ffafdd42.chunk.js.map": "/react-amap/static/js/5293.ffafdd42.chunk.js.map",
+    "5293.35d2d6d8.chunk.js.map": "/react-amap/static/js/5293.35d2d6d8.chunk.js.map",
     "8254.38a68c97.chunk.js.map": "/react-amap/static/js/8254.38a68c97.chunk.js.map",
     "7881.c87779ba.chunk.js.map": "/react-amap/static/js/7881.c87779ba.chunk.js.map",
     "8864.26cf4472.chunk.js.map": "/react-amap/static/js/8864.26cf4472.chunk.js.map",
@@ -126,16 +126,16 @@
     "parse5-vendor.ee39fc2e.chunk.js.map": "/react-amap/static/js/parse5-vendor.ee39fc2e.chunk.js.map",
     "micromark-vendor.9489adc9.chunk.js.map": "/react-amap/static/js/micromark-vendor.9489adc9.chunk.js.map",
     "react-vendor.96197fd5.js.map": "/react-amap/static/js/react-vendor.96197fd5.js.map",
-    "7266.61662c0a.chunk.js.map": "/react-amap/static/js/7266.61662c0a.chunk.js.map",
+    "7266.f210f3f2.chunk.js.map": "/react-amap/static/js/7266.f210f3f2.chunk.js.map",
     "9597.fb2321ed.js.map": "/react-amap/static/js/9597.fb2321ed.js.map",
     "7972.7df87885.chunk.css.map": "/react-amap/static/css/7972.7df87885.chunk.css.map",
-    "3609.4a5f6485.chunk.js.map": "/react-amap/static/js/3609.4a5f6485.chunk.js.map"
+    "3609.98267b1f.chunk.js.map": "/react-amap/static/js/3609.98267b1f.chunk.js.map"
   },
   "entrypoints": [
     "static/js/babel-runtime-vendor.c4549d89.js",
     "static/js/react-vendor.96197fd5.js",
     "static/js/9597.fb2321ed.js",
     "static/css/main.5551b925.css",
-    "static/js/main.a9b1e33b.js"
+    "static/js/main.f3a96d13.js"
   ]
 }

@@ -1811,14 +1811,16 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
     polygon
   }));
   if (children && /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(children) && polygon) {
-    return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(children, Object.assign(props, {
+    var oProps = {
       polygon
-    }));
+    };
+    return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(children, _extends({}, props, oProps));
   }
   return null;
 });
 
 ;// CONCATENATED MODULE: ../polygon-editor/esm/index.js
+
 
 
 
@@ -1832,6 +1834,9 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
   } = useMapContext();
   var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
   var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    polyEditor
+  }));
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon && map && !polyEditor && AMap && AMap.PolygonEditor) {
       var instance = new AMap.PolygonEditor(map, polygon);
