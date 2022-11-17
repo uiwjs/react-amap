@@ -13,7 +13,8 @@ export const Polygon = forwardRef<PolygonProps, PolygonProps>((props, ref) => {
   const { polygon } = usePolygon(props);
   useImperativeHandle(ref, () => ({ ...props, polygon }));
   if (children && isValidElement(children) && polygon) {
-    return cloneElement(children, Object.assign(props, { polygon }));
+    const oProps = { polygon };
+    return cloneElement(children, { ...props, ...oProps });
   }
   return null;
 });
