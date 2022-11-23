@@ -1,0 +1,44 @@
+{
+  "name": "@uiw/react-amap-label-marker",
+  "version": "4.0.2",
+  "description": "本章介绍在图面添加数量为万级以上的点标记的解决方案",
+  "homepage": "https://uiwjs.github.io/react-amap/#/label-marker",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-amap.git"
+  },
+  "author": "Kenny Wong <wowohoo@qq.com>",
+  "license": "MIT",
+  "files": [
+    "src",
+    "esm",
+    "cjs"
+  ],
+  "keywords": [
+    "react-amap",
+    "api-loader",
+    "amap",
+    "marker",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "高德",
+    "地图",
+    "高德地图"
+  ],
+  "peerDependencies": {
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0"
+  },
+  "dependencies": {
+    "@uiw/react-amap-map": "4.0.2",
+    "@uiw/react-amap-utils": "4.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "~18.0.0",
+    "@types/react-dom": "~18.0.0"
+  }
+}

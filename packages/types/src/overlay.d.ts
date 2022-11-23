@@ -62,7 +62,7 @@ declare namespace AMap {
     /** 文本标注的内容 */
     content?: string;
     /** 文本标注方位 可选值，默认值: `right`。 */
-    direction?: 'top'|'right'|'bottom'|'left'|'center';
+    direction?: 'top' | 'right' | 'bottom' | 'left' | 'center';
     /** 为偏移量。如设置了 direction，以 direction 方位为基准点进行偏移。 */
     offset?: AMap.Pixel;
   }
@@ -264,7 +264,7 @@ declare namespace AMap {
      * direction 为文本标注方位（自 v1.4.14 新增属性），可选值：'top'|'right'|'bottom'|'left'|'center'，默认值：'top' 。
      * offset 为偏移量（默认基准点为图标左上角），如设置了 direction，以 direction 方位为基准点进行偏移。相关示例
      */
-    label?: { content: string; offset: Pixel, direction: 'top'|'right'|'bottom'|'left'|'center' };
+    label?: { content: string; offset: Pixel, direction: 'top' | 'right' | 'bottom' | 'left' | 'center' };
   }
   interface MarkerEvents extends EventsCommonProps {
     /**
@@ -287,7 +287,7 @@ declare namespace AMap {
      * 点标记在执行moveTo，moveAlong动画时触发事件，Object对象的格式是{passedPath:Array.<LngLat>}。
      * 其中passedPath为Marker对象在moveAlong或者moveTo过程中已经走过的路径。
      */
-    onMoving?(obj: { passedPath:Array<LngLat> }): void;
+    onMoving?(obj: { passedPath: Array<LngLat> }): void;
     /**
      * 点标记执行moveTo动画结束时触发事件，也可以由moveAlong方法触发
      */
@@ -364,7 +364,7 @@ declare namespace AMap {
     contains(point: LngLatLike): boolean;
 
   }
-  interface PolylineEvents extends EventsCommonProps {}
+  interface PolylineEvents extends EventsCommonProps { }
   interface PolylineOptions {
     /**
      * polyline 路径，支持 lineString 和 MultiLineString
@@ -480,7 +480,7 @@ declare namespace AMap {
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
   }
-  interface CircleEvents extends EventsCommonProps {}
+  interface CircleEvents extends EventsCommonProps { }
   interface CircleOptions {
     /** 圆心位置 */
     center?: LngLat;
@@ -543,7 +543,7 @@ declare namespace AMap {
     /** 获取圆点的半径 */
     getRadius(): number;
     /** 修改圆点标记的属性（样式风格，包括轮廓线、填充色等。属性详情参看CircleMarkerOptions列表） */
-    setOptions(optsArg: CircleMarkerOptions): void; 
+    setOptions(optsArg: CircleMarkerOptions): void;
     /** 判断指定点坐标是否在圆内 */
     contains(point: LngLatLike): void;
     /** 获取圆点的属性 */
@@ -830,9 +830,9 @@ declare namespace AMap {
   }
   interface BezierCurveEvents extends EventsCommonProps {
     /** 隐藏 */
-    onHide?(data: {type: string, target: any}): void;
+    onHide?(data: { type: string, target: any }): void;
     /** 显示 */
-    onShow?(data: {type: string, target: any}): void;
+    onShow?(data: { type: string, target: any }): void;
   }
   /** 多边形 */
   class Polygon extends MapEventListener<'hide' | 'show' | 'touchstart' | 'mouseout' | 'mouseover' | 'mouseup' | 'mousedown' | 'rightclick' | 'click' | 'dblclick' | 'touchend' | 'touchmove'> {
@@ -842,7 +842,7 @@ declare namespace AMap {
     /** 获取多边形轮廓线节点数组。其中lat和lng是经纬度参数。 */
     getPath(): Array<LngLat> | Array<Array<LngLat>>;
     /** 修改多边形属性（样式风格，包括组成多边形轮廓线的节点、轮廓线样式等。属性详情参看PolygonOptions列表） */
-    setOptions(opt:PolygonOptions): void;
+    setOptions(opt: PolygonOptions): void;
     /** 获取多边形的属性 */
     getOptions(): PolygonOptions;
     /** 获取当前多边形的矩形范围对象。（自v1.2 新增） */
@@ -850,13 +850,13 @@ declare namespace AMap {
     /** 获取多边形的面积（单位：平方米）（自v1.1 新增） */
     getArea(): number;
     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
-    setMap(map:Map): void;
+    setMap(map: Map): void;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
     setExtData(ext: any): void;
     /** 获取用户自定义属性 */
     getExtData(): any;
     /** 判断指定点坐标是否在多边形范围内 */
-    contains(point: LngLat): boolean;	
+    contains(point: LngLat): boolean;
   }
   interface PolygonOptions {
     /** 要显示该polygon的地图对象 */
@@ -924,21 +924,21 @@ declare namespace AMap {
   }
   interface PolygonEditorEvents {
     /** 调用 close 之后触发该事件，target即为编辑后的覆盖物对象 */
-    onEnd(data: { target: Polygon}): void;
+    onEnd(data: { target: Polygon }): void;
     /** 增加一个节点时触发此事件 */
     onAddnode(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 调整折线上某个点时触发此事件 */
-    onAdjust(data: { target: Polygon, lnglat: LngLat, pixel: Pixel}): void;
+    onAdjust(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 移动覆盖物时触发此事件 */
-    onMove(data: { target: Polygon, lnglat: LngLat, pixel: Pixel}): void;
+    onMove(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 */
-    onAdd(data: { target: Polygon}): void;
+    onAdd(data: { target: Polygon }): void;
   }
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
    */
   class InfoWindow extends MapEventListener<'open' | 'close'> {
-    constructor(opt:InforWindowOptions);
+    constructor(opt: InforWindowOptions);
     /** 打开信息窗体 */
     open(map: Map, pos: LngLat, height?: number): void;
     /** 关闭信息窗体 */
@@ -950,7 +950,7 @@ declare namespace AMap {
     /** 获取信息窗体大小 */
     setContent(content: HTMLElement | string): void;
     /** 设置信息窗体锚点 默认值：'bottom-center'。 */
-    setAnchor(anchor: 'top-left'|'top-center'|'top-right'|'middle-left'|'center'|'middle-right'|'bottom-left'|'bottom-center'|'bottom-right'): void;
+    setAnchor(anchor: 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right'): void;
   }
   interface InforWindowOptions {
     /** 是否自定义窗体。设为true时，信息窗体外框及内容完全按照content所设的值添加（默认为false，即在系统默认的信息窗体外框中显示content内容） */
@@ -982,8 +982,8 @@ declare namespace AMap {
     onClose?(opts: { type: string }): void;
     onChange?(): void;
   }
-   /** 文本标记 */
-   class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'> {
+  /** 文本标记 */
+  class Text extends MapEventListener<'moving' | 'touchmove' | 'touchend' | 'movealong' | 'touchstart' | 'moveend' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragstart' | 'dragend' | 'dragging'> {
     constructor(opts: TextOptions);
     /** 获取文本标记内容 */
     getText(): string | undefined;
@@ -1033,7 +1033,7 @@ declare namespace AMap {
   }
   interface TextEvents extends EventsCommonProps {
     onMoveaLong?(): void;
-    onMoving?(obj: { passedPath:Array<LngLat> }): void;
+    onMoving?(obj: { passedPath: Array<LngLat> }): void;
     onMoveEnd?(): void;
     onDragStart?(event: MapsEvent): void;
     onDragEnd?(event: MapsEvent): void;
@@ -1075,6 +1075,10 @@ declare namespace AMap {
     extData?: any;
     /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
     style?: TextStyleOptions;
+    // 文本标注的内容，该属性为直接显示在标注上的文本内容。
+    content?: string
+    // 文本标注方位。若设置了 icon，则 direction 是以 icon 为中心的偏移，若未设置 icon，则相对 position 偏移。 可选值：'top' | 'right' | 'bottom' | 'left' | 'center'。默认值: right
+    direction?: 'top' | 'right' | 'bottom' | 'left' | 'center'
   }
   type TextStyleOptions = Record<string, any>;
   interface OverlayOptions {
@@ -1176,7 +1180,7 @@ declare namespace AMap {
   }
   /** 海量点类 */
   class MassMarks extends MapEventListener<'touchstart' | 'touchend' | 'mousemove' | 'dbclick' | 'click' | 'complete' | 'mouseover' | 'mousedown' | 'mouseup' | 'mouseout'> {
-    /** 官方文档示例，https://a.amap.com/jsapi/static/doc/index.html#massmarks **/ 
+    /** 官方文档示例，https://a.amap.com/jsapi/static/doc/index.html#massmarks **/
     constructor(data: MassMarkersDataOptions, opts?: Array<MassMarkersOptions> | MassMarkersOptions)
     setMap(map: Map): void;
     getMap(): Map;
@@ -1203,7 +1207,7 @@ declare namespace AMap {
     /** 海量点样式列表。 */
     style?: MassMarkersStyleOptions | Array<MassMarkersStyleOptions>;
   }
-  interface MassMarkersStyleOptions { 
+  interface MassMarkersStyleOptions {
     /** 图标 url */
     url?: string;
     /** 图标显示大小 */
@@ -1215,7 +1219,7 @@ declare namespace AMap {
   }
   interface MassMarksEvents extends Omit<EventsCommonProps, 'onRightClick' | 'onTouchMove'> {
     /** 海量点加载完成事件 */
-    onComplete?: (event: { type: 'complete'}) => void;
+    onComplete?: (event: { type: 'complete' }) => void;
   }
   /**
    * 用于实现点标记沿线段或者路径轨迹移动的动画基类，可用于满足轨迹回放、实时轨迹等场景。
@@ -1231,7 +1235,7 @@ declare namespace AMap {
     /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
     moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
-  interface MoveAlongObj {}
+  interface MoveAlongObj { }
   type MoveToOptions = {
     /** 每段动画持续时长, 单位：ms */
     duration?: number;
@@ -1322,11 +1326,59 @@ declare namespace AMap {
     icon?: IconOptions;
     /** 标注文本设置 */
     text?: TextOptions;
+    /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
+    style?: TextStyleOptions;
   }
+  /**
+ * [标注类](https://a.amap.com/jsapi/static/doc/index.html#labelmarker)
+ */
+  class LabelMarker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> {
+    constructor(opts: MarkerOpions)
+  }
+
+  interface LabelMarkerEvents extends EventsCommonProps {
+    /**
+     * 鼠标在点标记上按下时触发事件
+     */
+    onMouseDown?(event: MapsEvent): void;
+    /**
+    * 鼠标在点标记上按下抬起时触发事件
+    */
+    onMouseUp?(event: MapsEvent): void;
+    /**
+     * 触摸开始时触发事件，仅适用移动设备
+     */
+    onTouchStart?(event: MapsEvent): void;
+    /**
+    * 触摸移动进行中时触发事件，仅适用移动设备
+    */
+    onTouchMove?(event: MapsEvent): void;
+    /**
+    *  触摸结束时触发事件，仅适用移动设备
+    */
+    onTouchEnd?(event: MapsEvent): void;
+    /**
+    *  鼠标左键单击事件
+    */
+    onClick?(event: MapsEvent): void;
+    /**
+    *  鼠标移动
+    */
+    onMouseMove?(event: MapsEvent): void;
+    /**
+    *  鼠标移近点标记时触发事件
+    */
+    onMouseOver?(event: MapsEvent): void;
+    /**
+    *  鼠标移出点标记时触发事件
+    */
+    onMouseOut?(event: MapsEvent): void;
+  }
+
   class ContextMenu extends MapEventListener<'open' | 'close'> {
     constructor(opts: ContextMenuOptions);
     /** 打开右键菜单 */
-    open(map: Map, position: Vector| LngLat): void;
+    open(map: Map, position: Vector | LngLat): void;
     /** 关闭右键菜单 */
     close(): void;
     /** 菜单添加一条内容 */

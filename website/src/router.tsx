@@ -47,6 +47,10 @@ export const routes = [
     component: lazy(() => import('./pages/mass-marks')),
   },
   {
+    path: '/label-marker',
+    component: lazy(() => import('./pages/label-marker')),
+  },
+  {
     path: '/text',
     component: lazy(() => import('./pages/text')),
   },
@@ -169,6 +173,10 @@ export const menus = [
   {
     label: 'Text 文本标记',
     path: '/text',
+  },
+  {
+    label: 'LabelMarker 标注类',
+    path: '/label-marker',
   },
   {
     divider: true,
