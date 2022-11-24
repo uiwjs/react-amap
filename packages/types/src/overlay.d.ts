@@ -1283,27 +1283,6 @@ declare namespace AMap {
     setRank(rank: number): void;
     getText(): TextOptions | undefined;
     setText(textOpts: TextOptions): void;
-    getIcon(): IconOptions | undefined;
-    setIcon(iconOpts: IconOptions): void;
-    getOptions(): LabelMarkerOptions;
-    getExtData(): any | undefined;
-    setExtData(extData: any): void;
-    setTop(isTop: boolean): void;
-    getVisible(): boolean | undefined;
-    getCollision(): boolean | undefined;
-    remove(): void;
-    /** 以指定的时长，点标记沿指定的路径移动，加载 AMap.MoveAnimation 后可以使用 */
-    moveAlong(path: Array<LngLat> | Array<Vector> | Array<MoveAlongObj>, opts?: MoveAlongOptions): void;
-    /** 暂停点标记动画，加载 AMap.MoveAnimation 后创建的点标记可以使用 */
-    pauseMove(): void;
-    /** 重新启动点标记动画，加载 AMap.MoveAnimation 后可以使用 */
-    resumeMove(): void;
-    /** 停止点标记动画，加载 AMap.MoveAnimation 后可以使用 */
-    stopMove(): void;
-    /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
-    startMove(): void;
-    /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
-    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
   }
   interface LabelMarkerOptions {
     /** 标注名称，作为标注标识，并非最终在地图上显示的文字内容，显示文字内容请设置 opts.text.content */
@@ -1328,12 +1307,6 @@ declare namespace AMap {
     text?: TextOptions;
     /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */
     style?: TextStyleOptions;
-  }
-  /**
- * [标注类](https://a.amap.com/jsapi/static/doc/index.html#labelmarker)
- */
-  class LabelMarker extends MapEventListener<'dragstart' | 'touchmove' | 'click' | 'dblclick' | 'rightclick' | 'mousemove' | 'mouseover' | 'mouseout' | 'mousedown' | 'mouseup' | 'dragging' | 'dragend' | 'moving' | 'moveend' | 'touchend' | 'movealong' | 'touchstart'> {
-    constructor(opts: MarkerOpions)
   }
 
   interface LabelMarkerEvents extends EventsCommonProps {
