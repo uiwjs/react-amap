@@ -145,6 +145,7 @@ __webpack_require__.d(__webpack_exports__, {
   "Geolocation": () => (/* reexport */ Geolocation),
   "HawkEyeControl": () => (/* reexport */ HawkEyeControl),
   "InfoWindow": () => (/* reexport */ InfoWindow),
+  "LabelMarker": () => (/* reexport */ LabelMarker),
   "Map": () => (/* reexport */ Map),
   "MapTypeControl": () => (/* reexport */ MapTypeControl),
   "Marker": () => (/* reexport */ Marker),
@@ -1660,6 +1661,106 @@ var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_
   return /*#__PURE__*/(0,jsx_runtime.jsx)(MarkerPortal, {
     children: props.children
   });
+});
+
+;// CONCATENATED MODULE: ../label-marker/esm/useLabelMarker.js
+
+
+var useLabelMarker_excluded = ["visiable", "children", "text", "icon"];
+
+
+
+var useLabelMarker = function useLabelMarker(props) {
+  if (props === void 0) {
+    props = {};
+  }
+  var {
+      visiable,
+      text,
+      icon
+    } = props,
+    other = _objectWithoutPropertiesLoose(props, useLabelMarker_excluded);
+  var {
+    map
+  } = useMapContext();
+  var [labelMarker, setLabelMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  // const { container, Portal } = usePortal();
+
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!labelMarker && map) {
+      var initText = text;
+      if (!text) {
+        initText = {
+          // 要展示的文字内容
+          content: '',
+          // 文字方向，有 icon 时为围绕文字的方向，没有 icon 时，则为相对 position 的位置
+          direction: 'right',
+          // 在 direction 基础上的偏移量
+          offset: [-20, -5],
+          // 文字样式
+          style: {
+            // 字体大小
+            fontSize: 12,
+            // 字体颜色
+            fillColor: '#22886f',
+            // 描边颜色
+            strokeColor: '#fff',
+            // 描边宽度
+            strokeWidth: 2
+          }
+        };
+      }
+      var initIcon = icon;
+      if (!initIcon) {
+        initIcon = {
+          // 图标类型，现阶段只支持 image 类型
+          // 图片 url
+          image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+          // 图片尺寸
+          size: [19, 32],
+          // 图片相对 position 的锚点，默认为 bottom-center
+          anchor: 'center'
+        };
+      }
+
+      // if (props.children) {
+      //   other.content = container;
+      // }
+      var instance = new AMap.LabelMarker(_extends({
+        style: initIcon,
+        icon: initIcon,
+        text: initText
+      }, other));
+      map.add(instance);
+      setLabelMarker(instance);
+    }
+    return () => {
+      if (labelMarker) {
+        setLabelMarker(undefined);
+      }
+    };
+  }, [labelMarker, map]);
+  useVisiable(labelMarker, visiable);
+  useSettingProperties(labelMarker, props, ['Name', 'Position', 'Zooms', 'Opacity', 'zIndex', 'Rank', 'Text', 'Icon', 'ExtData', 'Top']);
+  useEventProperties(labelMarker, props, ['onMousedown', 'onMouseup', 'onTouchstart', 'onTouchmove', 'onTouchend', 'onClick', 'onMousemove', 'onMouseover', 'onMouseout']);
+  return {
+    labelMarker,
+    setLabelMarker
+  };
+};
+
+;// CONCATENATED MODULE: ../label-marker/esm/index.js
+
+
+
+var LabelMarker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
+  var {
+    labelMarker
+  } = useLabelMarker(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    labelMarker
+  }), [labelMarker]);
+  return null;
 });
 
 ;// CONCATENATED MODULE: ../mass-marks/esm/useMassMarks.js
