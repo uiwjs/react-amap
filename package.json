@@ -24,6 +24,7 @@
     "watch:map": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-map",
     "watch:map-type-control": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-map-type-control",
     "watch:marker": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-marker",
+    "watch:label-marker": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-label-marker",
     "watch:mass-marks": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-mass-marks",
     "watch:polygon": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polygon",
     "watch:polygon-editor": "lerna exec \"tsbb watch\" --scope @uiw/react-amap-polygon-editor",

@@ -142,17 +142,17 @@ declare namespace AMap {
      * 将多个图层一次替代地图上原有图层，会移除地图原有图层
      * @param layers 地图图层数组
      */
-    setLayers(layers:Array<TileLayer | Satellite | Traffic | RoadNet>): void;
+    setLayers(layers: Array<TileLayer | Satellite | Traffic | RoadNet>): void;
     /**
      * 添加覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features 覆盖物对象或者数组 VectorOverlay | Array<any>
      */
-    add(features: Array<any> | TileLayer | Polyline | Marker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
+    add(features: Array<any> | TileLayer | Polyline | Marker | LabelMarker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
     /**
      * 删除覆盖物/图层。参数为单个覆盖物/图层，或覆盖物/图层的数组。
      * @param features Array<any> | VectorOverlay
      */
-    remove(features: Array<any> | TileLayer | Polyline | Marker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
+    remove(features: Array<any> | TileLayer | Polyline | Marker | LabelMarker | Rectangle | Text | Polygon | InfoWindow | Ellipse | BezierCurve | CircleMarker | Circle | MassMarks): void;
     /**
      * 注销地图对象，并清空地图容器
      */
@@ -309,7 +309,7 @@ declare namespace AMap {
      */
     plugin(ControlType: Array<ControlType>, callBack: () => void): void;
   }
-  type ControlType = 
+  type ControlType =
     'AMap.AutoComplete' |
     'AMap.ControlBar' |
     'AMap.CloudDataSearch' |
@@ -341,107 +341,107 @@ declare namespace AMap {
     /**
      * 地图缩放级别更改后触发
      */
-    onZoomChange?:() => void;
+    onZoomChange?: () => void;
     /**
      * 地图平移时触发事件
      */
-    onMapMove?:() => void;
+    onMapMove?: () => void;
     /**
      * 鼠标在地图上移动时触发
      */
-    onMouseMove?:(event: MapsEvent) => void;
+    onMouseMove?: (event: MapsEvent) => void;
     /**
      * 鼠标滚轮开始缩放地图时触发
      */
-    onMouseWheel?:(event: MapsEvent) => void;
+    onMouseWheel?: (event: MapsEvent) => void;
     /**
      * 鼠标移入地图容器内时触发
      */
-    onMouseOver?:(event: MapsEvent) => void;
+    onMouseOver?: (event: MapsEvent) => void;
     /**
      * 鼠标移出地图容器时触发
      */
-    onMouseOut?:(event: MapsEvent) => void;
+    onMouseOut?: (event: MapsEvent) => void;
     /**
      * 鼠标在地图上单击抬起时触发
      */
-    onMouseUp?:(event: MapsEvent) => void;
+    onMouseUp?: (event: MapsEvent) => void;
     /**
      * 鼠标在地图上单击按下时触发
      */
-    onMouseDown?:(event: MapsEvent) => void;
+    onMouseDown?: (event: MapsEvent) => void;
     /**
      * 缩放开始时触发
      */
-    onZoomStart?:() => void;
+    onZoomStart?: () => void;
     /**
      * 鼠标左键双击事件
      */
-    onDblClick?:(event: MapsEvent) => void;
+    onDblClick?: (event: MapsEvent) => void;
     /**
      * 鼠标左键单击事件
      */
-    onClick?:(event: MapsEvent) => void;
+    onClick?: (event: MapsEvent) => void;
     /**
      * 缩放结束时触发
      */
-    onZoomEnd?:() => void;
+    onZoomEnd?: () => void;
     /**
      * 地图移动结束后触发，包括平移，以及中心点变化的缩放。如地图有拖拽缓动效果，则在缓动结束后触发
      */
-    onMoveEnd?:() => void;
+    onMoveEnd?: () => void;
     /**
      * 鼠标右键单击事件
      */
-    onRightClick?:(event: MapsEvent) => void;
+    onRightClick?: (event: MapsEvent) => void;
     /**
      * 地图平移开始时触发
      */
-    onMoveStart?:() => void;
+    onMoveStart?: () => void;
     /**
      * 开始拖拽地图时触发
      */
-    onDragStart?:() => void;
+    onDragStart?: () => void;
     /**
      * 拖拽地图过程中触发
      */
-    onDragging?:() => void;
+    onDragging?: () => void;
     /**
      * 停止拖拽地图时触发。如地图有拖拽缓动效果，则在拽停止，缓动开始前触发
      */
-    onDragEnd?:() => void;
+    onDragEnd?: () => void;
     /**
      * 鼠标点击热点时触发
      */
-    onHotspotClick?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
+    onHotspotClick?: (event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
     /**
      * 鼠标移出热点时触发
      */
-    onHotspotOut?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
+    onHotspotOut?: (event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
     /**
      * 鼠标滑过热点时触发
      */
-    onHotspotOver?:(event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
+    onHotspotOver?: (event: { type: string, lnglat: LngLat, name: string, id: string }) => void;
     /**
      * 触摸开始时触发事件，仅适用移动设备
      */
-    onTouchStart?:(event: MapsEvent) => void;
+    onTouchStart?: (event: MapsEvent) => void;
     /**
      * 地图资源加载完成后触发事件
      */
-    onComplete?:(event: { type: 'complete'}) => void;
+    onComplete?: (event: { type: 'complete' }) => void;
     /**
      * 拖拽地图过程中触发，仅适用移动设备
      */
-    onTouchMove?:(event: MapsEvent) => void;
+    onTouchMove?: (event: MapsEvent) => void;
     /**
      * 触摸结束时触发事件，仅适用移动设备
      */
-    onTouchEnd?:(event: MapsEvent) => void;
+    onTouchEnd?: (event: MapsEvent) => void;
     /**
      * 地图容器尺寸改变事件
      */
-    onResize?:() => void;
+    onResize?: () => void;
   }
   /**
    * 区域, {省，市，区/县}

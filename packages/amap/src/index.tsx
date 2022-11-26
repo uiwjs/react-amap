@@ -14,6 +14,7 @@ export * from '@uiw/react-amap-info-window';
 export * from '@uiw/react-amap-map';
 export * from '@uiw/react-amap-map-type-control';
 export * from '@uiw/react-amap-marker';
+export * from '@uiw/react-amap-label-marker';
 export * from '@uiw/react-amap-mass-marks';
 export * from '@uiw/react-amap-polygon';
 export * from '@uiw/react-amap-polygon-editor';
