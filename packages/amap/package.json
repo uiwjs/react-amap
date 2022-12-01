@@ -43,6 +43,7 @@
     "@uiw/react-amap-geolocation": "4.0.4",
     "@uiw/react-amap-hawk-eye-control": "4.0.4",
     "@uiw/react-amap-info-window": "4.0.4",
+    "@uiw/react-amap-label-marker": "4.0.4",
     "@uiw/react-amap-map": "4.0.4",
     "@uiw/react-amap-map-type-control": "4.0.4",
     "@uiw/react-amap-marker": "4.0.4",
