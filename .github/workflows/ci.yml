@@ -52,12 +52,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npm publish
-        working-directory: packages/auto-complete
-        continue-on-error: true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - run: npm publish
         working-directory: packages/bezier-curve
         continue-on-error: true
         env:
@@ -107,6 +101,12 @@ jobs:
 
       - run: npm publish
         working-directory: packages/info-window
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm publish
+        working-directory: packages/label-marker
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
