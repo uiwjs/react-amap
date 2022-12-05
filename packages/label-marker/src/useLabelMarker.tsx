@@ -7,7 +7,7 @@ export interface UseLabelMarker extends LabelMarkerProps {}
 export const useLabelMarker = (props: UseLabelMarker = {}) => {
   const { visiable, children, text, icon, ...other } = props;
 
-  const { map } = useMapContext();
+  const { map, AMap } = useMapContext();
   const [labelMarker, setLabelMarker] = useState<AMap.LabelMarker>();
   // const { container, Portal } = usePortal();
 
@@ -51,17 +51,39 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
       // if (props.children) {
       //   other.content = container;
       // }
-      const instance: AMap.LabelMarker = new AMap.LabelMarker({
+      const instance: AMap.LabelMarker = new (AMap as any).LabelMarker({
         style: initIcon,
         icon: initIcon,
         text: initText,
         ...other,
       });
-      map.add(instance);
       setLabelMarker(instance);
+
+      //  issue #259  兼容 v1.4.xxx 版本
+      if ((AMap as any)?.v?.indexOf('1.4') === 0) {
+        let labelMarkersLayer;
+        if ((map as any).labelMarkersLayer) {
+          labelMarkersLayer = (map as any).labelMarkersLayer;
+        } else {
+          (map as any).labelMarkersLayer = labelMarkersLayer = new (AMap as any).LabelsLayer({
+            zooms: [3, 20],
+            zIndex: 101,
+            collision: true,
+            animation: true,
+          });
+          map.add(labelMarkersLayer);
+        }
+        labelMarkersLayer.add(instance);
+      }
+
+      map.add(instance);
     }
     return () => {
       if (labelMarker) {
+        //  issue #259  兼容 v1.4.xxx 版本
+        if ((AMap as any)?.v?.indexOf('1.4') === 0) {
+          (map as any).labelMarkersLayer.remove(labelMarker);
+        }
         setLabelMarker(undefined);
       }
     };
