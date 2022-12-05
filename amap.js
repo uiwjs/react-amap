@@ -1681,13 +1681,15 @@ var useLabelMarker = function useLabelMarker(props) {
     } = props,
     other = _objectWithoutPropertiesLoose(props, useLabelMarker_excluded);
   var {
-    map
+    map,
+    AMap
   } = useMapContext();
   var [labelMarker, setLabelMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   // const { container, Portal } = usePortal();
 
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!labelMarker && map) {
+      var _v;
       var initText = text;
       if (!text) {
         initText = {
@@ -1731,11 +1733,34 @@ var useLabelMarker = function useLabelMarker(props) {
         icon: initIcon,
         text: initText
       }, other));
-      map.add(instance);
       setLabelMarker(instance);
+
+      //  issue #259  兼容 v1.4.xxx 版本
+      if ((AMap == null ? void 0 : (_v = AMap.v) == null ? void 0 : _v.indexOf('1.4')) === 0) {
+        var labelMarkersLayer;
+        if (map.labelMarkersLayer) {
+          labelMarkersLayer = map.labelMarkersLayer;
+        } else {
+          map.labelMarkersLayer = labelMarkersLayer = new AMap.LabelsLayer({
+            zooms: [3, 20],
+            zIndex: 101,
+            collision: true,
+            animation: true
+          });
+          map.add(labelMarkersLayer);
+        }
+        labelMarkersLayer.add(instance);
+      }
+      map.add(instance);
     }
     return () => {
       if (labelMarker) {
+        var _v2;
+        //  issue #259  兼容 v1.4.xxx 版本
+        if ((AMap == null ? void 0 : (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
+          var _labelMarkersLayer;
+          map == null ? void 0 : (_labelMarkersLayer = map.labelMarkersLayer) == null ? void 0 : _labelMarkersLayer.remove(labelMarker);
+        }
         setLabelMarker(undefined);
       }
     };
