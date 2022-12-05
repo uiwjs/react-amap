@@ -82,7 +82,7 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
       if (labelMarker) {
         //  issue #259  兼容 v1.4.xxx 版本
         if ((AMap as any)?.v?.indexOf('1.4') === 0) {
-          (map as any).labelMarkersLayer.remove(labelMarker);
+          (map as any)?.labelMarkersLayer?.remove(labelMarker);
         }
         setLabelMarker(undefined);
       }
