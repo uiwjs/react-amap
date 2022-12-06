@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig",
-  "include": ["src", "src/**/*"],
-  "files": ["./src/type.d.ts"],
+  "include": ["src"],
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "cjs",

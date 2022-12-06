@@ -51,6 +51,7 @@
     "@uiw/react-amap-polygon": "4.0.6",
     "@uiw/react-amap-polygon-editor": "4.0.6",
     "@uiw/react-amap-polyline": "4.0.6",
+    "@uiw/react-amap-polyline-editor": "4.0.6",
     "@uiw/react-amap-rectangle": "4.0.6",
     "@uiw/react-amap-require-script": "4.0.6",
     "@uiw/react-amap-scale-control": "4.0.6",
