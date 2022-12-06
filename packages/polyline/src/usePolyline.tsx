@@ -24,7 +24,7 @@ export function usePolyline(props = {} as UsePolyline) {
   }, [map]);
 
   useVisiable(polyline!, visiable);
-  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, ['Path', 'Options', 'Map', 'ExtData']);
+  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, ['Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'onHide',
     'onShow',

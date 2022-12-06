@@ -934,6 +934,74 @@ declare namespace AMap {
     /** 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 */
     onAdd(data: { target: Polygon }): void;
   }
+
+ /**
+   * Polyline 编辑器
+   */
+  class PolylineEditor extends MapEventListener<'end' | 'remove' | 'addnode' | 'adjust' | 'add'> {
+    constructor(map: AMap.Map, polyline: Polyline);
+    editable: boolean;
+    /** 要显示该polygon的地图对象 */
+    map?: Map;
+    /** 开始编辑对象 */
+    open(): void;
+    /** 停止编辑对象 */
+    close(): void;
+    /** 设置编辑对象 */
+    setTarget(overlay: AMap.Overlay): void;
+    /** 获取编辑对象 */
+    getTarget(): Polyline | undefined;
+  }
+  interface PolylineEditorEvents {
+    /** 调用 close 之后触发该事件，target即为编辑后的覆盖物对象 */
+    onEnd(data: { target: Polyline }): void;
+    /** 增加一个节点时触发此事件 */
+    onAddnode(data: { target: Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 调整折线上某个点时触发此事件 */
+    onAdjust(data: { target: Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 移除一个节点时时触发此事件 */
+    onRemovenode(data: { target: Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 */
+    onAdd(data: { target: Polyline }): void;
+  }
+  
+  /**
+   * Poly 编辑器
+   */
+   class PolyEditor extends MapEventListener<'end' | 'move' | 'addnode' | 'adjust' | 'add'> {
+    constructor(map: AMap.Map, poly: Polygon | Polyline);
+    editable: boolean;
+    /** 要显示该polygon的地图对象 */
+    map?: Map;
+    /** 开始编辑对象 */
+    open(): void;
+    /** 停止编辑对象 */
+    close(): void;
+    /** 设置编辑对象 */
+    setTarget(overlay: AMap.Overlay): void;
+    /** 获取编辑对象 */
+    getTarget(): Polygon|Polyline | undefined;
+    /** 设置吸附多边形 */
+    setAdsorbPolygons(list: Polygon | Array<Polygon>|Polyline|Array<Polyline>): void;
+    /** 清空所有的吸附多边形 */
+    clearAdsorbPolygons(): void;
+    /** 添加吸附多边形 */
+    addAdsorbPolygons(list: Polygon | Array<Polygon>|Polyline|Array<Polyline>): void;
+    /** 删除吸附多边形 */
+    removeAdsorbPolygons(list: Polygon | Array<Polygon>|Polyline|Array<Polyline>): void;
+  }
+  interface PolyEditorEvents {
+    /** 调用 close 之后触发该事件，target即为编辑后的覆盖物对象 */
+    onEnd(data: { target: Polygon|Polyline }): void;
+    /** 增加一个节点时触发此事件 */
+    onAddnode(data: { target: Polygon|Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 调整折线上某个点时触发此事件 */
+    onAdjust(data: { target: Polygon|Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 移动覆盖物时触发此事件 */
+    onMove(data: { target: Polygon|Polyline, lnglat: LngLat, pixel: Pixel }): void;
+    /** 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 */
+    onAdd(data: { target: Polygon|Polyline }): void;
+  }
   /**
    * 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体
    */
