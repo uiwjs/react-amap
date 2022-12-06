@@ -1,20 +1,20 @@
-PolygonEditor 编辑器
+PolylineEditor 编辑器
 ===
 
-Polygon 编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。
+Polyline 编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。
 
 ```jsx
-import { PolygonEditor } from '@uiw/react-amap';
+import { PolylineEditor } from '@uiw/react-amap';
 // 或者单独安装使用
-import { PolygonEditor } from '@uiw/react-amap-polygon-editor';
+import { PolylineEditor } from '@uiw/react-amap-polyline-editor';
 ```
 
 ### 基本用法
 
-注意，需要加载 `<APILoader plugin="AMap.PolygonEditor">`，需要加载 `AMap.PolygonEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
+注意，需要加载 `<APILoader plugin="AMap.PolylineEditor">`，需要加载 `AMap.PolylineEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
 
 ```jsx
-<APILoader plugin="AMap.PolygonEditor">
+<APILoader plugin="AMap.PolylineEditor">
 ```
 <!--rehype:style=background: #fff3b7;-->
 
@@ -22,7 +22,7 @@ import { PolygonEditor } from '@uiw/react-amap-polygon-editor';
 ```jsx mdx:preview
 import ReactDOM from 'react-dom';
 import React, { useState, useRef } from 'react';
-import { Map, APILoader, Polygon, PolygonEditor } from '@uiw/react-amap';
+import { Map, APILoader, Polyline, PolylineEditor } from '@uiw/react-amap';
 
 const Example = () => {
   const [show, setShow] = useState(true);
@@ -44,7 +44,7 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
-          <Polygon
+          <Polyline
             visiable={show}
             path={path}
             strokeColor="#FF33FF"
@@ -54,16 +54,13 @@ const Example = () => {
             fillColor="#1791fc"
             zIndex={50}
           >
-            <PolygonEditor
+            <PolylineEditor
               active={active}
               onEnd={() => {
                 console.log('onEnd:>>')
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
-              }}
-              onMove={() => {
-                console.log('onMove:>>')
               }}
               onAdd={() => {
                 console.log('onAdd:>>')
@@ -72,7 +69,7 @@ const Example = () => {
                 console.log('onAddnode:>>')
               }}
             />
-          </Polygon>
+          </Polyline>
         </Map>
       </div>
     </>
@@ -80,7 +77,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129" plugin="AMap.PolygonEditor">
+  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129" plugin="AMap.PolylineEditor">
     <Example />
   </APILoader>
 );

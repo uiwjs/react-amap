@@ -39,6 +39,10 @@ export const routes = [
     component: lazy(() => import('./pages/polyline')),
   },
   {
+    path: '/polyline-editor',
+    component: lazy(() => import('./pages/polyline-editor')),
+  },
+  {
     path: '/marker',
     component: lazy(() => import('./pages/marker')),
   },
@@ -69,6 +73,10 @@ export const routes = [
   {
     path: '/beizer-curve',
     component: lazy(() => import('./pages/beizer-curve')),
+  },
+  {
+    path: '/poly-editor',
+    component: lazy(() => import('./pages/poly-editor')),
   },
   {
     path: '/polygon',
@@ -193,6 +201,14 @@ export const menus = [
   {
     label: 'Polyline 折线',
     path: '/polyline',
+  },
+  {
+    label: 'PolylineEditor 折线编辑器',
+    path: '/polyline-editor',
+  },
+  {
+    label: 'PolyEditor 编辑器',
+    path: '/poly-editor',
   },
   {
     label: 'BesizerCurve 贝塞尔曲线',
