@@ -21,6 +21,7 @@ export * from '@uiw/react-amap-polygon-editor';
 export * from '@uiw/react-amap-poly-editor';
 export * from '@uiw/react-amap-polyline';
 export * from '@uiw/react-amap-polyline-editor';
+export * from '@uiw/react-amap-mouse-tool';
 export * from '@uiw/react-amap-rectangle';
 export * from '@uiw/react-amap-require-script';
 export * from '@uiw/react-amap-scale-control';
