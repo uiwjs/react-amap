@@ -1,7 +1,7 @@
 PolygonEditor 编辑器
 ===
 
-Polygon 编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。
+Polygon 多边形编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。
 
 ```jsx
 import { PolygonEditor } from '@uiw/react-amap';
