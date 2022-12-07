@@ -146,10 +146,12 @@ __webpack_require__.d(__webpack_exports__, {
   "HawkEyeControl": () => (/* reexport */ HawkEyeControl),
   "InfoWindow": () => (/* reexport */ InfoWindow),
   "LabelMarker": () => (/* reexport */ LabelMarker),
-  "Map": () => (/* reexport */ Map),
+  "Map": () => (/* reexport */ esm_Map),
   "MapTypeControl": () => (/* reexport */ MapTypeControl),
   "Marker": () => (/* reexport */ Marker),
   "MassMarks": () => (/* reexport */ MassMarks),
+  "MouseTool": () => (/* reexport */ MouseTool),
+  "MouseToolDrawType": () => (/* reexport */ MouseToolDrawType),
   "PolyEditor": () => (/* reexport */ PolyEditor),
   "Polygon": () => (/* reexport */ Polygon),
   "PolygonEditor": () => (/* reexport */ PolygonEditor),
@@ -855,7 +857,7 @@ var Provider = props => {
     children: props.children
   });
 };
-var Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
+var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
   var {
       className,
       children
@@ -2137,6 +2139,84 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
     }
   }, [active, visiable]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemove', 'onAdd']);
+  return null;
+});
+
+;// CONCATENATED MODULE: ../mouse-tool/esm/index.js
+
+
+
+
+var MouseToolDrawType;
+(function (MouseToolDrawType) {
+  MouseToolDrawType[MouseToolDrawType["MARKER"] = 0] = "MARKER";
+  MouseToolDrawType[MouseToolDrawType["POLYLINE"] = 1] = "POLYLINE";
+  MouseToolDrawType[MouseToolDrawType["POLYGON"] = 2] = "POLYGON";
+  MouseToolDrawType[MouseToolDrawType["CIRCLE"] = 3] = "CIRCLE";
+  MouseToolDrawType[MouseToolDrawType["RECTANGLE"] = 4] = "RECTANGLE";
+  MouseToolDrawType[MouseToolDrawType["MEASUREAREA"] = 5] = "MEASUREAREA";
+  MouseToolDrawType[MouseToolDrawType["RULE"] = 6] = "RULE";
+  MouseToolDrawType[MouseToolDrawType["RECTZOOMIN"] = 7] = "RECTZOOMIN";
+  MouseToolDrawType[MouseToolDrawType["RECTZOOMOUT"] = 8] = "RECTZOOMOUT";
+})(MouseToolDrawType || (MouseToolDrawType = {}));
+var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
+  var {
+    active,
+    type,
+    drawElementOptions
+  } = props;
+  var {
+    map
+  } = useMapContext();
+  var [mouseTool, setMouseTool] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    mouseTool: mouseTool
+  }));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (map && !mouseTool && AMap && AMap.MouseTool) {
+      var instance = new AMap.MouseTool(map);
+      setMouseTool(instance);
+    }
+  }, [map, Map, AMap.MouseTool]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!mouseTool) {
+      return;
+    }
+    if (!active) {
+      mouseTool.close();
+    } else {
+      switch (type) {
+        case MouseToolDrawType.MARKER:
+          mouseTool.marker(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.POLYLINE:
+          mouseTool.polyline(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.POLYGON:
+          mouseTool.polygon(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.CIRCLE:
+          mouseTool.circle(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.RECTANGLE:
+          mouseTool.rectangle(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.MEASUREAREA:
+          mouseTool.measureArea(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.RULE:
+          mouseTool.rule(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.RECTZOOMIN:
+          mouseTool.rectZoomIn(drawElementOptions ? drawElementOptions : {});
+          break;
+        case MouseToolDrawType.RECTZOOMOUT:
+          mouseTool.rectZoomOut(drawElementOptions ? drawElementOptions : {});
+          break;
+      }
+    }
+  }, [active]);
+  useEventProperties(mouseTool, props, ['onDraw']);
   return null;
 });
 
