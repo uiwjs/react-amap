@@ -21,6 +21,10 @@ import { MouseTool } from '@uiw/react-amap-mouse-tool';
 
 ### 绘制
 
+利用 `AMap.MouseTool` 绘制折线、弧线、多边形、矩形、圆形等 [官方示例](https://lbs.amap.com/demo/jsapi-v2/example/overlayers/overlay-draw)
+
+> ⚠️ 注意：需要加载 `AMap.MouseTool`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面
+
 <!--rehype:-->
 ```jsx mdx:preview
 import ReactDOM from 'react-dom';
@@ -46,10 +50,10 @@ const Example = () => {
         绘制 Polygon
       </button>
        <button onClick={() => handleDraw(MouseToolDrawType.CIRCLE)}>
-        绘制 Circle
+        绘制圆形 Circle
       </button>
        <button onClick={() => handleDraw(MouseToolDrawType.RECTANGLE)}>
-        绘制 Rectangle
+        绘制矩形 Rectangle
       </button>
        <button onClick={() => handleDraw(MouseToolDrawType.MEASUREAREA)}>
         绘制 MeasureArea
@@ -64,7 +68,7 @@ const Example = () => {
         绘制 RectZoomOut
       </button> 
       <div style={{ width: '100%', height: '500px' }}>
-        <Map zoom={14} center={[116.400274, 39.905812]}>
+        <Map zoom={14} center={[116.400274, 39.905812]} dragEnable={false}>
             <MouseTool
               active={active}
               type={type}

@@ -1,7 +1,7 @@
 PolyEditor 编辑器
 ===
 
-Polygon 或 Polyline 编辑器，支持AMap JS API v1.4.xxx 和 v2.0.xxx。
+折线、多边形[编辑插件](https://lbs.amap.com/api/javascript-api/reference/plugin#AMap.PolyEditor)，用于编辑 Polygon 或 Polyline 对象，支持AMap JS API v1.4.xxx 和 v2.0.xxx。[官方示例](https://lbs.amap.com/demo/javascript-api/example/overlayers/polyline-draw-and-edit)
 
 ```jsx
 import { PolyEditor } from '@uiw/react-amap';
