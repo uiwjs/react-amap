@@ -153,6 +153,13 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npm publish
+        name: packages/mouse-tool
+        working-directory: packages/mouse-tool
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm publish
         name: packages/polygon
         working-directory: packages/polygon
         continue-on-error: true
