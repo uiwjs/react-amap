@@ -95,6 +95,10 @@ export const routes = [
     component: lazy(() => import('./pages/circle-marker')),
   },
   {
+    path: '/mouse-tool',
+    component: lazy(() => import('./pages/mouse-tool')),
+  },
+  {
     path: '/weather',
     component: lazy(() => import('./pages/weather')),
   },
@@ -209,6 +213,10 @@ export const menus = [
   {
     label: 'PolyEditor 编辑器',
     path: '/poly-editor',
+  },
+  {
+    label: 'MouseTool 绘制工具',
+    path: '/mouse-tool',
   },
   {
     label: 'BesizerCurve 贝塞尔曲线',
