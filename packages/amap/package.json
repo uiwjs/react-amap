@@ -48,6 +48,7 @@
     "@uiw/react-amap-map-type-control": "4.2.0",
     "@uiw/react-amap-marker": "4.2.0",
     "@uiw/react-amap-mass-marks": "4.2.0",
+    "@uiw/react-amap-mouse-tool": "4.2.0",
     "@uiw/react-amap-poly-editor": "4.2.0",
     "@uiw/react-amap-polygon": "4.2.0",
     "@uiw/react-amap-polygon-editor": "4.2.0",
