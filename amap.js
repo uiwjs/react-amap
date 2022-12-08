@@ -1988,7 +1988,7 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
       polyEditor.close();
     }
   }, [active, visiable]);
-  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onMove', 'onAdd']);
+  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onMove', 'onAdd']);
   return null;
 });
 
@@ -2030,7 +2030,7 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
       polyEditor.close();
     }
   }, [active, visiable]);
-  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemove', 'onMove', 'onAdd']);
+  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemovenode']);
   return null;
 });
 
@@ -2138,7 +2138,7 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
       polyEditor.close();
     }
   }, [active, visiable]);
-  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemove', 'onAdd']);
+  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onAdd']);
   return null;
 });
 
