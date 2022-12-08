@@ -28,6 +28,7 @@ export const PolyEditor = forwardRef<PolyEditorProps, PolyEditorProps>((props, r
       return;
     }
     if (visiable && !active) {
+      debugger;
       polyEditor.close();
     } else if (visiable && active) {
       polyEditor.open();
@@ -40,9 +41,7 @@ export const PolyEditor = forwardRef<PolyEditorProps, PolyEditorProps>((props, r
     'onEnd',
     'onAddnode',
     'onAdjust',
-    'onRemove',
-    'onMove',
-    'onAdd',
+    'onRemovenode',
   ]);
   return null;
 });
