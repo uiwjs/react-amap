@@ -39,6 +39,7 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
   useEventProperties<AMap.PolygonEditor, AMap.PolygonEditorEvents>(polyEditor!, props, [
     'onEnd',
     'onAddnode',
+    'onRemovenode',
     'onAdjust',
     'onMove',
     'onAdd',

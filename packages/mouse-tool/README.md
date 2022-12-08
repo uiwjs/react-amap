@@ -97,3 +97,6 @@ export default Mount;
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | active | 是否开启编辑功能。 | `boolean` | - |
+| type | 绘制类型 | `MouseToolDrawType` | - |
+| drawElementOptions | 绘制元素的参数 | `AMap.PolygonOptions | AMap.PolylineOptions | AMap.MarkerOptions | AMap.CircleOptions` | {} |
+| onDraw | 绘制结束的回调函数 | `(event:  MouseToolDrawedEvent): void;` |

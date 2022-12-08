@@ -18,6 +18,10 @@ export enum MouseToolDrawType {
   RECTZOOMIN,
   RECTZOOMOUT,
 }
+export interface MouseToolDrawedEvent {
+  type: string;
+  obj: Object;
+}
 export const MouseTool = forwardRef<MouseToolProps, MouseToolProps>((props, ref) => {
   const { active, type, drawElementOptions } = props;
   const { map } = useMapContext();
