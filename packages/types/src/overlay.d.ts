@@ -927,6 +927,8 @@ declare namespace AMap {
     onEnd(data: { target: Polygon }): void;
     /** 增加一个节点时触发此事件 */
     onAddnode(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
+    /** 移除一个节点时触发此事件 */
+    onRemovenode(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 调整折线上某个点时触发此事件 */
     onAdjust(data: { target: Polygon, lnglat: LngLat, pixel: Pixel }): void;
     /** 移动覆盖物时触发此事件 */

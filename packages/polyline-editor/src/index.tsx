@@ -39,8 +39,8 @@ export const PolylineEditor = forwardRef<PolylineEditorProps, PolylineEditorProp
   useEventProperties<AMap.PolylineEditor, AMap.PolylineEditorEvents>(polyEditor!, props, [
     'onEnd',
     'onAddnode',
+    'onRemovenode',
     'onAdjust',
-    'onRemove',
     'onAdd',
   ]);
   return null;
