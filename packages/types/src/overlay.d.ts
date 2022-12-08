@@ -900,7 +900,7 @@ declare namespace AMap {
   /**
    * Polygon 编辑器
    */
-  class PolygonEditor extends MapEventListener<'end' | 'move' | 'addnode' | 'adjust' | 'add'> {
+  class PolygonEditor extends MapEventListener<'end' | 'move' | 'addnode' | 'removenode' | 'adjust' | 'add'> {
     constructor(map: AMap.Map, polygon: Polygon);
     editable: boolean;
     /** 要显示该polygon的地图对象 */
