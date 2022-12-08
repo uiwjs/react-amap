@@ -69,7 +69,7 @@
     "micromark-vendor.js": "/react-amap/static/js/micromark-vendor.6aad4e82.chunk.js",
     "react-vendor.js": "/react-amap/static/js/react-vendor.57475813.js",
     "static/js/6236.adebd9e6.chunk.js": "/react-amap/static/js/6236.adebd9e6.chunk.js",
-    "static/js/4444.494ebe93.js": "/react-amap/static/js/4444.494ebe93.js",
+    "static/js/4444.9be4cebd.js": "/react-amap/static/js/4444.9be4cebd.js",
     "static/css/7972.7df87885.chunk.css": "/react-amap/static/css/7972.7df87885.chunk.css",
     "static/js/2196.0406d7d3.chunk.js": "/react-amap/static/js/2196.0406d7d3.chunk.js",
     "index.html": "/react-amap/index.html",
@@ -143,14 +143,14 @@
     "micromark-vendor.6aad4e82.chunk.js.map": "/react-amap/static/js/micromark-vendor.6aad4e82.chunk.js.map",
     "react-vendor.57475813.js.map": "/react-amap/static/js/react-vendor.57475813.js.map",
     "6236.adebd9e6.chunk.js.map": "/react-amap/static/js/6236.adebd9e6.chunk.js.map",
-    "4444.494ebe93.js.map": "/react-amap/static/js/4444.494ebe93.js.map",
+    "4444.9be4cebd.js.map": "/react-amap/static/js/4444.9be4cebd.js.map",
     "7972.7df87885.chunk.css.map": "/react-amap/static/css/7972.7df87885.chunk.css.map",
     "2196.0406d7d3.chunk.js.map": "/react-amap/static/js/2196.0406d7d3.chunk.js.map"
   },
   "entrypoints": [
     "static/js/babel-runtime-vendor.4ac117d7.js",
     "static/js/react-vendor.57475813.js",
-    "static/js/4444.494ebe93.js",
+    "static/js/4444.9be4cebd.js",
     "static/css/main.5551b925.css",
     "static/js/main.1f907918.js"
   ]
