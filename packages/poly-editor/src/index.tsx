@@ -40,9 +40,7 @@ export const PolyEditor = forwardRef<PolyEditorProps, PolyEditorProps>((props, r
     'onEnd',
     'onAddnode',
     'onAdjust',
-    'onRemove',
-    'onMove',
-    'onAdd',
+    'onRemovenode',
   ]);
   return null;
 });
