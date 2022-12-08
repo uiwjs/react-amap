@@ -1,7 +1,7 @@
 PolygonEditor 编辑器
 ===
 
-Polygon 多边形编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。
+Polygon 多边形编辑器，此组件只支持AMap JS API v2.0 及以上版本。想在低版本 AMap （如 V1.4.15及以下）中使用拆线编辑功能可以查看 [PolyEditor 编辑器](/react-amap#/poly-editor)。[AMap API](https://lbs.amap.com/api/jsapi-v2/documentation#polygoneditor)。
 
 ```jsx
 import { PolygonEditor } from '@uiw/react-amap';
@@ -71,6 +71,9 @@ const Example = () => {
               onAddnode={() => {
                 console.log('onAddnode:>>')
               }}
+              onRemovenode={() => {
+                console.log('onRemovenode:>>')
+              }}
             />
           </Polygon>
         </Map>
@@ -88,8 +91,14 @@ const Mount = () => (
 export default Mount;
 ```
 
-### Props
+### Props 
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | active | 是否开启编辑功能。 | `boolean` | - |
+| onAddnode | 增加一个节点时触发此事件 | `(data :{target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;` |
+| onRemovenode | 移除一个节点时触发此事件 | `(data :{target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;` |
+| onAdjust | 调整折线上某个点时触发此事件 | `(data :{target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;` |
+| onMove | 移动覆盖物时触发此事件 | `(data :{target: Polygon, lnglat: Lnglat, pixel: Pixel}): void;` |
+| onAdd | 创建一个覆盖物之后触发该事件，target即为创建对象。当editor编辑对象为空时，调用open接口，再点击一次屏幕就会创建新的覆盖物对象 | `(data :{target: Polygon}): void;` |
+| onEnd | 调用close之后触发该事件，target即为编辑后的覆盖物对象 | `(data :{target: Polygon}): void;` |

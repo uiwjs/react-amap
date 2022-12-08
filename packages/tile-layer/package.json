@@ -1,15 +1,15 @@
 {
-  "name": "@uiw/react-amap-control-bar-control",
+  "name": "@uiw/react-amap-tile-layer",
   "version": "4.2.2",
-  "description": "组合了旋转、倾斜、复位在内的地图控件。",
-  "homepage": "https://uiwjs.github.io/react-amap/#/control-bar-control",
+  "description": "用于在地图上加载切片图层。",
+  "homepage": "https://uiwjs.github.io/react-amap/#/tile-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/uiwjs/react-amap.git"
   },
-  "author": "Kenny Wong <wowohoo@qq.com>",
+  "author": "peidongGuo <gpd_wfe@163.com>",
   "license": "MIT",
   "files": [
     "src",
@@ -20,7 +20,7 @@
     "react-amap",
     "api-loader",
     "amap",
-    "control-bar-control",
+    "tile-layer",
     "map",
     "react",
     "bdmap",
@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@uiw/react-amap-map": "4.2.2",
-    "@uiw/react-amap-types": "4.2.2",
     "@uiw/react-amap-utils": "4.2.2"
   },
   "devDependencies": {

@@ -59,17 +59,14 @@ const Example = () => {
           >
             <PolyEditor
               active={active}
-              onEnd={() => {
-                console.log('onEnd:>>')
+              onEnd={(e) => {
+                console.log('onEnd:>>',e)
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
               }}
-              onMove={() => {
-                console.log('onMove:>>')
-              }}
-              onAdd={() => {
-                console.log('onAdd:>>')
+              onRemovenode={() => {
+                console.log('onRemovenode:>>')
               }}
               onAddnode={() => {
                 console.log('onAddnode:>>')
@@ -131,17 +128,14 @@ const Example = () => {
           >
             <PolyEditor
               active={active}
-              onEnd={() => {
-                console.log('onEnd:>>')
+              onEnd={(e) => {
+                console.log('onEnd:>>',e)
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
               }}
-              onMove={() => {
-                console.log('onMove:>>')
-              }}
-              onAdd={() => {
-                console.log('onAdd:>>')
+              onRemovenode={() => {
+                console.log('onRemovenode:>>')
               }}
               onAddnode={() => {
                 console.log('onAddnode:>>')
@@ -168,3 +162,11 @@ export default Mount;
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
 | active | 是否开启编辑功能。 | `boolean` | - |
+| onAddnode | 通过鼠标在折线上增加一个节点或在多边形上增加一个顶点时触发此事件 | (event: MapsEvent): void; |
+| onAdjust | 鼠标调整折线上某个节点或多边形上某个顶点的位置时触发此事件 | (event: MapsEvent): void; |
+| onRemovenode | 通过鼠标在折线上删除一个节点或在多边形上删除一个顶点时触发此事件 | (event: MapsEvent): void; |
+| onEnd | 在调用close方法时，触发该事件，target即为编辑后的折线/多边形对象 | (event: {type:string,target:Object}): void; |
+
+
+
+
