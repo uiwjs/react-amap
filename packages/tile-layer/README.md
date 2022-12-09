@@ -1,7 +1,7 @@
 TileLayer 切片图层
 ===
 
-切片图层，用户可以用此组件灵活加载各种切片图层。 (AMap API)[https://lbs.amap.com/api/jsapi-v2/documentation#tilelayer]。
+切片图层，用户可以用此组件灵活加载各种切片图层。 [AMap API](https://lbs.amap.com/api/jsapi-v2/documentation#tilelayer)
 
 ```jsx
 import { TileLayer } from '@uiw/react-amap';
