@@ -161,6 +161,8 @@ __webpack_require__.d(__webpack_exports__, {
   "Rectangle": () => (/* reexport */ Rectangle),
   "ScaleControl": () => (/* reexport */ ScaleControl),
   "Text": () => (/* reexport */ Text),
+  "TileLayer": () => (/* reexport */ TileLayer),
+  "TileLayerType": () => (/* reexport */ TileLayerType),
   "ToolBarControl": () => (/* reexport */ ToolBarControl),
   "Weather": () => (/* reexport */ Weather),
   "delay": () => (/* reexport */ delay),
@@ -193,6 +195,7 @@ __webpack_require__.d(__webpack_exports__, {
   "useSetStatus": () => (/* reexport */ useSetStatus),
   "useSettingProperties": () => (/* reexport */ useSettingProperties),
   "useText": () => (/* reexport */ useText),
+  "useTileLayer": () => (/* reexport */ useTileLayer),
   "useToolBarControl": () => (/* reexport */ useToolBarControl),
   "useVisiable": () => (/* reexport */ useVisiable),
   "useWeather": () => (/* reexport */ useWeather)
@@ -1594,6 +1597,85 @@ var MapTypeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     mapTypeControl
   }), [mapTypeControl]);
+  return null;
+});
+
+;// CONCATENATED MODULE: ../tile-layer/esm/useTileLayer.js
+
+
+
+
+function useTileLayer(props) {
+  if (props === void 0) {
+    props = {};
+  }
+  var [tileLayer, setTileLayer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var {
+    visiable,
+    type,
+    options
+  } = props;
+  var {
+    map
+  } = useMapContext();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (map) {
+      var instance = null;
+      if (type) {
+        switch (type) {
+          case TileLayerType.ROADNET:
+            instance = new AMap.TileLayer.RoadNet({});
+            break;
+          case TileLayerType.SATELLITE:
+            instance = new AMap.TileLayer.Satellite({});
+            break;
+          case TileLayerType.TRAFFIC:
+            instance = new AMap.TileLayer.Traffic({});
+            break;
+        }
+      }
+      if (options) {
+        instance = new AMap.TileLayer(options);
+      }
+      if (!!instance) {
+        map.addLayer(instance);
+        props.onAdded && props.onAdded();
+        setTileLayer(instance);
+      }
+      return () => {
+        if (instance) {
+          map.removeLayer(instance);
+          setTileLayer(null);
+          props.onRemoved && props.onRemoved();
+        }
+      };
+    }
+  }, [map, type, options]);
+  useVisiable(tileLayer, visiable);
+  return {
+    tileLayer,
+    setTileLayer
+  };
+}
+
+;// CONCATENATED MODULE: ../tile-layer/esm/index.js
+
+
+
+
+var TileLayerType;
+(function (TileLayerType) {
+  TileLayerType["SATELLITE"] = "satellite";
+  TileLayerType["TRAFFIC"] = "traffic";
+  TileLayerType["ROADNET"] = "roadnet";
+})(TileLayerType || (TileLayerType = {}));
+var TileLayer = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+  var {
+    tileLayer
+  } = useTileLayer(props);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    tileLayer
+  }), [tileLayer]);
   return null;
 });
 
