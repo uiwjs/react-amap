@@ -223,6 +223,13 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: npm publish
+        name: packages/tile-layer
+        working-directory: packages/tile-layer
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm publish
         name: packages/tool-bar-control
         working-directory: packages/tool-bar-control
         continue-on-error: true
