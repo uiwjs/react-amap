@@ -1638,13 +1638,18 @@ function useTileLayer(props) {
         instance = new AMap.TileLayer(options);
       }
       if (!!instance) {
-        map.addLayer(instance);
+        // 暂不使用这个 API，这个不兼容 v1.4.xx
+        // map.addLayer(instance);
+        map.add(instance);
         props.onAdded && props.onAdded();
         setTileLayer(instance);
       }
       return () => {
         if (instance) {
-          map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx
+          // map.removeLayer(instance);
+
+          map.remove(instance);
           setTileLayer(null);
           props.onRemoved && props.onRemoved();
         }
@@ -2000,7 +2005,7 @@ var usePolygon = function usePolygon(props) {
   }, [map]);
   useVisiable(polygon, visiable);
   useSettingProperties(polygon, props, ['ExtData', 'ExtData']);
-  useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
+  useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     polygon,
     setPolygon
@@ -2150,7 +2155,7 @@ function usePolyline(props) {
   }, [map]);
   useVisiable(polyline, visiable);
   useSettingProperties(polyline, props, ['Options', 'Map', 'ExtData']);
-  useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
+  useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
     polyline,
     setPolyline
