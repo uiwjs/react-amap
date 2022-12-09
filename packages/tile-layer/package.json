@@ -1,0 +1,44 @@
+{
+  "name": "@uiw/react-amap-tile-layer",
+  "version": "4.2.2",
+  "description": "用于在地图上加载切片图层。",
+  "homepage": "https://uiwjs.github.io/react-amap/#/tile-layer",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uiwjs/react-amap.git"
+  },
+  "author": "peidongGuo <gpd_wfe@163.com>",
+  "license": "MIT",
+  "files": [
+    "src",
+    "esm",
+    "cjs"
+  ],
+  "keywords": [
+    "react-amap",
+    "api-loader",
+    "amap",
+    "tile-layer",
+    "map",
+    "react",
+    "bdmap",
+    "types",
+    "高德",
+    "地图",
+    "高德地图"
+  ],
+  "peerDependencies": {
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0"
+  },
+  "dependencies": {
+    "@uiw/react-amap-map": "4.2.2",
+    "@uiw/react-amap-utils": "4.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "~18.0.0",
+    "@types/react-dom": "~18.0.0"
+  }
+}

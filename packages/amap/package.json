@@ -46,6 +46,7 @@
     "@uiw/react-amap-label-marker": "4.2.2",
     "@uiw/react-amap-map": "4.2.2",
     "@uiw/react-amap-map-type-control": "4.2.2",
+    "@uiw/react-amap-tile-layer": "4.2.2",
     "@uiw/react-amap-marker": "4.2.2",
     "@uiw/react-amap-mass-marks": "4.2.2",
     "@uiw/react-amap-mouse-tool": "4.2.2",

@@ -31,6 +31,10 @@ export const routes = [
     component: lazy(() => import('./pages/map-type-control')),
   },
   {
+    path: '/tile-layer',
+    component: lazy(() => import('./pages/tile-layer')),
+  },
+  {
     path: '/hawk-eye-control',
     component: lazy(() => import('./pages/hawk-eye-control')),
   },
@@ -161,6 +165,10 @@ export const menus = [
   {
     label: 'MapTypeControl 图层切换',
     path: '/map-type-control',
+  },
+  {
+    label: 'TileLayer 切片图层',
+    path: '/tile-layer',
   },
   {
     label: 'ControlBarControl 地图控件',
