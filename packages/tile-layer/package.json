@@ -1,15 +1,15 @@
 {
-  "name": "@uiw/react-amap-info-window",
+  "name": "@uiw/react-amap-tile-layer",
   "version": "4.3.0",
-  "description": "用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体。",
-  "homepage": "https://uiwjs.github.io/react-amap/#/info-window",
+  "description": "用于在地图上加载切片图层。",
+  "homepage": "https://uiwjs.github.io/react-amap/#/tile-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/uiwjs/react-amap.git"
   },
-  "author": "Kenny Wong <wowohoo@qq.com>",
+  "author": "peidongGuo <gpd_wfe@163.com>",
   "license": "MIT",
   "files": [
     "src",
@@ -20,7 +20,7 @@
     "react-amap",
     "api-loader",
     "amap",
-    "info-window",
+    "tile-layer",
     "map",
     "react",
     "bdmap",

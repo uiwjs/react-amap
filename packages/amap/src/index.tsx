@@ -13,6 +13,7 @@ export * from '@uiw/react-amap-hawk-eye-control';
 export * from '@uiw/react-amap-info-window';
 export * from '@uiw/react-amap-map';
 export * from '@uiw/react-amap-map-type-control';
+export * from '@uiw/react-amap-tile-layer';
 export * from '@uiw/react-amap-marker';
 export * from '@uiw/react-amap-label-marker';
 export * from '@uiw/react-amap-mass-marks';
