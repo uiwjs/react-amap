@@ -38,6 +38,11 @@ const Example = () => {
             }}
             strokeColor="black"
             strokeOpacity={1}
+            draggable={true}
+            onChange={e=>console.log(e)}
+            onDragStart={(e)=>{console.log(e)}}
+            onDragging={(e)=>{console.log(e)}}
+            onDragEnd={(e)=>{console.log(e)}}
             path={[
               [116.405289, 39.904987],
               [113.964458, 40.54664],
@@ -157,12 +162,15 @@ export default Mount;
 
 ### 事件
 
+Polyline v1.4.15 和 v2.0.xx 版本都是支持 drag 相关事件的，虽然官网文档有的写的不全，但经实验都是可以的。
+<!--rehype:style=background: #fff3b7;-->
+
 [事件类型文档](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L249-L274)
 
 | 参数 | 说明 | 类型 |
 | ---- | ---- | ---- |
-| onHide | 隐藏 | (): void; |
-| onShow | 显示 | (): void; |
+| onHide | 隐藏 | (event: { type: string, target: any }): void; |
+| onShow | 显示 | (event: { type: string, target: any }): void; |
 | onMouseOut | 鼠标移出 | (event: MapsEvent): void; |
 | onRightClick | 鼠标右键单击事件 | (event: MapsEvent): void; |
 | onDblClick | 鼠标左键双击事件 | (event: MapsEvent): void; |
@@ -172,3 +180,7 @@ export default Mount;
 | onTouchStart | 触摸开始时触发事件，仅适用移动设备 | (event: MapsEvent): void; |
 | onMouseUp | 鼠标抬起 | (event: MapsEvent): void; |
 | onMouseDown | 鼠标按下 | (event: MapsEvent): void; |
+| onDragStart | 拖拽开始 | `(event: MapsEvent): void;` |
+| onDragging | 拖拽中 | `(event: MapsEvent): void;` |
+| onDragEnd | 拖拽结束 | `(event: MapsEvent): void;` |
+| onChange | 属性发生变化时 | `(event: { type: string, target: any }): void;` |

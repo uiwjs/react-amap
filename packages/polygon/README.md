@@ -47,6 +47,11 @@ const Example = () => {
             fillOpacity={0.4}
             fillColor="#1791fc"
             zIndex={50}
+            draggable={true}
+            onChange={e=>console.log(e)}
+            onDragStart={(e)=>{console.log(e)}}
+            onDragging={(e)=>{console.log(e)}}
+            onDragEnd={(e)=>{console.log(e)}}
           />
           <Polygon
             visiable={show}
@@ -84,6 +89,9 @@ export default Mount;
 
 ### 事件
 
+Polygon v1.4.15 和 v2.0.xx 版本都是支持 drag 相关事件的，虽然官网文档有的写的不全，但经实验都是可以的。
+<!--rehype:style=background: #fff3b7;-->
+
 [事件类型文档](https://github.com/uiwjs/react-amap/blob/8a8c31afdff68e04097c2b140e9a58200b269aee/src/types/overlay.d.ts#L867-L893)
 
 | 参数 | 说明 | 类型 |
@@ -97,7 +105,10 @@ export default Mount;
 | onMouseUp | 鼠标抬起 | `(event: MapsEvent): void;` |
 | onMouseOver | 鼠标经过 | `(event: MapsEvent): void;` |
 | onMouseOut | 鼠标移出 | `(event: MapsEvent): void;` |
-| onChange | 属性发生变化时 | `(): void;` |
+| onDragStart | 拖拽开始 | `(event: MapsEvent): void;` |
+| onDragging | 拖拽中 | `(event: MapsEvent): void;` |
+| onDragEnd | 拖拽结束 | `(event: MapsEvent): void;` |
+| onChange | 属性发生变化时 (只支持 v1.4.xx 版本) | `(event: { type: string, target: any }): void;` |
 | onTouchStart | 触摸开始时触发事件，仅适用移动设备 | `(event: MapsEvent): void;` |
 | onTouchMove | 触摸移动进行中时触发事件，仅适用移动设备 | `(event: MapsEvent): void;` |
 | onTouchEnd | 触摸结束时触发事件，仅适用移动设备 | `(event: MapsEvent): void;` |
