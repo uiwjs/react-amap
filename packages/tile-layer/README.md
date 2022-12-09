@@ -223,7 +223,8 @@ const Demo = () => {
   }
   const TiandituSatelliteOptions2={
     getTileUrl: `http://t{0,1,2,3,4,5,6,7}.tianditu.gov.cn/DataServer?T=cva_w&tk=${TiandituKEY}&x=[x]&y=[y]&l=[z]`,
-    zIndex: 105
+    opacity:0.7,
+    zIndex: 101
   }
   const handleChangeTileLayer=(chgType,chgOptions)=>{
     if(chgType===type){
@@ -297,7 +298,7 @@ const Demo = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader  akay="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 );

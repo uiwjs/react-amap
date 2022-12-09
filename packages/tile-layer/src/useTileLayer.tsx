@@ -29,13 +29,18 @@ export function useTileLayer(props = {} as UseTileLayer) {
         instance = new AMap.TileLayer(options);
       }
       if (!!instance) {
-        map.addLayer(instance);
+        // 暂不使用这个 API，这个不兼容 v1.4.xx
+        // map.addLayer(instance);
+        map.add(instance);
         props.onAdded && props.onAdded();
         setTileLayer(instance);
       }
       return () => {
         if (instance) {
-          map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx
+          // map.removeLayer(instance);
+
+          map.remove(instance);
           setTileLayer(null as any);
           props.onRemoved && props.onRemoved();
         }
