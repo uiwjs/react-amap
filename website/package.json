@@ -63,7 +63,7 @@
     "@kkt/scope-plugin-options": "~7.2.3",
     "@types/react": "~18.0.0",
     "@types/react-dom": "~18.0.0",
-    "kkt": "~7.2.3",
+    "kkt": "~7.3.0",
     "markdown-react-code-preview-loader": "^2.1.2"
   },
   "eslintConfig": {
