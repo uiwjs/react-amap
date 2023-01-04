@@ -59,8 +59,8 @@ const Example = () => {
             <PolylineEditor
               active={active}
               onEnd={(e) => {
-                console.log('onEnd:>>',e.getPath());
-                setPolylinePath(e.getPath())
+                console.log('onEnd:>>',e.target.getPath());
+                setPolylinePath(e.target.getPath())
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
