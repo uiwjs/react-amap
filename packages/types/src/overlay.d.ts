@@ -364,7 +364,12 @@ declare namespace AMap {
     contains(point: LngLatLike): boolean;
 
   }
-  interface PolylineEvents extends EventsCommonProps { }
+  interface PolylineEvents extends EventsCommonProps { 
+    onDragStart?(event:MapsEvent):void;
+    onDragEnd?(event:MapsEvent):void;
+    onDragging?(event:MapsEvent):void;
+  }
+
   interface PolylineOptions {
     /**
      * polyline 路径，支持 lineString 和 MultiLineString
@@ -894,6 +899,9 @@ declare namespace AMap {
     strokeDasharray?: Array<number>;
   }
   interface PolygonEvents extends EventsCommonProps {
+    onDragStart?(event:MapsEvent):void;
+    onDragEnd?(event:MapsEvent):void;
+    onDragging?(event:MapsEvent):void;
     /** 属性发生变化时 */
     onChange?(): void;
   }

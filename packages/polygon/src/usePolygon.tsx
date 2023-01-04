@@ -18,7 +18,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
   }, [map]);
 
   useVisiable(polygon!, visiable);
-  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['ExtData', 'ExtData']);
+  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'ExtData']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
     'onClick',
     'onDblClick',

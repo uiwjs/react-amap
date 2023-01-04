@@ -17,8 +17,8 @@ export const useContextMenu = (props = {} as UseContextMenu) => {
       map.on('rightclick', rightclick);
       return () => {
         if (instance) {
+          instance.close();
           map.off('rightclick', rightclick);
-          map && map.removeLayer(instance);
           setContextMenu(undefined);
         }
       };
