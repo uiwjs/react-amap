@@ -66,15 +66,15 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.2.3",
-    "@kkt/ncc": "~1.0.8",
+    "@kkt/less-modules": "~7.3.2",
+    "@kkt/ncc": "~1.0.15",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "cross-env": "~7.0.3",
     "husky": "~8.0.2",
     "prettier": "~2.8.0",
     "lint-staged": "~13.1.0",
-    "lerna": "~6.1.0",
+    "lerna": "~6.3.0",
     "tsbb": "~3.7.9"
   }
 }

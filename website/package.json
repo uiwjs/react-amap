@@ -48,22 +48,22 @@
     "@uiw/react-amap-utils": "4.3.1",
     "@uiw/react-amap-weather": "4.3.1",
     "@uiw/react-github-corners": "~1.5.3",
-    "@uiw/react-loader": "~4.13.0",
+    "@uiw/react-loader": "~4.21.23",
     "@uiw/react-markdown-preview": "^4.0.23",
     "@uiw/reset.css": "^1.0.6",
     "@wcj/dark-mode": "^1.0.14",
     "react": "~18.2.0",
     "react-code-preview-layout": "^2.0.6",
     "react-dom": "~18.2.0",
-    "react-router-dom": "~6.4.0"
+    "react-router-dom": "^6.6.1"
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.2.3",
-    "@kkt/raw-modules": "~7.2.3",
-    "@kkt/scope-plugin-options": "~7.2.3",
+    "@kkt/less-modules": "^7.3.2",
+    "@kkt/raw-modules": "^7.3.2",
+    "@kkt/scope-plugin-options": "^7.3.2",
     "@types/react": "~18.0.0",
     "@types/react-dom": "~18.0.0",
-    "kkt": "~7.2.3",
+    "kkt": "^7.3.2",
     "markdown-react-code-preview-loader": "^2.1.2"
   },
   "eslintConfig": {
