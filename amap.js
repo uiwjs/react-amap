@@ -411,27 +411,29 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
         queue.forEach(task => task[0]());
         _this.finish();
       };
-      for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
+      var _loop = function* _loop() {
         try {
           yield requireScript(src);
-          break;
+          return "break";
         } catch (error) {
           if (i === DEFAULT_RETRY_TIME - 1) {
-            var _ret = function () {
-              var err = new Error("Failed to load AMap: " + error.message);
-              // flush queue
-              var queue = APILoader.waitQueue;
-              APILoader.waitQueue = [];
-              queue.forEach(task => task[1](err));
-              _this.handleError(err);
-              return {
-                v: void 0
-              };
-            }();
-            if (typeof _ret === "object") return _ret.v;
+            var err = new Error("Failed to load AMap: " + error.message);
+            // flush queue
+            var queue = APILoader.waitQueue;
+            APILoader.waitQueue = [];
+            queue.forEach(task => task[1](err));
+            _this.handleError(err);
+            return {
+              v: void 0
+            };
           }
           yield delay(i * 1000);
         }
+      };
+      for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
+        var _ret = yield* _loop();
+        if (_ret === "break") break;
+        if (typeof _ret === "object") return _ret.v;
       }
     })();
   }
@@ -958,7 +960,9 @@ var useBezierCurve = function useBezierCurve(props) {
       setBezierCurve(instance);
       return () => {
         if (instance) {
-          map && map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setBezierCurve(undefined);
         }
       };
@@ -1071,7 +1075,9 @@ var useCircleMarker = function useCircleMarker(props) {
       setCircleMarker(instance);
       return () => {
         if (instance) {
-          map && map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setCircleMarker(undefined);
         }
       };
@@ -1129,8 +1135,8 @@ var useContextMenu = function useContextMenu(props) {
       map.on('rightclick', rightclick);
       return () => {
         if (instance) {
+          instance.close();
           map.off('rightclick', rightclick);
-          map && map.removeLayer(instance);
           setContextMenu(undefined);
         }
       };
@@ -1281,7 +1287,9 @@ var useEllipse = function useEllipse(props) {
       setEllipse(instance);
       return () => {
         if (instance) {
-          map && map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setEllipse(undefined);
         }
       };
@@ -1415,7 +1423,7 @@ function useHawkEyeControl(props) {
       });
       return () => {
         if (instance && map) {
-          map.removeLayer(instance);
+          map && map.removeControl(instance);
           setHawkEyeControl(undefined);
         }
       };
@@ -1647,9 +1655,8 @@ function useTileLayer(props) {
       return () => {
         if (instance) {
           // 暂不使用这个 API，这个不兼容 v1.4.xx
-          // map.removeLayer(instance);
-
-          map.remove(instance);
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setTileLayer(null);
           props.onRemoved && props.onRemoved();
         }
@@ -2001,10 +2008,18 @@ var usePolygon = function usePolygon(props) {
       var instance = new AMap.Polygon(_extends({}, other));
       map.add(instance);
       setPolygon(instance);
+      return () => {
+        if (instance) {
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
+          setPolygon(undefined);
+        }
+      };
     }
   }, [map]);
   useVisiable(polygon, visiable);
-  useSettingProperties(polygon, props, ['ExtData', 'ExtData']);
+  useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     polygon,
@@ -2026,7 +2041,7 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
   } = usePolygon(props);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polygon
-  }));
+  }), [polygon]);
   if (children && /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(children) && polygon) {
     var oProps = {
       polygon,
@@ -2069,10 +2084,19 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        target: props.polygon
+      });
     } else if (visiable && active) {
       polyEditor.open();
+      props.onAdd && props.onAdd({
+        target: props.polygon
+      });
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        target: props.polygon
+      });
     }
   }, [active, visiable]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onMove', 'onAdd']);
@@ -2111,10 +2135,18 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        type: 'end',
+        target: props.polyElement
+      });
     } else if (visiable && active) {
       polyEditor.open();
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        type: 'end',
+        target: props.polyElement
+      });
     }
   }, [active, visiable]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemovenode']);
@@ -2147,14 +2179,16 @@ function usePolyline(props) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          map && map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setPolyline(undefined);
         }
       };
     }
   }, [map]);
   useVisiable(polyline, visiable);
-  useSettingProperties(polyline, props, ['Options', 'Map', 'ExtData']);
+  useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
     polyline,
@@ -2219,12 +2253,21 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        target: props.polyline
+      });
     } else if (visiable && active) {
       polyEditor.open();
+      props.onAdd && props.onAdd({
+        target: props.polyline
+      });
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({
+        target: props.polyline
+      });
     }
-  }, [active, visiable]);
+  }, [active, visiable, polyEditor]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onAdd']);
   return null;
 });
@@ -2334,7 +2377,9 @@ var useRectangle = function useRectangle(props) {
       setRectangle(instance);
       return () => {
         if (instance) {
-          map && map.removeLayer(instance);
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setRectangle(undefined);
         }
       };
