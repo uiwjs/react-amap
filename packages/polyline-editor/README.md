@@ -25,8 +25,6 @@ import React, { useState, useRef } from 'react';
 import { Map, APILoader, Polyline, PolylineEditor } from '@uiw/react-amap';
 
 const Example = () => {
-  const [show, setShow] = useState(true);
-  const [active, setActive] = useState(false);
   // 多边形轮廓线的节点坐标数组
   const path = [
     [116.403322, 39.920255],
@@ -34,6 +32,10 @@ const Example = () => {
     [116.402292, 39.892353],
     [116.389846, 39.891365],
   ];
+  const [show, setShow] = useState(true);
+  const [active, setActive] = useState(false);
+  const [polylinePath,setPolylinePath]=useState(path);
+  
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -46,7 +48,7 @@ const Example = () => {
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Polyline
             visiable={show}
-            path={path}
+            path={polylinePath}
             strokeColor="#FF33FF"
             strokeWeight={6}
             strokeOpacity={0.2}
@@ -56,8 +58,9 @@ const Example = () => {
           >
             <PolylineEditor
               active={active}
-              onEnd={() => {
-                console.log('onEnd:>>')
+              onEnd={(e) => {
+                console.log('onEnd:>>',e.target.getPath());
+                setPolylinePath(e.target.getPath())
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
