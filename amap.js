@@ -2019,7 +2019,7 @@ var usePolygon = function usePolygon(props) {
     }
   }, [map]);
   useVisiable(polygon, visiable);
-  useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData']);
+  useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     polygon,
@@ -2188,7 +2188,7 @@ function usePolyline(props) {
     }
   }, [map]);
   useVisiable(polyline, visiable);
-  useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData']);
+  useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
     polyline,
