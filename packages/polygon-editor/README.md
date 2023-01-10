@@ -34,6 +34,8 @@ const Example = () => {
     [116.402292, 39.892353],
     [116.389846, 39.891365],
   ];
+  const [polygonPath,setPolygonPath]=useState(path);
+
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -46,7 +48,7 @@ const Example = () => {
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Polygon
             visiable={show}
-            path={path}
+            path={polygonPath}
             strokeColor="#FF33FF"
             strokeWeight={6}
             strokeOpacity={0.2}
@@ -56,8 +58,9 @@ const Example = () => {
           >
             <PolygonEditor
               active={active}
-              onEnd={() => {
-                console.log('onEnd:>>')
+              onEnd={(e) => {
+                console.log('onEnd:>>',e.target.getPath());
+                setPolygonPath(e.target.getPath())
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')

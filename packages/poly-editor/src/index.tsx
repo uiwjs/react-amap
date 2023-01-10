@@ -29,10 +29,12 @@ export const PolyEditor = forwardRef<PolyEditorProps, PolyEditorProps>((props, r
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ type: 'end', target: props.polyElement as any });
     } else if (visiable && active) {
       polyEditor.open();
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ type: 'end', target: props.polyElement as any });
     }
   }, [active, visiable]);
 

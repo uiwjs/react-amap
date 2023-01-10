@@ -38,9 +38,8 @@ export function useTileLayer(props = {} as UseTileLayer) {
       return () => {
         if (instance) {
           // 暂不使用这个 API，这个不兼容 v1.4.xx
-          // map.removeLayer(instance);
-
-          map.remove(instance);
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
           setTileLayer(null as any);
           props.onRemoved && props.onRemoved();
         }

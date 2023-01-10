@@ -29,12 +29,15 @@ export const PolylineEditor = forwardRef<PolylineEditorProps, PolylineEditorProp
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ target: props.polyline as any });
     } else if (visiable && active) {
       polyEditor.open();
+      props.onAdd && props.onAdd({ target: props.polyline as any });
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ target: props.polyline as any });
     }
-  }, [active, visiable]);
+  }, [active, visiable, polyEditor]);
 
   useEventProperties<AMap.PolylineEditor, AMap.PolylineEditorEvents>(polyEditor!, props, [
     'onEnd',

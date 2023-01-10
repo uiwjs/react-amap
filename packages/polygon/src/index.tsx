@@ -11,7 +11,7 @@ export interface PolygonProps extends OverlayProps, AMap.PolygonEvents, AMap.Pol
 export const Polygon = forwardRef<PolygonProps, PolygonProps>((props, ref) => {
   const { children } = props;
   const { polygon } = usePolygon(props);
-  useImperativeHandle(ref, () => ({ ...props, polygon }));
+  useImperativeHandle(ref, () => ({ ...props, polygon }), [polygon]);
   if (children && isValidElement(children) && polygon) {
     const oProps = { polygon, polyElement: polygon };
     return cloneElement(children, { ...props, ...oProps });

@@ -29,10 +29,13 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
     }
     if (visiable && !active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ target: props.polygon as any });
     } else if (visiable && active) {
       polyEditor.open();
+      props.onAdd && props.onAdd({ target: props.polygon as any });
     } else if (!visiable && active) {
       polyEditor.close();
+      props.onEnd && props.onEnd({ target: props.polygon as any });
     }
   }, [active, visiable]);
 

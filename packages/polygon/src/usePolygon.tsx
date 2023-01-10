@@ -14,11 +14,19 @@ export const usePolygon = (props = {} as UsePolygon) => {
       let instance: AMap.Polygon = new AMap.Polygon({ ...other });
       map.add(instance);
       setPolygon(instance);
+      return () => {
+        if (instance) {
+          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          // map && map.removeLayer(instance);
+          map && map.remove(instance);
+          setPolygon(undefined);
+        }
+      };
     }
   }, [map]);
 
   useVisiable(polygon!, visiable);
-  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['ExtData', 'ExtData']);
+  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
     'onClick',
     'onDblClick',
