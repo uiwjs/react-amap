@@ -6,6 +6,7 @@ declare global {
 }
 
 declare namespace AMap {
+  const version: string;
   /**
    * 经纬度坐标，用来描述地图上的一个点位置, 目前高德地图使用的是 GCJ-02 坐标，如果你采集的是 WGS84 坐标，请先进行坐标转换
    */
