@@ -960,9 +960,12 @@ var useBezierCurve = function useBezierCurve(props) {
       setBezierCurve(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setBezierCurve(undefined);
         }
       };
@@ -1075,9 +1078,12 @@ var useCircleMarker = function useCircleMarker(props) {
       setCircleMarker(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setCircleMarker(undefined);
         }
       };
@@ -1287,9 +1293,12 @@ var useEllipse = function useEllipse(props) {
       setEllipse(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setEllipse(undefined);
         }
       };
@@ -1654,9 +1663,12 @@ function useTileLayer(props) {
       }
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setTileLayer(null);
           props.onRemoved && props.onRemoved();
         }
@@ -2010,9 +2022,12 @@ var usePolygon = function usePolygon(props) {
       setPolygon(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setPolygon(undefined);
         }
       };
@@ -2179,9 +2194,12 @@ function usePolyline(props) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setPolyline(undefined);
         }
       };
@@ -2377,9 +2395,12 @@ var useRectangle = function useRectangle(props) {
       setRectangle(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setRectangle(undefined);
         }
       };
