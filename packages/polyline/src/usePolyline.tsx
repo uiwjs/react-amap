@@ -16,9 +16,12 @@ export function usePolyline(props = {} as UsePolyline) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setPolyline(undefined);
         }
       };
@@ -26,7 +29,13 @@ export function usePolyline(props = {} as UsePolyline) {
   }, [map]);
 
   useVisiable(polyline!, visiable);
-  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, ['Path', 'Options', 'Map', 'ExtData']);
+  useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
+    'Path',
+    'Options',
+    'Map',
+    'ExtData',
+    'Draggable',
+  ]);
   useEventProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'onHide',
     'onShow',

@@ -16,9 +16,12 @@ export const usePolygon = (props = {} as UsePolygon) => {
       setPolygon(instance);
       return () => {
         if (instance) {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          // map && map.removeLayer(instance);
-          map && map.remove(instance);
+          if (/^1\./.test(AMap.version)) {
+            map && map.remove(instance);
+          } else {
+            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+            map && map.removeLayer(instance);
+          }
           setPolygon(undefined);
         }
       };
@@ -26,7 +29,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
   }, [map]);
 
   useVisiable(polygon!, visiable);
-  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData']);
+  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
     'onClick',
     'onDblClick',
