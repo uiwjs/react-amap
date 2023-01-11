@@ -8,10 +8,19 @@ export const useAutoComplete = (props = {} as UseAutoComplete) => {
   useEffect(() => {
     if (AMap && !autoComplete) {
       let instance: AMap.AutoComplete;
-      AMap.plugin(['AMap.AutoComplete'], () => {
-        instance = new AMap.AutoComplete(props);
-        setAutoComplete(instance);
-      });
+
+      if (AMap.v) {
+        AMap.plugin(['AMap.Autocomplete'], () => {
+          instance = new AMap.Autocomplete(props);
+          setAutoComplete(instance);
+        });
+      } else {
+        AMap.plugin(['AMap.AutoComplete'], () => {
+          instance = new AMap.AutoComplete(props);
+          setAutoComplete(instance);
+        });
+      }
+
       return () => {
         if (instance) {
           setAutoComplete(undefined);
