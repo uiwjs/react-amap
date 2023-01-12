@@ -685,10 +685,17 @@ var useAutoComplete = function useAutoComplete(props) {
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !autoComplete) {
       var instance;
-      AMap.plugin(['AMap.AutoComplete'], () => {
-        instance = new AMap.AutoComplete(props);
-        setAutoComplete(instance);
-      });
+      if (AMap.v) {
+        AMap.plugin(['AMap.Autocomplete'], () => {
+          instance = new AMap.Autocomplete(props);
+          setAutoComplete(instance);
+        });
+      } else {
+        AMap.plugin(['AMap.AutoComplete'], () => {
+          instance = new AMap.AutoComplete(props);
+          setAutoComplete(instance);
+        });
+      }
       return () => {
         if (instance) {
           setAutoComplete(undefined);
