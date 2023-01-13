@@ -311,6 +311,7 @@ declare namespace AMap {
   }
   type ControlType =
     'AMap.AutoComplete' |
+    'AMap.Autocomplete' |
     'AMap.ControlBar' |
     'AMap.CloudDataSearch' |
     'AMap.Driving' |
