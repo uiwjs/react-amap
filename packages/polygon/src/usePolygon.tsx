@@ -16,7 +16,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
       setPolygon(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
