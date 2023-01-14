@@ -967,7 +967,7 @@ var useBezierCurve = function useBezierCurve(props) {
       setBezierCurve(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -1085,7 +1085,7 @@ var useCircleMarker = function useCircleMarker(props) {
       setCircleMarker(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -1300,7 +1300,7 @@ var useEllipse = function useEllipse(props) {
       setEllipse(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -1670,7 +1670,7 @@ function useTileLayer(props) {
       }
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -2029,7 +2029,7 @@ var usePolygon = function usePolygon(props) {
       setPolygon(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -2041,7 +2041,7 @@ var usePolygon = function usePolygon(props) {
     }
   }, [map]);
   useVisiable(polygon, visiable);
-  useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
+  useSettingProperties(polygon, props, ['Path', 'ZIndex', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'StrokeStyle', 'StrokeDasharray', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     polygon,
@@ -2201,7 +2201,7 @@ function usePolyline(props) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -2213,7 +2213,7 @@ function usePolyline(props) {
     }
   }, [map]);
   useVisiable(polyline, visiable);
-  useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
+  useSettingProperties(polyline, props, ['Path', 'ZIndex', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'IsOutline', 'BorderWeight', 'OutlineColor', 'StrokeStyle', 'StrokeDasharray', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
     polyline,
@@ -2402,7 +2402,7 @@ var useRectangle = function useRectangle(props) {
       setRectangle(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
