@@ -16,7 +16,7 @@ export function usePolyline(props = {} as UsePolyline) {
       setPolyline(instance);
       return () => {
         if (instance) {
-          if (/^1\./.test(AMap.version)) {
+          if (AMap.v) {
             map && map.remove(instance);
           } else {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
@@ -31,7 +31,16 @@ export function usePolyline(props = {} as UsePolyline) {
   useVisiable(polyline!, visiable);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'Path',
-    'Options',
+    'ZIndex',
+    'Cursor',
+    'StrokeColor',
+    'StrokeOpacity',
+    'StrokeWeight',
+    'IsOutline',
+    'BorderWeight',
+    'OutlineColor',
+    'StrokeStyle',
+    'StrokeDasharray',
     'Map',
     'ExtData',
     'Draggable',
