@@ -2041,7 +2041,7 @@ var usePolygon = function usePolygon(props) {
     }
   }, [map]);
   useVisiable(polygon, visiable);
-  useSettingProperties(polygon, props, ['Path', 'ZIndex', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'StrokeStyle', 'StrokeDasharray', 'Map', 'ExtData', 'Draggable']);
+  useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
     polygon,
@@ -2213,7 +2213,7 @@ function usePolyline(props) {
     }
   }, [map]);
   useVisiable(polyline, visiable);
-  useSettingProperties(polyline, props, ['Path', 'ZIndex', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'IsOutline', 'BorderWeight', 'OutlineColor', 'StrokeStyle', 'StrokeDasharray', 'Map', 'ExtData', 'Draggable']);
+  useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
     polyline,
