@@ -115,26 +115,74 @@ const path2 = [
   [90.34669, 43.749086],
   [87.61792, 43.793308],
 ];
+const path3 = [
+  [120.098109,31.212311],
+  [117.518308,31.969555],
+  [116.329812,31.823006],
+  [113.363503,30.68583],
+  [114.861589,28.969429],
+  [111.937253,28.158361],
+];
+const options1={
+  zIndex:2,
+  cursor:"text",
+  isOutline:false,
+  strokeWeight:2,
+  strokeOpacity:1,
+  strokeColor:"red",
+  lineJoin:"bevel",
+  lineCap:"round",
+};
 
+const options2={
+  zIndex:4,
+  cursor:"move",
+  isOutline:true,
+  outlineColor:"green",
+  borderWeight:2,
+  strokeWeight:1,
+  strokeOpacity:0.5,
+  strokeColor:"blue", 
+  lineJoin:"round",
+  lineCap:"square"
+
+};
 const Example = () => {
   const [show, setShow] = useState(true);
   const [paths, setPaths] = useState(path1);
+  const [options,setOptions]=useState(options1);
   return (
     <>
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
       </button>
       {show && (
+        <>
         <button onClick={() => setPaths(paths.length === 6 ? path2 : path1)}>
           切换路线
         </button>
+        <button onClick={() => setOptions(options.strokeColor === "blue" ? options1 : options2)}>
+          切换样式
+        </button>
+        </>
       )}
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
           <Polyline
+            key="1"
             visiable={show}
             strokeOpacity={1}
             path={paths}
+            options={options}
+          />
+          <Polyline
+            key="2"
+            zIndex={3}
+            visiable={true}
+            strokeColor={"yellow"}
+            strokeOpacity={1}
+            strokeWeight={4}
+            path={path3}
           />
         </Map>
       </div>
@@ -155,10 +203,15 @@ export default Mount;
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L275-L370)
 
+[V1.x.xx API](https://lbs.amap.com/api/javascript-api/reference/overlay#polyline)
+
+[V2.x.xx API](https://lbs.amap.com/api/jsapi-v2/documentation#polyline)
+
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
 | visiable | 覆盖物是否可见。 | `boolean` | - |
 | path | 路径，支持 lineString 和 MultiLineString。 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
+| options | 折线属性（包括路径的节点、线样式、是否绘制大地线等）。 | `PolylineOptions` | - |
 
 ### 事件
 

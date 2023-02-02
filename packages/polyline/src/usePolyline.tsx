@@ -31,16 +31,7 @@ export function usePolyline(props = {} as UsePolyline) {
   useVisiable(polyline!, visiable);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'Path',
-    'ZIndex',
-    'Cursor',
-    'StrokeColor',
-    'StrokeOpacity',
-    'StrokeWeight',
-    'IsOutline',
-    'BorderWeight',
-    'OutlineColor',
-    'StrokeStyle',
-    'StrokeDasharray',
+    'Options',
     'Map',
     'ExtData',
     'Draggable',

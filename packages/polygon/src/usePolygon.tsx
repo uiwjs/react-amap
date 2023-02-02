@@ -29,21 +29,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
   }, [map]);
 
   useVisiable(polygon!, visiable);
-  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
-    'Path',
-    'ZIndex',
-    'Cursor',
-    'StrokeColor',
-    'StrokeOpacity',
-    'StrokeWeight',
-    'FillColor',
-    'FillOpacity',
-    'StrokeStyle',
-    'StrokeDasharray',
-    'Map',
-    'ExtData',
-    'Draggable',
-  ]);
+  useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
     'onClick',
     'onDblClick',
