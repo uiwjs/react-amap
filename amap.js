@@ -2318,7 +2318,8 @@ var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_rea
   var {
     active,
     type,
-    drawElementOptions
+    drawElementOptions,
+    ifClear
   } = props;
   var {
     map
@@ -2338,7 +2339,7 @@ var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_rea
       return;
     }
     if (!active) {
-      mouseTool.close();
+      mouseTool.close(ifClear);
     } else {
       switch (type) {
         case MouseToolDrawType.MARKER:
@@ -2370,7 +2371,7 @@ var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_rea
           break;
       }
     }
-  }, [active]);
+  }, [active, ifClear]);
   useEventProperties(mouseTool, props, ['onDraw']);
   return null;
 });
