@@ -100,3 +100,4 @@ export default Mount;
 | type | 绘制类型 | `MouseToolDrawType` | - |
 | drawElementOptions | 绘制元素的参数 | `AMap.PolygonOptions | AMap.PolylineOptions | AMap.MarkerOptions | AMap.CircleOptions` | {} |
 | onDraw | 绘制结束的回调函数 | `(event:  MouseToolDrawedEvent): void;` |
+| ifClear | 鼠标操作关闭的同时清除地图上绘制的所有覆盖物对象 | `false` |
