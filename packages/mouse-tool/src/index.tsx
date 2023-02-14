@@ -6,6 +6,7 @@ export interface MouseToolProps extends Partial<AMap.MouseTool>, AMap.MouseToolE
   active: boolean;
   type: MouseToolDrawType; // TODO transform enum
   drawElementOptions?: AMap.PolygonOptions | AMap.PolylineOptions | AMap.MarkerOptions | AMap.CircleOptions;
+  ifClear?: boolean;
 }
 export enum MouseToolDrawType {
   MARKER,
@@ -23,7 +24,7 @@ export interface MouseToolDrawedEvent {
   obj: Object;
 }
 export const MouseTool = forwardRef<MouseToolProps, MouseToolProps>((props, ref) => {
-  const { active, type, drawElementOptions } = props;
+  const { active, type, drawElementOptions, ifClear } = props;
   const { map } = useMapContext();
   const [mouseTool, setMouseTool] = useState<AMap.MouseTool>();
   useImperativeHandle(ref, () => ({ ...props, mouseTool: mouseTool }));
@@ -40,7 +41,7 @@ export const MouseTool = forwardRef<MouseToolProps, MouseToolProps>((props, ref)
       return;
     }
     if (!active) {
-      mouseTool.close();
+      mouseTool.close(ifClear);
     } else {
       switch (type) {
         case MouseToolDrawType.MARKER:
@@ -72,7 +73,7 @@ export const MouseTool = forwardRef<MouseToolProps, MouseToolProps>((props, ref)
           break;
       }
     }
-  }, [active]);
+  }, [active, ifClear]);
 
   useEventProperties<AMap.MouseTool, AMap.MouseToolEvents>(mouseTool!, props, ['onDraw']);
   return null;
