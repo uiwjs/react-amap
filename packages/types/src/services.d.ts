@@ -331,4 +331,110 @@ declare namespace AMap {
     /** 设置是否强制限制城市 */
     search(keyword?: string, callback?: (status: 'complete' | 'error' | 'no_data', result?: AutoCompleteSearchCallback) => void): void;
   }
+  /** 地点搜索服务插件，提供某一特定地区的位置查询服务。 */
+  class PlaceSearch extends MapEventListener<'selectChanged' | 'listElementClick' | 'markerClick'> {
+    constructor(opts: PlaceSearchOptions);
+    /** 根据输入关键字提示匹配信息，支持中文、拼音 */
+    search(keyword: string, callback: (state: string, result: PlaceSearchResult) => void): void;
+    /** 根据范围和关键词进行范围查询 */
+    searchInBounds(keyword: string, bounds: AMap.Bounds, callback: (state: string, result: PlaceSearchResult) => void): void;
+    /** 根据中心点经纬度、半径以及关键字进行周边查询 radius取值范围：0-50000 */
+    searchNearBy(keyword: string, center: AMap.LngLat, radius: number): void
+    /** 根据PGUID 查询POI 详细信息 */
+    getDetails(PGUID: string): POI;
+    /** 设置查询类别，多个类别用“|”分割 */
+    setType(type: string): void;
+    /** 设置显示查询结果页码 */
+    setPageIndex(pageIndex: number): void;
+    /** 设置每页显示查询结果数量 */
+    setPageSize(pageSize: number): void;
+    /** 设置查询城市, 支持cityname（中文或中文全拼）、citycode、adcode */
+    setCity(city: string): void;
+    /** 设置是否强制限制城市 */
+    setCityLimit(citylimit: boolean): void;
+    /** 唤起高德地图客户端marker页 Object 参数：{ id: "B000A7BD6C", POIID name:String, 必要参数 location:LngLat|position属性 必须参数 } 例如：{ id: "B000A7BD6C", location: LngLat, name: "清华大学", address: "地址" } */
+    poiOnAMAP(p: any, opts: any): void;
+    /** 唤起高德地图客户端POI详情页 Object 参数：{ id: "B000A7BD6C", POIID name:String, 必要参数 location:LngLat|position属性 必须参数 } */
+    detailOnAMAP(p: any, opts: any): void;
+  }
+  interface POI {
+    /** 兴趣点id */
+    id: string;
+    /** 名称 */
+    name: string;
+    /** 兴趣点类型 */
+    type: string;
+    /** 兴趣点经纬度 */
+    location: LngLat;
+    /** 地址 */
+    address: string;
+    /** 离中心点距离，仅周边查询返回 */
+    distance: number;
+    /** 电话 */
+    tel: string;
+    /** 网址 */
+    website: string;
+    /** poi所在省份编码 */
+    pcode: string;
+    /** poi所在城市编码 */
+    citycode: string;
+    /** poi所在区域编码 */
+    adcode: string;
+    /** 邮编 */
+    postcode: string;
+    /** poi所在省份 */
+    pname: string;
+    /** poi所在城市名称 */
+    cityname: string;
+    /** poi所在行政区名称 */
+    adname: string;
+    /** 电子邮箱 */
+    email: string;
+    /** 入口经纬度，POI点有出入口信息时返回，否则返回空字符串 */
+    entr_location: LngLat;
+    /** 出口经纬度，POI点有出入口信息时返回，否则返回空字符串 */
+    exit_location: LngLat;
+  }
+  /** 设置 PlaceSearch 属性参数 */
+  interface PlaceSearchOptions {
+    /** 城市 */
+    city?: string;
+    /** 数据类别 */
+    type?: string;
+    /** 每页结果数,默认10 */
+    pageSize?: number;
+    /** 请求页码，默认1 */
+    pageIndex?: number;
+    /** 返回信息详略，默认为base（基本信息） */
+    extensions?: string;
+  }
+  /** PlaceSearch 搜索结果回调 */
+  interface PlaceSearchResult {
+    /** 成功状态说明 */
+    info: string; 
+    /** 发生事件且查无此关键字时，返回建议关键字列表，可根据建议关键字查询 */
+    keywordList: Array<keyword> ;
+    /** 发生事件且查无此关键字且 city 为“全国”时，返回城市建议列表，该列表中每个城市包含一个或多个相关Poi点信息 */
+    cityList: Array<{
+      /** 建议城市名称 */
+      name: string;
+      /** 城市编码 */
+      citycode: string;
+      /** 行政区编码 */
+      adcode: string;
+      /** 该城市的建议结果数目 */
+      count: string;
+    }> ;
+    /** 发生事件时返回兴趣点列表 */
+    poiList: {
+      /** 页码 */
+      pageIndex: number;
+      /** 单页结果数 */
+      pageSize: number;
+      /** 查询结果总数 */
+      count: number;
+      /** Poi列表 */
+      pois: Array<POI>
+    } 
+  }
 }
