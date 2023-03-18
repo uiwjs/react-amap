@@ -1694,12 +1694,12 @@ function useTileLayer(props) {
 
 
 
-var TileLayerType;
-(function (TileLayerType) {
+var TileLayerType = /*#__PURE__*/function (TileLayerType) {
   TileLayerType["SATELLITE"] = "satellite";
   TileLayerType["TRAFFIC"] = "traffic";
   TileLayerType["ROADNET"] = "roadnet";
-})(TileLayerType || (TileLayerType = {}));
+  return TileLayerType;
+}({});
 var TileLayer = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     tileLayer
@@ -2302,8 +2302,7 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
 
 
 
-var MouseToolDrawType;
-(function (MouseToolDrawType) {
+var MouseToolDrawType = /*#__PURE__*/function (MouseToolDrawType) {
   MouseToolDrawType[MouseToolDrawType["MARKER"] = 0] = "MARKER";
   MouseToolDrawType[MouseToolDrawType["POLYLINE"] = 1] = "POLYLINE";
   MouseToolDrawType[MouseToolDrawType["POLYGON"] = 2] = "POLYGON";
@@ -2313,7 +2312,8 @@ var MouseToolDrawType;
   MouseToolDrawType[MouseToolDrawType["RULE"] = 6] = "RULE";
   MouseToolDrawType[MouseToolDrawType["RECTZOOMIN"] = 7] = "RECTZOOMIN";
   MouseToolDrawType[MouseToolDrawType["RECTZOOMOUT"] = 8] = "RECTZOOMOUT";
-})(MouseToolDrawType || (MouseToolDrawType = {}));
+  return MouseToolDrawType;
+}({});
 var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
     active,
