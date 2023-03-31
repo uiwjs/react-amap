@@ -1,5 +1,5 @@
 /// <reference types="@uiw/react-amap-types" />
-import {
+import React, {
   useRef,
   useEffect,
   useImperativeHandle,
@@ -36,6 +36,7 @@ export const Provider: FC<PropsWithChildren<RenderProps>> = (props) => {
 
 export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderProps>(
   ({ className, children, ...props }, ref) => {
+    const AMap = window.AMap;
     const [state, dispatch] = useReducer(reducer, initialState);
     const elmRef = useRef<HTMLDivElement>(null);
     const { setContainer, container, map } = useMap({
@@ -57,7 +58,7 @@ export const Map = forwardRef<MapProps & { map?: AMap.Map }, MapProps & RenderPr
         {!props.container && (
           <div
             ref={elmRef}
-            className={`react-amap-wapper ${className}`}
+            className={className}
             style={{ fontSize: 1, width: '100%', height: '100%', ...props.style }}
           />
         )}
