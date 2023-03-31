@@ -320,10 +320,6 @@ var DEFAULT_RETRY_TIME = 3;
  * APILoader 用于加载百度地图依赖
  */
 class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_react_.Component {
-  /**
-   * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
-   */
-
   constructor(props) {
     super(props);
     this.isMountedOk = false;
@@ -448,6 +444,9 @@ APILoader.defaultProps = {
   callbackName: 'load_amap_sdk',
   plugin: ''
 };
+/**
+ * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
+ */
 APILoader.waitQueue = [];
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
@@ -772,6 +771,11 @@ function useMapContext() {
 
 
 
+
+/**
+ * 此类型是 `<Map>` 组件传递给子组件(如 `<Marker>`)的两个 props
+ */
+
 var useMap = function useMap(props) {
   if (props === void 0) {
     props = {};
@@ -870,6 +874,7 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
       children
     } = _ref,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
+  var AMap = window.AMap;
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
   var {
@@ -902,7 +907,7 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
     }),
     children: [!props.container && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       ref: elmRef,
-      className: "react-amap-wapper " + className,
+      className: className,
       style: _extends({
         fontSize: 1,
         width: '100%',
