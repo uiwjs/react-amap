@@ -300,7 +300,6 @@ function requireScript(src, id) {
     headElement.appendChild(script);
   });
 }
-
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(664);
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
@@ -366,6 +365,9 @@ class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_r
     this.isMountedOk = false;
   }
   render() {
+    if (this.props.disableScripts) {
+      return this.props.children;
+    }
     if (this.state.loaded) {
       return this.props.children;
     }
@@ -447,7 +449,6 @@ APILoader.defaultProps = {
   plugin: ''
 };
 APILoader.waitQueue = [];
-
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -506,7 +507,6 @@ var usePortal = () => {
     container
   };
 };
-
 ;// CONCATENATED MODULE: ../utils/esm/index.js
 
 /// <reference types="@uiw/react-amap-types" />
@@ -673,7 +673,6 @@ function useSettingProperties(instance, props, propsName) {
     }, [instance, props[vName]]);
   });
 }
-
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
 
 
@@ -710,7 +709,6 @@ var useAutoComplete = function useAutoComplete(props) {
     setAutoComplete
   };
 };
-
 ;// CONCATENATED MODULE: ../auto-complete/esm/index.js
 
 
@@ -725,7 +723,6 @@ var AutoComplete = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -769,7 +766,6 @@ function useMapContext() {
     dispatch
   });
 }
-
 ;// CONCATENATED MODULE: ../map/esm/useMap.js
 
 
@@ -846,7 +842,6 @@ var useMap = function useMap(props) {
     setContainer
   };
 };
-
 ;// CONCATENATED MODULE: ../map/esm/index.js
 
 
@@ -940,7 +935,6 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
     })]
   });
 });
-
 ;// CONCATENATED MODULE: ../bezier-curve/esm/useBezierCurve.js
 
 
@@ -986,7 +980,6 @@ var useBezierCurve = function useBezierCurve(props) {
     setBezierCurve
   };
 };
-
 ;// CONCATENATED MODULE: ../bezier-curve/esm/index.js
 
 
@@ -1001,7 +994,6 @@ var BezierCurve = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../circle/esm/useCircle.js
 
 
@@ -1042,7 +1034,6 @@ var useCircle = function useCircle(props) {
     setCircle
   };
 };
-
 ;// CONCATENATED MODULE: ../circle/esm/index.js
 
 
@@ -1057,7 +1048,6 @@ var Circle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../circle-marker/esm/useCircleMarker.js
 
 
@@ -1104,7 +1094,6 @@ var useCircleMarker = function useCircleMarker(props) {
     setCircleMarker
   };
 };
-
 ;// CONCATENATED MODULE: ../circle-marker/esm/index.js
 
 
@@ -1119,7 +1108,6 @@ var CircleMarker = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../context-menu/esm/useContextMenu.js
 
 
@@ -1161,7 +1149,6 @@ var useContextMenu = function useContextMenu(props) {
     setContextMenu
   };
 };
-
 ;// CONCATENATED MODULE: ../context-menu/esm/Item.js
 
 var noop = function noop() {};
@@ -1185,7 +1172,6 @@ var noop = function noop() {};
   }, [props.contextMenu, props.text, props.onClick]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../context-menu/esm/index.js
 
 
@@ -1215,7 +1201,6 @@ var ContextMenu = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
   });
 });
 ContextMenu.Item = Item;
-
 ;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
 
 
@@ -1257,7 +1242,6 @@ function useControlBarControl(props) {
     setControlBarControl
   };
 }
-
 ;// CONCATENATED MODULE: ../control-bar-control/esm/index.js
 
 
@@ -1272,7 +1256,6 @@ var ControlBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonj
   }), [controlBarControl]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../ellipse/esm/useEllipse.js
 
 
@@ -1319,7 +1302,6 @@ var useEllipse = function useEllipse(props) {
     setEllipse
   };
 };
-
 ;// CONCATENATED MODULE: ../ellipse/esm/index.js
 
 
@@ -1334,7 +1316,6 @@ var Ellipse = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_am
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../geolocation/esm/useGeolocation.js
 
 
@@ -1391,7 +1372,6 @@ var useGeolocation = function useGeolocation(props) {
     setGeolocation
   };
 };
-
 ;// CONCATENATED MODULE: ../geolocation/esm/index.js
 
 
@@ -1406,7 +1386,6 @@ var Geolocation = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../hawk-eye-control/esm/useHawkEyeControl.js
 
 
@@ -1451,7 +1430,6 @@ function useHawkEyeControl(props) {
     setHawkEyeControl
   };
 }
-
 ;// CONCATENATED MODULE: ../hawk-eye-control/esm/index.js
 
 
@@ -1466,7 +1444,6 @@ var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
   }), [hawkEyeControl]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../info-window/esm/useInfoWindow.js
 
 
@@ -1545,7 +1522,6 @@ var useInfoWindow = function useInfoWindow(props) {
     InfoWindowPortal: Portal
   };
 };
-
 ;// CONCATENATED MODULE: ../info-window/esm/index.js
 
 
@@ -1564,7 +1540,6 @@ var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react
     children: props.children
   });
 });
-
 ;// CONCATENATED MODULE: ../map-type-control/esm/useMapTypeControl.js
 
 
@@ -1608,7 +1583,6 @@ function useMapTypeControl(props) {
     setMapTypeControl
   };
 }
-
 ;// CONCATENATED MODULE: ../map-type-control/esm/index.js
 
 
@@ -1623,7 +1597,6 @@ var MapTypeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
   }), [mapTypeControl]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../tile-layer/esm/useTileLayer.js
 
 
@@ -1688,7 +1661,6 @@ function useTileLayer(props) {
     setTileLayer
   };
 }
-
 ;// CONCATENATED MODULE: ../tile-layer/esm/index.js
 
 
@@ -1709,7 +1681,6 @@ var TileLayer = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
   }), [tileLayer]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../marker/esm/useMarker.js
 
 
@@ -1760,7 +1731,6 @@ var useMarker = function useMarker(props) {
     MarkerPortal: Portal
   };
 };
-
 ;// CONCATENATED MODULE: ../marker/esm/index.js
 
 
@@ -1779,7 +1749,6 @@ var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_
     children: props.children
   });
 });
-
 ;// CONCATENATED MODULE: ../label-marker/esm/useLabelMarker.js
 
 
@@ -1890,7 +1859,6 @@ var useLabelMarker = function useLabelMarker(props) {
     setLabelMarker
   };
 };
-
 ;// CONCATENATED MODULE: ../label-marker/esm/index.js
 
 
@@ -1904,7 +1872,6 @@ var LabelMarker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_r
   }), [labelMarker]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../mass-marks/esm/useMassMarks.js
 
 var useMassMarks_excluded = ["visiable"];
@@ -1986,7 +1953,6 @@ var useMassMarks = function useMassMarks(props) {
     setMassMarks
   };
 };
-
 ;// CONCATENATED MODULE: ../mass-marks/esm/index.js
 
 
@@ -2001,7 +1967,6 @@ var MassMarks = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
   }), [massMarks, props]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../polygon/esm/usePolygon.js
 
 
@@ -2048,7 +2013,6 @@ var usePolygon = function usePolygon(props) {
     setPolygon
   };
 };
-
 ;// CONCATENATED MODULE: ../polygon/esm/index.js
 
 
@@ -2073,7 +2037,6 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
   }
   return null;
 });
-
 ;// CONCATENATED MODULE: ../polygon-editor/esm/index.js
 
 
@@ -2124,7 +2087,6 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onMove', 'onAdd']);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../poly-editor/esm/index.js
 
 
@@ -2174,7 +2136,6 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemovenode']);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
 
 
@@ -2220,7 +2181,6 @@ function usePolyline(props) {
     setPolyline
   };
 }
-
 ;// CONCATENATED MODULE: ../polyline/esm/index.js
 
 
@@ -2245,7 +2205,6 @@ var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_a
   }
   return null;
 });
-
 ;// CONCATENATED MODULE: ../polyline-editor/esm/index.js
 
 
@@ -2296,7 +2255,6 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onAdd']);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../mouse-tool/esm/index.js
 
 
@@ -2375,7 +2333,6 @@ var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_rea
   useEventProperties(mouseTool, props, ['onDraw']);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../rectangle/esm/useRectangle.js
 
 
@@ -2422,7 +2379,6 @@ var useRectangle = function useRectangle(props) {
     setRectangle
   };
 };
-
 ;// CONCATENATED MODULE: ../rectangle/esm/index.js
 
 
@@ -2437,7 +2393,6 @@ var Rectangle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ../scale-control/esm/useScaleControl.js
 
 
@@ -2479,7 +2434,6 @@ function useScaleControl(props) {
     setScaleControl
   };
 }
-
 ;// CONCATENATED MODULE: ../scale-control/esm/index.js
 
 
@@ -2494,7 +2448,6 @@ var ScaleControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   }), [scaleControl]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../text/esm/useText.js
 
 
@@ -2549,7 +2502,6 @@ var useText = function useText(props) {
     TextPortal: Portal
   };
 };
-
 ;// CONCATENATED MODULE: ../text/esm/index.js
 
 
@@ -2569,7 +2521,6 @@ var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_am
     children: props.children
   });
 });
-
 ;// CONCATENATED MODULE: ../tool-bar-control/esm/useToolBarControl.js
 
 
@@ -2611,7 +2562,6 @@ function useToolBarControl(props) {
     setToolBarControl
   };
 }
-
 ;// CONCATENATED MODULE: ../tool-bar-control/esm/index.js
 
 
@@ -2626,7 +2576,6 @@ var ToolBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
   }), [toolBarControl]);
   return null;
 });
-
 ;// CONCATENATED MODULE: ../weather/esm/useWeather.js
 
 var useWeather = function useWeather(props) {
@@ -2676,7 +2625,6 @@ var useWeather = function useWeather(props) {
     setWeather
   };
 };
-
 ;// CONCATENATED MODULE: ../weather/esm/index.js
 
 
@@ -2691,7 +2639,6 @@ var Weather = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_am
   }));
   return null;
 });
-
 ;// CONCATENATED MODULE: ./src/index.tsx
 /// <reference types="@uiw/react-amap-types" />
 
