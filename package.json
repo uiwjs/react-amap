@@ -4,7 +4,7 @@
   "homepage": "https://uiwjs.github.io/react-amap",
   "scripts": {
     "prepare": "husky install",
-    "build": "lerna exec \"tsbb build \\\"src/*.{tsx,ts}\\\" --use-babel --cjs cjs\" --scope @uiw/* --ignore @uiw/react-amap-types",
+    "build": "lerna exec \"tsbb build \\\"src/*.{tsx,ts}\\\" --use-babel --cjs cjs --bail\" --scope @uiw/* --ignore @uiw/react-amap-types",
     "bundle": "lerna exec \"ncc build src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
     "bundle:watch": "lerna exec \"ncc watch src/index.tsx --target web --filename amap\" --scope @uiw/react-amap",
     "bundle:min": "lerna exec \"ncc build src/index.tsx --target web --filename amap --minify\" --scope @uiw/react-amap",
@@ -68,6 +68,9 @@
   "devDependencies": {
     "@kkt/less-modules": "~7.4.0",
     "@kkt/ncc": "~1.0.15",
+    "jest": "^29.5.0",
+    "jest-watch-typeahead": "^2.2.2",
+    "jest-environment-jsdom": "^29.5.0",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "cross-env": "~7.0.3",
@@ -75,6 +78,6 @@
     "prettier": "^2.8.7",
     "lint-staged": "^13.2.0",
     "lerna": "^6.6.1",
-    "tsbb": "^4.0.8"
+    "tsbb": "^4.1.0"
   }
 }

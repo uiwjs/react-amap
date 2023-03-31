@@ -13,7 +13,7 @@ export type APILoaderConfig = PropsWithChildren<{
    * 3. 为应用[添加 Key](https://lbs.amap.com/dev/key/app)，「服务平台」一项请选择「 Web 端 ( JSAPI ) 」
    *
    */
-  akay: string;
+  akay?: string;
   /**
    * SDK 包版本
    * @default 1.4.15
