@@ -45,6 +45,20 @@ const Demo = () => (
 export default Demo
 ```
 
+### 禁用 SDK 加载
+
+收到一个需求，希望自己在 `html` 中引入 SDK，不需要自动加载，可以使用 `disableScripts` 禁用，在 html 中自己手动添加
+
+```jsx
+<APILoader disableScripts>
+  <Map style={{ height: 100, marginBottom: 10 }} />
+</APILoader>
+```
+
+```html
+<script src="https://webapi.amap.com/maps?v=2.0&key=您申请的key值"></script>
+```
+
 ### Props
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -55,3 +69,4 @@ export default Demo
 | hostAndPath | 请求 SDK 的前半部分 | string | `webapi.amap.com/maps` |
 | callbackName | 回调函数 | string | `load_amap_sdk` |
 | plugin | 加载一个或者多个插件 `AMap.ToolBar,AMap.Driving` | string | `-` |
+| disableScripts | 禁用 `SDK` 加载 | boolean | `-` |

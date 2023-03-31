@@ -38,7 +38,14 @@ export type APILoaderConfig = PropsWithChildren<{
    * @example `AMap.ToolBar,AMap.Driving`
    */
   plugin?: string;
-}>
+  /**
+   * 禁用 SDK 加载，当你使用本地自己加载 SDK可以设置为 true
+   * ```html
+   * <script src="https://webapi.amap.com/maps?v=2.0&key=您申请的key值"></script>
+   * ```
+   */
+  disableScripts?: boolean;
+}>;
 
 export function delay(time: number): Promise<undefined> {
   return new Promise((resolve, reject) => {
@@ -107,6 +114,9 @@ export class APILoader extends Component<APILoaderProps> {
   }
 
   public render() {
+    if (this.props.disableScripts) {
+      return this.props.children;
+    }
     if (this.state.loaded) {
       return this.props.children;
     }
