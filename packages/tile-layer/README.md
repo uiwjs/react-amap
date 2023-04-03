@@ -267,7 +267,7 @@ const Demo = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map center={new AMap.LngLat(116.405285,39.904989)}>
           <TileLayer
-            key="1"
+            akey="1"
             visiable={show}
             type={type}
             options={options}
@@ -279,7 +279,7 @@ const Demo = () => {
             }}
           />
           <TileLayer
-            key="2"
+            akey="2"
             visiable={showTDT}
             type={type}
             options={TiandituSatelliteOptions2}
@@ -298,7 +298,7 @@ const Demo = () => {
 }
 
 const Mount = () => (
-  <APILoader  akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader  akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 );

@@ -59,7 +59,7 @@ const Example = (props) => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 );

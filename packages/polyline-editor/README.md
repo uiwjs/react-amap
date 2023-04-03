@@ -83,7 +83,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129" plugin="AMap.PolylineEditor">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129" plugin="AMap.PolylineEditor">
     <Example />
   </APILoader>
 );

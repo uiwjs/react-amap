@@ -25,7 +25,7 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
       <Map />
     </APILoader>
   </div>
@@ -81,7 +81,7 @@ const Marker = () => {
 }
 
 const Demo = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Provider>
       <Marker />
     </Provider>
@@ -139,7 +139,7 @@ function Demo() {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 );
@@ -182,7 +182,7 @@ function Demo() {
 
 const Mount = () => (
   <div style={{ width: '100%', height: '300px' }}>
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
   </div>
@@ -200,7 +200,7 @@ import { Map, APILoader } from '@uiw/react-amap';
 
 const Demo = () => (
   <div style={{ width: '100%', height: '300px' }}>
-    <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
       <Map
         onComplete={(data, de) => {
           console.log('地图加载完成！', data, de);
@@ -248,7 +248,7 @@ const Demo = () => (
 );
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 );
@@ -289,7 +289,7 @@ const Demo = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 );

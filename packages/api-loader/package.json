@@ -33,6 +33,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@uiw/react-amap-require-script": "4.6.0",
     "@uiw/react-amap-types": "4.6.0"
   },

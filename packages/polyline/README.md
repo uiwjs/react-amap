@@ -77,7 +77,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 );
@@ -169,14 +169,14 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
           <Polyline
-            key="1"
+            akey="1"
             visiable={show}
             strokeOpacity={1}
             path={paths}
             options={options}
           />
           <Polyline
-            key="2"
+            akey="2"
             zIndex={3}
             visiable={true}
             strokeColor={"yellow"}
@@ -191,7 +191,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 );

@@ -48,6 +48,25 @@ npm install @uiw/react-amap --save
 npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 ```
 
+`v4` 升级到 `v5`，`APILoader` 主要是对 `APILoader` 做了升级
+
+```diff
+<APILoader
+-  akay
+-  protocol
+-  hostAndPath
+-  callbackName
+-  plugin
+-  disableScripts
++  akey
++  plugins
++  AMapUI
++  Loca
+>
+  <Map style={{ height: 100 }} />
+</APILoader>
+```
+
 ### 使用
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-amap-example-y0n6c-y0n6c?fontsize=14&hidenavigation=1&theme=dark)
@@ -81,7 +100,7 @@ const Demo = () => (
 );
 
 const Mount = () => (
-  <APILoader version="2.0.5" akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader version="2.0.5" akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Demo />
   </APILoader>
 )

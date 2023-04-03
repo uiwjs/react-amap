@@ -70,7 +70,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader  akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader  akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 );
@@ -149,14 +149,14 @@ const Example = () => {
       <div style={{ width: '100%', height: '600px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Polygon
-            key="1"
+            akey="1"
             visiable={show}
             strokeOpacity={1}
             path={paths}
             options={options}
           />
           <Polygon
-            key="2"
+            akey="2"
             zIndex={3}
             visiable={true}
             strokeColor={"yellow"}
@@ -171,7 +171,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
     <Example />
   </APILoader>
 );
