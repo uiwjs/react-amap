@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - v4
 
 jobs:
   build-deploy:
@@ -267,10 +267,18 @@ jobs:
         id: tag_version
         uses: jaywcjlove/changelog-generator@main
 
+      - name: Create README.md of Build
+        working-directory: website/build
+        run: |
+          cat > README.md << EOF
+          Preview the document `@uiw/react-amap@v4`: https://raw.githack.com/uiwjs/react-amap/v4-doc/index.html
+          EOF
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: v4-doc
           publish_dir: ./website/build
           commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
 
