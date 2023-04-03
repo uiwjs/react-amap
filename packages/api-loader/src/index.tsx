@@ -59,7 +59,6 @@ export const APILoader = (props: APILoaderProps) => {
   const { children, ...config } = props;
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<Error>();
-  console.log('config', config);
   useEffect(() => {
     const aKey = config.akey || config.akay || '';
     const plugins = config.plugins || (config.plugin ? config.plugin.split(',') : []);
