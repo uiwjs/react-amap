@@ -12,6 +12,24 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 911:
+/***/ (function(module) {
+
+(function(m,p){ true?module.exports=p():0})(this,function(){function m(a){var b=[];a.AMapUI&&b.push(p(a.AMapUI));a.Loca&&b.push(r(a.Loca));return Promise.all(b)}function p(a){return new Promise(function(h,c){var f=[];if(a.plugins)for(var e=0;e<a.plugins.length;e+=1)-1==d.AMapUI.plugins.indexOf(a.plugins[e])&&f.push(a.plugins[e]);if(g.AMapUI===b.failed)c("\u524d\u6b21\u8bf7\u6c42 AMapUI \u5931\u8d25");
+else if(g.AMapUI===b.notload){g.AMapUI=b.loading;d.AMapUI.version=a.version||d.AMapUI.version;e=d.AMapUI.version;var l=document.body||document.head,k=document.createElement("script");k.type="text/javascript";k.src="https://webapi.amap.com/ui/"+e+"/main.js";k.onerror=function(a){g.AMapUI=b.failed;c("\u8bf7\u6c42 AMapUI \u5931\u8d25")};k.onload=function(){g.AMapUI=b.loaded;if(f.length)window.AMapUI.loadUI(f,function(){for(var a=0,b=f.length;a<b;a++){var c=f[a].split("/").slice(-1)[0];window.AMapUI[c]=
+arguments[a]}for(h();n.AMapUI.length;)n.AMapUI.splice(0,1)[0]()});else for(h();n.AMapUI.length;)n.AMapUI.splice(0,1)[0]()};l.appendChild(k)}else g.AMapUI===b.loaded?a.version&&a.version!==d.AMapUI.version?c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c AMapUI \u6df7\u7528"):f.length?window.AMapUI.loadUI(f,function(){for(var a=0,b=f.length;a<b;a++){var c=f[a].split("/").slice(-1)[0];window.AMapUI[c]=arguments[a]}h()}):h():a.version&&a.version!==d.AMapUI.version?c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c AMapUI \u6df7\u7528"):
+n.AMapUI.push(function(a){a?c(a):f.length?window.AMapUI.loadUI(f,function(){for(var a=0,b=f.length;a<b;a++){var c=f[a].split("/").slice(-1)[0];window.AMapUI[c]=arguments[a]}h()}):h()})})}function r(a){return new Promise(function(h,c){if(g.Loca===b.failed)c("\u524d\u6b21\u8bf7\u6c42 Loca \u5931\u8d25");else if(g.Loca===b.notload){g.Loca=b.loading;d.Loca.version=a.version||d.Loca.version;var f=d.Loca.version,e=d.AMap.version.startsWith("2"),l=f.startsWith("2");if(e&&!l||!e&&l)c("JSAPI \u4e0e Loca \u7248\u672c\u4e0d\u5bf9\u5e94\uff01\uff01");
+else{e=d.key;l=document.body||document.head;var k=document.createElement("script");k.type="text/javascript";k.src="https://webapi.amap.com/loca?v="+f+"&key="+e;k.onerror=function(a){g.Loca=b.failed;c("\u8bf7\u6c42 AMapUI \u5931\u8d25")};k.onload=function(){g.Loca=b.loaded;for(h();n.Loca.length;)n.Loca.splice(0,1)[0]()};l.appendChild(k)}}else g.Loca===b.loaded?a.version&&a.version!==d.Loca.version?c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c Loca \u6df7\u7528"):h():a.version&&a.version!==d.Loca.version?
+c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c Loca \u6df7\u7528"):n.Loca.push(function(a){a?c(a):c()})})}if(!window)throw Error("AMap JSAPI can only be used in Browser.");var b;(function(a){a.notload="notload";a.loading="loading";a.loaded="loaded";a.failed="failed"})(b||(b={}));var d={key:"",AMap:{version:"1.4.15",plugins:[]},AMapUI:{version:"1.1",plugins:[]},Loca:{version:"1.3.2"}},g={AMap:b.notload,AMapUI:b.notload,Loca:b.notload},n={AMap:[],AMapUI:[],Loca:[]},q=[],t=function(a){"function"==typeof a&&
+(g.AMap===b.loaded?a(window.AMap):q.push(a))};return{load:function(a){return new Promise(function(h,c){if(g.AMap==b.failed)c("");else if(g.AMap==b.notload){var f=a.key,e=a.version,l=a.plugins;f?(window.AMap&&"lbs.amap.com"!==location.host&&c("\u7981\u6b62\u591a\u79cdAPI\u52a0\u8f7d\u65b9\u5f0f\u6df7\u7528"),d.key=f,d.AMap.version=e||d.AMap.version,d.AMap.plugins=l||d.AMap.plugins,g.AMap=b.loading,e=document.body||document.head,window.___onAPILoaded=function(d){delete window.___onAPILoaded;if(d)g.AMap=
+b.failed,c(d);else for(g.AMap=b.loaded,m(a).then(function(){h(window.AMap)})["catch"](c);q.length;)q.splice(0,1)[0]()},l=document.createElement("script"),l.type="text/javascript",l.src="https://webapi.amap.com/maps?callback=___onAPILoaded&v="+d.AMap.version+"&key="+f+"&plugin="+d.AMap.plugins.join(","),l.onerror=function(a){g.AMap=b.failed;c(a)},e.appendChild(l)):c("\u8bf7\u586b\u5199key")}else if(g.AMap==b.loaded)if(a.key&&a.key!==d.key)c("\u591a\u4e2a\u4e0d\u4e00\u81f4\u7684 key");else if(a.version&&
+a.version!==d.AMap.version)c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c JSAPI \u6df7\u7528");else{f=[];if(a.plugins)for(e=0;e<a.plugins.length;e+=1)-1==d.AMap.plugins.indexOf(a.plugins[e])&&f.push(a.plugins[e]);if(f.length)window.AMap.plugin(f,function(){m(a).then(function(){h(window.AMap)})["catch"](c)});else m(a).then(function(){h(window.AMap)})["catch"](c)}else if(a.key&&a.key!==d.key)c("\u591a\u4e2a\u4e0d\u4e00\u81f4\u7684 key");else if(a.version&&a.version!==d.AMap.version)c("\u4e0d\u5141\u8bb8\u591a\u4e2a\u7248\u672c JSAPI \u6df7\u7528");
+else{var k=[];if(a.plugins)for(e=0;e<a.plugins.length;e+=1)-1==d.AMap.plugins.indexOf(a.plugins[e])&&k.push(a.plugins[e]);t(function(){if(k.length)window.AMap.plugin(k,function(){m(a).then(function(){h(window.AMap)})["catch"](c)});else m(a).then(function(){h(window.AMap)})["catch"](c)})}})},reset:function(){delete window.AMap;delete window.AMapUI;delete window.Loca;d={key:"",AMap:{version:"1.4.15",plugins:[]},AMapUI:{version:"1.1",plugins:[]},Loca:{version:"1.3.2"}};g={AMap:b.notload,AMapUI:b.notload,
+Loca:b.notload};n={AMap:[],AMapUI:[],Loca:[]}}}})
+
+
+/***/ }),
+
 /***/ 858:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -77,7 +95,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__156__;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -165,7 +183,6 @@ __webpack_require__.d(__webpack_exports__, {
   "TileLayerType": () => (/* reexport */ TileLayerType),
   "ToolBarControl": () => (/* reexport */ ToolBarControl),
   "Weather": () => (/* reexport */ Weather),
-  "delay": () => (/* reexport */ delay),
   "initialState": () => (/* reexport */ initialState),
   "reducer": () => (/* reexport */ reducer),
   "requireCss": () => (/* reexport */ requireCss),
@@ -201,253 +218,73 @@ __webpack_require__.d(__webpack_exports__, {
   "useWeather": () => (/* reexport */ useWeather)
 });
 
-;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
+;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
   }
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-      args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-      _next(undefined);
-    });
-  };
+  return target;
 }
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"}
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
-;// CONCATENATED MODULE: ../require-script/esm/index.js
-var _importedScript = {};
-
-/**
- * load dependency by css tag
- */
-function requireCss(src, id) {
-  if (id === void 0) {
-    id = '_react_amap_css';
-  }
-  var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
-  var dom = document.getElementById(id);
-  return new Promise((resolve, reject) => {
-    if (!document || src in _importedScript || dom) {
-      resolve();
-      return;
-    }
-    var script = document.createElement('link');
-    script.type = 'text/css';
-    script.rel = 'stylesheet';
-    script.id = id;
-    script.href = src;
-    script.onerror = err => {
-      headElement.removeChild(script);
-      reject(new URIError("The css " + src + " is no accessible."));
-    };
-    script.onload = () => {
-      _importedScript[src] = true;
-      resolve();
-    };
-    headElement.appendChild(script);
-  });
-}
-
-/**
- * load dependency by script tag
- */
-function requireScript(src, id) {
-  if (id === void 0) {
-    id = '_react_amap_plugin';
-  }
-  var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
-  var dom = document.getElementById(id);
-  return new Promise((resolve, reject) => {
-    if (!document || src in _importedScript || dom) {
-      resolve();
-      return;
-    }
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.id = id;
-    script.async = true;
-    script.defer = true;
-    script.src = src;
-    script.onerror = err => {
-      headElement.removeChild(script);
-      reject(new URIError("The Script " + src + " is no accessible."));
-    };
-    script.onload = () => {
-      _importedScript[src] = true;
-      resolve();
-    };
-    headElement.appendChild(script);
-  });
-}
+// EXTERNAL MODULE: ../../node_modules/@amap/amap-jsapi-loader/dist/index.js
+var dist = __webpack_require__(911);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(664);
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
 
+var _excluded = ["children"];
 /// <reference types="@uiw/react-amap-types" />
 
 
 
 
-function delay(time) {
-  return new Promise((resolve, reject) => {
-    window.setTimeout(resolve, time);
-  });
-}
-var DEFAULT_RETRY_TIME = 3;
-
 /**
  * APILoader 用于加载百度地图依赖
  */
-class APILoader extends external_root_React_commonjs2_react_commonjs_react_amd_react_.Component {
-  constructor(props) {
-    super(props);
-    this.isMountedOk = false;
-    this.state = {
-      loaded: !!window.AMap
-    };
-    this.handleError = error => {
-      if (this.isMountedOk) {
-        this.setState({
-          error
-        });
-      }
-    };
-    this.finish = () => {
-      if (this.isMountedOk) {
-        this.setState({
-          loaded: true
-        });
-      }
-    };
-    if (props.akay === null) {
-      throw new TypeError('AMap: akay is required');
-    }
+var APILoader = props => {
+  var {
+      children
+    } = props,
+    config = _objectWithoutPropertiesLoose(props, _excluded);
+  var [loaded, setLoaded] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(false);
+  var [error, setError] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  console.log('config', config);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    var aKey = config.akey || config.akay || '';
+    var plugins = config.plugins || (config.plugin ? config.plugin.split(',') : []);
+    (0,dist.load)({
+      key: aKey,
+      plugins,
+      version: config.version || '2.0',
+      AMapUI: config.AMapUI,
+      Loca: config.Loca
+    }).then(() => {
+      setError(undefined);
+      setLoaded(true);
+    }).catch(err => {
+      setError(err);
+    });
+  }, [config.akey, config.akay]);
+  if (error) {
+    return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      style: {
+        color: 'red'
+      },
+      children: error.message
+    });
+  } else if (loaded) {
+    return children;
   }
-  componentDidMount() {
-    this.isMountedOk = true;
-    var {
-      callbackName
-    } = this.props;
-    if (window.AMap == null) {
-      if (window[callbackName]) {
-        APILoader.waitQueue.push([this.finish, this.handleError]);
-        return;
-      }
-      this.loadMap();
-    }
-  }
-  componentWillUnmount() {
-    this.isMountedOk = false;
-  }
-  render() {
-    if (this.props.disableScripts) {
-      return this.props.children;
-    }
-    if (this.state.loaded) {
-      return this.props.children;
-    }
-    if (this.props.fallback) {
-      return this.props.fallback(this.state.error);
-    }
-    if (this.state.error) {
-      return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-        style: {
-          color: 'red'
-        },
-        children: this.state.error.message
-      });
-    }
-    return null;
-  }
-  getScriptSrc() {
-    var cfg = this.props;
-    var protocol = cfg.protocol || window.location.protocol;
-    if (protocol.indexOf(':') === -1) {
-      protocol += ':';
-    }
-    var plugin = '';
-    if (cfg.plugin) {
-      plugin = "&plugin=" + cfg.plugin;
-    }
-    return protocol + "//" + cfg.hostAndPath + "?v=" + cfg.version + "&key=" + cfg.akay + "&callback=" + cfg.callbackName + plugin;
-  }
-  /**
-   * load BaiduMap in script tag
-   */
-  loadMap() {
-    var _this = this;
-    return _asyncToGenerator(function* () {
-      var {
-        callbackName
-      } = _this.props;
-      var src = _this.getScriptSrc();
-      window[callbackName] = () => {
-        // flush queue
-        var queue = APILoader.waitQueue;
-        APILoader.waitQueue = [];
-        queue.forEach(task => task[0]());
-        _this.finish();
-      };
-      var _loop = function* _loop() {
-        try {
-          yield requireScript(src);
-          return "break";
-        } catch (error) {
-          if (i === DEFAULT_RETRY_TIME - 1) {
-            var err = new Error("Failed to load AMap: " + error.message);
-            // flush queue
-            var queue = APILoader.waitQueue;
-            APILoader.waitQueue = [];
-            queue.forEach(task => task[1](err));
-            _this.handleError(err);
-            return {
-              v: void 0
-            };
-          }
-          yield delay(i * 1000);
-        }
-      };
-      for (var i = 0; i < DEFAULT_RETRY_TIME; i++) {
-        var _ret = yield* _loop();
-        if (_ret === "break") break;
-        if (typeof _ret === "object") return _ret.v;
-      }
-    })();
-  }
-}
-APILoader.defaultProps = {
-  protocol: /^file:/.test(window.location.protocol) ? 'https' : window.location.protocol,
-  akay: '',
-  hostAndPath: 'webapi.amap.com/maps',
-  version: '2.0',
-  callbackName: 'load_amap_sdk',
-  plugin: ''
+  return null;
 };
-/**
- * 全局可能存在多个 Loader 同时渲染, 但是只能由一个负责加载
- */
-APILoader.waitQueue = [];
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -722,19 +559,6 @@ var AutoComplete = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   }));
   return null;
 });
-;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-  return target;
-}
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectDestructuringEmpty.js
 function _objectDestructuringEmpty(obj) {
   if (obj == null) throw new TypeError("Cannot destructure " + obj);
@@ -849,7 +673,7 @@ var useMap = function useMap(props) {
 ;// CONCATENATED MODULE: ../map/esm/index.js
 
 
-var _excluded = ["className", "children"];
+var esm_excluded = ["className", "children"];
 /// <reference types="@uiw/react-amap-types" />
 
 
@@ -873,7 +697,7 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
       className,
       children
     } = _ref,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    props = _objectWithoutPropertiesLoose(_ref, esm_excluded);
   var AMap = window.AMap;
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
@@ -2398,6 +2222,71 @@ var Rectangle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
   }));
   return null;
 });
+;// CONCATENATED MODULE: ../require-script/esm/index.js
+var _importedScript = {};
+
+/**
+ * load dependency by css tag
+ */
+function requireCss(src, id) {
+  if (id === void 0) {
+    id = '_react_amap_css';
+  }
+  var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
+  var dom = document.getElementById(id);
+  return new Promise((resolve, reject) => {
+    if (!document || src in _importedScript || dom) {
+      resolve();
+      return;
+    }
+    var script = document.createElement('link');
+    script.type = 'text/css';
+    script.rel = 'stylesheet';
+    script.id = id;
+    script.href = src;
+    script.onerror = err => {
+      headElement.removeChild(script);
+      reject(new URIError("The css " + src + " is no accessible."));
+    };
+    script.onload = () => {
+      _importedScript[src] = true;
+      resolve();
+    };
+    headElement.appendChild(script);
+  });
+}
+
+/**
+ * load dependency by script tag
+ */
+function requireScript(src, id) {
+  if (id === void 0) {
+    id = '_react_amap_plugin';
+  }
+  var headElement = document && (document.head || document.getElementsByTagName('head')[0]);
+  var dom = document.getElementById(id);
+  return new Promise((resolve, reject) => {
+    if (!document || src in _importedScript || dom) {
+      resolve();
+      return;
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = id;
+    script.async = true;
+    script.defer = true;
+    script.src = src;
+    script.onerror = err => {
+      headElement.removeChild(script);
+      reject(new URIError("The Script " + src + " is no accessible."));
+    };
+    script.onload = () => {
+      _importedScript[src] = true;
+      resolve();
+    };
+    headElement.appendChild(script);
+  });
+}
 ;// CONCATENATED MODULE: ../scale-control/esm/useScaleControl.js
 
 
