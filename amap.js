@@ -256,7 +256,6 @@ var APILoader = props => {
     config = _objectWithoutPropertiesLoose(props, _excluded);
   var [loaded, setLoaded] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(false);
   var [error, setError] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  console.log('config', config);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     var aKey = config.akey || config.akay || '';
     var plugins = config.plugins || (config.plugin ? config.plugin.split(',') : []);
