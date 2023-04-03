@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React AMap - 高德地图 React 组件</title>
+    <meta name="keywords" content="react,component,amap,高德地图,地图,高德" />
+    <meta name="description" content="这是一个基于 React 封装的高德地图组件，帮助你轻松的接入地图到 React 项目中。" />
+    <script src="https://unpkg.com/@babel/standalone@7.17.x/babel.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react@17.x/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17.x/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@uiw/codepen-require-polyfill/index.js" crossorigin></script>
+  </head>
+  <body>
+    <a href="https://uiwjs.github.io/react-amap">@uiw/react-amap</a>
+    <div id="container" style="padding: 24px"></div>
+    <script src="https://unpkg.com/@uiw/react-amap/dist/amap.js"></script>
+    <script type="text/babel">
+      import { Map, APILoader, ScaleControl, ToolBarControl, ControlBarControl, Geolocation } from '@uiw/react-amap';
+
+      const Demo = () => (
+        <div style={{ width: '100%', height: '300px' }}>
+          <Map>
+            <ScaleControl offset={[16, 30]} position="LB" />
+            <ToolBarControl offset={[16, 10]} position="RB" />
+            <ControlBarControl offset={[16, 180]} position="RB" />
+            <Geolocation
+              maximumAge={100000}
+              borderRadius="5px"
+              position="RB"
+              offset={[16, 80]}
+              zoomToAccuracy={true}
+              showCircle={true}
+            />
+          </Map>
+          <Map>
+            {({ AMap, map, container }) => {
+              return;
+            }}
+          </Map>
+        </div>
+      );
+      ReactDOM.render((
+        <APILoader akay="a7a90e05a37d3f6bf76d4a9032fc9129">
+          <Demo />
+        </APILoader>
+      ), document.getElementById('container'));
+    </script>
+  </body>
+</html>
