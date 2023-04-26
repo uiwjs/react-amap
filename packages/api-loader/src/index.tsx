@@ -1,9 +1,9 @@
 /// <reference types="@uiw/react-amap-types" />
 
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { FC, Fragment, PropsWithChildren, useEffect, useState } from 'react';
 import { load } from '@amap/amap-jsapi-loader';
 
-export type APILoaderConfig = PropsWithChildren<{
+export interface APILoaderConfig {
   /**
    * key 密钥
    * 您需先[申请密钥(ak)](https://lbs.amap.com/dev/key/app)。开发文档说明地址：https://lbs.amap.com/api/javascript-api/guide/abc/prepare
@@ -36,7 +36,7 @@ export type APILoaderConfig = PropsWithChildren<{
     /** Loca 版本，缺省 1.3.2 */
     version?: string;
   };
-}>;
+}
 
 export interface APILoaderProps extends APILoaderConfig {
   /**
@@ -55,7 +55,7 @@ export interface APILoaderProps extends APILoaderConfig {
 /**
  * APILoader 用于加载百度地图依赖
  */
-export const APILoader = (props: APILoaderProps) => {
+export const APILoader: FC<PropsWithChildren<APILoaderProps>> = (props) => {
   const { children, ...config } = props;
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<Error>();
@@ -80,7 +80,7 @@ export const APILoader = (props: APILoaderProps) => {
   if (error) {
     return <div style={{ color: 'red' }}>{error.message}</div>;
   } else if (loaded) {
-    return children;
+    return <Fragment>{children}</Fragment>;
   }
   return null;
 };
