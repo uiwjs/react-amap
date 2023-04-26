@@ -280,7 +280,9 @@ var APILoader = props => {
       children: error.message
     });
   } else if (loaded) {
-    return children;
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
+      children: children
+    });
   }
   return null;
 };
