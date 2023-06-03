@@ -15,10 +15,12 @@ export const useCircle = (props = {} as UseCircle) => {
       setCircle(instance);
     }
     return () => {
-      if (circle) {
-        map && map.remove(circle);
-        setCircle(undefined);
-      }
+      setCircle((circle) => {
+        if (circle) {
+          map && map.remove(circle)
+        }
+        return undefined
+      })
     };
   }, [map]);
 
