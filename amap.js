@@ -12,7 +12,7 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 911:
+/***/ 828:
 /***/ (function(module) {
 
 (function(m,p){ true?module.exports=p():0})(this,function(){function m(a){var b=[];a.AMapUI&&b.push(p(a.AMapUI));a.Loca&&b.push(r(a.Loca));return Promise.all(b)}function p(a){return new Promise(function(h,c){var f=[];if(a.plugins)for(var e=0;e<a.plugins.length;e+=1)-1==d.AMapUI.plugins.indexOf(a.plugins[e])&&f.push(a.plugins[e]);if(g.AMapUI===b.failed)c("\u524d\u6b21\u8bf7\u6c42 AMapUI \u5931\u8d25");
@@ -30,7 +30,7 @@ Loca:b.notload};n={AMap:[],AMapUI:[],Loca:[]}}}})
 
 /***/ }),
 
-/***/ 858:
+/***/ 31:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -49,13 +49,13 @@ function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&
 
 /***/ }),
 
-/***/ 664:
+/***/ 310:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
 if (true) {
-  module.exports = __webpack_require__(858);
+  module.exports = __webpack_require__(31);
 } else {}
 
 
@@ -151,71 +151,71 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "APILoader": () => (/* reexport */ APILoader),
-  "AutoComplete": () => (/* reexport */ AutoComplete),
-  "BezierCurve": () => (/* reexport */ BezierCurve),
-  "Circle": () => (/* reexport */ Circle),
-  "CircleMarker": () => (/* reexport */ CircleMarker),
-  "Context": () => (/* reexport */ Context),
-  "ContextMenu": () => (/* reexport */ ContextMenu),
-  "ControlBarControl": () => (/* reexport */ ControlBarControl),
-  "Ellipse": () => (/* reexport */ Ellipse),
-  "Geolocation": () => (/* reexport */ Geolocation),
-  "HawkEyeControl": () => (/* reexport */ HawkEyeControl),
-  "InfoWindow": () => (/* reexport */ InfoWindow),
-  "LabelMarker": () => (/* reexport */ LabelMarker),
-  "Map": () => (/* reexport */ esm_Map),
-  "MapTypeControl": () => (/* reexport */ MapTypeControl),
-  "Marker": () => (/* reexport */ Marker),
-  "MassMarks": () => (/* reexport */ MassMarks),
-  "MouseTool": () => (/* reexport */ MouseTool),
-  "MouseToolDrawType": () => (/* reexport */ MouseToolDrawType),
-  "PolyEditor": () => (/* reexport */ PolyEditor),
-  "Polygon": () => (/* reexport */ Polygon),
-  "PolygonEditor": () => (/* reexport */ PolygonEditor),
-  "Polyline": () => (/* reexport */ Polyline),
-  "PolylineEditor": () => (/* reexport */ PolylineEditor),
-  "Provider": () => (/* reexport */ Provider),
-  "Rectangle": () => (/* reexport */ Rectangle),
-  "ScaleControl": () => (/* reexport */ ScaleControl),
-  "Text": () => (/* reexport */ Text),
-  "TileLayer": () => (/* reexport */ TileLayer),
-  "TileLayerType": () => (/* reexport */ TileLayerType),
-  "ToolBarControl": () => (/* reexport */ ToolBarControl),
-  "Weather": () => (/* reexport */ Weather),
-  "initialState": () => (/* reexport */ initialState),
-  "reducer": () => (/* reexport */ reducer),
-  "requireCss": () => (/* reexport */ requireCss),
-  "requireScript": () => (/* reexport */ requireScript),
-  "useAutoComplete": () => (/* reexport */ useAutoComplete),
-  "useBezierCurve": () => (/* reexport */ useBezierCurve),
-  "useCircle": () => (/* reexport */ useCircle),
-  "useCircleMarker": () => (/* reexport */ useCircleMarker),
-  "useContextMenu": () => (/* reexport */ useContextMenu),
-  "useControlBarControl": () => (/* reexport */ useControlBarControl),
-  "useEllipse": () => (/* reexport */ useEllipse),
-  "useEventProperties": () => (/* reexport */ useEventProperties),
-  "useGeolocation": () => (/* reexport */ useGeolocation),
-  "useHawkEyeControl": () => (/* reexport */ useHawkEyeControl),
-  "useInfoWindow": () => (/* reexport */ useInfoWindow),
-  "useMap": () => (/* reexport */ useMap),
-  "useMapContext": () => (/* reexport */ useMapContext),
-  "useMapTypeControl": () => (/* reexport */ useMapTypeControl),
-  "useMarker": () => (/* reexport */ useMarker),
-  "useMassMarks": () => (/* reexport */ useMassMarks),
-  "usePolygon": () => (/* reexport */ usePolygon),
-  "usePolyline": () => (/* reexport */ usePolyline),
-  "usePortal": () => (/* reexport */ usePortal),
-  "usePrevious": () => (/* reexport */ usePrevious),
-  "useRectangle": () => (/* reexport */ useRectangle),
-  "useScaleControl": () => (/* reexport */ useScaleControl),
-  "useSetStatus": () => (/* reexport */ useSetStatus),
-  "useSettingProperties": () => (/* reexport */ useSettingProperties),
-  "useText": () => (/* reexport */ useText),
-  "useTileLayer": () => (/* reexport */ useTileLayer),
-  "useToolBarControl": () => (/* reexport */ useToolBarControl),
-  "useVisiable": () => (/* reexport */ useVisiable),
-  "useWeather": () => (/* reexport */ useWeather)
+  APILoader: () => (/* reexport */ APILoader),
+  AutoComplete: () => (/* reexport */ AutoComplete),
+  BezierCurve: () => (/* reexport */ BezierCurve),
+  Circle: () => (/* reexport */ Circle),
+  CircleMarker: () => (/* reexport */ CircleMarker),
+  Context: () => (/* reexport */ Context),
+  ContextMenu: () => (/* reexport */ ContextMenu),
+  ControlBarControl: () => (/* reexport */ ControlBarControl),
+  Ellipse: () => (/* reexport */ Ellipse),
+  Geolocation: () => (/* reexport */ Geolocation),
+  HawkEyeControl: () => (/* reexport */ HawkEyeControl),
+  InfoWindow: () => (/* reexport */ InfoWindow),
+  LabelMarker: () => (/* reexport */ LabelMarker),
+  Map: () => (/* reexport */ esm_Map),
+  MapTypeControl: () => (/* reexport */ MapTypeControl),
+  Marker: () => (/* reexport */ Marker),
+  MassMarks: () => (/* reexport */ MassMarks),
+  MouseTool: () => (/* reexport */ MouseTool),
+  MouseToolDrawType: () => (/* reexport */ MouseToolDrawType),
+  PolyEditor: () => (/* reexport */ PolyEditor),
+  Polygon: () => (/* reexport */ Polygon),
+  PolygonEditor: () => (/* reexport */ PolygonEditor),
+  Polyline: () => (/* reexport */ Polyline),
+  PolylineEditor: () => (/* reexport */ PolylineEditor),
+  Provider: () => (/* reexport */ Provider),
+  Rectangle: () => (/* reexport */ Rectangle),
+  ScaleControl: () => (/* reexport */ ScaleControl),
+  Text: () => (/* reexport */ Text),
+  TileLayer: () => (/* reexport */ TileLayer),
+  TileLayerType: () => (/* reexport */ TileLayerType),
+  ToolBarControl: () => (/* reexport */ ToolBarControl),
+  Weather: () => (/* reexport */ Weather),
+  initialState: () => (/* reexport */ initialState),
+  reducer: () => (/* reexport */ reducer),
+  requireCss: () => (/* reexport */ requireCss),
+  requireScript: () => (/* reexport */ requireScript),
+  useAutoComplete: () => (/* reexport */ useAutoComplete),
+  useBezierCurve: () => (/* reexport */ useBezierCurve),
+  useCircle: () => (/* reexport */ useCircle),
+  useCircleMarker: () => (/* reexport */ useCircleMarker),
+  useContextMenu: () => (/* reexport */ useContextMenu),
+  useControlBarControl: () => (/* reexport */ useControlBarControl),
+  useEllipse: () => (/* reexport */ useEllipse),
+  useEventProperties: () => (/* reexport */ useEventProperties),
+  useGeolocation: () => (/* reexport */ useGeolocation),
+  useHawkEyeControl: () => (/* reexport */ useHawkEyeControl),
+  useInfoWindow: () => (/* reexport */ useInfoWindow),
+  useMap: () => (/* reexport */ useMap),
+  useMapContext: () => (/* reexport */ useMapContext),
+  useMapTypeControl: () => (/* reexport */ useMapTypeControl),
+  useMarker: () => (/* reexport */ useMarker),
+  useMassMarks: () => (/* reexport */ useMassMarks),
+  usePolygon: () => (/* reexport */ usePolygon),
+  usePolyline: () => (/* reexport */ usePolyline),
+  usePortal: () => (/* reexport */ usePortal),
+  usePrevious: () => (/* reexport */ usePrevious),
+  useRectangle: () => (/* reexport */ useRectangle),
+  useScaleControl: () => (/* reexport */ useScaleControl),
+  useSetStatus: () => (/* reexport */ useSetStatus),
+  useSettingProperties: () => (/* reexport */ useSettingProperties),
+  useText: () => (/* reexport */ useText),
+  useTileLayer: () => (/* reexport */ useTileLayer),
+  useToolBarControl: () => (/* reexport */ useToolBarControl),
+  useVisiable: () => (/* reexport */ useVisiable),
+  useWeather: () => (/* reexport */ useWeather)
 });
 
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
@@ -235,9 +235,9 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 // EXTERNAL MODULE: ../../node_modules/@amap/amap-jsapi-loader/dist/index.js
-var dist = __webpack_require__(911);
+var dist = __webpack_require__(828);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(664);
+var jsx_runtime = __webpack_require__(310);
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
 
 var _excluded = ["children"];
@@ -850,10 +850,12 @@ var useCircle = function useCircle(props) {
       setCircle(instance);
     }
     return () => {
-      if (circle) {
-        map && map.remove(circle);
-        setCircle(undefined);
-      }
+      setCircle(circle => {
+        if (circle) {
+          map && map.remove(circle);
+        }
+        return undefined;
+      });
     };
   }, [map]);
   useVisiable(circle, visiable);
