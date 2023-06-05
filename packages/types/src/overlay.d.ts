@@ -537,6 +537,8 @@ declare namespace AMap {
      * - 点画线： [10,2,10],[10,2,10] 表示10个像素的实线和2个像素的空白 + 10个像素的实线和10个像素的空白 （如此反复）组成的虚线
      */
     strokeDasharray?: Array<number>;
+    /** 修改圆属性（样式风格，包括组成圆形轮廓线的节点、轮廓线样式等。*/
+    options: Omit<CircleOptions, 'options'>;
   }
 
   class CircleMarker extends MapEventListener<'hide' | 'show' | 'mouseover' | 'touchend' | 'click' | 'touchmove' | 'rightclick' | 'mouseup' | 'mouseout' | 'touchstart' | 'mousedown' | 'dblclick'> {
