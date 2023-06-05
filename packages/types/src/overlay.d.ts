@@ -538,7 +538,7 @@ declare namespace AMap {
      */
     strokeDasharray?: Array<number>;
     /** 修改圆属性（样式风格，包括组成圆形轮廓线的节点、轮廓线样式等。*/
-    options: Omit<CircleOptions, 'options'>;
+    options?: Omit<CircleOptions, 'options'>;
   }
 
   class CircleMarker extends MapEventListener<'hide' | 'show' | 'mouseover' | 'touchend' | 'click' | 'touchmove' | 'rightclick' | 'mouseup' | 'mouseout' | 'touchstart' | 'mousedown' | 'dblclick'> {
