@@ -158,7 +158,7 @@ declare namespace AMap {
     /** 开启点标记动画，加载 AMap.MoveAnimation 后可以使用 */
     startMove(): void;
     /** 以给定时间移动点标记到指定位置，加载 AMap.MoveAnimation 后可以使用 */
-    moveTo(targetPosition: MoveToOptions, opts?: MoveAlongOptions): void;
+    moveTo(targetPosition: LngLat | Vector, opts?: MoveAlongOptions): void;
   }
   interface MarkerOptions {
     /**
