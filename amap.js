@@ -1654,7 +1654,7 @@ var useLabelMarker = function useLabelMarker(props) {
       setLabelMarker(instance);
 
       //  issue #259  兼容 v1.4.xxx 版本
-      if ((AMap == null ? void 0 : (_v = AMap.v) == null ? void 0 : _v.indexOf('1.4')) === 0) {
+      if ((AMap == null || (_v = AMap.v) == null ? void 0 : _v.indexOf('1.4')) === 0) {
         var labelMarkersLayer;
         if (map.labelMarkersLayer) {
           labelMarkersLayer = map.labelMarkersLayer;
@@ -1675,9 +1675,9 @@ var useLabelMarker = function useLabelMarker(props) {
       if (labelMarker) {
         var _v2;
         //  issue #259  兼容 v1.4.xxx 版本
-        if ((AMap == null ? void 0 : (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
+        if ((AMap == null || (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
           var _labelMarkersLayer;
-          map == null ? void 0 : (_labelMarkersLayer = map.labelMarkersLayer) == null ? void 0 : _labelMarkersLayer.remove(labelMarker);
+          map == null || (_labelMarkersLayer = map.labelMarkersLayer) == null ? void 0 : _labelMarkersLayer.remove(labelMarker);
         }
         setLabelMarker(undefined);
       }
@@ -1826,12 +1826,13 @@ var usePolygon = function usePolygon(props) {
       setPolygon(instance);
       return () => {
         if (instance) {
-          if (AMap.v) {
-            map && map.remove(instance);
-          } else {
-            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-            map && map.removeLayer(instance);
-          }
+          map && map.remove(instance);
+          // if (AMap.v) {
+          //   map && map.remove(instance);
+          // } else {
+          //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          //   map && map.removeLayer(instance);
+          // }
           setPolygon(undefined);
         }
       };
