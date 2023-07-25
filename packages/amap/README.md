@@ -48,10 +48,10 @@ npm install @uiw/react-amap --save
 npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 ```
 
-`v4` 升级到 `v5`，`APILoader` 主要是对 `APILoader` 做了升级
+`v4` 升级到 `v5`，`APILoader` 主要是对 `APILoader` 做了升级，~~`akay`~~ => `akey`
 
 ```diff
-<APILoader
+ <APILoader
 -  akay
 -  protocol
 -  hostAndPath
@@ -64,7 +64,7 @@ npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 +  Loca
 >
   <Map style={{ height: 100 }} />
-</APILoader>
+ </APILoader>
 ```
 
 ### 使用
