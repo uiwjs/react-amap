@@ -1,9 +1,30 @@
 import { Component, Fragment } from 'react';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import MarkdownPreviewExample from '@uiw/react-markdown-preview-example/markdown';
+import type { CodeBlockData } from 'markdown-react-code-preview-loader';
+import styled from 'styled-components';
 import Footer from '../Footer';
-import { CodePreview } from './CodePreview';
-import styles from './index.module.less';
-import { CodeBlockData } from 'markdown-react-code-preview-loader';
+
+const Wrapper = styled(MarkdownPreviewExample)`
+  padding: 20px 26px;
+  box-shadow: 0 0 0;
+  border-width: 0;
+  max-width: 1024px;
+  margin: 0 0;
+  pre[data-type='rehyp'] {
+    overflow: initial;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      display: none;
+    }
+  }
+`;
 
 interface MarkdownProps {}
 interface MarkdownState {
@@ -33,17 +54,7 @@ export default class Markdown extends Component<MarkdownProps, MarkdownState> {
   render() {
     return (
       <Fragment>
-        <MarkdownPreview
-          style={{ padding: '20px 26px' }}
-          source={this.state.mdStr}
-          className={styles.markdown}
-          disableCopy={true}
-          components={{
-            code: (props) => {
-              return <CodePreview {...props} data={this.state.data} />;
-            },
-          }}
-        />
+        {this.state.mdStr && <Wrapper source={this.state.mdStr || ''} data={this.state.data!} />}
         <Footer editorUrl={this.editorUrl} />
       </Fragment>
     );
