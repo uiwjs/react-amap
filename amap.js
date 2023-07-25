@@ -1722,7 +1722,7 @@ var useMassMarks = function useMassMarks(props) {
     map
   } = useMapContext();
   var {
-    opacity = 0.8,
+    opacity = 1,
     zIndex = 1111,
     style,
     data
