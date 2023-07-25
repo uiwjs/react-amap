@@ -9,9 +9,6 @@ declare namespace AMap {
    * - 省市简易行政区图层 AMap.DistrictLayer.Province [相关示例](https://lbs.amap.com/api/jsapi-v2/example/district/district-pro)
    */
   class DistrictLayer<DistrictLayerStyle = any> {
-    World: typeof World;
-    Country: typeof Country;
-    Province: typeof Province;
     constructor(opts: DistrictLayerOptions);
     /** 设定显示的国家 SOC */
     setSOC(SOC: string): void;
@@ -69,7 +66,9 @@ declare namespace AMap {
      */
     styles?: DistrictLayerStyle;
   }
-  class World extends DistrictLayer {}
-  class Country extends DistrictLayer {}
-  class Province extends DistrictLayer {}
+  namespace DistrictLayer {
+    class World extends DistrictLayer {}
+    class Country extends DistrictLayer {}
+    class Province extends DistrictLayer {}
+  }
 }
