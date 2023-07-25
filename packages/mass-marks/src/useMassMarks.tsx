@@ -7,7 +7,7 @@ export interface UseMassMarks extends MassMarksProps {}
 export const useMassMarks = (props = {} as UseMassMarks) => {
   const { visiable, ...other } = props;
   const { map } = useMapContext();
-  const { opacity = 0.8, zIndex = 1111, style, data } = other || {};
+  const { opacity = 1, zIndex = 1111, style, data } = other || {};
   const [massMarks, setMassMarks] = useState<AMap.MassMarks>();
 
   useEffect(() => {
