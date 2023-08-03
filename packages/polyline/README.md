@@ -18,10 +18,14 @@ import { Map, APILoader, Polyline, ToolBarControl } from '@uiw/react-amap';
 
 const Example = () => {
   const [show, setShow] = useState(true);
+  const [color, setColor] = useState('red');
   return (
     <>
       <button onClick={() => setShow(!show)}>
         {show ? '关闭' : '开启'}
+      </button>
+      <button onClick={() => setColor(color === 'red' ? 'black' : 'red')}>
+        {color}
       </button>
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
@@ -36,7 +40,7 @@ const Example = () => {
             onClick={(obj) => {
               console.log('obj:', obj);
             }}
-            strokeColor="black"
+            strokeColor={color}
             strokeOpacity={1}
             draggable={true}
             onChange={e=>console.log(e)}
@@ -61,6 +65,7 @@ const Example = () => {
           <Polyline
             visiable={show}
             strokeOpacity={1}
+            strokeColor={color}
             path={[
               [121.099109,31.222311],
               [118.528308,31.989555],

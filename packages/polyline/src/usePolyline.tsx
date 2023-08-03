@@ -11,7 +11,7 @@ export function usePolyline(props = {} as UsePolyline) {
   const { map } = useMapContext();
   useEffect(() => {
     if (map && !polyline) {
-      let instance: AMap.Polyline = new AMap.Polyline({ ...other });
+      let instance: AMap.Polyline = new AMap.Polyline(other);
       map.add(instance);
       setPolyline(instance);
       return () => {
@@ -27,6 +27,12 @@ export function usePolyline(props = {} as UsePolyline) {
       };
     }
   }, [map]);
+
+  useEffect(() => {
+    if (polyline) {
+      polyline.setOptions(other);
+    }
+  }, [polyline, other]);
 
   useVisiable(polyline!, visiable);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
