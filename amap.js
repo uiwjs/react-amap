@@ -466,8 +466,7 @@ function useEventProperties(instance, props, eventName, type) {
           instance.off(eName, eventHandle);
         }
       };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [instance, props[eventName]]);
+    }, [instance, eventHandle]);
   });
 }
 
@@ -496,18 +495,17 @@ function useSettingProperties(instance, props, propsName) {
   propsName.forEach(name => {
     var eName = "set" + name;
     var vName = "" + name.charAt(0).toLowerCase() + name.slice(1);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[vName]);
+    var eventHandle = props[vName];
+    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(eventHandle);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-      if (instance && props[vName] !== undefined) {
-        if (props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
-          instance[eName](props[vName]);
-          setState(props[vName]);
+      if (instance && eventHandle !== undefined) {
+        if (eventHandle !== state && instance[eName] && typeof instance[eName] === 'function') {
+          instance[eName](eventHandle);
+          setState(eventHandle);
         }
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [instance, props[vName]]);
+    }, [instance, eventHandle]);
   });
 }
 ;// CONCATENATED MODULE: ../auto-complete/esm/useAutoComplete.js
