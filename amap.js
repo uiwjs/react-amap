@@ -1841,6 +1841,11 @@ var usePolygon = function usePolygon(props) {
       };
     }
   }, [map]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (polygon) {
+      polygon.setOptions(other);
+    }
+  }, [polygon, other]);
   useVisiable(polygon, visiable);
   useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
@@ -1974,7 +1979,6 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
 });
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
 
-
 var usePolyline_excluded = ["visiable"];
 
 
@@ -1993,7 +1997,7 @@ function usePolyline(props) {
   } = useMapContext();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !polyline) {
-      var instance = new AMap.Polyline(_extends({}, other));
+      var instance = new AMap.Polyline(other);
       map.add(instance);
       setPolyline(instance);
       return () => {
@@ -2009,6 +2013,11 @@ function usePolyline(props) {
       };
     }
   }, [map]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (polyline) {
+      polyline.setOptions(other);
+    }
+  }, [polyline, other]);
   useVisiable(polyline, visiable);
   useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
