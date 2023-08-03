@@ -31,6 +31,12 @@ export const usePolygon = (props = {} as UsePolygon) => {
     }
   }, [map]);
 
+  useEffect(() => {
+    if (polygon) {
+      polygon.setOptions(other);
+    }
+  }, [polygon, other]);
+
   useVisiable(polygon!, visiable);
   useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
