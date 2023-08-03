@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-text",
-  "version": "5.0.8",
+  "version": "5.0.9",
   "description": "点标记是用来标示某个位置点信息的一种地图要素，本章介绍如何在地图图面使用点标记。",
   "homepage": "https://uiwjs.github.io/react-amap/#/text",
   "main": "cjs/index.js",
@@ -34,8 +34,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.8",
-    "@uiw/react-amap-utils": "5.0.8"
+    "@uiw/react-amap-map": "5.0.9",
+    "@uiw/react-amap-utils": "5.0.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",

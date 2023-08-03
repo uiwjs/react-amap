@@ -195,7 +195,7 @@ As always, thanks to our amazing contributors!
   <img src="https://uiwjs.github.io/react-amap/CONTRIBUTORS.svg" />
 </a>
 
-Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+Made with [gcontributors](https://github.com/jaywcjlove/github-action-contributors).
 
 ## License
 

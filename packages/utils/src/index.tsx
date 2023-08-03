@@ -117,8 +117,7 @@ export function useEventProperties<T extends AMap.MapEventListener<any>, F>(
           instance.off(eName, eventHandle);
         }
       };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [instance, props[eventName]]);
+    }, [instance, eventHandle]);
   });
 }
 
@@ -138,17 +137,16 @@ export function useSettingProperties<T, F = {}>(instance = {} as T, props = {} a
   propsName.forEach((name) => {
     const eName = `set${name}` as keyof T;
     const vName = `${name.charAt(0).toLowerCase()}${name.slice(1)}` as keyof F;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [state, setState] = useState(props[vName]);
+    const eventHandle = props[vName];
+    const [state, setState] = useState(eventHandle);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (instance && props[vName] !== undefined) {
-        if (props[vName] !== state && instance[eName] && typeof instance[eName] === 'function') {
-          (instance[eName] as any)(props[vName]);
-          setState(props[vName]);
+      if (instance && eventHandle !== undefined) {
+        if (eventHandle !== state && instance[eName] && typeof instance[eName] === 'function') {
+          (instance[eName] as any)(eventHandle);
+          setState(eventHandle);
         }
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [instance, props[vName]]);
+    }, [instance, eventHandle]);
   });
 }
