@@ -14,22 +14,22 @@ export const usePolygon = (props = {} as UsePolygon) => {
       let instance: AMap.Polygon = new AMap.Polygon({ ...other });
       map.add(instance);
       setPolygon(instance);
-      return () => {
-        if (instance) {
-          try {
-            map && map.remove(instance);
-          } catch (e) {}
-          // if (AMap.v) {
-          //   map && map.remove(instance);
-          // } else {
-          //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          //   map && map.removeLayer(instance);
-          // }
-        }
-        setPolygon(undefined);
-      };
     }
-  }, [map]);
+    return () => {
+      if (polygon) {
+        try {
+          map && map.remove(polygon);
+        } catch (e) {}
+        // if (AMap.v) {
+        //   map && map.remove(instance);
+        // } else {
+        //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+        //   map && map.removeLayer(instance);
+        // }
+      }
+      setPolygon(undefined);
+    };
+  }, [map, polygon]);
 
   useEffect(() => {
     if (polygon) {
