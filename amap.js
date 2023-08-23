@@ -1246,14 +1246,14 @@ function useHawkEyeControl(props) {
         map.addControl(instance);
         setHawkEyeControl(instance);
       });
-      return () => {
-        if (instance && map) {
-          map && map.removeControl(instance);
-          setHawkEyeControl(undefined);
-        }
-      };
     }
-  }, [map]);
+    return () => {
+      if (hawkEyeControl && map) {
+        map && map.removeControl(hawkEyeControl);
+        setHawkEyeControl(undefined);
+      }
+    };
+  }, [map, hawkEyeControl]);
   useVisiable(hawkEyeControl, visiable);
   return {
     hawkEyeControl,
@@ -1313,14 +1313,14 @@ var useInfoWindow = function useInfoWindow(props) {
       if (isOpen) {
         instance.open(map, position || positionCenter);
       }
-      return () => {
-        if (instance) {
-          map && map.remove(instance);
-          setInfoWindow(undefined);
-        }
-      };
     }
-  }, [map]);
+    return () => {
+      if (infoWindow) {
+        map && map.remove(infoWindow);
+        setInfoWindow(undefined);
+      }
+    };
+  }, [map, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : other.content || '');
@@ -2001,12 +2001,15 @@ function usePolyline(props) {
     }
     return () => {
       if (polyline) {
-        if (AMap.v) {
+        try {
           map && map.remove(polyline);
-        } else {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          map && map.removeLayer(polyline);
-        }
+        } catch (e) {}
+        // if (AMap.v) {
+        //   map && map.remove(polyline);
+        // } else {
+        //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+        //   map && map.removeLayer(polyline);
+        // }
         setPolyline(undefined);
       }
     };
