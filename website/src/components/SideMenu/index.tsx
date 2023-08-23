@@ -39,7 +39,7 @@ const Side = styled.div`
       color: #eaeaea;
       background-color: #3e3e3e;
     }
-    &:global(.active) {
+    &.active {
       text-decoration: underline;
       background: #333;
       color: #fff;

@@ -23,14 +23,14 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
       if (isOpen) {
         instance.open(map, position || positionCenter);
       }
-      return () => {
-        if (instance) {
-          map && map.remove(instance);
-          setInfoWindow(undefined);
-        }
-      };
     }
-  }, [map]);
+    return () => {
+      if (infoWindow) {
+        map && map.remove(infoWindow);
+        setInfoWindow(undefined);
+      }
+    };
+  }, [map, infoWindow]);
 
   useEffect(() => {
     if (infoWindow) {

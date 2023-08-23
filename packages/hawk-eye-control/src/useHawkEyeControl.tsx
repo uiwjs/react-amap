@@ -17,15 +17,14 @@ export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
         map.addControl(instance);
         setHawkEyeControl(instance);
       });
-
-      return () => {
-        if (instance && map) {
-          map && map.removeControl(instance);
-          setHawkEyeControl(undefined);
-        }
-      };
     }
-  }, [map]);
+    return () => {
+      if (hawkEyeControl && map) {
+        map && map.removeControl(hawkEyeControl);
+        setHawkEyeControl(undefined);
+      }
+    };
+  }, [map, hawkEyeControl]);
 
   useVisiable(hawkEyeControl! as any, visiable);
   return {

@@ -17,12 +17,15 @@ export function usePolyline(props = {} as UsePolyline) {
     }
     return () => {
       if (polyline) {
-        if (AMap.v) {
+        try {
           map && map.remove(polyline);
-        } else {
-          // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-          map && map.removeLayer(polyline);
-        }
+        } catch (e) {}
+        // if (AMap.v) {
+        //   map && map.remove(polyline);
+        // } else {
+        //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+        //   map && map.removeLayer(polyline);
+        // }
         setPolyline(undefined);
       }
     };
