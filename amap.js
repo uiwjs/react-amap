@@ -172,8 +172,10 @@ __webpack_require__.d(__webpack_exports__, {
   MouseToolDrawType: () => (/* reexport */ MouseToolDrawType),
   PolyEditor: () => (/* reexport */ PolyEditor),
   Polygon: () => (/* reexport */ Polygon),
+  PolygonContext: () => (/* reexport */ PolygonContext),
   PolygonEditor: () => (/* reexport */ PolygonEditor),
   Polyline: () => (/* reexport */ Polyline),
+  PolylineContext: () => (/* reexport */ PolylineContext),
   PolylineEditor: () => (/* reexport */ PolylineEditor),
   Provider: () => (/* reexport */ Provider),
   Rectangle: () => (/* reexport */ Rectangle),
@@ -1675,7 +1677,7 @@ var useLabelMarker = function useLabelMarker(props) {
         //  issue #259  兼容 v1.4.xxx 版本
         if ((AMap == null || (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
           var _labelMarkersLayer;
-          map == null || (_labelMarkersLayer = map.labelMarkersLayer) == null ? void 0 : _labelMarkersLayer.remove(labelMarker);
+          map == null || (_labelMarkersLayer = map.labelMarkersLayer) == null || _labelMarkersLayer.remove(labelMarker);
         }
         setLabelMarker(undefined);
       }
@@ -1838,7 +1840,7 @@ var usePolygon = function usePolygon(props) {
 
       setPolygon(undefined);
     };
-  }, [map, polygon]);
+  }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon) {
       polygon.setOptions(other);
@@ -1857,6 +1859,8 @@ var usePolygon = function usePolygon(props) {
 
 
 
+
+var PolygonContext = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.createContext)(undefined);
 var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
     children
@@ -1867,28 +1871,25 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polygon
   }), [polygon]);
-  if (children && /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(children) && polygon) {
-    var oProps = {
-      polygon,
-      polyElement: polygon
-    };
-    return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(children, _extends({}, props, oProps));
-  }
-  return null;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(PolygonContext.Provider, {
+    value: polygon,
+    children: children
+  });
 });
 ;// CONCATENATED MODULE: ../polygon-editor/esm/index.js
 
 
 
 
+
 var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
-    active,
-    polygon
+    active
   } = props;
   var {
     map
   } = useMapContext();
+  var polygon = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolygonContext);
   var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
   var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
@@ -1906,73 +1907,24 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
     if (!polyEditor) {
       return;
     }
-    if (visiable && !active) {
+    if (visiable && !active && polygon) {
       polyEditor.close();
       props.onEnd && props.onEnd({
-        target: props.polygon
+        target: polygon
       });
-    } else if (visiable && active) {
+    } else if (visiable && active && polygon) {
       polyEditor.open();
       props.onAdd && props.onAdd({
-        target: props.polygon
+        target: polygon
       });
-    } else if (!visiable && active) {
+    } else if (!visiable && active && polygon) {
       polyEditor.close();
       props.onEnd && props.onEnd({
-        target: props.polygon
+        target: polygon
       });
     }
-  }, [active, visiable]);
+  }, [active, visiable, polygon]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onMove', 'onAdd']);
-  return null;
-});
-;// CONCATENATED MODULE: ../poly-editor/esm/index.js
-
-
-
-
-var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    active,
-    polyElement
-  } = props;
-  var {
-    map
-  } = useMapContext();
-  var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
-  var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
-    polyEditor
-  }));
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (polyElement && map && !polyEditor && AMap && AMap.PolyEditor) {
-      var instance = new AMap.PolyEditor(map, polyElement);
-      polyElement.on('hide', () => setVisiable(false));
-      polyElement.on('show', () => setVisiable(true));
-      setPolyEditor(instance);
-    }
-  }, [polyElement]);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!polyEditor) {
-      return;
-    }
-    if (visiable && !active) {
-      polyEditor.close();
-      props.onEnd && props.onEnd({
-        type: 'end',
-        target: props.polyElement
-      });
-    } else if (visiable && active) {
-      polyEditor.open();
-    } else if (!visiable && active) {
-      polyEditor.close();
-      props.onEnd && props.onEnd({
-        type: 'end',
-        target: props.polyElement
-      });
-    }
-  }, [active, visiable]);
-  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemovenode']);
   return null;
 });
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
@@ -2032,6 +1984,8 @@ function usePolyline(props) {
 
 
 
+
+var PolylineContext = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.createContext)(undefined);
 var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     children
@@ -2042,13 +1996,62 @@ var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_a
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyline
   }), [polyline]);
-  if (children && /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(children) && polyline) {
-    var oProps = {
-      polyElement: polyline,
-      polyline
-    };
-    return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(children, _extends({}, props, oProps));
-  }
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(PolylineContext.Provider, {
+    value: polyline,
+    children: children
+  });
+});
+;// CONCATENATED MODULE: ../poly-editor/esm/index.js
+
+
+
+
+
+
+var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
+  var polyline = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolylineContext);
+  var polygon = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolygonContext);
+  var {
+    active,
+    polyElement = polyline || polygon
+  } = props;
+  var {
+    map
+  } = useMapContext();
+  var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
+  var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
+    polyEditor
+  }));
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (polyElement && map && !polyEditor && AMap && AMap.PolyEditor) {
+      var instance = new AMap.PolyEditor(map, polyElement);
+      polyElement.on('hide', () => setVisiable(false));
+      polyElement.on('show', () => setVisiable(true));
+      setPolyEditor(instance);
+    }
+  }, [polyElement]);
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+    if (!polyEditor) {
+      return;
+    }
+    if (visiable && !active) {
+      polyEditor.close();
+      props.onEnd && props.onEnd({
+        type: 'end',
+        target: props.polyElement
+      });
+    } else if (visiable && active) {
+      polyEditor.open();
+    } else if (!visiable && active) {
+      polyEditor.close();
+      props.onEnd && props.onEnd({
+        type: 'end',
+        target: props.polyElement
+      });
+    }
+  }, [active, visiable]);
+  useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onAdjust', 'onRemovenode']);
   return null;
 });
 ;// CONCATENATED MODULE: ../polyline-editor/esm/index.js
@@ -2056,14 +2059,15 @@ var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_a
 
 
 
+
 var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var {
-    active,
-    polyline
+    active
   } = props;
   var {
     map
   } = useMapContext();
+  var polyline = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolylineContext);
   var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
   var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
@@ -2081,23 +2085,23 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
     if (!polyEditor) {
       return;
     }
-    if (visiable && !active) {
+    if (visiable && !active && polyline) {
       polyEditor.close();
       props.onEnd && props.onEnd({
-        target: props.polyline
+        target: polyline
       });
-    } else if (visiable && active) {
+    } else if (visiable && active && polyline) {
       polyEditor.open();
       props.onAdd && props.onAdd({
-        target: props.polyline
+        target: polyline
       });
-    } else if (!visiable && active) {
+    } else if (!visiable && active && polyline) {
       polyEditor.close();
       props.onEnd && props.onEnd({
-        target: props.polyline
+        target: polyline
       });
     }
-  }, [active, visiable, polyEditor]);
+  }, [active, visiable, polyline, polyEditor]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onAdd']);
   return null;
 });
