@@ -1,16 +1,17 @@
-import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState, useContext } from 'react';
 import { useEventProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
+import { PolygonContext } from '@uiw/react-amap-polygon';
 
 export interface PolygonEditorProps extends Partial<AMap.PolygonEditor>, AMap.PolygonEditorEvents {
   /** 是否开启编辑功能 */
   active?: boolean;
-  polygon?: AMap.Polygon;
 }
 
 export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>((props, ref) => {
-  const { active, polygon } = props;
+  const { active } = props;
   const { map } = useMapContext();
+  const polygon = useContext(PolygonContext);
   const [visiable, setVisiable] = useState<boolean>(true);
   const [polyEditor, setPolyEditor] = useState<AMap.PolygonEditor>();
   useImperativeHandle(ref, () => ({ ...props, polyEditor }));

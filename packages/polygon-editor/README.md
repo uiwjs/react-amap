@@ -59,8 +59,9 @@ const Example = () => {
             <PolygonEditor
               active={active}
               onEnd={(e) => {
-                console.log('onEnd:>>',e.target.getPath());
-                setPolygonPath(e.target.getPath())
+                if (e.target) {
+                  setPolygonPath(e.target.getPath())
+                }
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')

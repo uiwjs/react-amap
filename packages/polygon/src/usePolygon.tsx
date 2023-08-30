@@ -29,10 +29,11 @@ export const usePolygon = (props = {} as UsePolygon) => {
       }
       setPolygon(undefined);
     };
-  }, [map, polygon]);
+  }, [map]);
 
   useEffect(() => {
     if (polygon) {
+      console.log(':::@111');
       polygon.setOptions(other);
     }
   }, [polygon, other]);
