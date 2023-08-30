@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-polyline-editor",
-  "version": "5.0.11",
+  "version": "5.0.12",
   "description": "高德地图 Polygon 编辑器。",
   "homepage": "https://uiwjs.github.io/react-amap/#/polygon-editor",
   "main": "cjs/index.js",
@@ -36,9 +36,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.11",
-    "@uiw/react-amap-polyline": "5.0.11",
-    "@uiw/react-amap-utils": "5.0.11"
+    "@uiw/react-amap-map": "5.0.12",
+    "@uiw/react-amap-polyline": "5.0.12",
+    "@uiw/react-amap-utils": "5.0.12"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
