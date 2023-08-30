@@ -1,8 +1,10 @@
-import React, { isValidElement, useImperativeHandle, cloneElement } from 'react';
+import React, { useImperativeHandle, createContext } from 'react';
 import { OverlayProps } from '@uiw/react-amap-map';
 import { usePolyline } from './usePolyline';
 
 export * from './usePolyline';
+
+export const PolylineContext = createContext<AMap.Polyline | undefined>(undefined);
 
 export interface PolylineProps extends OverlayProps, AMap.PolylineEvents, AMap.PolylineOptions {
   /** 覆盖物是否可见 */
@@ -13,9 +15,5 @@ export const Polyline = React.forwardRef<PolylineProps, PolylineProps>((props, r
   const { children } = props;
   const { polyline } = usePolyline(props);
   useImperativeHandle(ref, () => ({ ...props, polyline }), [polyline]);
-  if (children && isValidElement(children) && polyline) {
-    const oProps = { polyElement: polyline, polyline };
-    return cloneElement(children, { ...props, ...oProps });
-  }
-  return null;
+  return <PolylineContext.Provider value={polyline}>{children}</PolylineContext.Provider>;
 });

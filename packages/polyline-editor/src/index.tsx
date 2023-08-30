@@ -1,16 +1,17 @@
-import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useContext, useState } from 'react';
 import { useEventProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
+import { PolylineContext } from '@uiw/react-amap-polyline';
 
 export interface PolylineEditorProps extends Partial<AMap.PolylineEditor>, AMap.PolylineEditorEvents {
   /** 是否开启编辑功能 */
   active?: boolean;
-  polyline?: AMap.Polyline;
 }
 
 export const PolylineEditor = forwardRef<PolylineEditorProps, PolylineEditorProps>((props, ref) => {
-  const { active, polyline } = props;
+  const { active } = props;
   const { map } = useMapContext();
+  const polyline = useContext(PolylineContext);
   const [visiable, setVisiable] = useState<boolean>(true);
   const [polyEditor, setPolyEditor] = useState<AMap.PolylineEditor>();
   useImperativeHandle(ref, () => ({ ...props, polyEditor }));
@@ -27,17 +28,17 @@ export const PolylineEditor = forwardRef<PolylineEditorProps, PolylineEditorProp
     if (!polyEditor) {
       return;
     }
-    if (visiable && !active) {
+    if (visiable && !active && polyline) {
       polyEditor.close();
-      props.onEnd && props.onEnd({ target: props.polyline as any });
-    } else if (visiable && active) {
+      props.onEnd && props.onEnd({ target: polyline });
+    } else if (visiable && active && polyline) {
       polyEditor.open();
-      props.onAdd && props.onAdd({ target: props.polyline as any });
-    } else if (!visiable && active) {
+      props.onAdd && props.onAdd({ target: polyline });
+    } else if (!visiable && active && polyline) {
       polyEditor.close();
-      props.onEnd && props.onEnd({ target: props.polyline as any });
+      props.onEnd && props.onEnd({ target: polyline });
     }
-  }, [active, visiable, polyEditor]);
+  }, [active, visiable, polyline, polyEditor]);
 
   useEventProperties<AMap.PolylineEditor, AMap.PolylineEditorEvents>(polyEditor!, props, [
     'onEnd',
