@@ -9,6 +9,9 @@ import { PolyEditor } from '@uiw/react-amap';
 import { PolyEditor } from '@uiw/react-amap-poly-editor';
 ```
 
+> **注意：** 官方文档已经没有这个 API 的文档了
+<!--rehype:style=background: rgb(255 0 0 / 40%);padding: 10px 15px;-->
+
 ### 基本用法
 
 注意，需要加载 `<APILoader plugin="AMap.PolyEditor">`，需要加载 `AMap.PolyEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
@@ -61,8 +64,10 @@ const Example = () => {
             <PolyEditor
               active={active}
               onEnd={(e) => {
-                console.log('onEnd:>>',e.target.getPath());
-                setPolygonPath(e.target.getPath())
+                if (e.target) {
+                  console.log('onEnd:>>',e.target?.getPath());
+                  setPolygonPath(e.target?.getPath())
+                }
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')
@@ -132,8 +137,10 @@ const Example = () => {
             <PolyEditor
               active={active}
                onEnd={(e) => {
-                console.log('onEnd:>>',e.target.getPath());
-                setPolylinePath(e.target.getPath())
+                if (e.target) {
+                  console.log('onEnd:>>',e.target.getPath());
+                  setPolylinePath(e.target.getPath())
+                }
               }}
               onAdjust={() => {
                 console.log('onAdjust:>>')

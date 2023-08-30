@@ -22,6 +22,7 @@
     "amap",
     "editor",
     "polygon",
+    "polyline",
     "poly-editor",
     "map",
     "react",
@@ -37,6 +38,7 @@
   },
   "dependencies": {
     "@uiw/react-amap-map": "5.0.11",
+    "@uiw/react-amap-polyline": "5.0.11",
     "@uiw/react-amap-polygon": "5.0.11",
     "@uiw/react-amap-types": "5.0.11",
     "@uiw/react-amap-utils": "5.0.11"
