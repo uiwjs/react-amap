@@ -33,7 +33,6 @@ export const usePolygon = (props = {} as UsePolygon) => {
 
   useEffect(() => {
     if (polygon) {
-      console.log(':::@111');
       polygon.setOptions(other);
     }
   }, [polygon, other]);

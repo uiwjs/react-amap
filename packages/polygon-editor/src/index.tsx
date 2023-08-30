@@ -28,17 +28,17 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
     if (!polyEditor) {
       return;
     }
-    if (visiable && !active) {
+    if (visiable && !active && polygon) {
       polyEditor.close();
-      props.onEnd && props.onEnd({ target: props.polygon as any });
-    } else if (visiable && active) {
+      props.onEnd && props.onEnd({ target: polygon });
+    } else if (visiable && active && polygon) {
       polyEditor.open();
-      props.onAdd && props.onAdd({ target: props.polygon as any });
-    } else if (!visiable && active) {
+      props.onAdd && props.onAdd({ target: polygon });
+    } else if (!visiable && active && polygon) {
       polyEditor.close();
-      props.onEnd && props.onEnd({ target: props.polygon as any });
+      props.onEnd && props.onEnd({ target: polygon });
     }
-  }, [active, visiable]);
+  }, [active, visiable, polygon]);
 
   useEventProperties<AMap.PolygonEditor, AMap.PolygonEditorEvents>(polyEditor!, props, [
     'onEnd',
