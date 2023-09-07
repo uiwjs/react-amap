@@ -29,7 +29,12 @@ export default function App() {
         <GitHubCorners fixed zIndex={99} size={60} target="__blank" href="https://github.com/uiwjs/react-amap" />
         <SideMenu />
         <Content>
-          <dark-mode permanent light="Light" dark="Dark" style={{ marginLeft: 16, top: 12, position: 'relative' }} />
+          <dark-mode
+            permanent
+            light="Light"
+            dark="Dark"
+            style={{ marginLeft: 16, top: 12, position: 'relative', zIndex: 999 }}
+          />
           <Routes>
             {(routes as any[]).map(({ component: Child, path }, idx) => {
               const Com = Child;
