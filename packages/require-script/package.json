@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-require-script",
-  "version": "5.0.13",
+  "version": "5.0.14",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "homepage": "https://uiwjs.github.io/react-amap/#/api-loader",
   "main": "cjs/index.js",
@@ -33,7 +33,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-types": "5.0.13"
+    "@uiw/react-amap-types": "5.0.14"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",

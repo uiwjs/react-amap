@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-circle-marker",
-  "version": "5.0.13",
+  "version": "5.0.14",
   "description": "构造一个圆形覆盖物。可直接满足创建圆形标注的需要。",
   "homepage": "https://uiwjs.github.io/react-amap/#/circle-marker",
   "main": "cjs/index.js",
@@ -34,9 +34,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.13",
-    "@uiw/react-amap-types": "5.0.13",
-    "@uiw/react-amap-utils": "5.0.13"
+    "@uiw/react-amap-map": "5.0.14",
+    "@uiw/react-amap-types": "5.0.14",
+    "@uiw/react-amap-utils": "5.0.14"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
