@@ -87,10 +87,24 @@ declare namespace AMap {
   interface ReGeocoderCallback {
     (status: string, result: ReGeocoderResult): void
   }
+  /**
+   * 地理编码
+   * https://lbs.amap.com/api/webservice/guide/api/georegeo#geo
+   */
   interface ReGeocoderResult {
     info: string
-    regeocode: {
-      formattedAddress: string
+    geocode: {
+      formatted_address: string
+      country: string
+      province: string
+      city: string
+      citycode: string
+      district: string
+      street: string
+      number: string
+      adcode: string
+      location: string
+      level: string
     }
   }
   interface GeocoderOptions {
