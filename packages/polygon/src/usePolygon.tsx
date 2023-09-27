@@ -29,7 +29,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
       }
       setPolygon(undefined);
     };
-  }, [map]);
+  }, [map, polygon]);
 
   useEffect(() => {
     if (polygon) {
