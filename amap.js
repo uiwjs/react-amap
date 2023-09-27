@@ -1840,7 +1840,7 @@ var usePolygon = function usePolygon(props) {
 
       setPolygon(undefined);
     };
-  }, [map]);
+  }, [map, polygon]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon) {
       polygon.setOptions(other);
