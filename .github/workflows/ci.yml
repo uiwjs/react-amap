@@ -7,11 +7,14 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm -v
@@ -33,224 +36,224 @@ jobs:
 
       - run: cp -rp packages/amap/dist/* website/build
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/amap
         working-directory: packages/amap
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/api-loader
         working-directory: packages/api-loader
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/auto-complete
         working-directory: packages/auto-complete
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/bezier-curve
         working-directory: packages/bezier-curve
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/circle
         working-directory: packages/circle
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/circle-marker
         working-directory: packages/circle-marker
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/context-menu
         working-directory: packages/context-menu
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/control-bar-control
         working-directory: packages/control-bar-control
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/ellipse
         working-directory: packages/ellipse
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/geolocation
         working-directory: packages/geolocation
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/hawk-eye-control
         working-directory: packages/hawk-eye-control
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/info-window
         working-directory: packages/info-window
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/label-marker
         working-directory: packages/label-marker
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/map
         working-directory: packages/map
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/map-type-control
         working-directory: packages/map-type-control
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/marker
         working-directory: packages/marker
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/mass-marks
         working-directory: packages/mass-marks
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/mouse-tool
         working-directory: packages/mouse-tool
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/polygon
         working-directory: packages/polygon
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/polygon-editor
         working-directory: packages/polygon-editor
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/polyline
         working-directory: packages/polyline
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/polyline-editor
         working-directory: packages/polyline-editor
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/poly-editor
         working-directory: packages/poly-editor
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/rectangle
         working-directory: packages/rectangle
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/require-script
         working-directory: packages/require-script
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/scale-control
         working-directory: packages/scale-control
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/text
         working-directory: packages/text
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/tile-layer
         working-directory: packages/tile-layer
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/tool-bar-control
         working-directory: packages/tool-bar-control
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/types
         working-directory: packages/types
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/utils
         working-directory: packages/utils
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm publish
+      - run: npm publish --access public --provenance
         name: packages/weather
         working-directory: packages/weather
         continue-on-error: true
