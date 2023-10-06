@@ -12,7 +12,7 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 828:
+/***/ 684:
 /***/ (function(module) {
 
 (function(m,p){ true?module.exports=p():0})(this,function(){function m(a){var b=[];a.AMapUI&&b.push(p(a.AMapUI));a.Loca&&b.push(r(a.Loca));return Promise.all(b)}function p(a){return new Promise(function(h,c){var f=[];if(a.plugins)for(var e=0;e<a.plugins.length;e+=1)-1==d.AMapUI.plugins.indexOf(a.plugins[e])&&f.push(a.plugins[e]);if(g.AMapUI===b.failed)c("\u524d\u6b21\u8bf7\u6c42 AMapUI \u5931\u8d25");
@@ -30,7 +30,7 @@ Loca:b.notload};n={AMap:[],AMapUI:[],Loca:[]}}}})
 
 /***/ }),
 
-/***/ 31:
+/***/ 837:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -49,13 +49,13 @@ function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&
 
 /***/ }),
 
-/***/ 310:
+/***/ 322:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
 if (true) {
-  module.exports = __webpack_require__(31);
+  module.exports = __webpack_require__(837);
 } else {}
 
 
@@ -157,7 +157,6 @@ __webpack_require__.d(__webpack_exports__, {
   Circle: () => (/* reexport */ Circle),
   CircleMarker: () => (/* reexport */ CircleMarker),
   Context: () => (/* reexport */ Context),
-  ContextMenu: () => (/* reexport */ ContextMenu),
   ControlBarControl: () => (/* reexport */ ControlBarControl),
   Ellipse: () => (/* reexport */ Ellipse),
   Geolocation: () => (/* reexport */ Geolocation),
@@ -237,9 +236,9 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 // EXTERNAL MODULE: ../../node_modules/@amap/amap-jsapi-loader/dist/index.js
-var dist = __webpack_require__(828);
+var dist = __webpack_require__(684);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(310);
+var jsx_runtime = __webpack_require__(322);
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
 
 var _excluded = ["children"];
@@ -1012,7 +1011,7 @@ var noop = function noop() {};
 
 
 
-var ContextMenu = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
+var ContextMenuCompound = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
   var {
     contextMenu
   } = useContextMenu(props);
@@ -1032,7 +1031,7 @@ var ContextMenu = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
     })
   });
 });
-ContextMenu.Item = Item;
+ContextMenuCompound.Item = Item;
 ;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
 
 
