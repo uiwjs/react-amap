@@ -6,10 +6,10 @@ import Item from './Item';
 export * from './useContextMenu';
 export * from './Item';
 export interface ContextMenuProps extends MapChildProps, AMap.ContextMenuOptions, AMap.ContextMenuEvents {
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
 }
 
-export const ContextMenu = React.forwardRef<ContextMenuProps, ContextMenuProps>((props, ref) => {
+const ContextMenuCompound = React.forwardRef<ContextMenuProps, ContextMenuProps>((props, ref) => {
   const { contextMenu } = useContextMenu(props);
   useImperativeHandle(ref, () => ({ ...props, contextMenu }));
   const childs = React.Children.toArray(props.children);
@@ -25,7 +25,11 @@ export const ContextMenu = React.forwardRef<ContextMenuProps, ContextMenuProps>(
   );
 });
 
-type ContextMenu = typeof ContextMenu & {
+type CompoundedComponent = typeof ContextMenuCompound & {
   Item: typeof Item;
 };
-(ContextMenu as ContextMenu).Item = Item;
+(ContextMenuCompound as CompoundedComponent).Item = Item;
+
+declare const ContextMenu: CompoundedComponent;
+
+export default ContextMenu;
