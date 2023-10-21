@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-context-menu",
-  "version": "5.0.16",
+  "version": "5.0.17",
   "description": "地图图面一种特殊的信息窗体，即右键菜单。",
   "homepage": "https://uiwjs.github.io/react-amap/#/context-menu",
   "main": "cjs/index.js",
@@ -34,9 +34,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.16",
-    "@uiw/react-amap-types": "5.0.16",
-    "@uiw/react-amap-utils": "5.0.16"
+    "@uiw/react-amap-map": "5.0.17",
+    "@uiw/react-amap-types": "5.0.17",
+    "@uiw/react-amap-utils": "5.0.17"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
