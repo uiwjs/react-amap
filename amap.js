@@ -1835,9 +1835,8 @@ var usePolygon = function usePolygon(props) {
         //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
         //   map && map.removeLayer(instance);
         // }
+        setPolygon(undefined);
       }
-
-      setPolygon(undefined);
     };
   }, [map, polygon]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
