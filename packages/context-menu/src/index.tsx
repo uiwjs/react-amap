@@ -28,8 +28,9 @@ const ContextMenuCompound = React.forwardRef<ContextMenuProps, ContextMenuProps>
 type CompoundedComponent = typeof ContextMenuCompound & {
   Item: typeof Item;
 };
-(ContextMenuCompound as CompoundedComponent).Item = Item;
 
-declare const ContextMenu: CompoundedComponent;
+console.log('ContextMenuCompound:', ContextMenuCompound);
 
-export default ContextMenu;
+export const ContextMenu: CompoundedComponent = ContextMenuCompound as unknown as CompoundedComponent;
+
+ContextMenu.Item = Item;
