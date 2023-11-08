@@ -157,6 +157,7 @@ __webpack_require__.d(__webpack_exports__, {
   Circle: () => (/* reexport */ Circle),
   CircleMarker: () => (/* reexport */ CircleMarker),
   Context: () => (/* reexport */ Context),
+  ContextMenu: () => (/* reexport */ ContextMenu),
   ControlBarControl: () => (/* reexport */ ControlBarControl),
   Ellipse: () => (/* reexport */ Ellipse),
   Geolocation: () => (/* reexport */ Geolocation),
@@ -1031,7 +1032,9 @@ var ContextMenuCompound = /*#__PURE__*/external_root_React_commonjs2_react_commo
     })
   });
 });
-ContextMenuCompound.Item = Item;
+console.log('ContextMenuCompound:', ContextMenuCompound);
+var ContextMenu = ContextMenuCompound;
+ContextMenu.Item = Item;
 ;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
 
 
