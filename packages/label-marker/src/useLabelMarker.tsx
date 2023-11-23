@@ -103,12 +103,22 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
   ]);
 
   useEventProperties<AMap.LabelMarker, UseLabelMarker>(labelMarker!, props, [
+    'onTouchStart',
+    'onTouchMove',
+    'onTouchEnd',
+    'onClick',
+    'onMouseMove',
+    'onMouseOver',
+    'onMouseDown',
+    'onMouseUp',
+    'onMouseOut',
+
+    // 以下事件过时兼容，将在 v6 中移除
     'onMousedown',
     'onMouseup',
     'onTouchstart',
     'onTouchmove',
     'onTouchend',
-    'onClick',
     'onMousemove',
     'onMouseover',
     'onMouseout',

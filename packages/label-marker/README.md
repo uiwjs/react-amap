@@ -27,11 +27,8 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
-          <LabelMarker visiable={show} name= "标注2" position={[116.466994, 39.984904]} />
           <LabelMarker visiable={show} name= "标注1" position={[116.466994, 39.984904]} />
           <LabelMarker visiable={show} name= "标注3" position={new AMap.LngLat(119.306239,26.075302)} />
-
-          
         </Map>
       </div>
     </>
