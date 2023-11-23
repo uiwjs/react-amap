@@ -1687,7 +1687,9 @@ var useLabelMarker = function useLabelMarker(props) {
   }, [labelMarker, map]);
   useVisiable(labelMarker, visiable);
   useSettingProperties(labelMarker, props, ['Name', 'Position', 'Zooms', 'Opacity', 'zIndex', 'Rank', 'Text', 'Icon', 'ExtData', 'Top']);
-  useEventProperties(labelMarker, props, ['onMousedown', 'onMouseup', 'onTouchstart', 'onTouchmove', 'onTouchend', 'onClick', 'onMousemove', 'onMouseover', 'onMouseout']);
+  useEventProperties(labelMarker, props, ['onTouchStart', 'onTouchMove', 'onTouchEnd', 'onClick', 'onMouseMove', 'onMouseOver', 'onMouseDown', 'onMouseUp', 'onMouseOut',
+  // 以下事件过时兼容，将在 v6 中移除
+  'onMousedown', 'onMouseup', 'onTouchstart', 'onTouchmove', 'onTouchend', 'onMousemove', 'onMouseover', 'onMouseout']);
   return {
     labelMarker,
     setLabelMarker
