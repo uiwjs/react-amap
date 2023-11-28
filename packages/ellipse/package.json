@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-ellipse",
-  "version": "5.0.19",
+  "version": "5.0.20",
   "description": "构造圆形对象，通过 EllipseOptions 指定多边形样式。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/ellipse",
@@ -35,9 +35,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.19",
-    "@uiw/react-amap-types": "5.0.19",
-    "@uiw/react-amap-utils": "5.0.19"
+    "@uiw/react-amap-map": "5.0.20",
+    "@uiw/react-amap-types": "5.0.20",
+    "@uiw/react-amap-utils": "5.0.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",

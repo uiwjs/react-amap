@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-map-type-control",
-  "version": "5.0.19",
+  "version": "5.0.20",
   "description": "用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/map-type-control",
@@ -35,8 +35,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.19",
-    "@uiw/react-amap-utils": "5.0.19"
+    "@uiw/react-amap-map": "5.0.20",
+    "@uiw/react-amap-utils": "5.0.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",

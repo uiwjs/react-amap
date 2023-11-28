@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-scale-control",
-  "version": "5.0.19",
+  "version": "5.0.20",
   "description": "比例尺插件。位于地图右下角，用户可控制其显示与隐藏。继承自 `AMap.Control`。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/scale-control",
@@ -35,8 +35,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.19",
-    "@uiw/react-amap-utils": "5.0.19"
+    "@uiw/react-amap-map": "5.0.20",
+    "@uiw/react-amap-utils": "5.0.20"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
