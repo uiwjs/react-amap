@@ -1,6 +1,10 @@
 AutoComplete 输入提示
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-auto-complete.svg)](https://www.npmjs.com/package/@uiw/react-amap-auto-complete)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-auto-complete.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-auto-complete)
+
 通常情况下，开发者需要根据表单控件相关事件的触发来执行 `AMap.AutoComplete` 的 search 方法，并将返回结果绘制成DOM显示到页面上。除此之外，高德JS API还提供了一套默认的UI来帮助开发者节省时间、提升效率，自动在页面相应的表单控件上监听输入并显示匹配结果。
 
 ```jsx

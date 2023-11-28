@@ -1,6 +1,10 @@
 Geolocation 定位
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-geolocation.svg)](https://www.npmjs.com/package/@uiw/react-amap-geolocation)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-geolocation.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-geolocation)
+
 鹰眼控件，用于显示缩略地图，显示于地图右下角，可以随主图的视口变化而变化，也可以配置成固定位置实现类似于南海附图的效果。
 
 ```jsx

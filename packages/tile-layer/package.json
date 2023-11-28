@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-tile-layer",
   "version": "5.0.19",
   "description": "用于在地图上加载切片图层。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/tile-layer",
   "main": "cjs/index.js",
   "module": "esm/index.js",

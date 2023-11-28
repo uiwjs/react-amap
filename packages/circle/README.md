@@ -1,6 +1,10 @@
 Circle 圆形组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-circle.svg)](https://www.npmjs.com/package/@uiw/react-amap-circle)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-circle.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-circle)
+
 构造圆形对象，通过 CircleOptions 指定多边形样式
 
 ```jsx

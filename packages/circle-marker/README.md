@@ -1,6 +1,10 @@
 CircleMarker 圆点标记
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-circle-marker.svg)](https://www.npmjs.com/package/@uiw/react-amap-circle-marker)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-circle-marker.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-circle-marker)
+
 构造一个圆形覆盖物。可直接满足创建圆形标注的需要。
 
 AMap.CircleMarker 类与 AMap.Circle 类均为在地图上绘制圆形覆盖物的方法。这两类的根本不同在于 AMap.Circle 为矢量图形类，随地图的缩放会改变大小；而 AMap.CircleMarker 类则不会随图面缩放而改变。

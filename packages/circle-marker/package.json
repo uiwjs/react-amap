@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-circle-marker",
   "version": "5.0.19",
   "description": "构造一个圆形覆盖物。可直接满足创建圆形标注的需要。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/circle-marker",
   "main": "cjs/index.js",
   "module": "esm/index.js",

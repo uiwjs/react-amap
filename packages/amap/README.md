@@ -7,6 +7,9 @@
 <h3 align="center">高德地图 React 组件</h3>
 
 <p align="center">
+  <a href="https://jaywcjlove.github.io/#/sponsor" target="__blank">
+    <img alt="Buy me a coffee" src="https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee">
+  </a>
   <a href="https://github.com/uiwjs/react-amap/actions">
     <img src="https://github.com/uiwjs/react-amap/actions/workflows/ci.yml/badge.svg" alt="Build & Deploy">
   </a>

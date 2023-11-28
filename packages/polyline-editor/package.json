@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-polyline-editor",
   "version": "5.0.19",
   "description": "高德地图 Polygon 编辑器。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/polygon-editor",
   "main": "cjs/index.js",
   "module": "esm/index.js",

@@ -1,6 +1,10 @@
 ControlBarControl 组合了旋转、倾斜、复位在内的地图控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-control-bar-control.svg)](https://www.npmjs.com/package/@uiw/react-amap-control-bar-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-control-bar-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-control-bar-control)
+
 组合了旋转、倾斜、复位在内的地图控件。 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
 
 ```jsx

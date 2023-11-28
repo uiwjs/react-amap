@@ -1,10 +1,15 @@
 Weather 天气查询服务
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-utils.svg)](https://www.npmjs.com/package/@uiw/react-amap-utils)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-utils.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-utils)
+
 天气查询服务，根据城市名称或区域编码返回城市天气预报信息，包括实时天气信息和四天天气预报。
 
 ```jsx
 import { Weather } from '@uiw/react-amap';
+import { Weather } from '@uiw/react-amap-weather';
 ```
 
 ### 基本用法

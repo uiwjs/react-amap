@@ -1,6 +1,10 @@
 Polyline 折线组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-polyline.svg)](https://www.npmjs.com/package/@uiw/react-amap-polyline)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-polyline.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-polyline)
+
 构造折线对象，支持 `lineString` 和 `MultiLineString`。
 
 ```jsx

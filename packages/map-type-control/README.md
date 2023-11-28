@@ -1,6 +1,10 @@
 MapTypeControl 类型切换
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-map-type-control.svg)](https://www.npmjs.com/package/@uiw/react-amap-map-type-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-map-type-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-map-type-control)
+
 地图类型切换插件。用户通过该插件进行地图切换。
 
 ```jsx

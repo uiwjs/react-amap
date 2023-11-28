@@ -1,6 +1,10 @@
 MouseTool 绘制工具
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-mouse-tool.svg)](https://www.npmjs.com/package/@uiw/react-amap-mouse-tool)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-mouse-tool.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-mouse-tool)
+
 MouseTool 绘制工具，可以支持绘制 Marker、Circle、Rectangle、Polyline、Polygon 等。支持AMap JS API v1.4.xxx 和 v2.0.xxx。
 参考 [AMap API](https://a.amap.com/jsapi/static/doc/20220913/index.html?v=2#mousetoolmarker)。
 ```jsx

@@ -1,6 +1,10 @@
 InfoWindow 信息窗体
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-info-window.svg)](https://www.npmjs.com/package/@uiw/react-amap-info-window)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-info-window.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-info-window)
+
 用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体。
 
 ```jsx

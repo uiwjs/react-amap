@@ -2,6 +2,7 @@
   "name": "website",
   "version": "5.0.19",
   "private": true,
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap",
   "scripts": {
     "build": "kkt build",

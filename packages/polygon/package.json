@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-polygon",
   "version": "5.0.19",
   "description": "构造多边形对象，通过 PolygonOptions 指定多边形样式。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/polygon",
   "main": "cjs/index.js",
   "module": "esm/index.js",

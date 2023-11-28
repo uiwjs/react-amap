@@ -1,6 +1,10 @@
 APILoader
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-api-loader.svg)](https://www.npmjs.com/package/@uiw/react-amap-api-loader)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-api-loader.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-api-loader)
+
 用于加载高德地图 SDK 依赖，加载完成，全局将会有 **`window.AMap`** 对象。
 
 ```jsx

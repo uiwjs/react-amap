@@ -1,6 +1,10 @@
 MassMarks 海量点
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-mass-marks.svg)](https://www.npmjs.com/package/@uiw/react-amap-mass-marks)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-mass-marks.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-mass-marks)
+
 在地图上加载海量点，适合需要显示大量 `Marker` 的场景。
 
 ```jsx

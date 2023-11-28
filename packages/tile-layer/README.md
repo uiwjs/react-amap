@@ -1,6 +1,10 @@
 TileLayer 切片图层
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-tile-layer.svg)](https://www.npmjs.com/package/@uiw/react-amap-tile-layer)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-tile-layer.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-tile-layer)
+
 切片图层，用户可以用此组件灵活加载各种切片图层。 [AMap API](https://lbs.amap.com/api/jsapi-v2/documentation#tilelayer)
 
 ```jsx

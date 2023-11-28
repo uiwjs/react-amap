@@ -1,6 +1,10 @@
 ToolBarControl 工具条控件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-tool-bar-control.svg)](https://www.npmjs.com/package/@uiw/react-amap-tool-bar-control)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-tool-bar-control.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-tool-bar-control)
+
 地图操作工具条插件。可支持方向导航、位置定位、视野级别缩放、视野级别选择等操作。继承自 AMap.Control [相关示例](https://lbs.amap.com/api/jsapi-v2/example/map-componets/map-with-function-control/)
 
 ```jsx

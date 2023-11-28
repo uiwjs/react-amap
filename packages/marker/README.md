@@ -1,6 +1,10 @@
 Marker 点标记组件
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-marker.svg)](https://www.npmjs.com/package/@uiw/react-amap-marker)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-marker.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-marker)
+
 点标记是用来标示某个位置点信息的一种地图要素，本章介绍如何在地图图面使用点标记。
 
 ```jsx

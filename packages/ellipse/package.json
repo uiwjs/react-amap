@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-ellipse",
   "version": "5.0.19",
   "description": "构造圆形对象，通过 EllipseOptions 指定多边形样式。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/ellipse",
   "main": "cjs/index.js",
   "module": "esm/index.js",

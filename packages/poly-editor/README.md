@@ -1,6 +1,10 @@
 PolyEditor 编辑器
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-poly-editor.svg)](https://www.npmjs.com/package/@uiw/react-amap-poly-editor)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-poly-editor.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-poly-editor)
+
 折线、多边形[编辑插件](https://lbs.amap.com/api/javascript-api/reference/plugin#AMap.PolyEditor)，用于编辑 Polygon 或 Polyline 对象，支持AMap JS API v1.4.xxx 和 v2.0.xxx。[官方示例](https://lbs.amap.com/demo/javascript-api/example/overlayers/polyline-draw-and-edit)
 
 ```jsx

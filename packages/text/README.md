@@ -1,6 +1,10 @@
 Text 文本标注
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-text.svg)](https://www.npmjs.com/package/@uiw/react-amap-text)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-text.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-text)
+
 点标记是用来标示某个位置点信息的一种地图要素，本章介绍如何在地图图面使用点标记。
 
 ```jsx

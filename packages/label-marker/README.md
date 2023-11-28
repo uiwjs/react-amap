@@ -1,6 +1,10 @@
 LabelMarker 海量标注 
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-amap-marker.svg)](https://www.npmjs.com/package/@uiw/react-amap-marker)
+[![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-marker.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-marker)
+
 当需要在地图添加千级以上的点标记时，LabelMarker 是代替 Marker 的更好选择。不同于 MassMarks ，LabelMarker 不仅可以绘制图标，还可以为图标添加文字信息，且万级以上数据也具有较好性能，配置也更加灵活。
 
 另外，LabelMarker 之间还支持避让功能，JSAPI 2.0 版本还支持地图标注避让 LabelMarker，可以让您的 marker 更加明显。

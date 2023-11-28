@@ -2,6 +2,7 @@
   "name": "@uiw/react-amap-context-menu",
   "version": "5.0.19",
   "description": "地图图面一种特殊的信息窗体，即右键菜单。",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/context-menu",
   "main": "cjs/index.js",
   "module": "esm/index.js",
