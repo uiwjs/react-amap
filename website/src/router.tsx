@@ -130,6 +130,11 @@ export const routes = [
 
 export const menus = [
   {
+    label: '支持一下吧',
+    target: '__blank',
+    path: 'https://jaywcjlove.github.io/#/sponsor',
+  },
+  {
     label: '快速开始',
     path: '/',
   },
