@@ -1828,22 +1828,22 @@ var usePolygon = function usePolygon(props) {
       var instance = new AMap.Polygon(_extends({}, other));
       map.add(instance);
       setPolygon(instance);
-    }
-    return () => {
-      if (polygon) {
-        try {
-          map && map.remove(polygon);
-        } catch (e) {}
-        // if (AMap.v) {
-        //   map && map.remove(instance);
-        // } else {
-        //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-        //   map && map.removeLayer(instance);
-        // }
+      return () => {
+        if (instance) {
+          try {
+            map && map.remove(instance);
+          } catch (e) {}
+          // if (AMap.v) {
+          //   map && map.remove(instance);
+          // } else {
+          //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          //   map && map.removeLayer(instance);
+          // }
+        }
         setPolygon(undefined);
-      }
-    };
-  }, [map, polygon]);
+      };
+    }
+  }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon) {
       polygon.setOptions(other);
