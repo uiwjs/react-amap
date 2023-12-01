@@ -35,25 +35,25 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
           },
         };
       }
-      let initIcon = icon;
-      if (!initIcon) {
-        initIcon = {
-          // 图标类型，现阶段只支持 image 类型
-          // 图片 url
-          image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
-          // 图片尺寸
-          size: [19, 32],
-          // 图片相对 position 的锚点，默认为 bottom-center
-          anchor: 'center',
-        };
-      }
+      // let initIcon = icon;
+      // if (!initIcon) {
+      //   initIcon = {
+      //     // 图标类型，现阶段只支持 image 类型
+      //     // 图片 url
+      // image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+      // // 图片尺寸
+      // size: [19, 32],
+      // // 图片相对 position 的锚点，默认为 bottom-center
+      // anchor: 'center',
+      //   };
+      // }
 
       // if (props.children) {
       //   other.content = container;
       // }
       const instance: AMap.LabelMarker = new (AMap as any).LabelMarker({
-        style: initIcon,
-        icon: initIcon,
+        style: icon,
+        icon: icon,
         text: initText,
         ...other,
       });
@@ -77,17 +77,19 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
       }
 
       map.add(instance);
-    }
-    return () => {
-      if (labelMarker) {
-        //  issue #259  兼容 v1.4.xxx 版本
-        if ((AMap as any)?.v?.indexOf('1.4') === 0) {
-          (map as any)?.labelMarkersLayer?.remove(labelMarker);
+      return () => {
+        if (instance) {
+          //  issue #259  兼容 v1.4.xxx 版本
+          if ((AMap as any)?.v?.indexOf('1.4') === 0) {
+            (map as any)?.labelMarkersLayer?.remove(instance);
+          } else {
+            instance.remove();
+          }
+          setLabelMarker(undefined);
         }
-        setLabelMarker(undefined);
-      }
-    };
-  }, [labelMarker, map]);
+      };
+    }
+  }, [map]);
   useVisiable(labelMarker!, visiable);
   useSettingProperties<AMap.LabelMarker, UseLabelMarker>(labelMarker, props, [
     'Name',
