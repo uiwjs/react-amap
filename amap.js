@@ -1632,25 +1632,25 @@ var useLabelMarker = function useLabelMarker(props) {
           }
         };
       }
-      var initIcon = icon;
-      if (!initIcon) {
-        initIcon = {
-          // 图标类型，现阶段只支持 image 类型
-          // 图片 url
-          image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
-          // 图片尺寸
-          size: [19, 32],
-          // 图片相对 position 的锚点，默认为 bottom-center
-          anchor: 'center'
-        };
-      }
+      // let initIcon = icon;
+      // if (!initIcon) {
+      //   initIcon = {
+      //     // 图标类型，现阶段只支持 image 类型
+      //     // 图片 url
+      // image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+      // // 图片尺寸
+      // size: [19, 32],
+      // // 图片相对 position 的锚点，默认为 bottom-center
+      // anchor: 'center',
+      //   };
+      // }
 
       // if (props.children) {
       //   other.content = container;
       // }
       var instance = new AMap.LabelMarker(_extends({
-        style: initIcon,
-        icon: initIcon,
+        style: icon,
+        icon: icon,
         text: initText
       }, other));
       setLabelMarker(instance);
@@ -1672,19 +1672,21 @@ var useLabelMarker = function useLabelMarker(props) {
         labelMarkersLayer.add(instance);
       }
       map.add(instance);
-    }
-    return () => {
-      if (labelMarker) {
-        var _v2;
-        //  issue #259  兼容 v1.4.xxx 版本
-        if ((AMap == null || (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
-          var _labelMarkersLayer;
-          map == null || (_labelMarkersLayer = map.labelMarkersLayer) == null || _labelMarkersLayer.remove(labelMarker);
+      return () => {
+        if (instance) {
+          var _v2;
+          //  issue #259  兼容 v1.4.xxx 版本
+          if ((AMap == null || (_v2 = AMap.v) == null ? void 0 : _v2.indexOf('1.4')) === 0) {
+            var _labelMarkersLayer;
+            map == null || (_labelMarkersLayer = map.labelMarkersLayer) == null || _labelMarkersLayer.remove(instance);
+          } else {
+            instance.remove();
+          }
+          setLabelMarker(undefined);
         }
-        setLabelMarker(undefined);
-      }
-    };
-  }, [labelMarker, map]);
+      };
+    }
+  }, [map]);
   useVisiable(labelMarker, visiable);
   useSettingProperties(labelMarker, props, ['Name', 'Position', 'Zooms', 'Opacity', 'zIndex', 'Rank', 'Text', 'Icon', 'ExtData', 'Top']);
   useEventProperties(labelMarker, props, ['onTouchStart', 'onTouchMove', 'onTouchEnd', 'onClick', 'onMouseMove', 'onMouseOver', 'onMouseDown', 'onMouseUp', 'onMouseOut',
