@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-mouse-tool",
-  "version": "5.0.21",
+  "version": "6.0.0",
   "description": "高德地图 MouseTool 绘制工具。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/mouse-tool",
@@ -37,9 +37,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "5.0.21",
-    "@uiw/react-amap-types": "5.0.21",
-    "@uiw/react-amap-utils": "5.0.21"
+    "@uiw/react-amap-map": "6.0.0",
+    "@uiw/react-amap-types": "6.0.0",
+    "@uiw/react-amap-utils": "6.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
