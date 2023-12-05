@@ -1590,6 +1590,15 @@ var useLabelMarker_excluded = ["visiable", "children", "text", "icon"];
 
 
 
+var initIcon = {
+  // 图标类型，现阶段只支持 image 类型
+  // 图片 url
+  image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+  // 图片尺寸
+  size: [19, 32],
+  // 图片相对 position 的锚点，默认为 bottom-center
+  anchor: 'center'
+};
 var useLabelMarker = function useLabelMarker(props) {
   if (props === void 0) {
     props = {};
@@ -1597,7 +1606,7 @@ var useLabelMarker = function useLabelMarker(props) {
   var {
       visiable,
       text,
-      icon
+      icon = initIcon
     } = props,
     other = _objectWithoutPropertiesLoose(props, useLabelMarker_excluded);
   var {
@@ -1632,19 +1641,6 @@ var useLabelMarker = function useLabelMarker(props) {
           }
         };
       }
-      // let initIcon = icon;
-      // if (!initIcon) {
-      //   initIcon = {
-      //     // 图标类型，现阶段只支持 image 类型
-      //     // 图片 url
-      // image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
-      // // 图片尺寸
-      // size: [19, 32],
-      // // 图片相对 position 的锚点，默认为 bottom-center
-      // anchor: 'center',
-      //   };
-      // }
-
       // if (props.children) {
       //   other.content = container;
       // }
