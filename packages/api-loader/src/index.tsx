@@ -38,19 +38,7 @@ export interface APILoaderConfig {
   };
 }
 
-export interface APILoaderProps extends APILoaderConfig {
-  /**
-   * 请使用 `key`
-   * @deprecated
-   */
-  akay?: string;
-  /**
-   * 请使用 `plugins`
-   * @deprecated
-   * @example `AMap.ToolBar,AMap.Driving`
-   */
-  plugin?: string;
-}
+export interface APILoaderProps extends APILoaderConfig {}
 
 /**
  * APILoader 用于加载百度地图依赖
@@ -60,8 +48,8 @@ export const APILoader: FC<PropsWithChildren<APILoaderProps>> = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState<Error>();
   useEffect(() => {
-    const aKey = config.akey || config.akay || '';
-    const plugins = config.plugins || (config.plugin ? config.plugin.split(',') : []);
+    const aKey = config.akey || '';
+    const plugins = config.plugins;
     load({
       key: aKey,
       plugins,
@@ -76,7 +64,7 @@ export const APILoader: FC<PropsWithChildren<APILoaderProps>> = (props) => {
       .catch((err) => {
         setError(err);
       });
-  }, [config.akey, config.akay]);
+  }, [config.akey]);
   if (error) {
     return <div style={{ color: 'red' }}>{error.message}</div>;
   } else if (loaded) {

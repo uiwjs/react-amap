@@ -180,7 +180,7 @@ const Example = () => {
         console.log('>>>>', status, result)
         if(status === 'complete'){
           setData(result);
-        } else if (onError) {
+        } else {
           setData(result);
         }
       });

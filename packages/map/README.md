@@ -5,12 +5,13 @@ Map 组件
 [![npm version](https://img.shields.io/npm/v/@uiw/react-amap-map.svg)](https://www.npmjs.com/package/@uiw/react-amap-map)
 [![Downloads](https://img.shields.io/npm/dm/@uiw/react-amap-map.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-amap-map)
 
-Map 组件是其他组件的基础，Map 组件会给所有的子组件注入三个属性 **`map`**，**`container`** 和 **`AMap`**，
+Map 组件是其他组件的基础，Map 组件会通过 Context 给所有的子组件提供 **`map`**，**`container`** 和 **`AMap`**，对象。
 
 ⚠️ 注意
 
 > 1. 组件 `<Map>` 必须包裹在 `<APILoader>` 组件内，该组件作用是加载高德地图 SDK。  
 > 2. 其他地图组件必须作为 `<Map>` 的子组件使用；
+> 3. 在 ~~v2.5.0+~~ -> v5 通过 props 传递  **`map`**，**`container`** 和 **`AMap`** 对象，在 v6 版本中移除了，通过 Context 传递对象
 
 ```jsx
 import { Map, APILoader } from '@uiw/react-amap';

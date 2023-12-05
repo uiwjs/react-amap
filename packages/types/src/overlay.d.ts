@@ -162,12 +162,6 @@ declare namespace AMap {
   }
   interface MarkerOptions {
     /**
-     * 要显示该 marker 的地图对象
-     * ~~v2.5.0+~~ 版本以上，不需要传递这个参数
-     * @deprecated 
-     */
-    map?: Map;
-    /**
      * 点标记在地图上显示的位置，默认为地图中心点
      */
     position?: LngLat;

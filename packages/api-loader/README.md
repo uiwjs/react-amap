@@ -116,17 +116,5 @@ export type APILoaderConfig = PropsWithChildren<{
     version?: string;
   };
 }>;
-export interface APILoaderProps extends APILoaderConfig {
-  /**
-   * 请使用 `key`
-   * @deprecated
-   */
-  akay?: string;
-  /**
-   * 请使用 `plugins`
-   * @deprecated
-   * @example `AMap.ToolBar,AMap.Driving`
-   */
-  plugin?: string;
-}
+export interface APILoaderProps extends APILoaderConfig { }
 ```
