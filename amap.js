@@ -259,8 +259,8 @@ var APILoader = props => {
   var [loaded, setLoaded] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(false);
   var [error, setError] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    var aKey = config.akey || config.akay || '';
-    var plugins = config.plugins || (config.plugin ? config.plugin.split(',') : []);
+    var aKey = config.akey || '';
+    var plugins = config.plugins;
     (0,dist.load)({
       key: aKey,
       plugins,
@@ -273,7 +273,7 @@ var APILoader = props => {
     }).catch(err => {
       setError(err);
     });
-  }, [config.akey, config.akay]);
+  }, [config.akey]);
   if (error) {
     return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       style: {
@@ -715,7 +715,6 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
     AMap,
     container: props.container || elmRef.current
   }), [map]);
-  var childs = external_root_React_commonjs2_react_commonjs_react_amd_react_.Children.toArray(children);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map) {
       dispatch({
@@ -742,27 +741,7 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
       AMap,
       map,
       container
-    }), AMap && map && childs.map((child, key) => {
-      if (! /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.isValidElement)(child)) return null;
-      if (typeof child === 'string') {
-        return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)( /*#__PURE__*/(0,jsx_runtime.jsx)(external_root_React_commonjs2_react_commonjs_react_amd_react_.Fragment, {
-          children: child
-        }), {
-          key
-        });
-      }
-      if (child.type && typeof child.type === 'string') {
-        return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(child, {
-          key
-        });
-      }
-      return /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.cloneElement)(child, _extends({}, child.props, {
-        AMap,
-        map,
-        container,
-        key
-      }));
-    })]
+    }), AMap && map && typeof children !== 'function' && children]
   });
 });
 ;// CONCATENATED MODULE: ../bezier-curve/esm/useBezierCurve.js
