@@ -31,8 +31,44 @@ const Example = () => {
       </button>
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
-          <LabelMarker visiable={show} name= "标注1" position={[116.466994, 39.984904]} />
-          <LabelMarker visiable={show} name= "标注3" position={new AMap.LngLat(119.306239,26.075302)} />
+          <LabelMarker 
+            visiable={show}
+            name= "标注1"
+            text={{
+              content: '没有有icon',
+              direction: 'top',
+              offset: [0, 0],
+              style: {
+                strokeColor: '#ffffff',
+                fontSize: 14,
+                fillColor: '#60666E',
+                strokeWidth: 4,
+                backgroundColor: 'rgba(0,0,0,0)',
+              },
+            }}
+            position={[116.466994, 39.984904]}
+          />
+          <LabelMarker visiable={show} name= "标注3" position={new AMap.LngLat(119.306239,26.075302)} 
+            text={{
+              content: '有icon',
+              direction: 'top',
+              offset: [0, 0],
+              style: {
+                strokeColor: '#ffffff',
+                fontSize: 14,
+                fillColor: '#60666E',
+                strokeWidth: 4,
+                backgroundColor: 'rgba(0,0,0,0)',
+              },
+            }}
+            icon={{
+              image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+              // 图片尺寸
+              size: [19, 32],
+              // 图片相对 position 的锚点，默认为 bottom-center
+              anchor: 'center',
+            }} 
+          />
         </Map>
       </div>
     </>

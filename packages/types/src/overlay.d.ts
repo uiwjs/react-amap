@@ -1394,6 +1394,7 @@ declare namespace AMap {
     setRank(rank: number): void;
     getText(): TextOptions | undefined;
     setText(textOpts: TextOptions): void;
+    remove(): void;
   }
   interface LabelMarkerOptions {
     /** 标注名称，作为标注标识，并非最终在地图上显示的文字内容，显示文字内容请设置 opts.text.content */
