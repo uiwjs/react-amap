@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties, usePortal } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { TextProps } from './';
@@ -9,7 +9,7 @@ export const useText = (props = {} as UseText) => {
   const [text, setText] = useState<AMap.Text>();
   const { map } = useMapContext();
   const { container, Portal } = usePortal();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!AMap || !map) return;
     if (!text) {
       if (props.children) {

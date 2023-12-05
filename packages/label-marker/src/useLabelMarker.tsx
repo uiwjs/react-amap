@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { LabelMarkerProps } from './';
@@ -20,7 +20,7 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
   const [labelMarker, setLabelMarker] = useState<AMap.LabelMarker>();
   // const { container, Portal } = usePortal();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!labelMarker && map) {
       let initText = text;
       if (!text) {

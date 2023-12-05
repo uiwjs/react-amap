@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { EllipseProps } from './';
@@ -8,7 +8,7 @@ export const useEllipse = (props = {} as UseEllipse) => {
   const { visiable, ...other } = props;
   const { map } = useMapContext();
   const [ellipse, setEllipse] = useState<AMap.Ellipse>();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!AMap || !map) return;
     if (!ellipse) {
       let instance: AMap.Ellipse = new AMap.Ellipse({ ...other });

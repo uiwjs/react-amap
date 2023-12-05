@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { CircleProps } from '.';
@@ -8,20 +8,16 @@ export const useCircle = (props = {} as UseCircle) => {
   const { visiable, ...other } = props;
   const { map } = useMapContext();
   const [circle, setCircle] = useState<AMap.Circle>();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (AMap && map && !circle) {
-      let instance: AMap.Circle = new AMap.Circle({ ...other });
+      const instance: AMap.Circle = new AMap.Circle({ ...other });
       map.add(instance);
       setCircle(instance);
+      return () => {
+        map && map.remove(instance);
+        setCircle(undefined);
+      };
     }
-    return () => {
-      setCircle((circle) => {
-        if (circle) {
-          map && map.remove(circle)
-        }
-        return undefined
-      })
-    };
   }, [map]);
 
   useVisiable(circle!, visiable);

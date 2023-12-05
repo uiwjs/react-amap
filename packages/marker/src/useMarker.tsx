@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties, usePortal } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { MarkerProps } from './';
@@ -10,24 +10,24 @@ export const useMarker = (props: UseMarker = {}) => {
   const [marker, setMarker] = useState<AMap.Marker>();
   const { container, Portal } = usePortal();
 
-  useEffect(() => {
-    if (!marker && map) {
+  useLayoutEffect(() => {
+    if (map && !marker) {
       if (props.children) {
         other.content = container;
       }
       let instance: AMap.Marker = new AMap.Marker({ ...other });
       map.add(instance);
       setMarker(instance);
+      return () => {
+        if (instance) {
+          // @fix [244] https://github.com/uiwjs/react-amap/issues/244
+          // typeof marker.remove === 'function' && marker.remove();
+          instance.setMap(null);
+          setMarker(undefined);
+        }
+      };
     }
-    return () => {
-      if (marker) {
-        // @fix [244] https://github.com/uiwjs/react-amap/issues/244
-        // typeof marker.remove === 'function' && marker.remove();
-        marker.setMap(null);
-        setMarker(undefined);
-      }
-    };
-  }, [map, marker]);
+  }, [map]);
 
   useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { RectangleProps } from '.';
@@ -8,7 +8,7 @@ export const useRectangle = (props = {} as UseRectangle) => {
   const { visiable, ...other } = props;
   const { map } = useMapContext();
   const [rectangle, setRectangle] = useState<AMap.Rectangle>();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!AMap || !map) return;
     if (!rectangle) {
       let instance: AMap.Rectangle = new AMap.Rectangle({ ...other });
