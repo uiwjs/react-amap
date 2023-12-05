@@ -1414,7 +1414,7 @@ declare namespace AMap {
     /** 用户自定义类型数据，可将自定义数据保存在该属性上，方便后续操作使用。 */
     extData?: any;
     /** 标注图标设置 */
-    icon?: IconOptions;
+    icon?: IconOptions | null;
     /** 标注文本设置 */
     text?: TextOptions;
     /** 设置文本样式，Object同css样式表，如:{'background-color':'red'} */

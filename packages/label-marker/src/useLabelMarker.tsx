@@ -3,10 +3,19 @@ import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/reac
 import { useMapContext } from '@uiw/react-amap-map';
 import { LabelMarkerProps } from './';
 
+const initIcon: LabelMarkerProps['icon'] = {
+  // 图标类型，现阶段只支持 image 类型
+  // 图片 url
+  image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+  // 图片尺寸
+  size: [19, 32],
+  // 图片相对 position 的锚点，默认为 bottom-center
+  anchor: 'center',
+};
+
 export interface UseLabelMarker extends LabelMarkerProps {}
 export const useLabelMarker = (props: UseLabelMarker = {}) => {
-  const { visiable, children, text, icon, ...other } = props;
-
+  const { visiable, children, text, icon = initIcon, ...other } = props;
   const { map, AMap } = useMapContext();
   const [labelMarker, setLabelMarker] = useState<AMap.LabelMarker>();
   // const { container, Portal } = usePortal();
@@ -35,19 +44,6 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
           },
         };
       }
-      // let initIcon = icon;
-      // if (!initIcon) {
-      //   initIcon = {
-      //     // 图标类型，现阶段只支持 image 类型
-      //     // 图片 url
-      // image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
-      // // 图片尺寸
-      // size: [19, 32],
-      // // 图片相对 position 的锚点，默认为 bottom-center
-      // anchor: 'center',
-      //   };
-      // }
-
       // if (props.children) {
       //   other.content = container;
       // }

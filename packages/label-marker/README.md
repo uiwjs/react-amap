@@ -35,7 +35,7 @@ const Example = () => {
             visiable={show}
             name= "标注1"
             text={{
-              content: '没有有icon',
+              content: '文本标注',
               direction: 'top',
               offset: [0, 0],
               style: {
@@ -61,13 +61,14 @@ const Example = () => {
                 backgroundColor: 'rgba(0,0,0,0)',
               },
             }}
-            icon={{
-              image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
-              // 图片尺寸
-              size: [19, 32],
-              // 图片相对 position 的锚点，默认为 bottom-center
-              anchor: 'center',
-            }} 
+            // 可以自定义 icon
+            // icon={{
+            //   image: 'http://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+            //   // 图片尺寸
+            //   size: [19, 32],
+            //   // 图片相对 position 的锚点，默认为 bottom-center
+            //   anchor: 'center',
+            // }} 
           />
         </Map>
       </div>
@@ -84,6 +85,56 @@ const Mount = () => (
 export default Mount;
 ```
 
+### 禁用 icon 展示
+
+设置 `icon={null}` 取消 icon 的显示
+
+```jsx mdx:preview
+import ReactDOM from 'react-dom';
+import React, { useState, useRef } from 'react';
+import { Map, APILoader, LabelMarker } from '@uiw/react-amap';
+
+const Example = () => {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      <button onClick={() => setShow(!show)}>
+        {show ? '隐藏' : '显示'}
+      </button>
+      <div style={{ width: '100%', height: '300px' }}>
+        <Map zoom={4}>
+          <LabelMarker 
+            visiable={show}
+            name= "标注1"
+            icon={null}
+            text={{
+              content: '没有有icon图标',
+              direction: 'top',
+              offset: [0, 0],
+              style: {
+                strokeColor: '#ffffff',
+                fontSize: 14,
+                fillColor: '#60666E',
+                strokeWidth: 4,
+                backgroundColor: 'rgba(0,0,0,0)',
+              },
+            }}
+            position={[116.466994, 39.984904]}
+          />
+        </Map>
+      </div>
+    </>
+  );
+}
+
+const Mount = () => (
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129">
+    <Example />
+  </APILoader>
+);
+
+export default Mount;
+```
 ### Props
 
 [更多参数设置](https://github.com/uiwjs/react-amap/blob/268303d/src/types/overlay.d.ts#L1308-L1337)
