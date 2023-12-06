@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-types",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/types",
