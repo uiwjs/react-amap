@@ -822,20 +822,16 @@ var useCircle = function useCircle(props) {
     map
   } = useMapContext();
   var [circle, setCircle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (AMap && map && !circle) {
       var instance = new AMap.Circle(_extends({}, other));
       map.add(instance);
       setCircle(instance);
+      return () => {
+        map && map.remove(instance);
+        setCircle(undefined);
+      };
     }
-    return () => {
-      setCircle(circle => {
-        if (circle) {
-          map && map.remove(circle);
-        }
-        return undefined;
-      });
-    };
   }, [map]);
   useVisiable(circle, visiable);
   useSettingProperties(circle, props, ['Center', 'Raius', 'Options', 'ExtData']);
@@ -1088,7 +1084,7 @@ var useEllipse = function useEllipse(props) {
     map
   } = useMapContext();
   var [ellipse, setEllipse] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!ellipse) {
       var instance = new AMap.Ellipse(_extends({}, other));
@@ -1282,7 +1278,7 @@ var useInfoWindow = function useInfoWindow(props) {
     container,
     Portal
   } = usePortal();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!infoWindow) {
       var positionCenter = map.getCenter();
@@ -1296,14 +1292,14 @@ var useInfoWindow = function useInfoWindow(props) {
       if (isOpen) {
         instance.open(map, position || positionCenter);
       }
+      return () => {
+        if (instance) {
+          map && map.remove(instance);
+          setInfoWindow(undefined);
+        }
+      };
     }
-    return () => {
-      if (infoWindow) {
-        map && map.remove(infoWindow);
-        setInfoWindow(undefined);
-      }
-    };
-  }, [map, infoWindow]);
+  }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (infoWindow) {
       infoWindow.setContent(props.children ? container : other.content || '');
@@ -1517,24 +1513,24 @@ var useMarker = function useMarker(props) {
     container,
     Portal
   } = usePortal();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!marker && map) {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
+    if (map && !marker) {
       if (props.children) {
         other.content = container;
       }
       var instance = new AMap.Marker(_extends({}, other));
       map.add(instance);
       setMarker(instance);
+      return () => {
+        if (instance) {
+          // @fix [244] https://github.com/uiwjs/react-amap/issues/244
+          // typeof marker.remove === 'function' && marker.remove();
+          instance.setMap(null);
+          setMarker(undefined);
+        }
+      };
     }
-    return () => {
-      if (marker) {
-        // @fix [244] https://github.com/uiwjs/react-amap/issues/244
-        // typeof marker.remove === 'function' && marker.remove();
-        marker.setMap(null);
-        setMarker(undefined);
-      }
-    };
-  }, [map, marker]);
+  }, [map]);
   useVisiable(marker, visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
@@ -1595,7 +1591,7 @@ var useLabelMarker = function useLabelMarker(props) {
   var [labelMarker, setLabelMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   // const { container, Portal } = usePortal();
 
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!labelMarker && map) {
       var _v;
       var initText = text;
@@ -1709,7 +1705,7 @@ var useMassMarks = function useMassMarks(props) {
     data
   } = other || {};
   var [massMarks, setMassMarks] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!massMarks) {
       var initStyle = style;
@@ -1799,7 +1795,7 @@ var usePolygon = function usePolygon(props) {
     map
   } = useMapContext();
   var [polygon, setPolygon] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!polygon) {
       var instance = new AMap.Polygon(_extends({}, other));
@@ -1925,27 +1921,27 @@ function usePolyline(props) {
   var {
     map
   } = useMapContext();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (map && !polyline) {
       var instance = new AMap.Polyline(other);
       map.add(instance);
       setPolyline(instance);
+      return () => {
+        if (instance) {
+          try {
+            map && map.remove(instance);
+          } catch (e) {}
+          // if (AMap.v) {
+          //   map && map.remove(polyline);
+          // } else {
+          //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
+          //   map && map.removeLayer(polyline);
+          // }
+          setPolyline(undefined);
+        }
+      };
     }
-    return () => {
-      if (polyline) {
-        try {
-          map && map.remove(polyline);
-        } catch (e) {}
-        // if (AMap.v) {
-        //   map && map.remove(polyline);
-        // } else {
-        //   // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-        //   map && map.removeLayer(polyline);
-        // }
-        setPolyline(undefined);
-      }
-    };
-  }, [map, polyline]);
+  }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polyline) {
       polyline.setOptions(other);
@@ -2182,7 +2178,7 @@ var useRectangle = function useRectangle(props) {
     map
   } = useMapContext();
   var [rectangle, setRectangle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!rectangle) {
       var instance = new AMap.Rectangle(_extends({}, other));
@@ -2366,7 +2362,7 @@ var useText = function useText(props) {
     container,
     Portal
   } = usePortal();
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
+  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!text) {
       if (props.children) {
