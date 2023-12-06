@@ -851,7 +851,7 @@ declare namespace AMap {
     /** 获取多边形的面积（单位：平方米）（自v1.1 新增） */
     getArea(): number;
     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
-    setMap(map: Map): void;
+    setMap(map: Map | null): void;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
     setExtData(ext: any): void;
     /** 获取用户自定义属性 */
@@ -1103,7 +1103,7 @@ declare namespace AMap {
     getTop(): boolean;
     getzIndex(): number | undefined;;
     getMap(): Map | undefined;
-    setMap(map: Map): void;
+    setMap(map: Map | null): void;
     addTo(map: Map): void;
     add(map: Map): void;
     getPosition(): Vector | LngLat;
@@ -1235,7 +1235,7 @@ declare namespace AMap {
     getMaxZoom(): number;
     setAverageCenter(averageCenter: boolean): void;
     isAverageCenter(): boolean;
-    setMap(Map: Map): void;
+    setMap(Map: Map | null): void;
     getMap(): Map;
     getStyles(): any[];
     setStyles(Map: Map): void;
@@ -1287,7 +1287,7 @@ declare namespace AMap {
   class MassMarks extends MapEventListener<'touchstart' | 'touchend' | 'mousemove' | 'dbclick' | 'click' | 'complete' | 'mouseover' | 'mousedown' | 'mouseup' | 'mouseout'> {
     /** 官方文档示例，https://a.amap.com/jsapi/static/doc/index.html#massmarks **/
     constructor(data: MassMarkersDataOptions, opts?: Array<MassMarkersOptions> | MassMarkersOptions)
-    setMap(map: Map): void;
+    setMap(map: Map | null): void;
     getMap(): Map;
     getData(): MassMarkersDataOptions;
     setData(data: MassMarkersDataOptions): void;

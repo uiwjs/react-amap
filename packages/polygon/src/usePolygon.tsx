@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { PolygonProps } from '.';
@@ -8,7 +8,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
   const { visiable, ...other } = props;
   const { map } = useMapContext();
   const [polygon, setPolygon] = useState<AMap.Polygon>();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!AMap || !map) return;
     if (!polygon) {
       let instance: AMap.Polygon = new AMap.Polygon({ ...other });

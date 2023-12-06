@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useVisiable, useEventProperties, useSettingProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';
 import { MassMarksProps } from './';
@@ -10,7 +10,7 @@ export const useMassMarks = (props = {} as UseMassMarks) => {
   const { opacity = 1, zIndex = 1111, style, data } = other || {};
   const [massMarks, setMassMarks] = useState<AMap.MassMarks>();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!AMap || !map) return;
     if (!massMarks) {
       let initStyle = style;

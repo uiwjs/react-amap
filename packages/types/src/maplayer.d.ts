@@ -238,7 +238,7 @@ declare namespace AMap {
     /** 获取热力图的属性信息 */
     getOptions(): HeatMapOptions;
     /** 设置热力图要叠加的地图实例，也可以在Map中的layers属性中设置为默认显示的图层 */
-    setMap(map: Map): void;
+    setMap(map: Map | null): void;
     /** 设置热力图层叠加层级 */
     setzIndex(zIndex: number): void;
     /** 获得热力图层叠加层级 */
