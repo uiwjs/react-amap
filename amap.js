@@ -7,12 +7,12 @@
 		exports["@uiw/react-amap"] = factory(require("react"), require("react-dom"));
 	else
 		root["@uiw/react-amap"] = factory(root["React"], root["ReactDOM"]);
-})(self, (__WEBPACK_EXTERNAL_MODULE__787__, __WEBPACK_EXTERNAL_MODULE__156__) => {
+})(self, (__WEBPACK_EXTERNAL_MODULE__741__, __WEBPACK_EXTERNAL_MODULE__20__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 684:
+/***/ 368:
 /***/ (function(module) {
 
 (function(m,p){ true?module.exports=p():0})(this,function(){function m(a){var b=[];a.AMapUI&&b.push(p(a.AMapUI));a.Loca&&b.push(r(a.Loca));return Promise.all(b)}function p(a){return new Promise(function(h,c){var f=[];if(a.plugins)for(var e=0;e<a.plugins.length;e+=1)-1==d.AMapUI.plugins.indexOf(a.plugins[e])&&f.push(a.plugins[e]);if(g.AMapUI===b.failed)c("\u524d\u6b21\u8bf7\u6c42 AMapUI \u5931\u8d25");
@@ -30,7 +30,7 @@ Loca:b.notload};n={AMap:[],AMapUI:[],Loca:[]}}}})
 
 /***/ }),
 
-/***/ 837:
+/***/ 108:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -43,35 +43,35 @@ var __webpack_unused_export__;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var f=__webpack_require__(787),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+var f=__webpack_require__(741),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
 function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}__webpack_unused_export__=l;exports.jsx=q;exports.jsxs=q;
 
 
 /***/ }),
 
-/***/ 322:
+/***/ 0:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
 
 if (true) {
-  module.exports = __webpack_require__(837);
+  module.exports = __webpack_require__(108);
 } else {}
 
 
 /***/ }),
 
-/***/ 787:
+/***/ 741:
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__787__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__741__;
 
 /***/ }),
 
-/***/ 156:
+/***/ 20:
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__156__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__20__;
 
 /***/ })
 
@@ -234,12 +234,12 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"}
-var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(787);
+var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(741);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
 // EXTERNAL MODULE: ../../node_modules/@amap/amap-jsapi-loader/dist/index.js
-var dist = __webpack_require__(684);
+var dist = __webpack_require__(368);
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(322);
+var jsx_runtime = __webpack_require__(0);
 ;// CONCATENATED MODULE: ../api-loader/esm/index.js
 
 var _excluded = ["children"];
@@ -304,7 +304,7 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
-var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(156);
+var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(20);
 ;// CONCATENATED MODULE: ../utils/esm/usePortal.js
 
 
@@ -2192,8 +2192,8 @@ var useRectangle = function useRectangle(props) {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
             map && map.removeLayer(instance);
           }
-          setRectangle(undefined);
         }
+        setRectangle(undefined);
       };
     }
   }, [map]);
