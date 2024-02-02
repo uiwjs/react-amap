@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-control-bar-control",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "组合了旋转、倾斜、复位在内的地图控件。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/control-bar-control",
@@ -35,9 +35,9 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "6.0.1",
-    "@uiw/react-amap-types": "6.0.1",
-    "@uiw/react-amap-utils": "6.0.1"
+    "@uiw/react-amap-map": "6.0.2",
+    "@uiw/react-amap-types": "6.0.2",
+    "@uiw/react-amap-utils": "6.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
