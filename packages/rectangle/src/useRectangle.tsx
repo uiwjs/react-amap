@@ -22,8 +22,8 @@ export const useRectangle = (props = {} as UseRectangle) => {
             // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
             map && map.removeLayer(instance);
           }
-          setRectangle(undefined);
         }
+        setRectangle(undefined);
       };
     }
   }, [map]);
