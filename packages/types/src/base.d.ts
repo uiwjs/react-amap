@@ -79,11 +79,12 @@ declare namespace AMap {
      * @returns 格式如'lng值,lat值'的字符串
      */
     toArray?(): string;
+    distanceTo?(another: LngLat): number;
     /**
      * 计算当前经纬度距离另一个经纬度或者经纬度数组组成的路径的距离 [相关示例](https://lbs.amap.com/api/javascript-api/example/calcutation/calculate-distance-between-two-markers/)
      * @returns 距离值，单位为米
      */
-    distance?(): number;
+    distance?(another: LngLat): number;
   }
   type Vector = number[];
   type LngLatLike = LngLat | [number, number];
