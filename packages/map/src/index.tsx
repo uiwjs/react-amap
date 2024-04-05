@@ -14,7 +14,7 @@ export interface MapProps extends AMap.MapEvents, AMap.MapOptions {
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
   container?: HTMLDivElement | null;
-  children?: JSX.Element & RenderProps['children'];
+  children?: JSX.Element | RenderProps['children'];
 }
 
 export const Provider: FC<PropsWithChildren<RenderProps>> = (props) => {
