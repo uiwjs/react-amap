@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-weather",
-  "version": "6.0.3",
+  "version": "6.0.4",
   "description": "天气查询服务，根据城市名称或区域编码返回城市天气预报信息，包括实时天气信息和四天天气预报。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/weather",
@@ -35,8 +35,8 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "6.0.3",
-    "@uiw/react-amap-utils": "6.0.3"
+    "@uiw/react-amap-map": "6.0.4",
+    "@uiw/react-amap-utils": "6.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.16",
