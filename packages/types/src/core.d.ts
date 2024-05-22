@@ -590,6 +590,40 @@ declare namespace AMap {
      * //一个带洞多边形 [ [lng4,lat4] , [lng5,lat5] , [lng6,lat6] ], [ [lng7,lat7] , [lng8,lat8] , [lng9,lat9] ] ] ]}
      */
     mask?: Array<number>;
+    /**
+     * `VIP 用户` 拿海外地图的图层，需要设置 `overseaDataType` 和 `vectorMapForeign` 两个参数。
+     * 
+     * ```json
+     * overseaDataType: "mapbox",
+     * vectorMapForeign: "style_zh_cn"
+     * ```
+     * - https://github.com/uiwjs/react-amap/issues/357
+     */
+    overseaDataType?: string;
+    /**
+     * `VIP 用户` 拿海外地图的图层，需要设置 `overseaDataType` 和 `vectorMapForeign` 两个参数。
+     * 
+     * ```json
+     * overseaDataType: "mapbox",
+     * vectorMapForeign: "style_zh_cn"
+     * ```
+     * - https://github.com/uiwjs/react-amap/issues/357
+     */
+    vectorMapForeign?: string,
+    /**
+     * 可下载地图设置
+     * 
+     * ```json
+     * WebGLParams: {
+     *   preserveDrawingBuffer: true,
+     * }
+     * ```
+     * 
+     * - https://github.com/uiwjs/react-amap/issues/357#issuecomment-2124292404
+     */
+    WebGLParams?: {
+      preserveDrawingBuffer?: boolean,
+    }
   }
   function plugin(ControlType: Array<ControlType>, callBack: () => void): void;
   /**
