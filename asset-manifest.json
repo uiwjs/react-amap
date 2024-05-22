@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-amap/static/css/main.9a12d092.css",
-    "main.js": "/react-amap/static/js/main.e57908ae.js",
+    "main.js": "/react-amap/static/js/main.70ed90d5.js",
     "static/css/6009.c7b9ef65.chunk.css": "/react-amap/static/css/6009.c7b9ef65.chunk.css",
     "static/js/6009.dffb82ca.chunk.js": "/react-amap/static/js/6009.dffb82ca.chunk.js",
     "static/css/5272.c7b9ef65.chunk.css": "/react-amap/static/css/5272.c7b9ef65.chunk.css",
@@ -98,15 +98,15 @@
     "uiw-vendor.css": "/react-amap/static/css/uiw-vendor.fb3aeb05.css",
     "refractor-prismjs-vendor.js": "/react-amap/static/js/refractor-prismjs-vendor.48e7fa74.chunk.js",
     "parse5-vendor.js": "/react-amap/static/js/parse5-vendor.e9f4aa5b.chunk.js",
-    "micromark-vendor.js": "/react-amap/static/js/micromark-vendor.cf9ebc30.chunk.js",
+    "micromark-vendor.js": "/react-amap/static/js/micromark-vendor.e46860dc.chunk.js",
     "react-vendor.js": "/react-amap/static/js/react-vendor.b4b40446.js",
-    "static/js/1993.1dbaddb9.chunk.js": "/react-amap/static/js/1993.1dbaddb9.chunk.js",
-    "static/js/4608.9559ccb9.js": "/react-amap/static/js/4608.9559ccb9.js",
+    "static/js/1993.75165f72.chunk.js": "/react-amap/static/js/1993.75165f72.chunk.js",
+    "static/js/4608.8f0b0c12.js": "/react-amap/static/js/4608.8f0b0c12.js",
     "static/js/8014.175297d4.chunk.js": "/react-amap/static/js/8014.175297d4.chunk.js",
     "static/media/logo.svg": "/react-amap/static/media/logo.552138f67b47aa2ff9779e6ffc2abeed.svg",
     "index.html": "/react-amap/index.html",
     "main.9a12d092.css.map": "/react-amap/static/css/main.9a12d092.css.map",
-    "main.e57908ae.js.map": "/react-amap/static/js/main.e57908ae.js.map",
+    "main.70ed90d5.js.map": "/react-amap/static/js/main.70ed90d5.js.map",
     "6009.c7b9ef65.chunk.css.map": "/react-amap/static/css/6009.c7b9ef65.chunk.css.map",
     "6009.dffb82ca.chunk.js.map": "/react-amap/static/js/6009.dffb82ca.chunk.js.map",
     "5272.c7b9ef65.chunk.css.map": "/react-amap/static/css/5272.c7b9ef65.chunk.css.map",
@@ -203,17 +203,17 @@
     "uiw-vendor.fb3aeb05.css.map": "/react-amap/static/css/uiw-vendor.fb3aeb05.css.map",
     "refractor-prismjs-vendor.48e7fa74.chunk.js.map": "/react-amap/static/js/refractor-prismjs-vendor.48e7fa74.chunk.js.map",
     "parse5-vendor.e9f4aa5b.chunk.js.map": "/react-amap/static/js/parse5-vendor.e9f4aa5b.chunk.js.map",
-    "micromark-vendor.cf9ebc30.chunk.js.map": "/react-amap/static/js/micromark-vendor.cf9ebc30.chunk.js.map",
+    "micromark-vendor.e46860dc.chunk.js.map": "/react-amap/static/js/micromark-vendor.e46860dc.chunk.js.map",
     "react-vendor.b4b40446.js.map": "/react-amap/static/js/react-vendor.b4b40446.js.map",
-    "1993.1dbaddb9.chunk.js.map": "/react-amap/static/js/1993.1dbaddb9.chunk.js.map",
-    "4608.9559ccb9.js.map": "/react-amap/static/js/4608.9559ccb9.js.map",
+    "1993.75165f72.chunk.js.map": "/react-amap/static/js/1993.75165f72.chunk.js.map",
+    "4608.8f0b0c12.js.map": "/react-amap/static/js/4608.8f0b0c12.js.map",
     "8014.175297d4.chunk.js.map": "/react-amap/static/js/8014.175297d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/uiw-vendor.fb3aeb05.css",
     "static/js/react-vendor.b4b40446.js",
-    "static/js/4608.9559ccb9.js",
+    "static/js/4608.8f0b0c12.js",
     "static/css/main.9a12d092.css",
-    "static/js/main.e57908ae.js"
+    "static/js/main.70ed90d5.js"
   ]
 }
