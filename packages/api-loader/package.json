@@ -37,9 +37,5 @@
     "@amap/amap-jsapi-loader": "^1.0.1",
     "@uiw/react-amap-require-script": "6.0.4",
     "@uiw/react-amap-types": "6.0.4"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.16",
-    "@types/react-dom": "^18.2.7"
   }
 }

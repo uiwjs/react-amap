@@ -29,9 +29,5 @@
   "peerDependencies": {
     "react": ">=16.14.0",
     "react-dom": ">=16.14.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.16",
-    "@types/react-dom": "^18.2.7"
   }
 }

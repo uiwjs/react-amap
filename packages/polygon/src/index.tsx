@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-amap-types" />
 import { useImperativeHandle, forwardRef, createContext } from 'react';
 import { OverlayProps } from '@uiw/react-amap-map';
 import { usePolygon } from './usePolygon';

@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-amap-types" />
 import React, { useImperativeHandle } from 'react';
 import { OverlayProps } from '@uiw/react-amap-map';
 import { useMapTypeControl } from './useMapTypeControl';

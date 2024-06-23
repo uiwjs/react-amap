@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-amap-types" />
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { useEventProperties } from '@uiw/react-amap-utils';
 import { useMapContext } from '@uiw/react-amap-map';

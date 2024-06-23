@@ -1,3 +1,4 @@
+/// <reference types="@uiw/react-amap-types" />
 import { useImperativeHandle, forwardRef } from 'react';
 import { OverlayProps } from '@uiw/react-amap-map';
 import { useLabelMarker } from './useLabelMarker';

@@ -80,6 +80,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "~18.2.16",
+    "@types/react-dom": "~18.2.7",
     "@types/react-test-renderer": "~18.0.0",
     "@kkt/less-modules": "^7.5.2",
     "@kkt/ncc": "^1.0.15",

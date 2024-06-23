@@ -1,3 +1,5 @@
+/// <reference types="@uiw/react-amap-types" />
+
 import React, { useImperativeHandle, Fragment } from 'react';
 import { MapChildProps } from '@uiw/react-amap-map';
 import { useContextMenu } from './useContextMenu';
