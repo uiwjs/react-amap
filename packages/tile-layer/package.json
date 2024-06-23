@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-tile-layer",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "用于在地图上加载切片图层。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/tile-layer",
@@ -35,7 +35,7 @@
     "react-dom": ">=16.14.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "6.0.4",
-    "@uiw/react-amap-utils": "6.0.4"
+    "@uiw/react-amap-map": "6.0.5",
+    "@uiw/react-amap-utils": "6.0.5"
   }
 }
