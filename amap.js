@@ -144,8 +144,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -221,17 +219,16 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  for (var key in source) {
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
-      if (excluded.indexOf(key) >= 0) continue;
-      target[key] = source[key];
-    }
+function _objectWithoutPropertiesLoose(r, e) {
+  if (null == r) return {};
+  var t = {};
+  for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
+    if (e.indexOf(n) >= 0) continue;
+    t[n] = r[n];
   }
-  return target;
+  return t;
 }
+
 // EXTERNAL MODULE: external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"}
 var external_root_React_commonjs2_react_commonjs_react_amd_react_ = __webpack_require__(442);
 var external_root_React_commonjs2_react_commonjs_react_amd_react_default = /*#__PURE__*/__webpack_require__.n(external_root_React_commonjs2_react_commonjs_react_amd_react_);
@@ -289,19 +286,15 @@ var APILoader = props => {
 };
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
     }
-    return target;
-  };
-  return _extends.apply(this, arguments);
+    return n;
+  }, _extends.apply(null, arguments);
 }
+
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(3);
 ;// CONCATENATED MODULE: ../utils/esm/usePortal.js
@@ -547,6 +540,7 @@ var useAutoComplete = function useAutoComplete(props) {
 };
 ;// CONCATENATED MODULE: ../auto-complete/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -560,9 +554,10 @@ var AutoComplete = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
   return null;
 });
 ;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/objectDestructuringEmpty.js
-function _objectDestructuringEmpty(obj) {
-  if (obj == null) throw new TypeError("Cannot destructure " + obj);
+function _objectDestructuringEmpty(t) {
+  if (null == t) throw new TypeError("Cannot destructure " + t);
 }
+
 ;// CONCATENATED MODULE: ../map/esm/context.js
 
 
@@ -681,6 +676,7 @@ var esm_excluded = ["className", "children"];
 
 
 
+
 var Provider = props => {
   var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
   return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
@@ -789,6 +785,7 @@ var useBezierCurve = function useBezierCurve(props) {
 };
 ;// CONCATENATED MODULE: ../bezier-curve/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -841,6 +838,7 @@ var useCircle = function useCircle(props) {
 };
 ;// CONCATENATED MODULE: ../circle/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -901,6 +899,7 @@ var useCircleMarker = function useCircleMarker(props) {
 };
 ;// CONCATENATED MODULE: ../circle-marker/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -979,6 +978,8 @@ var noop = function noop() {};
 });
 ;// CONCATENATED MODULE: ../context-menu/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
+
 
 
 
@@ -1051,6 +1052,7 @@ function useControlBarControl(props) {
 }
 ;// CONCATENATED MODULE: ../control-bar-control/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1111,6 +1113,7 @@ var useEllipse = function useEllipse(props) {
 };
 ;// CONCATENATED MODULE: ../ellipse/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1181,6 +1184,7 @@ var useGeolocation = function useGeolocation(props) {
 };
 ;// CONCATENATED MODULE: ../geolocation/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1239,6 +1243,7 @@ function useHawkEyeControl(props) {
 }
 ;// CONCATENATED MODULE: ../hawk-eye-control/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1331,6 +1336,7 @@ var useInfoWindow = function useInfoWindow(props) {
 };
 ;// CONCATENATED MODULE: ../info-window/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1392,6 +1398,7 @@ function useMapTypeControl(props) {
 }
 ;// CONCATENATED MODULE: ../map-type-control/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1470,6 +1477,7 @@ function useTileLayer(props) {
 }
 ;// CONCATENATED MODULE: ../tile-layer/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1539,6 +1547,8 @@ var useMarker = function useMarker(props) {
   };
 };
 ;// CONCATENATED MODULE: ../marker/esm/index.js
+
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1668,6 +1678,7 @@ var useLabelMarker = function useLabelMarker(props) {
 };
 ;// CONCATENATED MODULE: ../label-marker/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 var LabelMarker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
@@ -1762,6 +1773,7 @@ var useMassMarks = function useMassMarks(props) {
 };
 ;// CONCATENATED MODULE: ../mass-marks/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1830,6 +1842,7 @@ var usePolygon = function usePolygon(props) {
 };
 ;// CONCATENATED MODULE: ../polygon/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1852,6 +1865,7 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
 });
 ;// CONCATENATED MODULE: ../polygon-editor/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -1955,6 +1969,7 @@ function usePolyline(props) {
 }
 ;// CONCATENATED MODULE: ../polyline/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2030,6 +2045,7 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
 });
 ;// CONCATENATED MODULE: ../polyline-editor/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2081,6 +2097,7 @@ var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonj
 });
 ;// CONCATENATED MODULE: ../mouse-tool/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2205,6 +2222,7 @@ var useRectangle = function useRectangle(props) {
 };
 ;// CONCATENATED MODULE: ../rectangle/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2325,6 +2343,7 @@ function useScaleControl(props) {
 }
 ;// CONCATENATED MODULE: ../scale-control/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2393,6 +2412,7 @@ var useText = function useText(props) {
 };
 ;// CONCATENATED MODULE: ../text/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2453,6 +2473,7 @@ function useToolBarControl(props) {
 }
 ;// CONCATENATED MODULE: ../tool-bar-control/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2516,6 +2537,7 @@ var useWeather = function useWeather(props) {
 };
 ;// CONCATENATED MODULE: ../weather/esm/index.js
 
+/// <reference types="@uiw/react-amap-types" />
 
 
 
@@ -2530,8 +2552,6 @@ var Weather = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_am
 });
 ;// CONCATENATED MODULE: ./src/index.tsx
 /// <reference types="@uiw/react-amap-types" />
-
-})();
 
 /******/ 	return __webpack_exports__;
 /******/ })()
