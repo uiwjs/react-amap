@@ -74,7 +74,7 @@ npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
  </APILoader>
 ```
 
-[`v5` 升级到 `v6`](https://github.com/uiwjs/react-amap/releases/tag/v6.0.0)，`v6` 升级到 `v7` 只是对 `react 19` 的支持
+[`v5` 升级到 `v6`](https://github.com/uiwjs/react-amap/releases/tag/v6.0.0)，`v6` 升级到 `v7` 只是对 `react 19` 的支持，没有针对 API 做任何修改
 
 ### 使用
 
