@@ -25,7 +25,11 @@ export const usePortal = () => {
       return createPortal(children, elmm);
     };
     const remove: State['remove'] = (elm) => {
-      elm && ref.current?.unmount();
+      // https://stackoverflow.com/a/74445760/1334703
+      const timeout = setTimeout(() => {
+        elm && ref.current?.unmount();
+        clearTimeout(timeout);
+      });
     };
     return { render: Portal, remove };
   }, []);
