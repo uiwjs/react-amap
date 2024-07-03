@@ -1006,7 +1006,6 @@ var ContextMenuCompound = /*#__PURE__*/external_root_React_commonjs2_react_commo
     })
   });
 });
-console.log('ContextMenuCompound:', ContextMenuCompound);
 var ContextMenu = ContextMenuCompound;
 ContextMenu.Item = Item;
 ;// CONCATENATED MODULE: ../control-bar-control/esm/useControlBarControl.js
