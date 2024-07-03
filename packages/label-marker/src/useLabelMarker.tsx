@@ -18,7 +18,6 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
   const { visiable, children, text, icon = initIcon, ...other } = props;
   const { map, AMap } = useMapContext();
   const [labelMarker, setLabelMarker] = useState<AMap.LabelMarker>();
-  // const { container, Portal } = usePortal();
 
   useLayoutEffect(() => {
     if (!labelMarker && map) {

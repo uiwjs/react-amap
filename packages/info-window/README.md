@@ -92,7 +92,7 @@ const Example = () => {
             <p>电话：010-84107000   邮编：100102</p>
             <p>地址：北京市朝阳区望京阜荣街10号首开广场4层</p>
             <button onClick={() => setNum(num + 1)}>
-              点击事件 + 1
+              点击事件 + 1 ({num})
             </button>
           </InfoWindow>
         </Map>

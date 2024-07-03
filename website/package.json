@@ -15,8 +15,8 @@
   "author": "Kenny Wong <wowohoo@qq.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=16.14.0",
-    "react-dom": ">=16.14.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.9",
