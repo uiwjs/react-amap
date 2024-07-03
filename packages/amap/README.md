@@ -31,6 +31,10 @@
 
 文档实例预览: [Github Web](https://uiwjs.github.io/react-amap/) | [Gitee Web](https://uiw.gitee.io/react-amap)
 
+> [!WARNING]
+> 
+> 官网示例无法预览，因为 `akey` 被官方告知要付费，本项目目前没有任何捐赠，付不起钱删除了 `akey`
+
 ### 特性
 
 - ♻️ 自动加载高德地图 SDK（通过创建 Script 标签的形式加载），包括第三方 SDK。
@@ -51,7 +55,7 @@ npm install @uiw/react-amap --save
 npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 ```
 
-`v4` 升级到 `v5`，`APILoader` 主要是对 `APILoader` 做了升级，~~`akay`~~ => `akey`
+`v4` 升级到 `v5`，`APILoader` 主要是对 `APILoader` 做了升级，~~`akay`~~ => `akey`，`v5` 升级到 `v6` 只是对 `react 19` 的支持
 
 ```diff
  <APILoader
