@@ -1,5 +1,6 @@
-import React, { useState, useEffect, ReactPortal } from 'react';
-import { createPortal, unmountComponentAtNode } from 'react-dom';
+import React, { useState, useEffect, ReactPortal, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { createRoot, Root } from 'react-dom/client';
 
 interface State {
   render: (props: { children: React.ReactNode }) => ReactPortal | null;
@@ -7,8 +8,10 @@ interface State {
 }
 
 export const usePortal = () => {
+  const ref = useRef<Root>();
   const [container] = React.useState<HTMLDivElement>(() => {
     const el = document.createElement('div');
+    ref.current = createRoot(el);
     return el;
   });
   const [portal, setPortal] = useState<State>({
@@ -22,7 +25,7 @@ export const usePortal = () => {
       return createPortal(children, elmm);
     };
     const remove: State['remove'] = (elm) => {
-      elm && unmountComponentAtNode(elm);
+      elm && ref.current?.unmount();
     };
     return { render: Portal, remove };
   }, []);
