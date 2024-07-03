@@ -31,8 +31,6 @@ type CompoundedComponent = typeof ContextMenuCompound & {
   Item: typeof Item;
 };
 
-console.log('ContextMenuCompound:', ContextMenuCompound);
-
 export const ContextMenu: CompoundedComponent = ContextMenuCompound as unknown as CompoundedComponent;
 
 ContextMenu.Item = Item;
