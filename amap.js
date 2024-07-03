@@ -338,8 +338,12 @@ var usePortal = () => {
       return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
     };
     var remove = elm => {
-      var _ref$current;
-      elm && ((_ref$current = ref.current) == null ? void 0 : _ref$current.unmount());
+      // https://stackoverflow.com/a/74445760/1334703
+      var timeout = setTimeout(() => {
+        var _ref$current;
+        elm && ((_ref$current = ref.current) == null ? void 0 : _ref$current.unmount());
+        clearTimeout(timeout);
+      });
     };
     return {
       render: Portal,
