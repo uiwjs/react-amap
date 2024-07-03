@@ -1617,8 +1617,6 @@ var useLabelMarker = function useLabelMarker(props) {
     AMap
   } = useMapContext();
   var [labelMarker, setLabelMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  // const { container, Portal } = usePortal();
-
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!labelMarker && map) {
       var _v;
