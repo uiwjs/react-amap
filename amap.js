@@ -30,21 +30,6 @@ Loca:b.notload};n={AMap:[],AMapUI:[],Loca:[]}}}})
 
 /***/ }),
 
-/***/ 873:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-var __webpack_unused_export__;
-
-
-var m = __webpack_require__(3);
-if (true) {
-  exports.H = m.createRoot;
-  __webpack_unused_export__ = m.hydrateRoot;
-} else { var i; }
-
-
-/***/ }),
-
 /***/ 335:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -312,54 +297,19 @@ function _extends() {
 
 // EXTERNAL MODULE: external {"root":"ReactDOM","commonjs2":"react-dom","commonjs":"react-dom","amd":"react-dom"}
 var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_ = __webpack_require__(3);
-// EXTERNAL MODULE: ../../node_modules/react-dom/client.js
-var client = __webpack_require__(873);
 ;// CONCATENATED MODULE: ../utils/esm/usePortal.js
 
 
-
 var usePortal = () => {
-  var ref = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)();
-  var [container] = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useState(() => {
-    var el = document.createElement('div');
-    ref.current = (0,client/* createRoot */.H)(el);
-    return el;
-  });
-  var [portal, setPortal] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)({
-    render: () => null,
-    remove: () => null
-  });
-  var ReactCreatePortal = external_root_React_commonjs2_react_commonjs_react_amd_react_default().useCallback(elmm => {
-    var Portal = _ref => {
-      var {
-        children
-      } = _ref;
-      if (!children) return null;
-      return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, elmm);
-    };
-    var remove = elm => {
-      // https://stackoverflow.com/a/74445760/1334703
-      var timeout = setTimeout(() => {
-        var _ref$current;
-        elm && ((_ref$current = ref.current) == null ? void 0 : _ref$current.unmount());
-        clearTimeout(timeout);
-      });
-    };
-    return {
-      render: Portal,
-      remove
-    };
-  }, []);
-  (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (container) portal.remove();
-    var newPortal = ReactCreatePortal(container);
-    setPortal(newPortal);
-    return () => {
-      newPortal.remove(container);
-    };
+  var [container] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(() => document.createElement('div'));
+  var Portal = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useCallback)(function Portal(_ref) {
+    var {
+      children
+    } = _ref;
+    return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, container);
   }, [container]);
   return {
-    Portal: portal.render,
+    Portal,
     container
   };
 };
