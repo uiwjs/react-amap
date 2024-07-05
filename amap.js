@@ -306,6 +306,7 @@ var usePortal = () => {
     var {
       children
     } = _ref;
+    if (!children) return null;
     return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, container);
   }, [container]);
   return {
