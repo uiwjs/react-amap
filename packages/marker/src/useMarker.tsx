@@ -29,7 +29,6 @@ export const useMarker = (props: UseMarker = {}) => {
     }
   }, [map]);
 
-  useVisiable(marker!, visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [
     'Path',
     'Anchor',
@@ -70,6 +69,8 @@ export const useMarker = (props: UseMarker = {}) => {
     'onTouchMove',
     'onTouchEnd',
   ]);
+  useVisiable(marker!, visiable);
+
   return {
     marker,
     setMarker,

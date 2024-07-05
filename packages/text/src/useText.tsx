@@ -33,7 +33,6 @@ export const useText = (props = {} as UseText) => {
     }
   }, [props.children, props.text, container, text]);
 
-  useVisiable(text!, visiable);
   useSettingProperties<AMap.Text, UseText>(text!, props, [
     'Style',
     'Title',
@@ -67,6 +66,8 @@ export const useText = (props = {} as UseText) => {
     'onDragEnd',
     'onDragging',
   ]);
+  useVisiable(text!, visiable);
+
   return {
     text,
     setText,
