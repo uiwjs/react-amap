@@ -223,7 +223,7 @@ function _objectWithoutPropertiesLoose(r, e) {
   if (null == r) return {};
   var t = {};
   for (var n in r) if ({}.hasOwnProperty.call(r, n)) {
-    if (e.indexOf(n) >= 0) continue;
+    if (e.includes(n)) continue;
     t[n] = r[n];
   }
   return t;
@@ -364,21 +364,21 @@ function useSetStatus(instance, props, propsName) {
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-function useVisiable(instance, visiable) {
-  var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
+function useVisiable(instance, visible) {
+  var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visible);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (instance && visiable !== undefined) {
-      if (visiable) {
+    if (instance && visible !== undefined) {
+      if (visible) {
         instance.show && instance.show();
       } else {
         instance.hide && instance.hide();
       }
-      if (visiable !== state) {
-        setState(visiable);
+      if (visible !== state) {
+        setState(visible);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [instance, visiable]);
+  }, [instance, visible]);
 }
 
 /**
@@ -717,7 +717,7 @@ var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
 ;// CONCATENATED MODULE: ../bezier-curve/esm/useBezierCurve.js
 
 
-var useBezierCurve_excluded = ["visiable"];
+var useBezierCurve_excluded = ["visiable", "visible"];
 
 
 
@@ -726,7 +726,8 @@ var useBezierCurve = function useBezierCurve(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
   var {
@@ -751,7 +752,7 @@ var useBezierCurve = function useBezierCurve(props) {
       };
     }
   }, [map]);
-  useVisiable(bezierCurve, visiable);
+  useVisiable(bezierCurve, visible != null ? visible : visiable);
   useSettingProperties(bezierCurve, props, ['Options', 'Path', 'ExtData', 'ExtData']);
   useEventProperties(bezierCurve, props, ['onHide', 'onShow', 'onDblClick', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onclick', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onRightClick', 'onMouseOut']);
   return {
@@ -777,7 +778,7 @@ var BezierCurve = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
 ;// CONCATENATED MODULE: ../circle/esm/useCircle.js
 
 
-var useCircle_excluded = ["visiable"];
+var useCircle_excluded = ["visiable", "visible"];
 
 
 
@@ -786,7 +787,8 @@ var useCircle = function useCircle(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
   var {
@@ -804,7 +806,7 @@ var useCircle = function useCircle(props) {
       };
     }
   }, [map]);
-  useVisiable(circle, visiable);
+  useVisiable(circle, visible != null ? visible : visiable);
   useSettingProperties(circle, props, ['Center', 'Raius', 'Options', 'ExtData']);
   useEventProperties(circle, props, ['onHide', 'onShow', 'onRightClick', 'onClick', 'onTouchEnd', 'onDblClick', 'onTouchMove', 'onTouchStart', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown']);
   return {
@@ -830,7 +832,7 @@ var Circle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd
 ;// CONCATENATED MODULE: ../circle-marker/esm/useCircleMarker.js
 
 
-var useCircleMarker_excluded = ["visiable"];
+var useCircleMarker_excluded = ["visiable", "visible"];
 
 
 
@@ -839,7 +841,8 @@ var useCircleMarker = function useCircleMarker(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
   var {
@@ -865,7 +868,7 @@ var useCircleMarker = function useCircleMarker(props) {
       };
     }
   }, [map]);
-  useVisiable(circleMarker, visiable);
+  useVisiable(circleMarker, visible != null ? visible : visiable);
   useSettingProperties(circleMarker, props, ['Center', 'Raius', 'zIndex', 'Bubble', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'Draggable', 'ExtData']);
   useEventProperties(circleMarker, props, ['onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart', 'onMousedown', 'onDblclick']);
   return {
@@ -995,6 +998,7 @@ function useControlBarControl(props) {
   var {
     position,
     visiable,
+    visible,
     offset
   } = props;
   var [controlBarControl, setControlBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
@@ -1019,7 +1023,7 @@ function useControlBarControl(props) {
       };
     }
   }, [map]);
-  useVisiable(controlBarControl, visiable);
+  useVisiable(controlBarControl, visible != null ? visible : visiable);
   return {
     controlBarControl,
     setControlBarControl
@@ -1043,7 +1047,7 @@ var ControlBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonj
 ;// CONCATENATED MODULE: ../ellipse/esm/useEllipse.js
 
 
-var useEllipse_excluded = ["visiable"];
+var useEllipse_excluded = ["visiable", "visible"];
 
 
 
@@ -1052,7 +1056,8 @@ var useEllipse = function useEllipse(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
   var {
@@ -1078,7 +1083,7 @@ var useEllipse = function useEllipse(props) {
       };
     }
   }, [map]);
-  useVisiable(ellipse, visiable);
+  useVisiable(ellipse, visible != null ? visible : visiable);
   useSettingProperties(ellipse, props, ['Center', 'Radius', 'Options', 'ExtData']);
   useEventProperties(ellipse, props, ['onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart']);
   return {
@@ -1175,7 +1180,7 @@ var Geolocation = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_reac
 ;// CONCATENATED MODULE: ../hawk-eye-control/esm/useHawkEyeControl.js
 
 
-var useHawkEyeControl_excluded = ["offset", "visiable"];
+var useHawkEyeControl_excluded = ["offset", "visiable", "visible"];
 
 
 
@@ -1186,7 +1191,8 @@ function useHawkEyeControl(props) {
   var [hawkEyeControl, setHawkEyeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
       offset,
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
   var {
@@ -1210,7 +1216,7 @@ function useHawkEyeControl(props) {
       }
     };
   }, [map, hawkEyeControl]);
-  useVisiable(hawkEyeControl, visiable);
+  useVisiable(hawkEyeControl, visible != null ? visible : visiable);
   return {
     hawkEyeControl,
     setHawkEyeControl
@@ -1234,7 +1240,7 @@ var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_r
 ;// CONCATENATED MODULE: ../info-window/esm/useInfoWindow.js
 
 
-var useInfoWindow_excluded = ["visiable", "position"];
+var useInfoWindow_excluded = ["visiable", "visible", "position"];
 
 
 
@@ -1244,6 +1250,7 @@ var useInfoWindow = function useInfoWindow(props) {
   }
   var {
       visiable,
+      visible,
       position
     } = props,
     other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
@@ -1283,19 +1290,20 @@ var useInfoWindow = function useInfoWindow(props) {
       infoWindow.setContent(props.children ? container : other.content || '');
     }
   }, [props.children, container, other.content, infoWindow]);
+  var visibleView = visible != null ? visible : visiable;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useMemo)(() => {
-    if (isOpen !== visiable && infoWindow && map) {
-      setIsOpen(visiable);
-      if (visiable) {
+    if (isOpen !== visibleView && infoWindow && map) {
+      setIsOpen(visibleView);
+      if (visibleView) {
         var positionCenter = map.getCenter();
         infoWindow.open(map, position || positionCenter);
       } else {
         infoWindow.close();
       }
     }
-  }, [visiable, infoWindow]);
+  }, [visibleView, infoWindow]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
-    if (!map || !infoWindow || !visiable) return;
+    if (!map || !infoWindow || !visibleView) return;
     var positionCenter = map.getCenter();
     infoWindow.open(map, position || positionCenter);
   }, [position]);
@@ -1331,7 +1339,7 @@ var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react
 ;// CONCATENATED MODULE: ../map-type-control/esm/useMapTypeControl.js
 
 
-var useMapTypeControl_excluded = ["visiable", "defaultType"];
+var useMapTypeControl_excluded = ["visiable", "visible", "defaultType"];
 
 
 
@@ -1342,6 +1350,7 @@ function useMapTypeControl(props) {
   var [mapTypeControl, setMapTypeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
       visiable,
+      visible,
       defaultType = 0
     } = props,
     other = _objectWithoutPropertiesLoose(props, useMapTypeControl_excluded);
@@ -1365,7 +1374,7 @@ function useMapTypeControl(props) {
       };
     }
   }, [map]);
-  useVisiable(mapTypeControl, visiable);
+  useVisiable(mapTypeControl, visible != null ? visible : visiable);
   return {
     mapTypeControl,
     setMapTypeControl
@@ -1398,6 +1407,7 @@ function useTileLayer(props) {
   var [tileLayer, setTileLayer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
     visiable,
+    visible,
     type,
     options
   } = props;
@@ -1444,7 +1454,7 @@ function useTileLayer(props) {
       };
     }
   }, [map, type, options]);
-  useVisiable(tileLayer, visiable);
+  useVisiable(tileLayer, visible != null ? visible : visiable);
   return {
     tileLayer,
     setTileLayer
@@ -1474,7 +1484,7 @@ var TileLayer = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../marker/esm/useMarker.js
 
 
-var useMarker_excluded = ["visiable", "children"];
+var useMarker_excluded = ["visiable", "visible", "children"];
 
 
 
@@ -1483,7 +1493,8 @@ var useMarker = function useMarker(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useMarker_excluded);
   var {
@@ -1512,7 +1523,7 @@ var useMarker = function useMarker(props) {
       };
     }
   }, [map]);
-  useVisiable(marker, visiable);
+  useVisiable(marker, visible != null ? visible : visiable);
   useSettingProperties(marker, props, ['Path', 'Anchor', 'Offset', 'Animation', 'Clickable', 'Position', 'Angle', 'Label', 'zIndex', 'Icon', 'Draggable', 'Cursor', 'Content', 'Map', 'Title', 'Top', 'Shadow', 'Shape', 'ExtData']);
   useEventProperties(marker, props, ['onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragging', 'onDragEnd', 'onMoving', 'onMoveEnd', 'onMoveAlong', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
@@ -1544,7 +1555,7 @@ var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../label-marker/esm/useLabelMarker.js
 
 
-var useLabelMarker_excluded = ["visiable", "children", "text", "icon"];
+var useLabelMarker_excluded = ["visiable", "visible", "children", "text", "icon"];
 
 
 
@@ -1563,6 +1574,7 @@ var useLabelMarker = function useLabelMarker(props) {
   }
   var {
       visiable,
+      visible,
       text,
       icon = initIcon
     } = props,
@@ -1639,7 +1651,7 @@ var useLabelMarker = function useLabelMarker(props) {
       };
     }
   }, [map]);
-  useVisiable(labelMarker, visiable);
+  useVisiable(labelMarker, visible != null ? visible : visiable);
   useSettingProperties(labelMarker, props, ['Name', 'Position', 'Zooms', 'Opacity', 'zIndex', 'Rank', 'Text', 'Icon', 'ExtData', 'Top']);
   useEventProperties(labelMarker, props, ['onTouchStart', 'onTouchMove', 'onTouchEnd', 'onClick', 'onMouseMove', 'onMouseOver', 'onMouseDown', 'onMouseUp', 'onMouseOut',
   // 以下事件过时兼容，将在 v6 中移除
@@ -1665,7 +1677,7 @@ var LabelMarker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_r
 });
 ;// CONCATENATED MODULE: ../mass-marks/esm/useMassMarks.js
 
-var useMassMarks_excluded = ["visiable"];
+var useMassMarks_excluded = ["visiable", "visible"];
 
 
 
@@ -1674,7 +1686,8 @@ var useMassMarks = function useMassMarks(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useMassMarks_excluded);
   var {
@@ -1728,7 +1741,7 @@ var useMassMarks = function useMassMarks(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
-  useVisiable(massMarks, visiable);
+  useVisiable(massMarks, visible != null ? visible : visiable);
   useSettingProperties(massMarks, props, ['Map', 'Data', 'Style', 'Opacity', 'zIndex', 'Zooms']);
   useEventProperties(massMarks, props, [
   // 'onRightClick',
@@ -1762,7 +1775,7 @@ var MassMarks = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../polygon/esm/usePolygon.js
 
 
-var usePolygon_excluded = ["visiable"];
+var usePolygon_excluded = ["visiable", "visible"];
 
 
 
@@ -1771,7 +1784,8 @@ var usePolygon = function usePolygon(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, usePolygon_excluded);
   var {
@@ -1805,7 +1819,7 @@ var usePolygon = function usePolygon(props) {
       polygon.setOptions(other);
     }
   }, [polygon, other]);
-  useVisiable(polygon, visiable);
+  useVisiable(polygon, visible != null ? visible : visiable);
   useSettingProperties(polygon, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polygon, props, ['onClick', 'onDblClick', 'onRightClick', 'onHide', 'onShow', 'onMouseDown', 'onMouseUp', 'onMouseOver', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onTouchStart', 'onTouchMove', 'onTouchEnd']);
   return {
@@ -1890,7 +1904,7 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
 });
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
 
-var usePolyline_excluded = ["visiable"];
+var usePolyline_excluded = ["visiable", "visible"];
 
 
 
@@ -1900,7 +1914,8 @@ function usePolyline(props) {
   }
   var [polyline, setPolyline] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, usePolyline_excluded);
   var {
@@ -1932,7 +1947,7 @@ function usePolyline(props) {
       polyline.setOptions(other);
     }
   }, [polyline, other]);
-  useVisiable(polyline, visiable);
+  useVisiable(polyline, visible != null ? visible : visiable);
   useSettingProperties(polyline, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties(polyline, props, ['onHide', 'onShow', 'onMouseOut', 'onChange', 'onDragStart', 'onDragging', 'onDragEnd', 'onRightClick', 'onDblClick', 'onMouseDown', 'onClick', 'onMouseOver', 'onTouchEnd', 'onTouchMove', 'onTouchStart', 'onMouseUp']);
   return {
@@ -2150,7 +2165,7 @@ var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_rea
 ;// CONCATENATED MODULE: ../rectangle/esm/useRectangle.js
 
 
-var useRectangle_excluded = ["visiable"];
+var useRectangle_excluded = ["visiable", "visible"];
 
 
 
@@ -2159,7 +2174,8 @@ var useRectangle = function useRectangle(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useRectangle_excluded);
   var {
@@ -2185,7 +2201,7 @@ var useRectangle = function useRectangle(props) {
       };
     }
   }, [map]);
-  useVisiable(rectangle, visiable);
+  useVisiable(rectangle, visible != null ? visible : visiable);
   useSettingProperties(rectangle, props, ['Bounds', 'Options', 'Map', 'ExtData']);
   useEventProperties(rectangle, props, ['onHide', 'onShow', 'onClick', 'onDblClick', 'onRightClick', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'onMouseDown', 'onTouchEnd', 'onTouchMove', 'onTouchStart']);
   return {
@@ -2285,6 +2301,7 @@ function useScaleControl(props) {
   var {
     position,
     visiable,
+    visible,
     offset
   } = props;
   var {
@@ -2308,7 +2325,7 @@ function useScaleControl(props) {
       };
     }
   }, [map]);
-  useVisiable(scaleControl, visiable);
+  useVisiable(scaleControl, visible != null ? visible : visiable);
   return {
     scaleControl,
     setScaleControl
@@ -2332,7 +2349,7 @@ var ScaleControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_rea
 ;// CONCATENATED MODULE: ../text/esm/useText.js
 
 
-var useText_excluded = ["visiable"];
+var useText_excluded = ["visiable", "visible"];
 
 
 
@@ -2341,7 +2358,8 @@ var useText = function useText(props) {
     props = {};
   }
   var {
-      visiable
+      visiable,
+      visible
     } = props,
     other = _objectWithoutPropertiesLoose(props, useText_excluded);
   var [text, setText] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
@@ -2374,7 +2392,7 @@ var useText = function useText(props) {
       text.setText(props.children ? container.innerHTML : props.text || '');
     }
   }, [props.children, props.text, container, text]);
-  useVisiable(text, visiable);
+  useVisiable(text, visible != null ? visible : visiable);
   useSettingProperties(text, props, ['Style', 'Title', 'Clickable', 'Draggable', 'Map', 'Position', 'Offset', 'Angle', 'zIndex', 'Top', 'Cursor', 'ExtData']);
   useEventProperties(text, props, ['onMoving', 'onTouchMove', 'onTouchEnd', 'onMoveaLong', 'onTouchStart', 'onMoveEnd', 'onClick', 'onDblClick', 'onRightClick', 'onMouseMove', 'onMouseOver', 'onMouseOut', 'onMouseDown', 'onMouseUp', 'onDragStart', 'onDragEnd', 'onDragging']);
   return {
@@ -2415,6 +2433,7 @@ function useToolBarControl(props) {
   var {
     position,
     visiable,
+    visible,
     offset
   } = props;
   var {
@@ -2438,7 +2457,7 @@ function useToolBarControl(props) {
       };
     }
   }, [map]);
-  useVisiable(toolBarControl, visiable);
+  useVisiable(toolBarControl, visible != null ? visible : visiable);
   return {
     toolBarControl,
     setToolBarControl
