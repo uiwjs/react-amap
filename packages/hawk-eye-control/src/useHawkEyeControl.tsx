@@ -7,7 +7,7 @@ export interface UseHawkEyeControl extends HawkEyeControlProps {}
 
 export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
   const [hawkEyeControl, setHawkEyeControl] = useState<AMap.HawkEye>();
-  const { offset, visiable, ...other } = props;
+  const { offset, visiable, visible, ...other } = props;
   const { map } = useMapContext();
   useEffect(() => {
     if (map && !hawkEyeControl) {
@@ -26,7 +26,7 @@ export function useHawkEyeControl(props = {} as UseHawkEyeControl) {
     };
   }, [map, hawkEyeControl]);
 
-  useVisiable(hawkEyeControl! as any, visiable);
+  useVisiable(hawkEyeControl! as any, visible ?? visiable);
   return {
     hawkEyeControl,
     setHawkEyeControl,

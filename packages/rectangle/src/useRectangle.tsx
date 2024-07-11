@@ -5,7 +5,7 @@ import { RectangleProps } from '.';
 
 export interface UseRectangle extends RectangleProps {}
 export const useRectangle = (props = {} as UseRectangle) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   const [rectangle, setRectangle] = useState<AMap.Rectangle>();
   useLayoutEffect(() => {
@@ -28,7 +28,7 @@ export const useRectangle = (props = {} as UseRectangle) => {
     }
   }, [map]);
 
-  useVisiable(rectangle!, visiable);
+  useVisiable(rectangle!, visible ?? visiable);
   useSettingProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, ['Bounds', 'Options', 'Map', 'ExtData']);
   useEventProperties<AMap.Rectangle, UseRectangle>(rectangle!, props, [
     'onHide',

@@ -8,8 +8,10 @@ export * from './usePolyline';
 export const PolylineContext = createContext<AMap.Polyline | undefined>(undefined);
 
 export interface PolylineProps extends OverlayProps, AMap.PolylineEvents, AMap.PolylineOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
   children?: JSX.Element;
 }
 export const Polyline = React.forwardRef<PolylineProps, PolylineProps>((props, ref) => {

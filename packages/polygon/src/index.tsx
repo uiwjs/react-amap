@@ -8,8 +8,10 @@ export * from './usePolygon';
 export const PolygonContext = createContext<AMap.Polygon | undefined>(undefined);
 
 export interface PolygonProps extends OverlayProps, AMap.PolygonEvents, AMap.PolygonOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
   children?: JSX.Element;
 }
 export const Polygon = forwardRef<PolygonProps, PolygonProps>((props, ref) => {

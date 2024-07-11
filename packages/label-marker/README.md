@@ -32,7 +32,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
           <LabelMarker 
-            visiable={show}
+            visible={show}
             name= "标注1"
             text={{
               content: '文本标注',
@@ -48,7 +48,7 @@ const Example = () => {
             }}
             position={[116.466994, 39.984904]}
           />
-          <LabelMarker visiable={show} name= "标注3" position={new AMap.LngLat(119.306239,26.075302)} 
+          <LabelMarker visible={show} name= "标注3" position={new AMap.LngLat(119.306239,26.075302)} 
             text={{
               content: '有icon',
               direction: 'top',
@@ -104,7 +104,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={4}>
           <LabelMarker 
-            visiable={show}
+            visible={show}
             name= "标注1"
             icon={null}
             text={{
@@ -141,7 +141,7 @@ export default Mount;
 
 | 参数     | 说明                                                                                       | 类型                                  | 默认值    |
 | -------- | ------------------------------------------------------------------------------------------ | ------------------------------------- | --------- |
-| visiable | 覆盖物是否可见。                                                                           | `boolean`                             | -         |
+| visible | 覆盖物是否可见。                                                                           | `boolean`                             | -         |
 | name     | 标注名称，作为标注标识，显示文字内容请设置 opts.text.content                               | `string`                              | -         |
 | position | 点标记在地图上显示的位置，默认为地图中心点                                                 | `(Vector                              | LngLat)`  | - |
 | zooms    | 海量点显示层级范围，范围外不显示。                                                         | `Vector`                              | `[2, 20]` |

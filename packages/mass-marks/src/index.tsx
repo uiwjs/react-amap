@@ -6,8 +6,10 @@ import { useMassMarks } from './useMassMarks';
 export * from './useMassMarks';
 
 export interface MassMarksProps extends OverlayProps, AMap.MassMarksEvents, AMap.MassMarkersOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
   data?: AMap.MassMarkersDataOptions;
 }
 

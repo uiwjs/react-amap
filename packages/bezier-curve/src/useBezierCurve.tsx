@@ -5,7 +5,7 @@ import { BezierCurveProps } from '.';
 
 export interface UseBezierCurve extends BezierCurveProps {}
 export const useBezierCurve = (props = {} as UseBezierCurve) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   const [bezierCurve, setBezierCurve] = useState<AMap.BezierCurve>();
   useEffect(() => {
@@ -27,7 +27,7 @@ export const useBezierCurve = (props = {} as UseBezierCurve) => {
     }
   }, [map]);
 
-  useVisiable(bezierCurve!, visiable);
+  useVisiable(bezierCurve!, visible ?? visiable);
   useSettingProperties<AMap.BezierCurve, UseBezierCurve>(bezierCurve!, props, [
     'Options',
     'Path',

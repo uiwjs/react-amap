@@ -29,7 +29,7 @@ const Example = () => {
       </button>
       <Map zoom={4} style={{ height: 300 }}>
         <Ellipse
-          visiable={show}
+          visible={show}
           radius={[1000000, 200000]}
           borderWeight={3}
           strokeColor="#FF33FF"
@@ -64,7 +64,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | center | 	椭圆圆心 | `LngLatLike` | - |
 
 ### 事件

@@ -7,7 +7,7 @@ export interface UseTileLayer extends TileLayerProps {}
 
 export function useTileLayer(props = {} as UseTileLayer) {
   const [tileLayer, setTileLayer] = useState<AMap.TileLayer>();
-  const { visiable, type, options } = props;
+  const { visiable, visible, type, options } = props;
   const { map } = useMapContext();
   useEffect(() => {
     if (map) {
@@ -50,7 +50,7 @@ export function useTileLayer(props = {} as UseTileLayer) {
     }
   }, [map, type, options]);
 
-  useVisiable(tileLayer!, visiable);
+  useVisiable(tileLayer!, visible ?? visiable);
   return {
     tileLayer,
     setTileLayer,

@@ -5,7 +5,7 @@ import { MassMarksProps } from './';
 
 export interface UseMassMarks extends MassMarksProps {}
 export const useMassMarks = (props = {} as UseMassMarks) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   const { opacity = 1, zIndex = 1111, style, data } = other || {};
   const [massMarks, setMassMarks] = useState<AMap.MassMarks>();
@@ -52,7 +52,7 @@ export const useMassMarks = (props = {} as UseMassMarks) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
-  useVisiable(massMarks!, visiable);
+  useVisiable(massMarks!, visible ?? visiable);
   useSettingProperties<AMap.MassMarks, UseMassMarks>(massMarks!, props, [
     'Map',
     'Data',

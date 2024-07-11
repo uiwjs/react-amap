@@ -5,7 +5,7 @@ import { PolygonProps } from '.';
 
 export interface UsePolygon extends PolygonProps {}
 export const usePolygon = (props = {} as UsePolygon) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   const [polygon, setPolygon] = useState<AMap.Polygon>();
   useLayoutEffect(() => {
@@ -37,7 +37,7 @@ export const usePolygon = (props = {} as UsePolygon) => {
     }
   }, [polygon, other]);
 
-  useVisiable(polygon!, visiable);
+  useVisiable(polygon!, visible ?? visiable);
   useSettingProperties<AMap.Polygon, UsePolygon>(polygon!, props, ['Path', 'Options', 'Map', 'ExtData', 'Draggable']);
   useEventProperties<AMap.Polygon, UsePolygon>(polygon!, props, [
     'onClick',

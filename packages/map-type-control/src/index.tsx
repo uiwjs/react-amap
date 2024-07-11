@@ -5,8 +5,10 @@ import { useMapTypeControl } from './useMapTypeControl';
 
 export * from './useMapTypeControl';
 export interface MapTypeControlProps extends OverlayProps, AMap.MapTypeOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 
 export const MapTypeControl = React.forwardRef<MapTypeControlProps, MapTypeControlProps>((props, ref) => {

@@ -5,8 +5,10 @@ import { useEllipse } from './useEllipse';
 export * from './useEllipse';
 
 export interface EllipseProps extends OverlayProps, AMap.EllipseEvents, AMap.EllipseOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 export const Ellipse = React.forwardRef<EllipseProps, EllipseProps>((props, ref) => {
   const { ellipse } = useEllipse(props);

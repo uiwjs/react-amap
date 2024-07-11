@@ -5,8 +5,10 @@ import { useCircleMarker } from './useCircleMarker';
 export * from './useCircleMarker';
 
 export interface CircleMarkerProps extends OverlayProps, AMap.CircleMarkerEvents, AMap.CircleMarkerOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 export const CircleMarker = React.forwardRef<CircleMarkerProps, CircleMarkerProps>((props, ref) => {
   const { circleMarker } = useCircleMarker(props);

@@ -5,7 +5,7 @@ import { MarkerProps } from './';
 
 export interface UseMarker extends MarkerProps {}
 export const useMarker = (props: UseMarker = {}) => {
-  const { visiable, children, ...other } = props;
+  const { visiable, visible, children, ...other } = props;
   const { map } = useMapContext();
   const [marker, setMarker] = useState<AMap.Marker>();
   const { container, Portal } = usePortal();
@@ -29,7 +29,7 @@ export const useMarker = (props: UseMarker = {}) => {
     }
   }, [map]);
 
-  useVisiable(marker!, visiable);
+  useVisiable(marker!, visible ?? visiable);
   useSettingProperties<AMap.Marker, UseMarker>(marker!, props, [
     'Path',
     'Anchor',

@@ -5,7 +5,7 @@ import { InfoWindowProps } from '.';
 
 export interface UseInfoWindow extends InfoWindowProps {}
 export const useInfoWindow = (props = {} as UseInfoWindow) => {
-  const { visiable, position, ...other } = props;
+  const { visiable, visible, position, ...other } = props;
   const { map } = useMapContext();
   const [isOpen, setIsOpen] = useState(visiable);
   const [infoWindow, setInfoWindow] = useState<AMap.InfoWindow>();
@@ -38,20 +38,22 @@ export const useInfoWindow = (props = {} as UseInfoWindow) => {
     }
   }, [props.children, container, other.content, infoWindow]);
 
+  let visibleView = visible ?? visiable;
+
   useMemo(() => {
-    if (isOpen !== visiable && infoWindow && map) {
-      setIsOpen(visiable);
-      if (visiable) {
+    if (isOpen !== visibleView && infoWindow && map) {
+      setIsOpen(visibleView);
+      if (visibleView) {
         const positionCenter = map.getCenter();
         infoWindow.open(map, position || positionCenter);
       } else {
         infoWindow.close();
       }
     }
-  }, [visiable, infoWindow]);
+  }, [visibleView, infoWindow]);
 
   useEffect(() => {
-    if (!map || !infoWindow || !visiable) return;
+    if (!map || !infoWindow || !visibleView) return;
     const positionCenter = map.getCenter();
     infoWindow.open(map, position || positionCenter);
   }, [position]);

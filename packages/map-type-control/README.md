@@ -30,13 +30,13 @@ const Demo = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map>
           <MapTypeControl
-            visiable={show}
+            visible={show}
             offset={[30, 10]}
             position="RT"
           />
           {show && (
             <MapTypeControl
-              visiable={show}
+              visible={show}
               offset={[10, 10]}
               position="RB"
             />
@@ -60,7 +60,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | showRoad | 覆盖物是否可见。 | `boolean` | `false` |
 | showTraffic | 叠加实时交通图层 默认值：false | `boolean` | `false` |
 | defaultType | 初始化默认图层类型。 取值为0：默认底图 取值为1：卫星图 默认值：0 | `number` | `0` |

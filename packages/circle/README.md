@@ -30,7 +30,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={14} center={[116.400274, 39.905812]}>
           <Circle
-            visiable={show}
+            visible={show}
             radius={1000}
             strokeColor="#fff"
             strokeWeight={2}
@@ -57,7 +57,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | radius | 圆半径，单位:米 | `number` | - |
 
 ### 事件

@@ -34,7 +34,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map zoom={3}>
           <Polyline
-            visiable={show}
+            visible={show}
             onHide={(obj) => {
               console.log('obj:', obj);
             }}
@@ -67,7 +67,7 @@ const Example = () => {
             ]}
           />
           <Polyline
-            visiable={show}
+            visible={show}
             strokeOpacity={1}
             strokeColor={color}
             path={[
@@ -179,7 +179,7 @@ const Example = () => {
         <Map zoom={3}>
           <Polyline
             akey="1"
-            visiable={show}
+            visible={show}
             strokeOpacity={1}
             path={paths}
             options={options}
@@ -187,7 +187,7 @@ const Example = () => {
           <Polyline
             akey="2"
             zIndex={3}
-            visiable={true}
+            visible={true}
             strokeColor={"yellow"}
             strokeOpacity={1}
             strokeWeight={4}
@@ -218,7 +218,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | path | 路径，支持 lineString 和 MultiLineString。 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
 | options | 折线属性（包括路径的节点、线样式、是否绘制大地线等）。 | `PolylineOptions` | - |
 

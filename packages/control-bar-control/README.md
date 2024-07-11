@@ -30,13 +30,13 @@ const Demo = () => {
       <div style={{ width: '100%', height: '300px' }}>
         <Map>
           <ControlBarControl
-            visiable={show}
+            visible={show}
             offset={[30, 10]}
             position="RT"
           />
           {show && (
             <ControlBarControl
-              visiable={show}
+              visible={show}
               offset={[10, 10]}
               position="RB"
             />
@@ -60,6 +60,6 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | position | 控件停靠位置 `{ top: 5; left: 5; right: 5; bottom: 5 }` 或者 'LT': 左上角, 'RT': 右上角, 'LB': 左下角, 'RB': 右下角。 | `string| object` | - |
 | offset | 相对于地图容器左上角的偏移量，正数代表向右下偏移。默认为 `AMap.Pixel(10,10)` | `[number, number]` | - |

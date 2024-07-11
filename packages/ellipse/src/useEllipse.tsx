@@ -5,7 +5,7 @@ import { EllipseProps } from './';
 
 export interface UseEllipse extends EllipseProps {}
 export const useEllipse = (props = {} as UseEllipse) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   const [ellipse, setEllipse] = useState<AMap.Ellipse>();
   useLayoutEffect(() => {
@@ -28,7 +28,7 @@ export const useEllipse = (props = {} as UseEllipse) => {
     }
   }, [map]);
 
-  useVisiable(ellipse!, visiable);
+  useVisiable(ellipse!, visible ?? visiable);
   useSettingProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, ['Center', 'Radius', 'Options', 'ExtData']);
   useEventProperties<AMap.Ellipse, UseEllipse>(ellipse!, props, [
     'onHide',

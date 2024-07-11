@@ -7,7 +7,7 @@ export interface UseMapTypeControl extends MapTypeControlProps {}
 
 export function useMapTypeControl(props = {} as UseMapTypeControl) {
   const [mapTypeControl, setMapTypeControl] = useState<AMap.MapType>();
-  const { visiable, defaultType = 0, ...other } = props;
+  const { visiable, visible, defaultType = 0, ...other } = props;
   const { map } = useMapContext();
   useEffect(() => {
     if (map && !mapTypeControl) {
@@ -25,7 +25,7 @@ export function useMapTypeControl(props = {} as UseMapTypeControl) {
     }
   }, [map]);
 
-  useVisiable(mapTypeControl!, visiable);
+  useVisiable(mapTypeControl!, visible ?? visiable);
   return {
     mapTypeControl,
     setMapTypeControl,

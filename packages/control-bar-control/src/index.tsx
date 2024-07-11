@@ -5,8 +5,10 @@ import { useControlBarControl } from './useControlBarControl';
 export * from './useControlBarControl';
 
 export interface ControlBarControlProps extends OverlayProps, AMap.ControlBarOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 
 export const ControlBarControl = React.forwardRef<ControlBarControlProps, ControlBarControlProps>((props, ref) => {

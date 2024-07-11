@@ -272,7 +272,7 @@ const Demo = () => {
         <Map center={new AMap.LngLat(116.405285,39.904989)}>
           <TileLayer
             akey="1"
-            visiable={show}
+            visible={show}
             type={type}
             options={options}
             onAdded={()=>{
@@ -284,7 +284,7 @@ const Demo = () => {
           />
           <TileLayer
             akey="2"
-            visiable={showTDT}
+            visible={showTDT}
             type={type}
             options={TiandituSatelliteOptions2}
             onAdded={()=>{
@@ -314,7 +314,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | type | 切片图层类型 | TileLayerType | - |
 | options | 切片图层的配置 | TileLayerOptions | - |
 | onAdded | 图层添加后的回调，可以用来处理不同坐标系图层切换时覆盖物的坐标转换 | (): void; |

@@ -5,7 +5,7 @@ import { TextProps } from './';
 
 export interface UseText extends TextProps {}
 export const useText = (props = {} as UseText) => {
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const [text, setText] = useState<AMap.Text>();
   const { map } = useMapContext();
   const { container, Portal } = usePortal();
@@ -33,7 +33,7 @@ export const useText = (props = {} as UseText) => {
     }
   }, [props.children, props.text, container, text]);
 
-  useVisiable(text!, visiable);
+  useVisiable(text!, visible ?? visiable);
   useSettingProperties<AMap.Text, UseText>(text!, props, [
     'Style',
     'Title',

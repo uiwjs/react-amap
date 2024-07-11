@@ -7,7 +7,7 @@ export interface UsePolyline extends PolylineProps {}
 
 export function usePolyline(props = {} as UsePolyline) {
   const [polyline, setPolyline] = useState<AMap.Polyline>();
-  const { visiable, ...other } = props;
+  const { visiable, visible, ...other } = props;
   const { map } = useMapContext();
   useLayoutEffect(() => {
     if (map && !polyline) {
@@ -37,7 +37,7 @@ export function usePolyline(props = {} as UsePolyline) {
     }
   }, [polyline, other]);
 
-  useVisiable(polyline!, visiable);
+  useVisiable(polyline!, visible ?? visiable);
   useSettingProperties<AMap.Polyline, UsePolyline>(polyline!, props, [
     'Path',
     'Options',

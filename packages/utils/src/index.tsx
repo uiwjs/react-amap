@@ -43,21 +43,21 @@ export function useSetStatus<T extends { getStatus: () => any; setStatus: (opt: 
  * 针对 Overlay 类型的组件，有公共的是否显示 对象处理
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
-export function useVisiable<T extends { show: () => void; hide: () => void }>(instance: T, visiable?: boolean) {
-  const [state, setState] = useState(visiable);
+export function useVisiable<T extends { show: () => void; hide: () => void }>(instance: T, visible?: boolean) {
+  const [state, setState] = useState(visible);
   useEffect(() => {
-    if (instance && visiable !== undefined) {
-      if (visiable) {
+    if (instance && visible !== undefined) {
+      if (visible) {
         instance.show && instance.show();
       } else {
         instance.hide && instance.hide();
       }
-      if (visiable !== state) {
-        setState(visiable);
+      if (visible !== state) {
+        setState(visible);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [instance, visiable]);
+  }, [instance, visible]);
 }
 
 /**

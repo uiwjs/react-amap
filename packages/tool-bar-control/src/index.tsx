@@ -6,8 +6,10 @@ import { useToolBarControl } from './useToolBarControl';
 export * from './useToolBarControl';
 
 export interface ToolBarControlProps extends OverlayProps, AMap.ToolBarOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 
 export const ToolBarControl = React.forwardRef<ToolBarControlProps, ToolBarControlProps>((props, ref) => {

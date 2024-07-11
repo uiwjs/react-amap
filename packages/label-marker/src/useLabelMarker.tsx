@@ -15,7 +15,7 @@ const initIcon: LabelMarkerProps['icon'] = {
 
 export interface UseLabelMarker extends LabelMarkerProps {}
 export const useLabelMarker = (props: UseLabelMarker = {}) => {
-  const { visiable, children, text, icon = initIcon, ...other } = props;
+  const { visiable, visible, children, text, icon = initIcon, ...other } = props;
   const { map, AMap } = useMapContext();
   const [labelMarker, setLabelMarker] = useState<AMap.LabelMarker>();
 
@@ -85,7 +85,7 @@ export const useLabelMarker = (props: UseLabelMarker = {}) => {
       };
     }
   }, [map]);
-  useVisiable(labelMarker!, visiable);
+  useVisiable(labelMarker!, visible ?? visiable);
   useSettingProperties<AMap.LabelMarker, UseLabelMarker>(labelMarker, props, [
     'Name',
     'Position',

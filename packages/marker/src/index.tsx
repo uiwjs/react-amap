@@ -7,8 +7,10 @@ import { useMarker } from './useMarker';
 export * from './useMarker';
 
 export interface MarkerProps extends OverlayProps, AMap.MarkerEvents, AMap.MarkerOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
   className?: string;
   children?: JSX.Element;
 }

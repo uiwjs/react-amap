@@ -6,8 +6,10 @@ import { useScaleControl } from './useScaleControl';
 export * from './useScaleControl';
 
 export interface ScaleControlProps extends OverlayProps, AMap.ScaleOptions {
-  /** 覆盖物是否可见 */
+  /** @deprecated use `visible` */
   visiable?: boolean;
+  /** 覆盖物是否可见 */
+  visible?: boolean;
 }
 
 export const ScaleControl = React.forwardRef<ScaleControlProps, ScaleControlProps>((props, ref) => {

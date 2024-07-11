@@ -46,7 +46,7 @@ const Example = () => {
       <div style={{ width: '100%', height: '500px' }}>
         <Map zoom={14} center={[116.397637, 39.900001]}>
           <BezierCurve
-            visiable={show}
+            visible={show}
             path={path}
             isOutline={true}
             outlineColor="#ffeeff"
@@ -83,7 +83,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 |--------- |-------- |--------- |-------- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | path | 贝瑟尔曲线的路径。 | `Array<LngLat>` / `Array<Array<LngLat>>` | - |
 
 ### 事件

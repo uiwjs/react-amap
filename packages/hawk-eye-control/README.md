@@ -37,7 +37,7 @@ const Demo = () => {
           }
         }}>
           <HawkEyeControl
-            visiable={show}
+            visible={show}
             offset={[50, 10]}
           />
         </Map>
@@ -61,7 +61,7 @@ export default Mount;
 
 | 参数 | 说明 | 类型 | 默认值 |
 | ----- | ----- | ----- | ----- |
-| visiable | 覆盖物是否可见。 | `boolean` | - |
+| visible | 覆盖物是否可见。 | `boolean` | - |
 | offset | 相对于地图容器左上角的偏移量，正数代表向右下偏移。默认为 `AMap.Pixel(10,10)` | `[number, number]` | - |
 | autoMove | 是否随主图视口变化移动 | boolean | - |
 | showRectangle | 是否显示视口矩形 | boolean | - |
