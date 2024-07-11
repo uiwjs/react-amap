@@ -288,7 +288,7 @@ jobs:
 
       - name: Create Release
         uses: ncipollo/release-action@v1
-        if: steps.create_tag.outputs.successful
+        if: steps.create_tag.outputs.successful == 'true'
         with:
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
