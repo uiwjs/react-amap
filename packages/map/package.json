@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-map",
-  "version": "7.0.2",
+  "version": "7.1.0",
   "description": "基于 React 封装的高德地图组件。AMap Component Based On React.",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/map",
@@ -32,7 +32,7 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@uiw/react-amap-types": "7.0.2",
-    "@uiw/react-amap-utils": "7.0.2"
+    "@uiw/react-amap-types": "7.1.0",
+    "@uiw/react-amap-utils": "7.1.0"
   }
 }

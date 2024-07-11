@@ -76,6 +76,8 @@ npm install @uiw/react-amap-map @uiw/react-amap-api-loader --save
 
 [`v5` 升级到 `v6`](https://github.com/uiwjs/react-amap/releases/tag/v6.0.0)，`v6` 升级到 `v7` 只是对 `react 19` 的支持，没有针对 API 做任何修改
 
+`7.1.0` 标记覆盖物 props ~~visiable~~<!--rehype:style=color: red;--> 过时，使用 `visible` 未来的版本中将会移除 ~~visiable~~
+
 ### 使用
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/embed/react-amap-example-y0n6c-y0n6c?fontsize=14&hidenavigation=1&theme=dark)
