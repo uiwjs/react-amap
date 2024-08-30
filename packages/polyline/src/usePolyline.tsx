@@ -33,7 +33,11 @@ export function usePolyline(props = {} as UsePolyline) {
 
   useEffect(() => {
     if (polyline) {
-      polyline.setOptions(other);
+      const { path, ...rest } = other;
+      if (path) {
+        polyline.setPath(path);
+      }
+      polyline.setOptions(rest);
     }
   }, [polyline, other]);
 
