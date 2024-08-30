@@ -33,7 +33,11 @@ export const usePolygon = (props = {} as UsePolygon) => {
 
   useEffect(() => {
     if (polygon) {
-      polygon.setOptions(other);
+      const { path, ...rest } = other;
+      if (path) {
+        polygon.setPath(path);
+      }
+      polygon.setOptions(rest);
     }
   }, [polygon, other]);
 
