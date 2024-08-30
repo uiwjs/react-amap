@@ -356,7 +356,7 @@ declare namespace AMap {
      * @param point 
      */
     contains(point: LngLatLike): boolean;
-
+    destroy(): void;
   }
   interface PolylineEvents extends EventsCommonProps { 
     onDragStart?(event:MapsEvent):void;
@@ -478,6 +478,7 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
+    destroy(): void;
   }
   interface CircleEvents extends EventsCommonProps { }
   interface CircleOptions {
@@ -555,6 +556,7 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleMarkerOptions;
+    destroy(): void;
   }
   interface CircleMarkerEvents extends EventsCommonProps { }
   interface CircleMarkerOptions {
@@ -606,6 +608,7 @@ declare namespace AMap {
     getExtData(): any;
     /** 设置用户自定义属性，支持JavaScript API任意数据类型 */
     setExtData(extData: any): void;
+    destroy(): void;
   }
   interface EllipseOptions {
     /**
@@ -694,6 +697,7 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取矩形的属性 */
     getOptions(): RectangleOptions;
+    destroy(): void;
   }
   interface RectangleOptions {
     /** 要显示该覆盖物的地图对象 */
@@ -770,6 +774,7 @@ declare namespace AMap {
     getLength(): number;
     /** 获取当前折线的矩形范围对象 */
     getBounds(): Bounds | undefined;
+    destroy(): void;
   }
   interface BezierCurveOptions {
     /**
@@ -838,6 +843,12 @@ declare namespace AMap {
   /** 多边形 */
   class Polygon extends MapEventListener<'hide' | 'show' | 'touchstart' | 'mouseout' | 'mouseover' | 'mouseup' | 'mousedown' | 'rightclick' | 'click' | 'dblclick' | 'touchend' | 'touchmove'> {
     constructor(opts: PolygonOptions);
+    hide(): void;
+    show(): void;
+    /** 获取用户自定义属性 */
+    getExtData(): any;
+    /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
+    setExtData(ext: any): void;
     /** 设置多边形轮廓线节点数组，当为“环”多边形时，path为二维数组，数组元素为多边形轮廓线的节点坐标数组 */
     setPath(path: Array<LngLat> | Array<Array<LngLat>>): void;
     /** 获取多边形轮廓线节点数组。其中lat和lng是经纬度参数。 */
@@ -848,14 +859,11 @@ declare namespace AMap {
     getOptions(): PolygonOptions;
     /** 获取当前多边形的矩形范围对象。（自v1.2 新增） */
     getBounds(): Bounds;
+    destroy(): void;
     /** 获取多边形的面积（单位：平方米）（自v1.1 新增） */
     getArea(): number;
     /** 在指定地图上显示当前的多边形。参数取值为null时，在地图上移除当前多边形（自v1.2 新增） */
     setMap(map: Map | null): void;
-    /** 设置用户自定义属性，支持JavaScript API任意数据类型，如Polygon的id等 */
-    setExtData(ext: any): void;
-    /** 获取用户自定义属性 */
-    getExtData(): any;
     /** 判断指定点坐标是否在多边形范围内 */
     contains(point: LngLat): boolean;
   }

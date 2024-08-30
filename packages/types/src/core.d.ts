@@ -41,10 +41,15 @@ declare namespace AMap {
      */
     setZoom(zoom: number, immediately?: boolean, duration?: number): void;
     /**
+     * 设置当前地图可现实的缩放级别, 取值范围为[2, 20]
+     * @param zoomRange 缩放级别范围
+     */   
+    setZooms(zoomRange: [number, number]): void;
+    /**
      * 获取当前地图缩放级别, 默认取值范围为[2, 20]
      * @param digits zoom级别的小数位精度，缺省为2
      */
-    getZoom(digits: number): number;
+    getZoom(digits?: number): number;
     /** 地图放大一级显示 */
     zoomIn(): void;
     /** 地图缩小一级显示 */
@@ -252,6 +257,23 @@ declare namespace AMap {
      * @returns 新的地图视口范围
      */
     setFitView(overlays: Array<TileLayer> | null, immediately: boolean, avoid: Array<number>, maxZoom?: number): Bounds;
+    /**
+    * 根据 overlays 计算出合适的中心点和 zoom 级别
+    * 参数说明：
+    * @param overlays (Array<Overlay>) 覆盖物
+    * @param avoid (Array<Number> = [0,0,0,0]) 四周边距，上、下、左、右
+    * @param maxZoom (Number = CoreMap.defaultZooms[1]) 最大 zoom 级别
+    */
+    getFitZoomAndCenterByOverlays(overlays: Array<TileLayer> | null, avoid: number[], maxZoom: number): void;
+    /**
+    * 根据 overlays 计算出合适的中心点和 zoom 级别
+    * 参数说明：
+    * @param bounds ((Array<number> | Bounds)) 需要计算的范围
+    * @param avoid (Array<Number> = [0,0,0,0]) 四周边距，上、下、左、右
+    * @param maxZoom (Number = CoreMap.defaultZooms[1]) 最大 zoom 级别
+    */
+    getFitZoomAndCenterByBounds(bounds: (number[] | Bounds), avoid: number[], maxZoom: number): void;
+    
     /**
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
      * @param control 控件对象
