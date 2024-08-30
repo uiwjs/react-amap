@@ -168,6 +168,29 @@ declare namespace AMap {
      */
     toString?(): string;
   }
+  class GeometryUtil {
+    distance(p1, p2): number;
+    ringArea(ring: LngLat[] | [number, number][]): number;
+    ringAreaByAltitude(params: any): number;
+    isClockwise(ring: LngLat[] | [number, number][]): boolean;
+    typePolygon(ring: LngLat[] | [number, number][]): boolean;
+    makesureClockwise(ring: LngLat[] | [number, number][]): [number, number][];
+    makesureAntiClockwise(ring: LngLat[] | [number, number][]): [number, number][];
+    distanceOfLine(ring: LngLat[] | [number, number][]): number;
+    isPointInRing(p:  LngLat | [number, number],ring: LngLat[] | [number, number][]): boolean;
+    distanceToLine(p:  LngLat | [number, number],line: LngLat[] | [number, number][]): number;
+  }
+
+  interface DistrictSearchOptions {
+    level: string; showbiz: boolean; extensions: string; subdistrict: number
+  }
+  /**
+   * 需引入相关plugin
+  */
+  class DistrictSearch {
+    constructor(opts: DistrictSearchOptions);
+    search(keywords: string, callback: (status: string, result: any) => void): void;
+  }
   class MapEventListener<T = ''> {
     /**
      * 设置控件可见
