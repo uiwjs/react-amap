@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-info-window",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "用于在地图上弹出一个详细信息展示窗体，地图上只允许同时展示 `1` 个信息窗体。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/info-window",
@@ -35,7 +35,7 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "7.1.0",
-    "@uiw/react-amap-utils": "7.1.0"
+    "@uiw/react-amap-map": "7.1.1",
+    "@uiw/react-amap-utils": "7.1.1"
   }
 }
