@@ -1775,7 +1775,8 @@ var MassMarks = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_
 ;// CONCATENATED MODULE: ../polygon/esm/usePolygon.js
 
 
-var usePolygon_excluded = ["visiable", "visible"];
+var usePolygon_excluded = ["visiable", "visible"],
+  _excluded2 = ["path"];
 
 
 
@@ -1816,7 +1817,14 @@ var usePolygon = function usePolygon(props) {
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon) {
-      polygon.setOptions(other);
+      var {
+          path
+        } = other,
+        rest = _objectWithoutPropertiesLoose(other, _excluded2);
+      if (path) {
+        polygon.setPath(path);
+      }
+      polygon.setOptions(rest);
     }
   }, [polygon, other]);
   useVisiable(polygon, visible != null ? visible : visiable);
@@ -1904,7 +1912,8 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
 });
 ;// CONCATENATED MODULE: ../polyline/esm/usePolyline.js
 
-var usePolyline_excluded = ["visiable", "visible"];
+var usePolyline_excluded = ["visiable", "visible"],
+  usePolyline_excluded2 = ["path"];
 
 
 
@@ -1944,7 +1953,14 @@ function usePolyline(props) {
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polyline) {
-      polyline.setOptions(other);
+      var {
+          path
+        } = other,
+        rest = _objectWithoutPropertiesLoose(other, usePolyline_excluded2);
+      if (path) {
+        polyline.setPath(path);
+      }
+      polyline.setOptions(rest);
     }
   }, [polyline, other]);
   useVisiable(polyline, visible != null ? visible : visiable);
