@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-amap/static/css/main.9a12d092.css",
-    "main.js": "/react-amap/static/js/main.9468e7e5.js",
+    "main.js": "/react-amap/static/js/main.bf5a2429.js",
     "static/css/6009.c7b9ef65.chunk.css": "/react-amap/static/css/6009.c7b9ef65.chunk.css",
     "static/js/6009.b42799ae.chunk.js": "/react-amap/static/js/6009.b42799ae.chunk.js",
     "static/css/5272.c7b9ef65.chunk.css": "/react-amap/static/css/5272.c7b9ef65.chunk.css",
@@ -106,7 +106,7 @@
     "static/media/logo.svg": "/react-amap/static/media/logo.552138f67b47aa2ff9779e6ffc2abeed.svg",
     "index.html": "/react-amap/index.html",
     "main.9a12d092.css.map": "/react-amap/static/css/main.9a12d092.css.map",
-    "main.9468e7e5.js.map": "/react-amap/static/js/main.9468e7e5.js.map",
+    "main.bf5a2429.js.map": "/react-amap/static/js/main.bf5a2429.js.map",
     "6009.c7b9ef65.chunk.css.map": "/react-amap/static/css/6009.c7b9ef65.chunk.css.map",
     "6009.b42799ae.chunk.js.map": "/react-amap/static/js/6009.b42799ae.chunk.js.map",
     "5272.c7b9ef65.chunk.css.map": "/react-amap/static/css/5272.c7b9ef65.chunk.css.map",
@@ -214,6 +214,6 @@
     "static/js/react-vendor.b4b40446.js",
     "static/js/7663.1a08806e.js",
     "static/css/main.9a12d092.css",
-    "static/js/main.9468e7e5.js"
+    "static/js/main.bf5a2429.js"
   ]
 }
