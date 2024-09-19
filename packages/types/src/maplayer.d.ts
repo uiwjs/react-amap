@@ -404,7 +404,7 @@ declare namespace AMap {
     /** 缓存瓦片数量 */
     cacheSize?: Number;
     /** 由开发者实现，由API自动调用，xyz分别为切片横向纵向编号和层级，切片大小 256。假设每次创建的贴片为A(支持img或者canvas)，当创建或者获取成功时请回调success(A)，不需要显示或者失败时请回调fail() */
-    createTile?: (x: number, y: number, z: number, success: () => void, fail: () => void) => void;
+    createTile?: (x: number, y: number, z: number, success: (tile: HTMLImageElement | HTMLCanvasElement) => void, fail: () => void) => void;
     /** 支持的缩放级别范围，默认范围 [2-20] */
     zooms?: [Number, Number];
     /** 透明度，默认 1 */
