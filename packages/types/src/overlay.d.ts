@@ -136,7 +136,7 @@ declare namespace AMap {
     /** 获取覆盖物锚点 */
     getAnchor(): string | Vector | undefined;
     /** 设置覆盖物位置 */
-    setPosition(position: Vector): void;
+    setPosition(position: Vector | LngLat | [number, number]): void;
     /** 获取覆盖物位置 */
     getPosition(): Vector;
     /** 将覆盖物设置到地图上 */
@@ -463,7 +463,7 @@ declare namespace AMap {
     /** 设置圆中心点 */
     setCenter(center: LngLatLike): void;
     /** 设置圆形的半径 */
-    setRaius(radius: number): void;
+    setRadius(radius: number): void;
     /** 获取圆中心点 */
     getCenter(): LngLat;
     /** 获取圆形的半径 */
@@ -478,6 +478,7 @@ declare namespace AMap {
     setExtData(extData: any): void;
     /** 获取圆形的属性 */
     getOptions(): CircleOptions;
+    setMap(map: Map | null): void;
     destroy(): void;
   }
   interface CircleEvents extends EventsCommonProps { }
@@ -539,7 +540,7 @@ declare namespace AMap {
   class CircleMarker extends MapEventListener<'hide' | 'show' | 'mouseover' | 'touchend' | 'click' | 'touchmove' | 'rightclick' | 'mouseup' | 'mouseout' | 'touchstart' | 'mousedown' | 'dblclick'> {
     constructor(opts: CircleMarkerOptions);
     /** 设置圆点的半径 */
-    setRaius(radius: number): void;
+    setRadius(radius: number): void;
     /** 获取圆点中心 */
     getCenter(): LngLat;
     /** 获取圆点的半径 */
@@ -1115,7 +1116,7 @@ declare namespace AMap {
     addTo(map: Map): void;
     add(map: Map): void;
     getPosition(): Vector | LngLat;
-    setPosition(position: Vector): void;
+    setPosition(position: Vector | LngLat | [number, number]): void;
     getAnchor(): string | Vector | undefined;
     Text(anchor: string): void;
     getOffset(): Vector | Pixel | undefined | Array<number>;
