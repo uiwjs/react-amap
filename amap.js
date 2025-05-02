@@ -319,7 +319,6 @@ var usePortal = () => {
 /// <reference types="@uiw/react-amap-types" />
 
 
-
 /**
  * 对实例有 setStatus 更改状态的处理
  * @param instance
@@ -566,11 +565,9 @@ function useMapContext() {
 
 
 
-
 /**
  * 此类型是 `<Map>` 组件传递给子组件(如 `<Marker>`)的两个 props
  */
-
 var useMap = function useMap(props) {
   if (props === void 0) {
     props = {};
