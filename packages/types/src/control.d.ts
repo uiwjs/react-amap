@@ -93,6 +93,8 @@ declare namespace AMap {
    */
   interface ReGeocoderResult {
     info: string
+    status: string
+    count: string
     geocode: {
       formatted_address: string
       country: string
@@ -107,6 +109,49 @@ declare namespace AMap {
       level: string
     }
   }
+
+  /**
+   * 高德封装后的地理编码
+   */
+  interface ReverseGeocodeResult {
+    info: string
+    infocode: string
+    status: string
+    regeocode: {
+      formatted_address: string
+      addressComponent: {
+        city: any[]
+        province: string
+        adcode: string
+        district: string
+        towncode: string
+        streetNumber: {
+          number: string
+          location: string
+          direction: string
+          distance: string
+          street: string
+        }
+        country: string
+        township: string
+        businessAreas: {
+          location: string
+          name: string
+          id: string
+        }[]
+        building: {
+          name: any[]
+          type: any[]
+        }
+        neighborhood: {
+          name: any[]
+          type: any[]
+        }
+        citycode: string
+      }
+    }
+  }
+  
   interface GeocoderOptions {
     /**
      * 城市，地理编码时，设置地址描述所在城市
