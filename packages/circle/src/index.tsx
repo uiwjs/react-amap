@@ -5,7 +5,7 @@ import { useCircle } from './useCircle';
 export * from './useCircle';
 
 export interface CircleProps extends OverlayProps, AMap.CircleEvents, AMap.CircleOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

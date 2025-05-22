@@ -5,7 +5,7 @@ import { useBezierCurve } from './useBezierCurve';
 export * from './useBezierCurve';
 
 export interface BezierCurveProps extends OverlayProps, AMap.BezierCurveEvents, AMap.BezierCurveOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

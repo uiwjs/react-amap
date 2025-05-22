@@ -6,7 +6,7 @@ import { useScaleControl } from './useScaleControl';
 export * from './useScaleControl';
 
 export interface ScaleControlProps extends OverlayProps, AMap.ScaleOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

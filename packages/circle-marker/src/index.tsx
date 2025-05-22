@@ -5,7 +5,7 @@ import { useCircleMarker } from './useCircleMarker';
 export * from './useCircleMarker';
 
 export interface CircleMarkerProps extends OverlayProps, AMap.CircleMarkerEvents, AMap.CircleMarkerOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

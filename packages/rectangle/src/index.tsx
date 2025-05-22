@@ -6,7 +6,7 @@ import { useRectangle } from './useRectangle';
 export * from './useRectangle';
 
 export interface RectangleProps extends OverlayProps, AMap.RectangleEvents, AMap.RectangleOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

@@ -6,7 +6,7 @@ import { useToolBarControl } from './useToolBarControl';
 export * from './useToolBarControl';
 
 export interface ToolBarControlProps extends OverlayProps, AMap.ToolBarOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

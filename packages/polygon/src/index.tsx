@@ -8,7 +8,7 @@ export * from './usePolygon';
 export const PolygonContext = createContext<AMap.Polygon | undefined>(undefined);
 
 export interface PolygonProps extends OverlayProps, AMap.PolygonEvents, AMap.PolygonOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

@@ -6,7 +6,7 @@ import { useText } from './useText';
 export * from './useText';
 
 export interface TextProps extends OverlayProps, AMap.TextEvents, AMap.TextOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

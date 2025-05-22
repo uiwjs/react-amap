@@ -4,7 +4,7 @@ import { OverlayProps } from '@uiw/react-amap-map';
 import { useLabelMarker } from './useLabelMarker';
 
 export interface LabelMarkerProps extends OverlayProps, AMap.LabelMarkerEvents, AMap.LabelMarkerOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

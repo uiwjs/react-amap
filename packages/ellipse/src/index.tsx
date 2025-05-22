@@ -5,7 +5,7 @@ import { useEllipse } from './useEllipse';
 export * from './useEllipse';
 
 export interface EllipseProps extends OverlayProps, AMap.EllipseEvents, AMap.EllipseOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

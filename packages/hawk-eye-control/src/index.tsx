@@ -5,7 +5,7 @@ import { useHawkEyeControl } from './useHawkEyeControl';
 export * from './useHawkEyeControl';
 
 export interface HawkEyeControlProps extends OverlayProps, AMap.HawkEyeOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

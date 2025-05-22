@@ -7,7 +7,7 @@ import { useMarker } from './useMarker';
 export * from './useMarker';
 
 export interface MarkerProps extends OverlayProps, AMap.MarkerEvents, AMap.MarkerOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

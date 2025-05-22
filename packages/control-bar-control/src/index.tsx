@@ -5,7 +5,7 @@ import { useControlBarControl } from './useControlBarControl';
 export * from './useControlBarControl';
 
 export interface ControlBarControlProps extends OverlayProps, AMap.ControlBarOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

@@ -5,7 +5,7 @@ import { useInfoWindow } from './useInfoWindow';
 
 export * from './useInfoWindow';
 export interface InfoWindowProps extends OverlayProps, AMap.InforWindowEvents, AMap.InforWindowOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

@@ -88,8 +88,12 @@ declare namespace AMap {
     (status: string, result: ReGeocoderResult): void
   }
   /**
-   * 地理编码
-   * https://lbs.amap.com/api/webservice/guide/api/georegeo#geo
+   * @deprecated 请使用 {@link ReverseGeocodeResult} 代替。
+   *
+   * 此接口为高德地理编码结果的封装版本，已不再与高德官方文档完全一致。
+   * 推荐迁移至 {@link ReverseGeocodeResult}，以获得更准确和持续维护的类型定义。
+   *
+   * 官方文档参考：https://lbs.amap.com/api/webservice/guide/api/georegeo#geo
    */
   interface ReGeocoderResult {
     info: string
@@ -109,9 +113,13 @@ declare namespace AMap {
       level: string
     }
   }
-
   /**
-   * 高德封装后的地理编码
+   * 高德地理编码结果（封装版本）。
+   *
+   * 此类型为对高德返回数据的二次封装，可能与官方文档略有差异。
+   *
+   * - 官方文档（仅供参考）：https://lbs.amap.com/api/webservice/guide/api/georegeo#geo
+   * - 背景说明与社区讨论：https://github.com/uiwjs/react-amap/issues/386
    */
   interface ReverseGeocodeResult {
     info: string

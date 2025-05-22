@@ -5,7 +5,7 @@ import { useMapTypeControl } from './useMapTypeControl';
 
 export * from './useMapTypeControl';
 export interface MapTypeControlProps extends OverlayProps, AMap.MapTypeOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;

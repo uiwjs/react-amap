@@ -8,7 +8,7 @@ export * from './usePolyline';
 export const PolylineContext = createContext<AMap.Polyline | undefined>(undefined);
 
 export interface PolylineProps extends OverlayProps, AMap.PolylineEvents, AMap.PolylineOptions {
-  /** @deprecated use `visible` */
+  /** @deprecated use {@link visible} */
   visiable?: boolean;
   /** 覆盖物是否可见 */
   visible?: boolean;
