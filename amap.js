@@ -26,7 +26,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 
 if (true) {
   module.exports = __webpack_require__(335);
-} else {}
+} else // removed by dead control flow
+{}
 
 
 /***/ }),
