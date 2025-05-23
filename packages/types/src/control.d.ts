@@ -97,8 +97,6 @@ declare namespace AMap {
    */
   interface ReGeocoderResult {
     info: string
-    status: string
-    count: string
     geocode: {
       formatted_address: string
       country: string
@@ -123,40 +121,26 @@ declare namespace AMap {
    */
   interface ReverseGeocodeResult {
     info: string
-    infocode: string
-    status: string
     regeocode: {
-      formatted_address: string
+      formattedAddress: string
       addressComponent: {
-        city: any[]
-        province: string
         adcode: string
-        district: string
-        towncode: string
-        streetNumber: {
-          number: string
-          location: string
-          direction: string
-          distance: string
-          street: string
-        }
-        country: string
-        township: string
-        businessAreas: {
-          location: string
-          name: string
-          id: string
-        }[]
-        building: {
-          name: any[]
-          type: any[]
-        }
-        neighborhood: {
-          name: any[]
-          type: any[]
-        }
+        building: string
+        buildingType: string
+        businessAreas: Array<BusinessArea>
+        city: string
         citycode: string
+        district: string
+        neighborhood: string
+        neighborhoodType: string
+        province: string
+        street: string
+        streetNumber: string
+        township: string
       }
+      crosses: Array<any>
+      pois: Array<any>
+      roads: Array<any>
     }
   }
   
