@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-polyline",
-  "version": "7.1.6",
+  "version": "7.1.7",
   "description": "构造折线对象，支持 `lineString` 和 `MultiLineString`。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/polyline",
@@ -35,7 +35,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "7.1.6",
-    "@uiw/react-amap-utils": "7.1.6"
+    "@uiw/react-amap-map": "7.1.7",
+    "@uiw/react-amap-utils": "7.1.7"
   }
 }
