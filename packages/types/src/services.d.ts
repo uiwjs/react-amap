@@ -335,11 +335,11 @@ declare namespace AMap {
   class PlaceSearch extends MapEventListener<'selectChanged' | 'listElementClick' | 'markerClick'> {
     constructor(opts: PlaceSearchOptions);
     /** 根据输入关键字提示匹配信息，支持中文、拼音 */
-    search(keyword: string, callback: (state: string, result: PlaceSearchResult) => void): void;
+    search(keyword: string, callback: (status: string, result: PlaceSearchResult) => void): void;
     /** 根据范围和关键词进行范围查询 */
-    searchInBounds(keyword: string, bounds: AMap.Bounds, callback: (state: string, result: PlaceSearchResult) => void): void;
+    searchInBounds(keyword: string, bounds: AMap.Bounds, callback: (status: string, result: PlaceSearchResult) => void): void;
     /** 根据中心点经纬度、半径以及关键字进行周边查询 radius取值范围：0-50000 */
-    searchNearBy(keyword: string, center: AMap.LngLat, radius: number): void
+    searchNearBy(keyword: string, center: AMap.LngLat, radius: number, callback: (status: string, result: PlaceSearchResult) => void): void
     /** 根据PGUID 查询POI 详细信息 */
     getDetails(PGUID: string): POI;
     /** 设置查询类别，多个类别用“|”分割 */
@@ -399,32 +399,41 @@ declare namespace AMap {
   interface PlaceSearchOptions {
     /** 城市 */
     city?: string;
-    /** 数据类别 */
+    /** 是否强制限制在设置的城市内搜索 */
+    citylimit?: boolean;
+    /** 数据类别, 多个类别用「 | 」分割 */
     type?: string;
     /** 每页结果数,默认10 */
     pageSize?: number;
     /** 请求页码，默认1 */
     pageIndex?: number;
+    /**
+     * 是否按照层级展示子POI数据
+     * 
+     * children = 1，展示子节点POI数据
+     * 
+     * children = 0，不展示子节点数据
+     */
+    children?: number
     /** 返回信息详略，默认为base（基本信息） */
     extensions?: string;
+    /** 设置检索语言类型，默认中文 'zh_cn' */
+    lang?: string;
+    /** 显示结果的地图容器 */
+    map?: Map;
+    /** 结果列表的HTML容器id或容器元素 */
+    panel?: string | HTMLElement;
+    /** 是否在地图上显示周边搜索的圆或者范围搜索的多边形 */
+    showCover?: boolean;
+    /** 绘制的UI风格 */
+    renderStyle?: "newpc" | "default";
+    /** 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围 */
+    autoFitView?: boolean;
   }
   /** PlaceSearch 搜索结果回调 */
   interface PlaceSearchResult {
     /** 成功状态说明 */
     info: string; 
-    /** 发生事件且查无此关键字时，返回建议关键字列表，可根据建议关键字查询 */
-    keywordList: Array<keyword> ;
-    /** 发生事件且查无此关键字且 city 为“全国”时，返回城市建议列表，该列表中每个城市包含一个或多个相关Poi点信息 */
-    cityList: Array<{
-      /** 建议城市名称 */
-      name: string;
-      /** 城市编码 */
-      citycode: string;
-      /** 行政区编码 */
-      adcode: string;
-      /** 该城市的建议结果数目 */
-      count: string;
-    }> ;
     /** 发生事件时返回兴趣点列表 */
     poiList: {
       /** 页码 */
