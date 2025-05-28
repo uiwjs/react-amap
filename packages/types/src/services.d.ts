@@ -249,6 +249,8 @@ declare namespace AMap {
   }
   /**
    * 根据输入关键字提示匹配信息，可将Poi类型和城市作为输入提示的限制条件。用户可以通过自定义回调函数取回并显
+   * 
+   * @see https://lbs.amap.com/api/javascript-api-v2/guide/services/autocomplete
    */
   class AutoComplete extends MapEventListener<'choose' | 'select'> {
     constructor(opts: AutoCompleteOptions);
@@ -259,30 +261,46 @@ declare namespace AMap {
     /** 设置是否强制限制城市 */
     setCityLimit(citylimit: boolean): void;
     /** 设置是否强制限制城市 */
-    search(keyword?: string, callback?: (status: 'complete' | 'error' | 'no_data', result?: AutoCompleteSearchCallback) => void): void;
+    search(keyword: string, callback: (status: 'complete' | 'error' | 'no_data', result: AutoCompleteSearchResult) => void): void;
   }
-  interface AutoCompleteSearchCallback {
+  interface Tip {
+    /** 名称 */
+    name: string;
+    /** 所属区域 */
+    district: string;
+    /** 区域编码 */
+    adcode: string;
+    /** 地址 */
+    address: string;
+    /** 城市 */
+    city: any[];
+    /** ID */
+    id: string;
+    /** 坐标经纬度 */
+    location: LngLat;
+    /** 类型编码 */
+    typecode: string;
+  }
+  interface AutoCompleteSearchResult {
     /** 查询状态说明 */
     info: string;
     /** 输入提示条数 */
     count: number;
     /** 输入提示列表 */
-    tips: Array<{
-      /** 名称 */
-      name: string;
-      /** 所属区域 */
-      district: string;
-      /** 区域编码 */
-      adcode: string;
-    }>
+    tips: Array<Tip>;
   }
   interface AutoCompleteOptions {
     /** 输入提示时限定POI类型，多个类型用“|”分隔，目前只支持Poi类型编码如“050000” 默认值：所有类别 */
     type?: string;
     /** 输入提示时限定城市。可选值：城市名（中文或中文全拼）、citycode、adcode；默认值：“全国” */
     city?: string;
-    /** 返回的数据类型。可选值：all-返回所有数据类型、poi-返回POI数据类型、bus-返回公交站点数据类型、busline-返回公交线路数据类型目前暂时不支持多种类型 */
-    datatype?: string;
+    /** 返回的数据类型。可选值：
+     * - `all` 返回所有数据类型
+     * - `poi` 返回POI数据类型
+     * - `bus` 返回公交站点数据类型
+     * - `busline` 返回公交线路数据类型目前暂时不支持多种类型
+     */
+    datatype?: 'all' | 'bus' | 'poi' | 'busline';
     /** 是否强制限制在设置的城市内搜索,默认值为：false，true：强制限制设定城市，false：不强制限制设定城市 */
     citylimit?: boolean;
     /** 可选参数，用来指定一个input输入框，设定之后，在input输入文字将自动生成下拉选择列表。支持传入输入框DOM对象的id值，或直接传入输入框的DOM对象。 */
@@ -318,8 +336,8 @@ declare namespace AMap {
   }
 
   /**
-     * 根据输入关键字提示匹配信息，可将Poi类型和城市作为输入提示的限制条件。用户可以通过自定义回调函数取回并显
-     */
+   * 根据输入关键字提示匹配信息，可将Poi类型和城市作为输入提示的限制条件。用户可以通过自定义回调函数取回并显
+   */
   class Autocomplete extends MapEventListener<'choose' | 'select'> {
     constructor(opts: AutoCompleteOptions);
     /** 设置提示Poi类型，多个类型用“|”分隔，POI相关类型请在网站“相关下载”处下载，目前只支持Poi类型编码如“050000” 默认值：所有类别 */
@@ -329,7 +347,7 @@ declare namespace AMap {
     /** 设置是否强制限制城市 */
     setCityLimit(citylimit: boolean): void;
     /** 设置是否强制限制城市 */
-    search(keyword?: string, callback?: (status: 'complete' | 'error' | 'no_data', result?: AutoCompleteSearchCallback) => void): void;
+    search(keyword: string, callback: (status: 'complete' | 'error' | 'no_data', result: AutoCompleteSearchResult) => void): void;
   }
   /** 地点搜索服务插件，提供某一特定地区的位置查询服务。 */
   class PlaceSearch extends MapEventListener<'selectChanged' | 'listElementClick' | 'markerClick'> {
