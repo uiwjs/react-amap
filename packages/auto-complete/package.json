@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-auto-complete",
-  "version": "7.1.9",
+  "version": "7.1.10",
   "description": "通常情况下，开发者需要根据表单控件相关事件的触发来执行 `AMap.AutoComplete` 的 search 方法，并将返回结果绘制成DOM显示到页面上。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/auto-complete",
@@ -35,8 +35,8 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "7.1.9",
-    "@uiw/react-amap-types": "7.1.9",
-    "@uiw/react-amap-utils": "7.1.9"
+    "@uiw/react-amap-map": "7.1.10",
+    "@uiw/react-amap-types": "7.1.10",
+    "@uiw/react-amap-utils": "7.1.10"
   }
 }

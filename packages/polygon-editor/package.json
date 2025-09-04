@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-polygon-editor",
-  "version": "7.1.9",
+  "version": "7.1.10",
   "description": "高德地图 Polygon 编辑器。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/polygon-editor",
@@ -37,9 +37,9 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "7.1.9",
-    "@uiw/react-amap-polygon": "7.1.9",
-    "@uiw/react-amap-types": "7.1.9",
-    "@uiw/react-amap-utils": "7.1.9"
+    "@uiw/react-amap-map": "7.1.10",
+    "@uiw/react-amap-polygon": "7.1.10",
+    "@uiw/react-amap-types": "7.1.10",
+    "@uiw/react-amap-utils": "7.1.10"
   }
 }
