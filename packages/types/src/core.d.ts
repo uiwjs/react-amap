@@ -1,5 +1,6 @@
 /// <reference path="./base.d.ts" />
 /// <reference path="./maplayer.d.ts" />
+/// <reference path="./overlay.d.ts" />
 
 declare namespace AMap {
   /**
@@ -301,7 +302,7 @@ declare namespace AMap {
      * 返回结果不包含官方覆盖物等，比如定位marker，周边搜索圆等 [相关示例](https://lbs.amap.com/api/jsapi-v2/example/common/get-all-overlays/)
      * @param type 可选，覆盖物类型
      */
-    getAllOverlays(type?: string): void;
+    getAllOverlays(type?: 'marker' | 'circle' | 'polyline' | 'polygon'): Overlay[];
     /**
      * 删除地图上所有的覆盖物
      */
