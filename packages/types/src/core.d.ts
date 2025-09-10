@@ -264,16 +264,18 @@ declare namespace AMap {
     * @param overlays (Array<Overlay>) 覆盖物
     * @param avoid (Array<Number> = [0,0,0,0]) 四周边距，上、下、左、右
     * @param maxZoom (Number = CoreMap.defaultZooms[1]) 最大 zoom 级别
+    * @returns [number, LngLat]: zoom 级别和中心点经纬度
     */
-    getFitZoomAndCenterByOverlays(overlays: Array<TileLayer> | null, avoid: number[], maxZoom: number): void;
+    getFitZoomAndCenterByOverlays(overlays: Array<TileLayer> | null, avoid: number[], maxZoom: number): [number, LngLat];
     /**
     * 根据 overlays 计算出合适的中心点和 zoom 级别
     * 参数说明：
     * @param bounds ((Array<number> | Bounds)) 需要计算的范围
     * @param avoid (Array<Number> = [0,0,0,0]) 四周边距，上、下、左、右
     * @param maxZoom (Number = CoreMap.defaultZooms[1]) 最大 zoom 级别
+    * @returns [number, LngLat]: zoom 级别和中心点经纬度
     */
-    getFitZoomAndCenterByBounds(bounds: (number[] | Bounds), avoid: number[], maxZoom: number): void;
+    getFitZoomAndCenterByBounds(bounds: (number[] | Bounds), avoid: number[], maxZoom: number): [number, LngLat];
     
     /**
      * 添加控件。参数可以是插件列表中的任何插件对象，如：ToolBar、OverView、Scale等
