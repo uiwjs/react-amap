@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-amap-geolocation",
-  "version": "7.1.11",
+  "version": "7.1.12",
   "description": "鹰眼控件，用于显示缩略地图，显示于地图右下角，可以随主图的视口变化而变化，也可以配置成固定位置实现类似于南海附图的效果。",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "homepage": "https://uiwjs.github.io/react-amap/#/geolocation",
@@ -35,6 +35,6 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@uiw/react-amap-map": "7.1.11"
+    "@uiw/react-amap-map": "7.1.12"
   }
 }
