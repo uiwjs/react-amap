@@ -52,8 +52,8 @@
     "@uiw/react-loader": "^4.22.2",
     "@uiw/react-markdown-preview-example": "^2.0.0",
     "@wcj/dark-mode": "^1.0.14",
-    "react": "~18.2.0",
-    "react-dom": "~18.2.0",
+    "react": "~18.3.0",
+    "react-dom": "~18.3.0",
     "react-router-dom": "^6.14.2"
   },
   "devDependencies": {
