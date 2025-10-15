@@ -49,10 +49,10 @@ import { PolygonEditor } from '@uiw/react-amap-polygon-editor';
 
 ### 基本用法
 
-注意，需要加载 `<APILoader plugin="AMap.PolygonEditor">`，需要加载 `AMap.PolygonEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
+注意，需要加载 `<APILoader plugin={["AMap.PolygonEditor"]}>`，需要加载 `AMap.PolygonEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
 
 ```jsx
-<APILoader plugin="AMap.PolygonEditor">
+<APILoader plugin={["AMap.PolygonEditor"]}>
 ```
 <!--rehype:style=background: #fff3b7;-->
 
@@ -125,7 +125,7 @@ const Example = () => {
 }
 
 const Mount = () => (
-  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129" plugin="AMap.PolygonEditor">
+  <APILoader akey="a7a90e05a37d3f6bf76d4a9032fc9129" plugin={["AMap.PolygonEditor"]}>
     <Example />
   </APILoader>
 );

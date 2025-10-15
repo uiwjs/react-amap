@@ -52,10 +52,10 @@ import { PolyEditor } from '@uiw/react-amap-poly-editor';
 
 ### 基本用法
 
-注意，需要加载 `<APILoader plugin="AMap.PolyEditor">`，需要加载 `AMap.PolyEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
+注意，需要加载 `<APILoader plugin={["AMap.PolyEditor"]}>`，需要加载 `AMap.PolyEditor`<!--rehype:style=background: #ffe3da;color: #ff5722;--> 插件，如果点击进入当前页面，需要 `刷新`<!--rehype:style=background: #e91e63;color: #fff;--> 页面。
 
 ```jsx
-<APILoader plugin="AMap.PolyEditor">
+<APILoader plugin={["AMap.PolyEditor"]}>
 ```
 <!--rehype:style=background: #fff3b7;-->
 
