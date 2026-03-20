@@ -46,8 +46,11 @@
 <h3 align="center">高德地图 React 组件</h3>
 
 <p align="center">
-  <a href="https://jaywcjlove.github.io/#/sponsor" target="__blank">
-    <img alt="Buy me a coffee" src="https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee">
+  <a href="https://jaywcjlove.github.io/#/sponsor" title="Buy me a coffee">
+    <img src="https://img.shields.io/badge/Buy_Me_a_Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black" alt="Buy me a coffee">
+  </a>
+  <a href="https://x.com/jaywcjlove" title="Follow On X">
+    <img src="https://img.shields.io/badge/Follow%20on%20X-333333?logo=x&logoColor=white" alt="Follow On X">
   </a>
   <a href="https://github.com/uiwjs/react-amap/actions">
     <img src="https://github.com/uiwjs/react-amap/actions/workflows/ci.yml/badge.svg" alt="Build & Deploy">
