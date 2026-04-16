@@ -953,6 +953,7 @@ var noop = function noop() {};
   }, [props.contextMenu, props.text, props.onClick]);
   return null;
 });
+(Object.getOwnPropertyDescriptor(Item, "name") || {}).writable || Object.defineProperty(Item, "name", { value: "default", configurable: true });
 ;// ../context-menu/esm/index.js
 
 /// <reference types="@uiw/react-amap-types" />
@@ -1903,6 +1904,8 @@ var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs
       props.onEnd && props.onEnd({
         target: polygon
       });
+    } else if (!visiable && !active && polygon) {
+      polyEditor.close();
     }
   }, [active, visiable, polygon]);
   useEventProperties(polyEditor, props, ['onEnd', 'onAddnode', 'onRemovenode', 'onAdjust', 'onMove', 'onAdd']);
