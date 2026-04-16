@@ -38,6 +38,8 @@ export const PolygonEditor = forwardRef<PolygonEditorProps, PolygonEditorProps>(
     } else if (!visiable && active && polygon) {
       polyEditor.close();
       props.onEnd && props.onEnd({ target: polygon });
+    } else if (!visiable && !active && polygon) {
+      polyEditor.close();
     }
   }, [active, visiable, polygon]);
 
