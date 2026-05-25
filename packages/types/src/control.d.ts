@@ -78,11 +78,11 @@ declare namespace AMap {
   class Geocoder extends Control {
     constructor(opts: GeocoderOptions);
     /** 将地址信息转化为高德经纬度坐标信息 */
-    getLocation?(keyword: string, ReGeocoderCallback)
+    getLocation?(keyword: string, callback: ReGeocoderCallback)
     /** 地理编码时，设置地址描述所在城市 */
     setCity(city: string)
     /** 将高德经纬度坐标信息转化为结构化的地址信息 */
-    getAddress(location: LngLat | LngLat[], ReGeocoderCallback)
+    getAddress(location: LngLat | LngLat[], callback: ReGeocoderCallback)
   }
   interface ReGeocoderCallback {
     (status: string, result: ReGeocoderResult): void
