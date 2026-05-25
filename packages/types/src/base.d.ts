@@ -169,16 +169,16 @@ declare namespace AMap {
     toString?(): string;
   }
   class GeometryUtil {
-    distance(p1, p2): number;
-    ringArea(ring: LngLat[] | [number, number][]): number;
-    ringAreaByAltitude(params: any): number;
-    isClockwise(ring: LngLat[] | [number, number][]): boolean;
-    typePolygon(ring: LngLat[] | [number, number][]): boolean;
-    makesureClockwise(ring: LngLat[] | [number, number][]): [number, number][];
-    makesureAntiClockwise(ring: LngLat[] | [number, number][]): [number, number][];
-    distanceOfLine(ring: LngLat[] | [number, number][]): number;
-    isPointInRing(p:  LngLat | [number, number],ring: LngLat[] | [number, number][]): boolean;
-    distanceToLine(p:  LngLat | [number, number],line: LngLat[] | [number, number][]): number;
+    static distance(p1, p2): number;
+    static ringArea(ring: LngLat[] | [number, number][]): number;
+    static ringAreaByAltitude(params: any): number;
+    static isClockwise(ring: LngLat[] | [number, number][]): boolean;
+    static typePolygon(ring: LngLat[] | [number, number][]): boolean;
+    static makesureClockwise(ring: LngLat[] | [number, number][]): [number, number][];
+    static makesureAntiClockwise(ring: LngLat[] | [number, number][]): [number, number][];
+    static distanceOfLine(ring: LngLat[] | [number, number][]): number;
+    static isPointInRing(p:  LngLat | [number, number],ring: LngLat[] | [number, number][]): boolean;
+    static distanceToLine(p:  LngLat | [number, number],line: LngLat[] | [number, number][]): number;
   }
 
   interface DistrictSearchOptions {

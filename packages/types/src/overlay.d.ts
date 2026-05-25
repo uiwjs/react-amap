@@ -161,6 +161,8 @@ declare namespace AMap {
     moveTo(targetPosition: LngLat | Vector, opts?: MoveAlongOptions): void;
   }
   interface MarkerOptions {
+    /** 要显示该marker的地图对象 */
+    map?: Map;
     /**
      * 点标记在地图上显示的位置，默认为地图中心点
      */
