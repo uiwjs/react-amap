@@ -249,12 +249,14 @@ var _excluded = ["children"];
  * APILoader 用于加载百度地图依赖
  */
 var APILoader = props => {
-  var {
-      children
-    } = props,
+  var children = props.children,
     config = _objectWithoutPropertiesLoose(props, _excluded);
-  var [loaded, setLoaded] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(false);
-  var [error, setError] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(false),
+    loaded = _useState[0],
+    setLoaded = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    error = _useState2[0],
+    setError = _useState2[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     var aKey = config.akey || '';
     var plugins = config.plugins;
@@ -302,11 +304,10 @@ var external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_
 
 
 var usePortal = () => {
-  var [container] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(() => document.createElement('div'));
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(() => document.createElement('div')),
+    container = _useState[0];
   var Portal = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useCallback)(function Portal(_ref) {
-    var {
-      children
-    } = _ref;
+    var children = _ref.children;
     if (!children) return null;
     return /*#__PURE__*/(0,external_root_ReactDOM_commonjs2_react_dom_commonjs_react_dom_amd_react_dom_.createPortal)(children, container);
   }, [container]);
@@ -336,7 +337,9 @@ function useSetStatus(instance, props, propsName) {
   propsName.forEach(name => {
     var eName = name;
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]);
+    var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props[eName]),
+      state = _useState[0],
+      setState = _useState[1];
     // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (instance && props[eName] !== undefined) {
@@ -365,7 +368,9 @@ function useSetStatus(instance, props, propsName) {
  * 通过参数 `visiable` 来控制执行 `show()` or `hide()`
  */
 function useVisiable(instance, visible) {
-  var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visible);
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visible),
+    state = _useState2[0],
+    setState = _useState2[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (instance && visible !== undefined) {
       if (visible) {
@@ -466,7 +471,9 @@ function useSettingProperties(instance, props, propsName) {
     var eName = "set" + name;
     var vName = "" + name.charAt(0).toLowerCase() + name.slice(1);
     var eventHandle = props[vName];
-    var [state, setState] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(eventHandle);
+    var _useState3 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(eventHandle),
+      state = _useState3[0],
+      setState = _useState3[1];
     // eslint-disable-next-line react-hooks/rules-of-hooks
     (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
       if (instance && eventHandle !== undefined) {
@@ -485,7 +492,9 @@ var useAutoComplete = function useAutoComplete(props) {
   if (props === void 0) {
     props = {};
   }
-  var [autoComplete, setAutoComplete] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    autoComplete = _useState[0],
+    setAutoComplete = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !autoComplete) {
       var instance;
@@ -521,9 +530,8 @@ var useAutoComplete = function useAutoComplete(props) {
 
 
 var AutoComplete = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    autoComplete
-  } = useAutoComplete(props);
+  var _useAutoComplete = useAutoComplete(props),
+    autoComplete = _useAutoComplete.autoComplete;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     autoComplete
   }));
@@ -551,10 +559,9 @@ var Context = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_am
   dispatch: () => null
 });
 function useMapContext() {
-  var {
-    state,
-    dispatch
-  } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
+  var _useContext = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context),
+    state = _useContext.state,
+    dispatch = _useContext.dispatch;
   return _extends({}, state, {
     state,
     dispatch
@@ -573,13 +580,19 @@ var useMap = function useMap(props) {
   if (props === void 0) {
     props = {};
   }
-  var other = _extends({}, (_objectDestructuringEmpty(props), props));
-  var [map, setMap] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var [zoom, setZoom] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.zoom || 15);
-  var [container, setContainer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.container);
-  var {
-    dispatch
-  } = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context);
+  var _props = props,
+    other = _extends({}, (_objectDestructuringEmpty(_props), _props));
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    map = _useState[0],
+    setMap = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.zoom || 15),
+    zoom = _useState2[0],
+    setZoom = _useState2[1];
+  var _useState3 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(props.container),
+    container = _useState3[0],
+    setContainer = _useState3[1];
+  var _useContext = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(Context),
+    dispatch = _useContext.dispatch;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (container && !map && AMap) {
       container.className = container.className + ' react-amap-wapper';
@@ -652,7 +665,9 @@ var esm_excluded = ["className", "children"];
 
 
 var Provider = props => {
-  var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
+  var _useReducer = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState),
+    state = _useReducer[0],
+    dispatch = _useReducer[1];
   return /*#__PURE__*/(0,jsx_runtime.jsx)(Context.Provider, {
     value: _extends({}, state, {
       state,
@@ -662,21 +677,20 @@ var Provider = props => {
   });
 };
 var esm_Map = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((_ref, ref) => {
-  var {
-      className,
-      children
-    } = _ref,
+  var className = _ref.className,
+    children = _ref.children,
     props = _objectWithoutPropertiesLoose(_ref, esm_excluded);
   var AMap = window.AMap;
-  var [state, dispatch] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState);
+  var _useReducer2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useReducer)(reducer, initialState),
+    state = _useReducer2[0],
+    dispatch = _useReducer2[1];
   var elmRef = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useRef)(null);
-  var {
-    setContainer,
-    container,
-    map
-  } = useMap(_extends({
-    container: props.container || elmRef.current
-  }, props));
+  var _useMap = useMap(_extends({
+      container: props.container || elmRef.current
+    }, props)),
+    setContainer = _useMap.setContainer,
+    container = _useMap.container,
+    map = _useMap.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => setContainer(elmRef.current), [elmRef.current]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     map,
@@ -723,15 +737,15 @@ var useBezierCurve = function useBezierCurve(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useBezierCurve_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [bezierCurve, setBezierCurve] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useBezierCurve_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    bezierCurve = _useState[0],
+    setBezierCurve = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && map && !bezierCurve) {
       var instance = new AMap.BezierCurve(_extends({}, other));
@@ -765,9 +779,8 @@ var useBezierCurve = function useBezierCurve(props) {
 
 
 var BezierCurve = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    bezierCurve
-  } = useBezierCurve(props);
+  var _useBezierCurve = useBezierCurve(props),
+    bezierCurve = _useBezierCurve.bezierCurve;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     bezierCurve
   }));
@@ -784,15 +797,15 @@ var useCircle = function useCircle(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useCircle_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [circle, setCircle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useCircle_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    circle = _useState[0],
+    setCircle = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (AMap && map && !circle) {
       var instance = new AMap.Circle(_extends({}, other));
@@ -819,9 +832,8 @@ var useCircle = function useCircle(props) {
 
 
 var Circle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    circle
-  } = useCircle(props);
+  var _useCircle = useCircle(props),
+    circle = _useCircle.circle;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     circle
   }));
@@ -838,15 +850,15 @@ var useCircleMarker = function useCircleMarker(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useCircleMarker_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [circleMarker, setCircleMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useCircleMarker_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    circleMarker = _useState[0],
+    setCircleMarker = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
     if (!circleMarker) {
@@ -881,9 +893,8 @@ var useCircleMarker = function useCircleMarker(props) {
 
 
 var CircleMarker = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    circleMarker
-  } = useCircleMarker(props);
+  var _useCircleMarker = useCircleMarker(props),
+    circleMarker = _useCircleMarker.circleMarker;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     circleMarker
   }));
@@ -900,14 +911,14 @@ var useContextMenu = function useContextMenu(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      position
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useContextMenu_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [contextMenu, setContextMenu] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    position = _props.position,
+    other = _objectWithoutPropertiesLoose(_props, useContextMenu_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    contextMenu = _useState[0],
+    setContextMenu = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (!AMap || !map) return;
     if (!contextMenu) {
@@ -937,10 +948,11 @@ var noop = function noop() {};
   if (props === void 0) {
     props = {};
   }
-  var {
-    text = '',
-    onClick = noop
-  } = props;
+  var _props = props,
+    _props$text = _props.text,
+    text = _props$text === void 0 ? '' : _props$text,
+    _props$onClick = _props.onClick,
+    onClick = _props$onClick === void 0 ? noop : _props$onClick;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (props.contextMenu) {
       props.contextMenu.addItem(text, onClick, 1);
@@ -953,7 +965,6 @@ var noop = function noop() {};
   }, [props.contextMenu, props.text, props.onClick]);
   return null;
 });
-(Object.getOwnPropertyDescriptor(Item, "name") || {}).writable || Object.defineProperty(Item, "name", { value: "default", configurable: true });
 ;// ../context-menu/esm/index.js
 
 /// <reference types="@uiw/react-amap-types" />
@@ -965,9 +976,8 @@ var noop = function noop() {};
 
 
 var ContextMenuCompound = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    contextMenu
-  } = useContextMenu(props);
+  var _useContextMenu = useContextMenu(props),
+    contextMenu = _useContextMenu.contextMenu;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     contextMenu
   }));
@@ -994,16 +1004,16 @@ function useControlBarControl(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-    position,
-    visiable,
-    visible,
-    offset
-  } = props;
-  var [controlBarControl, setControlBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    map
-  } = useMapContext();
+  var _props = props,
+    position = _props.position,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    offset = _props.offset;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    controlBarControl = _useState[0],
+    setControlBarControl = _useState[1];
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !controlBarControl) {
       var instance;
@@ -1035,9 +1045,8 @@ function useControlBarControl(props) {
 
 
 var ControlBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    controlBarControl
-  } = useControlBarControl(props);
+  var _useControlBarControl = useControlBarControl(props),
+    controlBarControl = _useControlBarControl.controlBarControl;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     controlBarControl
   }), [controlBarControl]);
@@ -1054,15 +1063,15 @@ var useEllipse = function useEllipse(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useEllipse_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [ellipse, setEllipse] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useEllipse_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    ellipse = _useState[0],
+    setEllipse = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!ellipse) {
@@ -1097,9 +1106,8 @@ var useEllipse = function useEllipse(props) {
 
 
 var Ellipse = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    ellipse
-  } = useEllipse(props);
+  var _useEllipse = useEllipse(props),
+    ellipse = _useEllipse.ellipse;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     ellipse
   }));
@@ -1115,16 +1123,17 @@ var useGeolocation = function useGeolocation(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      type = 'position',
-      onComplete,
-      onError
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useGeolocation_excluded);
-  var [geolocation, setGeolocation] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    map
-  } = useMapContext();
+  var _props = props,
+    _props$type = _props.type,
+    type = _props$type === void 0 ? 'position' : _props$type,
+    onComplete = _props.onComplete,
+    onError = _props.onError,
+    other = _objectWithoutPropertiesLoose(_props, useGeolocation_excluded);
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    geolocation = _useState[0],
+    setGeolocation = _useState[1];
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (AMap && !geolocation) {
       var instance;
@@ -1168,9 +1177,8 @@ var useGeolocation = function useGeolocation(props) {
 
 
 var Geolocation = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    geolocation
-  } = useGeolocation(props);
+  var _useGeolocation = useGeolocation(props),
+    geolocation = _useGeolocation.geolocation;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     geolocation
   }));
@@ -1187,16 +1195,16 @@ function useHawkEyeControl(props) {
   if (props === void 0) {
     props = {};
   }
-  var [hawkEyeControl, setHawkEyeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-      offset,
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useHawkEyeControl_excluded);
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    hawkEyeControl = _useState[0],
+    setHawkEyeControl = _useState[1];
+  var _props = props,
+    offset = _props.offset,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useHawkEyeControl_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !hawkEyeControl) {
       var instance;
@@ -1228,9 +1236,8 @@ function useHawkEyeControl(props) {
 
 
 var HawkEyeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    hawkEyeControl
-  } = useHawkEyeControl(props);
+  var _useHawkEyeControl = useHawkEyeControl(props),
+    hawkEyeControl = _useHawkEyeControl.hawkEyeControl;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     hawkEyeControl
   }), [hawkEyeControl]);
@@ -1247,21 +1254,22 @@ var useInfoWindow = function useInfoWindow(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible,
-      position
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useInfoWindow_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [isOpen, setIsOpen] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable);
-  var [infoWindow, setInfoWindow] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    container,
-    Portal
-  } = usePortal();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    position = _props.position,
+    other = _objectWithoutPropertiesLoose(_props, useInfoWindow_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(visiable),
+    isOpen = _useState[0],
+    setIsOpen = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    infoWindow = _useState2[0],
+    setInfoWindow = _useState2[1];
+  var _usePortal = usePortal(),
+    container = _usePortal.container,
+    Portal = _usePortal.Portal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!infoWindow) {
@@ -1324,10 +1332,9 @@ var useInfoWindow = function useInfoWindow(props) {
 
 
 var InfoWindow = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    infoWindow,
-    InfoWindowPortal
-  } = useInfoWindow(props);
+  var _useInfoWindow = useInfoWindow(props),
+    infoWindow = _useInfoWindow.infoWindow,
+    InfoWindowPortal = _useInfoWindow.InfoWindowPortal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     infoWindow
   }));
@@ -1346,16 +1353,17 @@ function useMapTypeControl(props) {
   if (props === void 0) {
     props = {};
   }
-  var [mapTypeControl, setMapTypeControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-      visiable,
-      visible,
-      defaultType = 0
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useMapTypeControl_excluded);
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    mapTypeControl = _useState[0],
+    setMapTypeControl = _useState[1];
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    _props$defaultType = _props.defaultType,
+    defaultType = _props$defaultType === void 0 ? 0 : _props$defaultType,
+    other = _objectWithoutPropertiesLoose(_props, useMapTypeControl_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !mapTypeControl) {
       var instance;
@@ -1386,9 +1394,8 @@ function useMapTypeControl(props) {
 
 
 var MapTypeControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    mapTypeControl
-  } = useMapTypeControl(props);
+  var _useMapTypeControl = useMapTypeControl(props),
+    mapTypeControl = _useMapTypeControl.mapTypeControl;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     mapTypeControl
   }), [mapTypeControl]);
@@ -1403,16 +1410,16 @@ function useTileLayer(props) {
   if (props === void 0) {
     props = {};
   }
-  var [tileLayer, setTileLayer] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    visiable,
-    visible,
-    type,
-    options
-  } = props;
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    tileLayer = _useState[0],
+    setTileLayer = _useState[1];
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    type = _props.type,
+    options = _props.options;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map) {
       var instance = null;
@@ -1472,9 +1479,8 @@ var TileLayerType = /*#__PURE__*/function (TileLayerType) {
   return TileLayerType;
 }({});
 var TileLayer = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    tileLayer
-  } = useTileLayer(props);
+  var _useTileLayer = useTileLayer(props),
+    tileLayer = _useTileLayer.tileLayer;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     tileLayer
   }), [tileLayer]);
@@ -1491,19 +1497,19 @@ var useMarker = function useMarker(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useMarker_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [marker, setMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    container,
-    Portal
-  } = usePortal();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    children = _props.children,
+    other = _objectWithoutPropertiesLoose(_props, useMarker_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    marker = _useState[0],
+    setMarker = _useState[1];
+  var _usePortal = usePortal(),
+    container = _usePortal.container,
+    Portal = _usePortal.Portal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (map && !marker) {
       if (props.children) {
@@ -1540,10 +1546,9 @@ var useMarker = function useMarker(props) {
 
 
 var Marker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    marker,
-    MarkerPortal
-  } = useMarker(props);
+  var _useMarker = useMarker(props),
+    marker = _useMarker.marker,
+    MarkerPortal = _useMarker.MarkerPortal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     marker
   }), [marker]);
@@ -1571,18 +1576,20 @@ var useLabelMarker = function useLabelMarker(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible,
-      text,
-      icon = initIcon
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useLabelMarker_excluded);
-  var {
-    map,
-    AMap
-  } = useMapContext();
-  var [labelMarker, setLabelMarker] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    children = _props.children,
+    text = _props.text,
+    _props$icon = _props.icon,
+    icon = _props$icon === void 0 ? initIcon : _props$icon,
+    other = _objectWithoutPropertiesLoose(_props, useLabelMarker_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map,
+    AMap = _useMapContext.AMap;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    labelMarker = _useState[0],
+    setLabelMarker = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!labelMarker && map) {
       var _v;
@@ -1666,9 +1673,8 @@ var useLabelMarker = function useLabelMarker(props) {
 
 
 var LabelMarker = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    labelMarker
-  } = useLabelMarker(props);
+  var _useLabelMarker = useLabelMarker(props),
+    labelMarker = _useLabelMarker.labelMarker;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     labelMarker
   }), [labelMarker]);
@@ -1684,21 +1690,22 @@ var useMassMarks = function useMassMarks(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useMassMarks_excluded);
-  var {
-    map
-  } = useMapContext();
-  var {
-    opacity = 1,
-    zIndex = 1111,
-    style,
-    data
-  } = other || {};
-  var [massMarks, setMassMarks] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useMassMarks_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _ref = other || {},
+    _ref$opacity = _ref.opacity,
+    opacity = _ref$opacity === void 0 ? 1 : _ref$opacity,
+    _ref$zIndex = _ref.zIndex,
+    zIndex = _ref$zIndex === void 0 ? 1111 : _ref$zIndex,
+    style = _ref.style,
+    data = _ref.data;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    massMarks = _useState[0],
+    setMassMarks = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!massMarks) {
@@ -1763,9 +1770,8 @@ var useMassMarks = function useMassMarks(props) {
 
 
 var MassMarks = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    massMarks
-  } = useMassMarks(props);
+  var _useMassMarks = useMassMarks(props),
+    massMarks = _useMassMarks.massMarks;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     massMarks
   }), [massMarks, props]);
@@ -1783,15 +1789,15 @@ var usePolygon = function usePolygon(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, usePolygon_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [polygon, setPolygon] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, usePolygon_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    polygon = _useState[0],
+    setPolygon = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!polygon) {
@@ -1816,9 +1822,7 @@ var usePolygon = function usePolygon(props) {
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polygon) {
-      var {
-          path
-        } = other,
+      var path = other.path,
         rest = _objectWithoutPropertiesLoose(other, _excluded2);
       if (path) {
         polygon.setPath(path);
@@ -1843,12 +1847,9 @@ var usePolygon = function usePolygon(props) {
 
 var PolygonContext = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.createContext)(undefined);
 var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    children
-  } = props;
-  var {
-    polygon
-  } = usePolygon(props);
+  var children = props.children;
+  var _usePolygon = usePolygon(props),
+    polygon = _usePolygon.polygon;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polygon
   }), [polygon]);
@@ -1865,15 +1866,16 @@ var Polygon = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react
 
 
 var PolygonEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    active
-  } = props;
-  var {
-    map
-  } = useMapContext();
+  var active = props.active;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   var polygon = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolygonContext);
-  var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
-  var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true),
+    visiable = _useState[0],
+    setVisiable = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    polyEditor = _useState2[0],
+    setPolyEditor = _useState2[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyEditor
   }));
@@ -1922,15 +1924,15 @@ function usePolyline(props) {
   if (props === void 0) {
     props = {};
   }
-  var [polyline, setPolyline] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, usePolyline_excluded);
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    polyline = _useState[0],
+    setPolyline = _useState[1];
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, usePolyline_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (map && !polyline) {
       var instance = new AMap.Polyline(other);
@@ -1954,9 +1956,7 @@ function usePolyline(props) {
   }, [map]);
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (polyline) {
-      var {
-          path
-        } = other,
+      var path = other.path,
         rest = _objectWithoutPropertiesLoose(other, usePolyline_excluded2);
       if (path) {
         polyline.setPath(path);
@@ -1981,12 +1981,9 @@ function usePolyline(props) {
 
 var PolylineContext = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.createContext)(undefined);
 var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    children
-  } = props;
-  var {
-    polyline
-  } = usePolyline(props);
+  var children = props.children;
+  var _usePolyline = usePolyline(props),
+    polyline = _usePolyline.polyline;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyline
   }), [polyline]);
@@ -2005,15 +2002,17 @@ var Polyline = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_a
 var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
   var polyline = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolylineContext);
   var polygon = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolygonContext);
-  var {
-    active,
-    polyElement = polyline || polygon
-  } = props;
-  var {
-    map
-  } = useMapContext();
-  var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
-  var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var active = props.active,
+    _props$polyElement = props.polyElement,
+    polyElement = _props$polyElement === void 0 ? polyline || polygon : _props$polyElement;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true),
+    visiable = _useState[0],
+    setVisiable = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    polyEditor = _useState2[0],
+    setPolyEditor = _useState2[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyEditor
   }));
@@ -2056,15 +2055,16 @@ var PolyEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_re
 
 
 var PolylineEditor = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    active
-  } = props;
-  var {
-    map
-  } = useMapContext();
+  var active = props.active;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   var polyline = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useContext)(PolylineContext);
-  var [visiable, setVisiable] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true);
-  var [polyEditor, setPolyEditor] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(true),
+    visiable = _useState[0],
+    setVisiable = _useState[1];
+  var _useState2 = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    polyEditor = _useState2[0],
+    setPolyEditor = _useState2[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     polyEditor
   }));
@@ -2119,16 +2119,15 @@ var MouseToolDrawType = /*#__PURE__*/function (MouseToolDrawType) {
   return MouseToolDrawType;
 }({});
 var MouseTool = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    active,
-    type,
-    drawElementOptions,
-    ifClear
-  } = props;
-  var {
-    map
-  } = useMapContext();
-  var [mouseTool, setMouseTool] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var active = props.active,
+    type = props.type,
+    drawElementOptions = props.drawElementOptions,
+    ifClear = props.ifClear;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    mouseTool = _useState[0],
+    setMouseTool = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     mouseTool: mouseTool
   }));
@@ -2190,15 +2189,15 @@ var useRectangle = function useRectangle(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useRectangle_excluded);
-  var {
-    map
-  } = useMapContext();
-  var [rectangle, setRectangle] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useRectangle_excluded);
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    rectangle = _useState[0],
+    setRectangle = _useState[1];
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!rectangle) {
@@ -2233,9 +2232,8 @@ var useRectangle = function useRectangle(props) {
 
 
 var Rectangle = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    rectangle
-  } = useRectangle(props);
+  var _useRectangle = useRectangle(props),
+    rectangle = _useRectangle.rectangle;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     rectangle
   }));
@@ -2314,16 +2312,16 @@ function useScaleControl(props) {
   if (props === void 0) {
     props = {};
   }
-  var [scaleControl, setScaleControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    position,
-    visiable,
-    visible,
-    offset
-  } = props;
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    scaleControl = _useState[0],
+    setScaleControl = _useState[1];
+  var _props = props,
+    position = _props.position,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    offset = _props.offset;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !scaleControl) {
       var instance;
@@ -2355,9 +2353,8 @@ function useScaleControl(props) {
 
 
 var ScaleControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    scaleControl
-  } = useScaleControl(props);
+  var _useScaleControl = useScaleControl(props),
+    scaleControl = _useScaleControl.scaleControl;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     scaleControl
   }), [scaleControl]);
@@ -2374,19 +2371,18 @@ var useText = function useText(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-      visiable,
-      visible
-    } = props,
-    other = _objectWithoutPropertiesLoose(props, useText_excluded);
-  var [text, setText] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    map
-  } = useMapContext();
-  var {
-    container,
-    Portal
-  } = usePortal();
+  var _props = props,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    other = _objectWithoutPropertiesLoose(_props, useText_excluded);
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    text = _useState[0],
+    setText = _useState[1];
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
+  var _usePortal = usePortal(),
+    container = _usePortal.container,
+    Portal = _usePortal.Portal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useLayoutEffect)(() => {
     if (!AMap || !map) return;
     if (!text) {
@@ -2426,10 +2422,9 @@ var useText = function useText(props) {
 
 
 var Text = /*#__PURE__*/(0,external_root_React_commonjs2_react_commonjs_react_amd_react_.forwardRef)((props, ref) => {
-  var {
-    text,
-    TextPortal
-  } = useText(_extends({}, props));
+  var _useText = useText(_extends({}, props)),
+    text = _useText.text,
+    TextPortal = _useText.TextPortal;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     text
   }));
@@ -2446,16 +2441,16 @@ function useToolBarControl(props) {
   if (props === void 0) {
     props = {};
   }
-  var [toolBarControl, setToolBarControl] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
-  var {
-    position,
-    visiable,
-    visible,
-    offset
-  } = props;
-  var {
-    map
-  } = useMapContext();
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    toolBarControl = _useState[0],
+    setToolBarControl = _useState[1];
+  var _props = props,
+    position = _props.position,
+    visiable = _props.visiable,
+    visible = _props.visible,
+    offset = _props.offset;
+  var _useMapContext = useMapContext(),
+    map = _useMapContext.map;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useEffect)(() => {
     if (map && !toolBarControl) {
       var instance;
@@ -2487,9 +2482,8 @@ function useToolBarControl(props) {
 
 
 var ToolBarControl = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    toolBarControl
-  } = useToolBarControl(props);
+  var _useToolBarControl = useToolBarControl(props),
+    toolBarControl = _useToolBarControl.toolBarControl;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     toolBarControl
   }), [toolBarControl]);
@@ -2501,13 +2495,16 @@ var useWeather = function useWeather(props) {
   if (props === void 0) {
     props = {};
   }
-  var {
-    city = '',
-    type = 'live',
-    onComplete,
-    onError
-  } = props;
-  var [weather, setWeather] = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)();
+  var _props = props,
+    _props$city = _props.city,
+    city = _props$city === void 0 ? '' : _props$city,
+    _props$type = _props.type,
+    type = _props$type === void 0 ? 'live' : _props$type,
+    onComplete = _props.onComplete,
+    onError = _props.onError;
+  var _useState = (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useState)(),
+    weather = _useState[0],
+    setWeather = _useState[1];
   var funName = type === 'live' ? 'getLive' : 'getForecast';
   function getData(instance) {
     if (type && city && /^(live|forecast)$/.test(type)) {
@@ -2551,9 +2548,8 @@ var useWeather = function useWeather(props) {
 
 
 var Weather = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default().forwardRef((props, ref) => {
-  var {
-    weather
-  } = useWeather(props);
+  var _useWeather = useWeather(props),
+    weather = _useWeather.weather;
   (0,external_root_React_commonjs2_react_commonjs_react_amd_react_.useImperativeHandle)(ref, () => _extends({}, props, {
     weather
   }));
