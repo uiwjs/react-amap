@@ -51,6 +51,8 @@ export const useCircleMarker = (props = {} as UseCircleMarker) => {
     'onTouchstart',
     'onMousedown',
     'onDblclick',
+    'onDragStart',
+    'onDragEnd',
   ]);
   return {
     circleMarker,
