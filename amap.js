@@ -867,12 +867,7 @@ var useCircleMarker = function useCircleMarker(props) {
       setCircleMarker(instance);
       return () => {
         if (instance) {
-          if (AMap.v) {
-            map && map.remove(instance);
-          } else {
-            // 暂不使用这个 API，这个不兼容 v1.4.xx，改用 map.remove API
-            map && map.removeLayer(instance);
-          }
+          map.remove(instance);
           setCircleMarker(undefined);
         }
       };
@@ -880,7 +875,7 @@ var useCircleMarker = function useCircleMarker(props) {
   }, [map]);
   useVisiable(circleMarker, visible != null ? visible : visiable);
   useSettingProperties(circleMarker, props, ['Center', 'Raius', 'zIndex', 'Bubble', 'Cursor', 'StrokeColor', 'StrokeOpacity', 'StrokeWeight', 'FillColor', 'FillOpacity', 'Draggable', 'ExtData']);
-  useEventProperties(circleMarker, props, ['onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart', 'onMousedown', 'onDblclick']);
+  useEventProperties(circleMarker, props, ['onHide', 'onShow', 'onMouseover', 'onTouchend', 'onClick', 'onTouchmove', 'onRightclick', 'onMouseup', 'onMouseout', 'onTouchstart', 'onMousedown', 'onDblclick', 'onDragStart', 'onDragEnd']);
   return {
     circleMarker,
     setCircleMarker
