@@ -133,8 +133,8 @@ export type APILoaderConfig = PropsWithChildren<{
    */
   akey?: string;
   /**
-   * SDK 包版本，指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-   * @default 1.4.15
+   * SDK 包版本，指定要加载的 JSAPI 的版本，缺省时默认为 2.0
+   * @default 2.0
    */
   version?: string;
   /**

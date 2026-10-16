@@ -15,8 +15,8 @@ export interface APILoaderConfig {
    */
   akey?: string;
   /**
-   * SDK 包版本，指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-   * @default 1.4.15
+   * SDK 包版本，指定要加载的 JSAPI 的版本，缺省时默认为 2.0
+   * @default 2.0
    */
   version?: string;
   /**
@@ -41,7 +41,7 @@ export interface APILoaderConfig {
 export interface APILoaderProps extends APILoaderConfig {}
 
 /**
- * APILoader 用于加载百度地图依赖
+ * APILoader 用于加载高德地图依赖
  */
 export const APILoader: FC<PropsWithChildren<APILoaderProps>> = (props) => {
   const { children, ...config } = props;
